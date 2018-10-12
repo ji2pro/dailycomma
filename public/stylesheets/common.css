@@ -1,3 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&subset=korean');
 
 * {font-family: 'Noto Sans KR', sans-serif;}
+
+.btn {
+    border-radius: 0;
+}
