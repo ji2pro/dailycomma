@@ -55,6 +55,25 @@ section {
 .search-panel .option-title {
     display: inline-block;
 }
+.search-panel .option-item.item-option-calendar {
+    width: 360px;
+}
+.search-panel .option-item.item-option-calendar .option-title {
+    width: 50%;
+}
+.f-left {
+    float: left;
+}
+.f-right {
+    float: right;
+}
+.search-panel .option-btn {
+    color: #222;
+    position: relative;
+    width: 100%;
+    padding: 24px 0 30px;
+    min-height: 84px;
+}
 .search-panel .btn-search-stay {
     color: #fff;
     font-size: 24px;
@@ -85,4 +104,18 @@ section {
     width: 120px;
     height: 120px;
     margin: 0 15px;
+}
+.left-item-bar, .right-item-bar {
+    background-color: #e5e5e5;
+    position: absolute;
+    top: 10px;
+    width: 1px;
+    height: 100px;
+    display: block;
+}
+.left-item-bar {
+    left: 0;
+}
+.right-item-bar {
+    right: 0;
 }
