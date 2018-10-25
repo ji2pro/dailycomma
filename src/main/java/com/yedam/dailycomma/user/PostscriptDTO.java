@@ -1,0 +1,56 @@
+package com.yedam.dailycomma.user;
+
+public class PostscriptDTO {
+	//후기
+	private String postscriptNo;			//후기번호
+	private String lodgmentNo;				//숙박업체번호
+	private String reserveNo;				//예약번호
+	private String memberNo;				//회원번호
+	private String postscriptContent;		//후기내용
+	private String grade;					//평점
+	private String postscriptDate;			//후기작성일
+	
+	
+	public String getLodgmentNo() {
+		return lodgmentNo;
+	}
+	public void setLodgmentNo(String lodgmentNo) {
+		this.lodgmentNo = lodgmentNo;
+	}
+	public String getReserveNo() {
+		return reserveNo;
+	}
+	public void setReserveNo(String reserveNo) {
+		this.reserveNo = reserveNo;
+	}
+	public String getMemberNo() {
+		return memberNo;
+	}
+	public void setMemberNo(String memberNo) {
+		this.memberNo = memberNo;
+	}
+	public String getPostscriptContent() {
+		return postscriptContent;
+	}
+	public void setPostscriptContent(String postscriptContent) {
+		this.postscriptContent = postscriptContent;
+	}
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+	public String getPostscriptDate() {
+		return postscriptDate;
+	}
+	public void setPostscriptDate(String postscriptDate) {
+		this.postscriptDate = postscriptDate;
+	}
+	@Override
+	public String toString() {
+		return "PostscriptDTO [lodgmentNo=" + lodgmentNo + ", reserveNo=" + reserveNo + ", memberNo=" + memberNo
+				+ ", postscriptContent=" + postscriptContent + ", grade=" + grade + ", postscriptDate=" + postscriptDate
+				+ "]";
+	}
+}
