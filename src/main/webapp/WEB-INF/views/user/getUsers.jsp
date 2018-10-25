@@ -19,8 +19,6 @@
 </script>
 </head>
 <body>
-<img src="./resources/images/googlelogo_color_272x92dp.png" style="width: 200px">
-<a href="insertUserForm.do">회원 등록</a><br>
 <div>
 	<form action="getUsers.do" name="frm">
 		<input type="hidden" name="page" value="1">
