@@ -44,6 +44,8 @@ article {
 			<h1>Daily Comma</h1>
 		</header>
 		<nav>
+			<a href="login.do">로그인</a><br>
+			<a href="insertUserForm.do">회원 등록</a>
 <%-- 			<tiles:insertAttribute name="header" /> --%>
 		</nav>
 		<article>
