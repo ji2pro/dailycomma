@@ -93,7 +93,7 @@
 	</tx:advice>
 			
 	<!-- 사장님회원가입 aop 설정 -->
-	<beans:bean id="before" class="com.yedam.dailycomma.lodgment.Log4jAdvice"/>
+<!-- 	<beans:bean id="before" class="com.yedam.dailycomma.lodgment.Log4jAdvice"/>
 	<beans:bean id="afterthrow" class="com.yedam.dailycomma.lodgment.Log4jAdvice"/>
 	<beans:bean id="after" class="com.yedam.dailycomma.lodgment.Log4jAdvice"/>
 
@@ -114,6 +114,6 @@
 		<aop:aspect ref="after">
 			<aop:after method="finallyLog" pointcut-ref="allpointcut" />
 		</aop:aspect>			
-	</aop:config>
+	</aop:config> -->
 	
 </beans:beans>
