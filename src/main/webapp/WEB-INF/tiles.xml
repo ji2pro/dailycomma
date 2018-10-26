@@ -21,7 +21,23 @@
 			value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
 	</definition>
 	
-
+	<!-- 타일즈 레이아웃 미적용 페이지 설정 -->	
+<!-- 	<definition name="noTiles" -->
+<!-- 		template="/WEB-INF/views/tiles/noTiles.jsp"> -->
+<!--         <put-attribute name="noTiles" value=""/> -->
+<!--     </definition> -->
+<!-- 	<definition name="noTiles/*" extends="noTiles"> -->
+<!-- 		<put-attribute name="noTiles" -->
+<!-- 			value="/WEB-INF/views/noTiles/{1}.jsp" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="noTiles/*/*" extends="noTiles"> -->
+<!-- 		<put-attribute name="noTiles" -->
+<!-- 			value="/WEB-INF/views/noTiles/{1}/{2}.jsp" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="noTiles/*/*/*" extends="noTiles"> -->
+<!-- 		<put-attribute name="noTiles" -->
+<!-- 			value="/WEB-INF/views/noTiles/{1}/{2}/{3}.jsp" /> -->
+<!-- 	</definition> -->
 
 
 </tiles-definitions>
