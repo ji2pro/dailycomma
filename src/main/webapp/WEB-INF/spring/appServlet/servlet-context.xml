@@ -91,6 +91,29 @@
 			<tx:method name="*" />
 		</tx:attributes>
 	</tx:advice>
-	
+			
+	<!-- 사장님회원가입 aop 설정 -->
+	<beans:bean id="before" class="com.yedam.dailycomma.lodgment.Log4jAdvice"/>
+	<beans:bean id="afterthrow" class="com.yedam.dailycomma.lodgment.Log4jAdvice"/>
+	<beans:bean id="after" class="com.yedam.dailycomma.lodgment.Log4jAdvice"/>
+
+	<aop:config>
+		<aop:pointcut
+			expression="execution(* com.yedam.dailycomma.lodgment.*Impl.*(..))" id="allpointcut" />
+		<aop:pointcut
+			expression="execution(* com.yedam.dailycomma.lodgment.*Impl.get*(..))" id="getpointcut" />
+
+		<aop:aspect ref="before">
+			<aop:before method="beforeLog" pointcut-ref="allpointcut" />
+		</aop:aspect>
+		
+		<aop:aspect ref="afterthrow">
+			<aop:after-throwing method="exceptionLog" pointcut-ref="allpointcut" />
+		</aop:aspect>
+		
+		<aop:aspect ref="after">
+			<aop:after method="finallyLog" pointcut-ref="allpointcut" />
+		</aop:aspect>			
+	</aop:config>
 	
 </beans:beans>
