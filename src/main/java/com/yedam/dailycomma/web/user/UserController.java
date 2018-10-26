@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yedam.dailycomma.common.Paging;
+import com.yedam.dailycomma.lodgment.HostService;
 import com.yedam.dailycomma.user.UserDTO;
 import com.yedam.dailycomma.user.UserSearchDTO;
 import com.yedam.dailycomma.user.UserService;
 
 @Controller
 public class UserController {
+	
 	@Autowired  //DI(Dependency Injection)
 	UserService userService;
 	

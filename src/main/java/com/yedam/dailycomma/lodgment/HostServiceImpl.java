@@ -3,7 +3,9 @@ package com.yedam.dailycomma.lodgment;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service //빈등록
 public class HostServiceImpl implements HostService {
 	
 	Log4jAdvice logAdvice = new Log4jAdvice();
@@ -13,7 +15,8 @@ public class HostServiceImpl implements HostService {
 	@Override
 	public int insertHost(LodgmentDTO dto) {
 		logAdvice.beforeLog();
-		return 0;
+		System.out.println(dao);
+		return dao.insertUser(dto);
 	}
 
 	@Override

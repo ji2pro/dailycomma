@@ -15,7 +15,7 @@
     <!-- Custom Style -->
     <link href="./resources/include/css/common.css" rel="stylesheet" type="text/css" /> 
     <link href="./resources/include/css/main.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/clock.js"></script> <!-- 현재시간 자바스크립트 파일 --> 
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/clock.js"></script> <!-- 현재시간 자바스크립트 파일 --> 
    
   
 </head>
@@ -35,7 +35,7 @@
 	        </ul> -->
 	        <ul class="navbar-nav ml-auto">
 	            <!-- <li class="nav-item"><a class="nav-link" href="#">예약 내역</a></li> -->
-	            <li class="nav-item"><a class="nav-link" href="insertUserForm.do">회원 가입</a></li>
+	            <li class="nav-item"><a class="nav-link" href="insertHostForm.do">회원 가입</a></li>
 	            <li class="nav-item"><a class="nav-link" href="login.do">로그인</a></li>
 	        </ul>
 	    </div>

@@ -47,9 +47,9 @@
 		<beans:property name="driverClassName"
 			value="oracle.jdbc.OracleDriver" />
 		<beans:property name="url"
-			value="jdbc:oracle:thin:@localhost:1521:XE" />
-		<beans:property name="username" value="spring" />
-		<beans:property name="password" value="spring" />
+			value="jdbc:oracle:thin:@192.168.0.48:1521:XE" />
+		<beans:property name="username" value="daily" />
+		<beans:property name="password" value="daily" />
 	</beans:bean>
 	
 	<!-- JDBC Log 설정 -->
