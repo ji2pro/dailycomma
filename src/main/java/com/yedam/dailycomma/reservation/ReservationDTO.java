@@ -1,4 +1,4 @@
-package com.yedam.dailycomma.user;
+package com.yedam.dailycomma.reservation;
 
 public class ReservationDTO {
 	//예약

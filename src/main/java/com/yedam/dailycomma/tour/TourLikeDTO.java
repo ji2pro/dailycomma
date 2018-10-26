@@ -1,4 +1,4 @@
-package com.yedam.dailycomma.tourLike;
+package com.yedam.dailycomma.tour;
 
 public class TourLikeDTO {
 	private String tourId;		//관광 ID(FK)
