@@ -67,7 +67,7 @@
  	   (LODGMENT_NO, HOST_ID, HOST_EMAIL, HOST_PW, HOST_PHONE, 
 		COMPANY, ADDRESS, BUSINESS_NO, HOST_NAME, LOCATION) 
 		VALUES (lodgment_seq.nextval,#{hostId}, #{hostEmail}, #{hostPw}, #{hostPhone}
-		, #{company}, {address}, {businessNo}, {hostName}, {location})
+		, #{company}, #{address}, #{businessNo}, #{hostName}, #{location})
 	</insert>
 	
 	<!-- 수정 미완성-->
