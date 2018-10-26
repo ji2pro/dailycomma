@@ -13,7 +13,11 @@
     <script src="./webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link href="./webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Custom Style -->
-    <link href="./resources/include/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="./resources/include/css/common.css" rel="stylesheet" type="text/css" /> 
+    <link href="./resources/include/css/main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%=request.getContextPath()%>/resources/clock.js"></script> <!-- 현재시간 자바스크립트 파일 --> 
+   
+  
 </head>
 <body>
 	<%-- 			<tiles:insertAttribute name="header" /> --%>
@@ -37,12 +41,16 @@
 	    </div>
 	</nav>
 	<div id="wrapper">
-		<div class="container-fluid">
-			<tiles:insertAttribute name="content" />
-		</div>
+		<tiles:insertAttribute name="content" />
 	</div>
 	<footer>
-		FOOTER
+		FOOTER<br>
+		  손준우는 바보가 확실하다.<br> 
+		  
+		  ${serverTime} <br>
+		  <h2 id="clock"></h2> <!-- 현재시간 clock.js 파일 -->
+
+		
 <%-- 			<tiles:insertAttribute name="footer" /> --%>
 	</footer>
 </body>
