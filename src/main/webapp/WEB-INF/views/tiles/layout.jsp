@@ -8,7 +8,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- jQuery 3.3.1 -->
-	<script src="./webjars/jquery/3.3.1/dist/jquery.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="./webjars/jquery/3.3.1/dist/jquery.min.js"></script>
 	<!-- Bootstrap 4.1.3 -->
     <script src="./webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link href="./webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
