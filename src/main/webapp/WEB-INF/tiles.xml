@@ -22,30 +22,6 @@
 	</definition>
 	
 
-<!-- 	<definition name="stats" template="/WEB-INF/views/management/stats.jsp">
-        <put-attribute name="content" value=""/>  
-    </definition>  -->
-
-<!-- 
-	<definition name="stats/*" extends="stats">
-
-          <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
-          
-    </definition>   -->
-    
-    <definition name="stats" template="/WEB-INF/views/management/stats.jsp">
-
-        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />  
-
-</definition> 
 
 
-<!-- <definition name="management/stats" extends="base-definition">
-
-	    <put-attribute name="title" value="Welcome" />
-
-	    <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
-
-</definition>  -->
-	
 </tiles-definitions>
