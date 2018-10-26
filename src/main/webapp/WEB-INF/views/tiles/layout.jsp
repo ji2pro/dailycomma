@@ -8,7 +8,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- jQuery 3.3.1 -->
-	<script src="./webjars/jquery/3.3.1/dist/jquery.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="./webjars/jquery/3.3.1/dist/jquery.min.js"></script>
 	<!-- Bootstrap 4.1.3 -->
     <script src="./webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link href="./webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -19,6 +19,8 @@
    
   
 </head>
+
+
 <body>
 	<%-- 			<tiles:insertAttribute name="header" /> --%>
 	<nav class="navbar fixed-top navbar-expand-lg navbar-light">
@@ -40,13 +42,17 @@
 	        </ul>
 	    </div>
 	</nav>
+	
+	
 	<div id="wrapper">
 		<tiles:insertAttribute name="content" />
 	</div>
+	
+	
+	
 	<footer>
 		FOOTER<br>
 		  손준우는 바보가 확실하다.<br> 
-		  
 		  ${serverTime} <br>
 		  <h2 id="clock"></h2> <!-- 현재시간 clock.js 파일 -->
 
