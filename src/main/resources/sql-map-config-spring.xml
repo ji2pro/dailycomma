@@ -15,6 +15,9 @@
 		<!-- 사장님 회원가입 설정 -->
 		<typeAlias alias="host" type="com.yedam.dailycomma.lodgment.LodgmentDTO" />
 		<typeAlias alias="hostSearch" type="com.yedam.dailycomma.lodgment.HostSearchDTO" />		
+	
+		<!-- 회원 설정 -->
+		<typeAlias alias="member" type="com.yedam.dailycomma.member.MemberDTO"/>
 	</typeAliases>
 
 		
