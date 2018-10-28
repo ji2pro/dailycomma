@@ -9,6 +9,7 @@ public class MemberDTO {
 	private String memberImg;		//회원 프로필 사진
 	private String memberIntro;		//회원 소개
 	private String memberPoint;		//회원 포인트
+	private String signupDate;		//회원가입 날짜
 	
 	public String getMemberNo() {
 		return memberNo;
@@ -58,11 +59,18 @@ public class MemberDTO {
 	public void setMemberPoint(String memberPoint) {
 		this.memberPoint = memberPoint;
 	}
+	public String getSignupDate() {
+		return signupDate;
+	}
+	public void setSignupDate(String signupDate) {
+		this.signupDate = signupDate;
+	}
 	@Override
 	public String toString() {
-		return "MemberDTO [memberNo=" + memberNo + ", memberEmail=" + memberEmail + ", memberNick=" + memberNick
-				+ ", memberName=" + memberName + ", memberPw=" + memberPw + ", memberImg=" + memberImg
-				+ ", memberIntro=" + memberIntro + ", memberPoint=" + memberPoint + "]";
+		return "MemberDTO [memberNo=" + memberNo + ", memberEmail=" + memberEmail + ", memberNick="
+				+ memberNick + ", memberName=" + memberName + ", memberPw=" + memberPw
+				+ ", memberImg=" + memberImg + ", memberIntro=" + memberIntro + ", memberPoint="
+				+ memberPoint + ", signupDate=" + signupDate + "]";
 	}
 	
 }
