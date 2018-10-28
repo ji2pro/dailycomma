@@ -5,7 +5,7 @@
 <html>
 <head>
 <!-- 다음 주소 API  -->
-<script src="resources/js/lodgment/Address.js"></script>
+<script src="./resources/include/js/lodgment/Address.js"></script>
 <script src="http://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false"></script>
 
 <title>insertHost.jsp</title>

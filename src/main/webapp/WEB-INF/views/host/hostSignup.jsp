@@ -6,9 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>hostSignup.jsp</title>
 
-<script src="resources/js/lodgment/Address.js"></script>
+<script src="./resources/include/js/lodgment/Address.js"></script>
 <script src="http://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false"></script>
-<link rel="stylesheet" type="text/css" href="resources/include/css/hostSignup.css">
+<link href="./resources/include/css/hostSignup.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
