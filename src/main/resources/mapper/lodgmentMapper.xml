@@ -64,9 +64,18 @@
 	<!-- 사장님 회원 가입 등록 -->
 	<insert id="insertHost" parameterType="host">
 		INSERT INTO LODGMENT     
- 	   (LODGMENT_NO, HOST_ID, HOST_EMAIL, HOST_PW, HOST_PHONE, ADDRESS, BUSINESS_NO, HOST_NAME, LOCATION) 
-		VALUES (CONCAT('LOD',TO_CHAR(lodgment_seq.nextval)),#{hostId}, #{hostEmail}, #{hostPw}, #{hostPhone}
-		, #{address}, #{businessNo}, #{hostName}, #{location})
+ 	    (LODGMENT_NO, HOST_ID, 
+ 	     HOST_EMAIL, HOST_PW, 
+ 	     HOST_PHONE, ADDRESS, 
+ 	     BUSINESS_NO, HOST_NAME, 
+ 	     LOCATION) 
+		
+		VALUES 
+		(CONCAT('LOD',TO_CHAR(lodgment_seq.nextval)),#{hostId}, 
+		 #{hostEmail}, #{hostPw}, 
+		 #{hostPhone}, #{address}, 
+		 #{businessNo}, #{hostName}, 
+		 #{location})
 	</insert> 
 	
 	<!-- 수정 미완성-->

@@ -12,12 +12,12 @@ public class MemberController {
 	
 	@RequestMapping("/insertMemberForm.do")
 	public String insertMemberForm(Model model, MemberDTO dto) {
-		return "member/insertMember";
+		return "member/memberSignup";
 	}
 	
 	@RequestMapping("/insertMember.do")
 	public String insertMember(Model model, MemberDTO dto) {
 		model.addAttribute("member", memberService.insertMember(dto));
-		return "";
+		return "home/home";
 	}
 }

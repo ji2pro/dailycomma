@@ -64,15 +64,15 @@
 	<insert id="insertMember" parameterType="member">
 		INSERT INTO MEMBER (
 								MEMBER_NO,
-								MEMBER_EMAIL, MEMBER_NICK, MEMBER_NAME, MEMBER_PW,
-								MEMBER_IMG, MEMBER_INTRO, MEMBER_POINT,
+								MEMBER_EMAIL, MEMBER_NICK, 
+								MEMBER_NAME, MEMBER_PW,
 								SIGNUP_DATE
 							)
 		VALUES (
-					MEMBER_SEQ.NEXTVAL,
-					#{memberEmail}, #{memberNick}, #{memberName}, #{memberPw},
-					#{memberImg}, #{memberIntro}, #{memberPoint},
-					#{signupDate}
+					CONCAT('MEM',TO_CHAR(MEMBER_SEQ.NEXTVAL)),
+					#{memberEmail}, #{memberNick}, 
+					#{memberName}, #{memberPw},
+					sysdate
 				)
 	</insert>
 	
