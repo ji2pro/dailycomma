@@ -1,4 +1,4 @@
-package com.yedam.dailycomma.lodgment;
+package com.yedam.dailycomma.host;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +9,7 @@ import com.yedam.dailycomma.host.HostService;
 
 
 @Controller
-public class LodgmentController {
+public class HostController {
 	
 	@Autowired //DI(Dependency Injection)
 	HostService hostService; //컨테이너가 자동으로 UserDAO 를 생성해서 주입을 해준다. 즉 new가 필요없음
@@ -70,16 +70,16 @@ public class LodgmentController {
 		return "redirect:/getUsers.do";
 	}*/
 	//등록폼
-/*	@RequestMapping("/insertHostForm.do")
-	public String insertUserForm() {
-		return "lodgment/lodgment-signup";
+	@RequestMapping("/insertHostForm.do")
+	public String insertHostForm() {
+		return "host/host_signup";
 	}
 	
 	//등록처리
 	@RequestMapping("/insertHost.do")
-	public String insertUser(Model model, LodgmentDTO dto) {		
+	public String insertHost(Model model, HostDTO dto) {		
 		model.addAttribute("lodgment", hostService.insertHost(dto));
 		//return "redirect:/getUsers.do";
 		return "home/home";
-	}*/
+	}
 }

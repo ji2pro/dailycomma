@@ -1,4 +1,4 @@
-package com.yedam.dailycomma.lodgment;
+package com.yedam.dailycomma.host;
 
 public class HostSearchDTO {
 	

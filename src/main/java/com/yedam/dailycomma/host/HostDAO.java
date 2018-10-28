@@ -1,4 +1,4 @@
-package com.yedam.dailycomma.lodgment;
+package com.yedam.dailycomma.host;
 
 import java.util.List;
 
@@ -6,12 +6,14 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.yedam.dailycomma.lodgment.LodgmentDTO;
+
 @Repository
-public class HostDAOMybatis {
+public class HostDAO {
 	
 	@Autowired SqlSessionTemplate mybatis;
 	
-	//전체조회
+/*	//전체조회
 	public List<LodgmentDTO> getUsers(HostSearchDTO searchDTO){
 		System.out.println("host mybatis 전체 조회========");
 		return mybatis.selectList("host.getHosts",searchDTO);
@@ -24,9 +26,9 @@ public class HostDAOMybatis {
 	public LodgmentDTO getUser(LodgmentDTO dto){
 		System.out.println("host mybatis 단건 조회========");
 		return mybatis.selectOne("host.getHost", dto);
-	}
+	}*/
 	//등록
-	public int insertUser(LodgmentDTO dto) {
+	public int insertHost(HostDTO dto) {
 		System.out.println("host mybatis 등록========");
 		return mybatis.insert("host.insertHost", dto);
 	}
