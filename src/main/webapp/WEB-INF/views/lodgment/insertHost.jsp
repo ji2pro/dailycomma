@@ -13,16 +13,16 @@
 <body>
 	<h3>사장놈 회원가입</h3>
 	<form action="insertHost.do">
-		id <input type="text" name="hostId" value="${lodgment.hostId}"><br>
-		email <input type="text" name="hostEmail" value="${lodgment.hostEmail}"><br>
-		비밀번호 <input type="text" name="hostPw" value="${lodgment.hostPw}"><br>
-		핸드폰번호 <input type="text" name="hostPhone" value="${lodgment.hostPhone}"><br>
-		숙박업체명 <input type="text" name="company" value="${lodgment.company}"><br>
-		숙박업체 주소 <input type="text" id="address" name="address" placeholder="도로명주소" value='${lodgment.address}' class="form-control" readonly="readonly"><br> 
+		id <input type="text" class="form-control" name="hostId" value="${lodgment.hostId}"><br>
+		email <input type="text" class="form-control" name="hostEmail" value="${lodgment.hostEmail}"><br>
+		비밀번호 <input type="text" class="form-control" name="hostPw" value="${lodgment.hostPw}"><br>
+		핸드폰번호 <input type="text" class="form-control" name="hostPhone" value="${lodgment.hostPhone}"><br>
+		숙박업체명 <input type="text" class="form-control" name="company" value="${lodgment.company}"><br>
+		숙박업체 주소 <input type="text" class="form-control" id="address" name="address" placeholder="도로명주소" value='${lodgment.address}' class="form-control" readonly="readonly"><br> 
 		<input type="button" onclick="execDaumPostcode()" value="Post Search"><br>
-		사업자 번호 <input type="text" name="businessNo" value="${lodgment.businessNo}"><br>
-		담당자 <input type="text" name="hostName" value="${lodgment.hostName}"><br>
-		<input type="hidden" id="location" name="location" value="${lodgment.location}"><br>	
+		사업자 번호 <input type="text" class="form-control" name="businessNo" value="${lodgment.businessNo}"><br>
+		담당자 <input type="text" class="form-control" name="hostName" value="${lodgment.hostName}"><br>
+		<input type="hidden" class="form-control" id="location" name="location" value="${lodgment.location}"><br>	
 		
 
 		<%-- 	role<select name="role">

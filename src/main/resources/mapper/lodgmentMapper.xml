@@ -5,7 +5,7 @@
 	<!-- 전체 조회 -->
 	<select id="getHosts" resultType="host" parameterType="hostSearch">
 	SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
-		SELECT * FROM LODGMENT
+		SELECT host_id, host_email, host_phone, host_name, address, business_no FROM LODGMENT
 		<where>
 			<if test="ids != null">
 				HOST_ID IN
@@ -64,23 +64,22 @@
 	<!-- 사장님 회원 가입 등록 -->
 	<insert id="insertHost" parameterType="host">
 		INSERT INTO LODGMENT     
- 	   (LODGMENT_NO, HOST_ID, HOST_EMAIL, HOST_PW, HOST_PHONE, 
-		COMPANY, ADDRESS, BUSINESS_NO, HOST_NAME, LOCATION) 
-		VALUES (lodgment_seq.nextval,#{hostId}, #{hostEmail}, #{hostPw}, #{hostPhone}
-		, #{company}, #{address}, #{businessNo}, #{hostName}, #{location})
-	</insert>
+ 	   (LODGMENT_NO, HOST_ID, HOST_EMAIL, HOST_PW, HOST_PHONE, ADDRESS, BUSINESS_NO, HOST_NAME, LOCATION) 
+		VALUES (CONCAT('LOD',TO_CHAR(lodgment_seq.nextval)),#{hostId}, #{hostEmail}, #{hostPw}, #{hostPhone}
+		, #{address}, #{businessNo}, #{hostName}, #{location})
+	</insert> 
 	
 	<!-- 수정 미완성-->
-	<update id="updateHost" parameterType="host">
+<!-- 	<update id="updateHost" parameterType="host">
 		UPDATE LODGMENT SET PASSWORD = #{password},
 						 NAME = #{name},
 						 ROLE = #{role}
 			WHERE ID = #{id}
-	</update>
+	</update> -->
 	
 	<!-- 삭제 미완성 -->
 	<delete id="deleteHost" parameterType="host">
-		DELETE FROM LODGMENT WHERE ID = #{id}
+		DELETE FROM LODGMENT WHERE ID = #{hostId}
 	</delete>
 	
 </mapper> 
