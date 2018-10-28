@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>hostSignup.jsp</title>
 
 <script src="resources/js/lodgment/Address.js"></script>
 <script src="http://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false"></script>
-<link rel="stylesheet" type="text/css" href="resources/include/css/host-signup-css.css">
+<link rel="stylesheet" type="text/css" href="resources/include/css/hostSignup.css">
 
 </head>
 <body>
