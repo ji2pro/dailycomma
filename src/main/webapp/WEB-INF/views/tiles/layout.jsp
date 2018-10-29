@@ -15,12 +15,9 @@
     <!-- Custom Style -->
     <link href="./resources/include/css/common.css" rel="stylesheet" type="text/css" /> 
     <link href="./resources/include/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="./resources/include/css/reservation.css" rel="stylesheet" type="text/css" />
     <script src="./resources/include/js/clock.js"></script> <!-- 현재시간 자바스크립트 파일 --> 
-   
-  
 </head>
-
-
 <body>
 	<%-- 			<tiles:insertAttribute name="header" /> --%>
 	<nav class="navbar fixed-top navbar-expand-lg navbar-light">
@@ -43,12 +40,9 @@
 	    </div>
 	</nav>
 	
-	
 	<div id="wrapper">
 		<tiles:insertAttribute name="content" />
 	</div>
-	
-	
 	
 	<footer>
 		FOOTER<br>
