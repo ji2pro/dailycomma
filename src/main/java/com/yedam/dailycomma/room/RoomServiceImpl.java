@@ -1,40 +1,18 @@
 package com.yedam.dailycomma.room;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-@Service //빈등록
+@Service 
 public class RoomServiceImpl implements RoomService {
-	
-	//Log4jAdvice logAdvice = new Log4jAdvice();
-	
-	@Autowired RoomDAO dao;
-	
-	@Override
-	public int insertHost(RoomDTO dto) {
-		//logAdvice.beforeLog();
-		//System.out.println(dao);
-		return dao.insertHost(dto);
-	}
 
+	@Autowired
+	RoomDAOMybatis dao;
+	
 	@Override
-	public int updatetHost(RoomDTO dto) {
-		//logAdvice.beforeLog();
-		return 0;
+	public RoomDTO getDetailRoom(RoomDTO dto) {
+		System.out.println("객실 상세 조회");
+		return dao.getDetailRoom(dto);
 	}
-
-	@Override
-	public int deleteHost(RoomDTO dto) {
-		//logAdvice.beforeLog();
-		return 0;
-	}
-
-	@Override
-	public RoomDTO getHost(RoomDTO dto) {
-		//logAdvice.beforeLog();
-		return null;
-	}	
 }
