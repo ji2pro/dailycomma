@@ -1,5 +1,9 @@
 package com.yedam.dailycomma.room;
 
-public class DetailRoomController {
+import org.springframework.stereotype.Controller;
 
+@Controller
+public class DetailRoomController {
+	
+	
 }
