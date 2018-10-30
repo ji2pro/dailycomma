@@ -15,4 +15,12 @@ public class RoomServiceImpl implements RoomService {
 		System.out.println("객실 상세 조회");
 		return dao.getDetailRoom(dto);
 	}
+
+	@Override
+	public int insertRoom(RoomDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.insertRoom(dto);
+	}
+	
+	
 }

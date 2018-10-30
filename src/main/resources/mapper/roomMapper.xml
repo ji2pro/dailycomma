@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="room">
+	<!-- 전체 조회 -->
+<insert id="insertRoom" parameterType="com.yedam.dailycomma.room.RoomDTO">
+	INSERT INTO room
+	(	
+		ROOM_NO, 	LODGMENT_NO, 
+		ROOM_PRICE, ROOM_CAPA, 
+		ROOM_INFO,  ROOM_IMG, 
+		ROOM_NAME, 	ROOM_QUANTITY,
+		ROOM_STATE
+	 )
+	VALUES 
+	(
+		CONCAT('RO', TO_CHAR(ROOM_SEQ.nextval), '1', 
+		#{roomPrice}, #{roomCapa},
+		#{roomInfo}, #{roomImg},
+		#{roomName}, #{roomQuantity},
+		'B3'		
+	)
+</insert>
+</mapper> 
