@@ -1,10 +1,21 @@
 <!-- manageController ststs.do로 연결 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%-- <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%> --%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<section class="search-area">
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>stats.do</title>
+
+</head>
+<body>
+안녕하세용 ~~ ^^
+</body>
+</html>
+<!-- <section class="search-area">
     <div class="search-panel">
         <p class="search-paragraph">
             데일리 콤마와 함께<br>
@@ -60,7 +71,7 @@
             게스트하우스
         </a>
     </div>
-</section>
+</section> -->
 
 
 
