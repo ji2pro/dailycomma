@@ -13,8 +13,7 @@ public class ManagementController {
 	@RequestMapping("/stats.do")
 	public String stats(Model model /*ReservationDTO dto*/) {
 	
-	
-		return "management/stats";
+		return "noTiles/management/stats";
 //		return "user/main";
 	}
 
