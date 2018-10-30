@@ -20,9 +20,10 @@ function handleImgsFileSelect(e) {
 
 				var reader = new FileReader();
 				reader.onload = function(e) {
-					var img_html = "<img class='img-fluid'alt='Responsive image' src=\""
-							+ e.target.result + "\"/>";
-
+					var img_html = 
+							"<img class='img-fluid'alt='Responsive image' src=\""
+							+ e.target.result + "\"/>"
+							+"<input type='file' name='uploadFile' id='input_imgs' multiple/>";
 					$(".imgs_wrap").append(img_html);
 				}
 				reader.readAsDataURL(f);

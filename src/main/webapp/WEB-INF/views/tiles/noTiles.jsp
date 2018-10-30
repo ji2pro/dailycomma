@@ -10,6 +10,6 @@
 <title>noTiles/noTiles.jsp</title>
 </head>
 <body>
-	<tiles:insertAttribute name="noTiles" />
+	<tiles:insertAttribute name="content" />
 </body>
 </html>

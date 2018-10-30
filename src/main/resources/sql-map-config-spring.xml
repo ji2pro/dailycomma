@@ -9,6 +9,8 @@
 	
 	<!-- Alias 설정 -->
 	<typeAliases>
+	
+		<!-- 유저 예시 -->
 		<typeAlias alias="user" type="com.yedam.dailycomma.user.UserDTO" />
 		<typeAlias alias="userSearch" type="com.yedam.dailycomma.user.UserSearchDTO" />
 		
@@ -25,8 +27,10 @@
 		<!-- 예약 설정 -->
 		<typeAlias alias="reservation" type="com.yedam.dailycomma.reservation.ReservationDTO"/>
 		
-	</typeAliases>
-
+		<!-- 룸 상세 -->
+		<typeAlias alias="detailRoomDTO" type="com.yedam.dailycomma.room.RoomDTO"/>
 		
-	
+		
+		
+	</typeAliases>	
 </configuration>
