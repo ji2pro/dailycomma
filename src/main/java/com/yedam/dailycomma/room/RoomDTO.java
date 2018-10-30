@@ -11,6 +11,7 @@ public class RoomDTO {
 	private String roomName;		//객실이름
 	private String roomQuantity;	//객실수
 	private String roomState;		//객실승인
+	
 	public String getRoomNo() {
 		return roomNo;
 	}
@@ -71,7 +72,5 @@ public class RoomDTO {
 		return "RoomDTO [roomNo=" + roomNo + ", lodgmentNo=" + lodgmentNo + ", roomPrice=" + roomPrice + ", roomCapa="
 				+ roomCapa + ", roomInfo=" + roomInfo + ", roomImg=" + roomImg + ", roomName=" + roomName
 				+ ", roomQuantity=" + roomQuantity + ", roomState=" + roomState + "]";
-	}
-	
-	
+	}	
 }

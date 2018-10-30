@@ -1,0 +1,119 @@
+CREATE TABLE comments
+(
+	comment_no            VARCHAR2(100) PRIMARY KEY ,
+	member_no             VARCHAR2(100)  NOT NULL ,
+	tour_id               VARCHAR2(100)  NOT NULL ,
+	comment_content       VARCHAR2(2000)  NOT NULL ,
+	comment_date          TIMESTAMP(2)  NOT NULL 
+);
+
+CREATE TABLE hashtag
+(
+	hashtag_no            VARCHAR2(100)  PRIMARY KEY ,
+	hashtag_content       CLOB  NOT NULL ,
+	lodgment_no           VARCHAR2(100)  NOT NULL 
+);
+
+CREATE TABLE lodg_withdraw
+(
+	lodgdraw_no           VARCHAR2(100)  PRIMARY KEY ,
+	host_id               VARCHAR2(50)  NOT NULL ,
+	host_email            VARCHAR2(50)  NOT NULL ,
+	company               VARCHAR2(30)  NOT NULL ,
+	address               VARCHAR2(200)  NOT NULL ,
+	business_no           VARCHAR2(100)  NOT NULL ,
+	host_name             VARCHAR2(20)  NOT NULL ,
+	location              VARCHAR2(30)  NOT NULL ,
+	withdraw_date         TIMESTAMP(2)  NULL 
+);
+
+CREATE TABLE lodgment
+(
+	lodgment_no           VARCHAR2(100)  PRIMARY KEY ,
+	host_id               VARCHAR2(50)  NOT NULL ,
+	host_email            VARCHAR2(50)  NOT NULL ,
+	host_pw               VARCHAR2(50)  NOT NULL ,
+	host_phone            VARCHAR2(50)  NOT NULL ,
+	company               VARCHAR2(30)  NOT NULL ,
+	address               VARCHAR2(200)  NOT NULL ,
+	business_no           VARCHAR2(100)  NOT NULL ,
+	host_name             VARCHAR2(20)  NOT NULL ,
+	location              VARCHAR2(30)  NOT NULL ,
+	lodgment_state        VARCHAR2(20)  NOT NULL ,
+	lodgment_type         VARCHAR2(20)  NOT NULL ,
+	lodgment_img          VARCHAR2(100)  NOT NULL ,
+	lodgment_info         CLOB  NULL ,
+	signup_date           TIMESTAMP(2)  NULL 
+);
+
+CREATE TABLE mem_withdraw
+(
+	memdraw_no            VARCHAR2(100)  PRIMARY KEY ,
+	member_email          VARCHAR2(50)  NOT NULL ,
+	member_nick           VARCHAR2(50)  NOT NULL ,
+	member_name           VARCHAR2(50)  NOT NULL ,
+	withdraw_date         TIMESTAMP(2)  NOT NULL 
+);
+
+CREATE TABLE member
+(
+	member_no             VARCHAR2(100)  PRIMARY KEY ,
+	member_email          VARCHAR2(50)  NOT NULL ,
+	member_nick           VARCHAR2(50)  NOT NULL ,
+	member_name           VARCHAR2(50)  NOT NULL ,
+	member_pw             VARCHAR2(50)  NOT NULL ,
+	member_img            VARCHAR2(100)  NULL ,
+	member_intro          CLOB  NULL ,
+	member_point          NUMBER  NOT NULL ,
+	signup_date           TIMESTAMP(2)  NULL 
+);
+
+CREATE TABLE postscript
+(
+	postscript_no         VARCHAR2(100)  PRIMARY KEY ,
+	postscript_content    VARCHAR2(2000)  NOT NULL ,
+	grade                 NUMBER  NOT NULL ,
+	postscript_date       TIMESTAMP(2)  NOT NULL ,
+	member_no             NUMBER  NOT NULL ,
+	reserve_no            VARCHAR2(100)  NOT NULL ,
+	lodgment_no           VARCHAR2(100)  NOT NULL 
+);
+
+
+CREATE TABLE reservation
+(
+	reserve_no            VARCHAR2(100)  PRIMARY KEY ,
+	reserve_date          TIMESTAMP(2)  NOT NULL ,
+	reserve_price         NUMBER  NOT NULL ,
+	reserve_people        NUMBER  NOT NULL ,
+	checkin               TIMESTAMP(2)  NOT NULL ,
+	room_no               VARCHAR2(100)  NOT NULL ,
+	member_no             VARCHAR2(100)  NOT NULL ,
+	reserve_points        NUMBER  NOT NULL ,
+	lodgment_no           VARCHAR2(100)  NOT NULL ,
+	reserve_state         VARCHAR2(20)  NOT NULL ,
+	checkout              TIMESTAMP(2)  NOT NULL 
+);
+
+CREATE TABLE tour
+(
+	tour_id               VARCHAR2(100) PRIMARY KEY,
+	tour_name             VARCHAR2(50)  NOT NULL ,
+	tour_content          CLOB  NOT NULL ,
+	tour_title            VARCHAR2(100)  NOT NULL ,
+	tour_img              VARCHAR2(500)  NOT NULL ,
+	member_no             VARCHAR2(100)  NOT NULL ,
+	tour_date             TIMESTAMP(2)  NOT NULL ,
+	tour_location         VARCHAR2(30)  NOT NULL ,
+	tour_state            VARCHAR2(20)  NOT NULL 
+);
+
+CREATE TABLE tour_like
+(
+	like_date             TIMESTAMP(2)  NOT NULL ,
+	member_no             VARCHAR2(100)  NOT NULL ,
+	tour_id               VARCHAR2(100)  NOT NULL 
+);
+
+ALTER TABLE tour_like
+	ADD CONSTRAINT  XPK관광선호 PRIMARY KEY (tour_id,member_no);
