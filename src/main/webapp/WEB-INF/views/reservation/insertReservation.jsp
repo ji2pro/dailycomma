@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,11 +18,12 @@
 							src="https://static.pingendo.com/cover-moon.svg">
 					</div>
 					<div class="col-md-7 pl-3">
-						<h2 class="font-weight-bold">스탠다드</h2>
+						<h2 class="font-weight-bold">${room.roomName}</h2>
 						<h5>
-							대구 동천동 폭스<br><small class="text-muted">대구광역시 북구 동천동 897-3</small>
+							대구 동천동 폭스<br>
+                            <small class="text-muted">대구광역시 북구 동천동 897-3</small>
 						</h5>
-						<p>기준 2명 / 최대 2명</p>
+						<p>기준 2명 / 최대 ${room.roomCapa}명</p>
 					</div>
 				</div>
 				<hr class="py-3">

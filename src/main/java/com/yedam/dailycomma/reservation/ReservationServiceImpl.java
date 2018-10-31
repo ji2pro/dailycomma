@@ -1,9 +1,11 @@
 package com.yedam.dailycomma.reservation;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.yedam.dailycomma.room.RoomDTO;
 
 @Service //빈등록
 public class ReservationServiceImpl implements ReservationService {
@@ -19,17 +21,14 @@ public class ReservationServiceImpl implements ReservationService {
 		return dao.insertReservation(dto); // 두번의 인설트를 만들어 일부러 에러를 만듬 트랜잭션 처리를 하게 되면 둘다 인설트가 되지 않게 한다.
 	}
 
-	public ReservationDTO getReservation(ReservationDTO dto) {
+	public RoomDTO getReservation(RoomDTO dto) {
 		//logAdvice.printLogging();	//횡단관심
-		System.out.println("사용자 목록 조회");
-		//int a = 5/0; //강제로 예외 발생
 		return dao.getReservation(dto);	//핵심관심
 	}
 
-	public List<ReservationDTO> getReservations(ReservationSearchDTO searchDTO) {
-		//int a = 5/0; //강제로 예외 발생
+	public List<ReservationDTO> getReservations(ReservationSearchDTO searchDto) {
 		//logAdvice.printLogging();	//횡단관심
-		return dao.getReservations(searchDTO);		//핵심관심
+		return dao.getReservations(searchDto);		//핵심관심
 	}
 
 	public int updatetReservation(ReservationDTO dto) {
@@ -40,8 +39,8 @@ public class ReservationServiceImpl implements ReservationService {
 		return dao.deleteReservation(dto);
 	}
 
-	public int getCnt(ReservationSearchDTO searchDTO) {
-		return dao.getCnt(searchDTO);
+	public int getCnt(ReservationSearchDTO searchDto) {
+		return dao.getCnt(searchDto);
 	}
-	
+
 }

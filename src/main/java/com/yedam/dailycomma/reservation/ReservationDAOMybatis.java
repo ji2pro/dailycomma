@@ -1,10 +1,12 @@
 package com.yedam.dailycomma.reservation;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import com.yedam.dailycomma.room.RoomDTO;
 
 @Repository
 public class ReservationDAOMybatis {	
@@ -20,7 +22,7 @@ public class ReservationDAOMybatis {
 		return mybatis.selectOne("reservation.getCnt",searchDTO);
 	}
 	//단건 조회
-	public ReservationDTO getReservation(ReservationDTO dto) {
+	public RoomDTO getReservation(RoomDTO dto) {
 		System.out.println("reservation mybatis 단건 조회========");
 		return mybatis.selectOne("reservation.getReservation", dto);
 	}
