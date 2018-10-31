@@ -28,7 +28,7 @@
 				<div class="row mb-4">
 					<div class="col-md-12">
 						<h4 class="font-weight-bold mb-3">필수 입력 사항</h4>
-						<form>
+						<form action="insertReservation.do">
 							<div class="form-group row">
 								<label for="inputReserveName" class="col-2 col-form-label">예약자명</label>
 								<div class="col-10 col-md-4">

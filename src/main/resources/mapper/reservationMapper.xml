@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reservation">
+	<!-- 전체 조회 -->
+	<select id="getReservations" resultType="reservation" parameterType="reservationSearch">
+	SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
+		SELECT host_id, host_email, host_phone, host_name, address, business_no FROM RESERVATION
+		<where>
+			<if test="ids != null">
+				HOST_ID IN
+				<foreach collection="ids" open="(" close=")" separator="," item="item">
+					#{item}
+				</foreach>
+			</if>
+			<if test="searchCondition == 'id'">
+				AND HOST_ID LIKE '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="searchCondition == 'name'">
+				AND COMPANY LIKE '%' || #{searchKeyword} || '%'		
+			</if>
+<!-- 			<if test="role != null and role != ''">
+				AND ROLE = #{role}
+			</if> -->
+		</where>
+		ORDER BY
+		<choose>
+			<when test="sort != null and sort != ''">
+				#{sort}
+			</when>
+			<otherwise>
+				HOST_ID
+			</otherwise>
+		</choose>
+	) U ) A WHERE RN BETWEEN #{start} and #{end}
+	</select>
+	
+	<!-- 페이징 처리에 필요. 검색 조건에 대한 Cnt 조회 -->
+	<select id="getCnt" resultType="int" parameterType="reservationSearch">
+		SELECT COUNT(*)
+			FROM RESERVATION
+		<where>
+			<if test="ids != null">
+				HOST_ID IN
+				<foreach collection="ids" open="(" close=")" separator="," item="item">
+					#{item}
+				</foreach>
+			</if>
+			<if test="searchCondition == 'id'">
+				AND HOST_ID LIKE '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="searchCondition == 'name'">
+				AND COMPANY LIKE '%' || #{searchKeyword} || '%'		
+			</if>
+		</where>
+	</select>
+	
+	<!-- 단건 조회 -->
+	<select id="getReservation" parameterType="reservation" resultType="reservation">
+		SELECT * FROM RESERVATION
+			WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	<!-- 예약 등록(예약하기) -->
+	<insert id="insertReservation" parameterType="reservation">
+		INSERT INTO RESERVATION (
+			RESERVE_NO
+			, RESERVE_DATE
+			, RESERVE_PRICE
+			, RESERVE_PEOPLE
+			, CHECKIN
+			, CHECKOUT
+			, LODGMENT_NO
+			, ROOM_NO
+			, MEMBER_NO
+			, RESERVE_POINTS
+			, RESERVE_STATE
+		)
+		VALUES (
+			TO_CHAR(RESV_SEQ.NEXTVAL)
+			, #{reserveDate}
+			, #{reservePrice}
+			, #{reservePeople}
+			, #{checkin}
+			, #{checkout}
+			, #{lodgmentNo}
+			, #{roomNo}
+			, #{memberNo}
+			, #{reservePoints}
+ 			, #{reserveState}
+		)
+	</insert>
+	
+	<!-- 수정 미완성-->
+ 	<!--<update id="updateHost" parameterType="host">
+		UPDATE LODGMENT SET PASSWORD = #{password},
+						 NAME = #{name},
+						 ROLE = #{role}
+			WHERE ID = #{id}
+	</update>-->
+	
+	<!-- 삭제 미완성 -->
+	<!--<delete id="deleteReservation" parameterType="reservation">
+		DELETE FROM RESERVATION WHERE RESERVE_NO = #{reserveNo}
+	</delete>-->
+	
+</mapper> 

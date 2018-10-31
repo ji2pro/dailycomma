@@ -26,6 +26,7 @@
 		
 		<!-- 예약 설정 -->
 		<typeAlias alias="reservation" type="com.yedam.dailycomma.reservation.ReservationDTO"/>
+		<typeAlias alias="reservationSearch" type="com.yedam.dailycomma.reservation.ReservationSearchDTO"/>
 		
 		<!-- 룸 상세 -->
 		<typeAlias alias="detailRoomDTO" type="com.yedam.dailycomma.room.RoomDTO"/>

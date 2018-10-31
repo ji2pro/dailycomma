@@ -4,15 +4,15 @@ import java.util.List;
 
 public interface ReservationService {
 	
-	public int insertUser(ReservationDTO dto);
+	public int insertReservation(ReservationDTO dto);
 
-	public int updatetUser(ReservationDTO dto);
+	public int updatetReservation(ReservationDTO dto);
 
-	public int deleteUser(ReservationDTO dto);
+	public int deleteReservation(ReservationDTO dto);
 	
-	public ReservationDTO getUser(ReservationDTO dto);
+	public ReservationDTO getReservation(ReservationDTO dto);
 	
-	public List<ReservationDTO> getUsers(ReservationSearchDTO searchDTO);
+	public List<ReservationDTO> getReservations(ReservationSearchDTO searchDTO);
 
 	public int getCnt(ReservationSearchDTO searchDTO);
 	

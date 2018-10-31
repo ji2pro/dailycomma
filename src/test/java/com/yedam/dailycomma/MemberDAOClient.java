@@ -16,7 +16,6 @@ import com.yedam.dailycomma.member.MemberDTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:servlet-context-test.xml")
-
 public class MemberDAOClient {
 	@Autowired MemberDAOMybatis dao;
 	
@@ -30,4 +29,6 @@ public class MemberDAOClient {
 							
 		System.out.println(dao.insertMember(dto) + " 건 성공");
 	}
+
+
 }

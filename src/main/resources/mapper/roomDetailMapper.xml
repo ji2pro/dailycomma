@@ -4,6 +4,6 @@
 <mapper namespace="detailRoom">
 <!-- 건수조회 -->
 <select id="getDetailRoom" resultType="detailRoomDTO" parameterType="detailRoomDTO"> 
-	
+  SELECT * FROM ROOM WHERE ROOM_NO = #{roomNo}
 </select>
 </mapper> 

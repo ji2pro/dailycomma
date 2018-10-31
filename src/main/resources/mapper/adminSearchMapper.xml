@@ -4,7 +4,7 @@
 <mapper namespace="admin">
 	<!-- 전체 조회 -->
 	<select id="getUsers" resultType="user" parameterType="userSearch">
-	SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
+		SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
 		SELECT * FROM USERS
 		<where>
 			<if test="ids != null">
