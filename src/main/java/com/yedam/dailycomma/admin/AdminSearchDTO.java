@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import com.yedam.dailycomma.member.MemberDTO;
 
-public class AdminSearchDTO extends MemberDTO{
+public class AdminSearchDTO extends MemberDTO {
 	//검색 조건
 	private String searchCondition;
 	private String searchKeyword;

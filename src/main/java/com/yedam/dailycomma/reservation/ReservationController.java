@@ -14,7 +14,7 @@ public class ReservationController {
 	@Autowired ReservationService reservationService;
 	
 	//등록 폼
-	@RequestMapping("insertReservationForm.do")
+	@RequestMapping("/insertReservationForm.do")
 	public String insertReservationForm(Model model, RoomDTO dto) {
 		dto.setRoomNo("RO181818");
 		model.addAttribute("room", reservationService.getReservation(dto));
@@ -22,7 +22,7 @@ public class ReservationController {
 	}
 	
 	//등록 처리
-	@RequestMapping("insertReservation.do")
+	@RequestMapping("/insertReservation.do")
 	public String insertReservation(Model model, ReservationDTO dto) {		
 //		model.addAttribute("reservation", reservationService.insertReservation(dto));
 		return "home/home";
