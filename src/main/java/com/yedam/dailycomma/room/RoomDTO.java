@@ -14,16 +14,8 @@ public class RoomDTO {
 	private String roomQuantity;	//객실수
 	private String roomState;		//객실승인
 
-	private String uploadFileName; //첨부파일명
 	private MultipartFile[] uploadFile; //다중 파일시 배열로
-		
-	
-	public String getUploadFileName() {
-		return uploadFileName;
-	}
-	public void setUploadFileName(String uploadFileName) {
-		this.uploadFileName = uploadFileName;
-	}
+
 	public MultipartFile[] getUploadFile() {
 		return uploadFile;
 	}
