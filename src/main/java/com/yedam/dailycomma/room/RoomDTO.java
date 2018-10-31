@@ -1,7 +1,9 @@
 package com.yedam.dailycomma.room;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
+@Repository
 public class RoomDTO {
 
 	private String roomNo;			//객실번호

@@ -19,9 +19,9 @@ public class RoomController {
 	@Autowired RoomService roomService;
 		
 	@RequestMapping("/detailRoom.do/{roomNo}")
-	public String detailRoom(Model model, 
-			@PathVariable String roomNo,  
-			RoomDTO dto) {
+	public String detailRoom(Model model,
+							 @PathVariable String roomNo,
+							 RoomDTO dto) {
 		dto.setRoomNo(roomNo);
 		model.addAttribute("getDetailRoom", roomService.getDetailRoom(dto));
 		return "views/room/detailRoom";
