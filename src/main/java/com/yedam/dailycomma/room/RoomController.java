@@ -24,7 +24,12 @@ public class RoomController {
 							 RoomDTO dto) {
 		dto.setRoomNo(roomNo);
 		model.addAttribute("getDetailRoom", roomService.getDetailRoom(dto));
-		return "views/room/detailRoom";
+		return "room/detailRoom";
+	}
+
+	@RequestMapping("/detailRoomTest.do")
+	public String detailRoom(Model model) {
+		return "room/detailRoom";
 	}
 	
 	@RequestMapping("/insertRoomForm.do")
