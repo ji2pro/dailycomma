@@ -3,10 +3,6 @@ package com.yedam.dailycomma.lodgment;
 public class LodgmentDTO {
 
 	private String lodgmentNo;		//숙박업체 번호
-	private String hostId;			//숙박업주 아이디
-	private String hostEmail;		//숙박업주 이메일
-	private String hostPw;			//숙박업주 비밀번호
-	private String hostPhone;		//숙박업주 휴대폰연락처
 	private String company;			//숙박업체명
 	private String address;			//숙박업체 주소
 	private String businessNo;		//사업자 번호
@@ -23,30 +19,6 @@ public class LodgmentDTO {
 	}
 	public void setLodgmentNo(String lodgmentNo) {
 		this.lodgmentNo = lodgmentNo;
-	}
-	public String getHostId() {
-		return hostId;
-	}
-	public void setHostId(String hostId) {
-		this.hostId = hostId;
-	}
-	public String getHostEmail() {
-		return hostEmail;
-	}
-	public void setHostEmail(String hostEmail) {
-		this.hostEmail = hostEmail;
-	}
-	public String getHostPw() {
-		return hostPw;
-	}
-	public void setHostPw(String hostPw) {
-		this.hostPw = hostPw;
-	}
-	public String getHostPhone() {
-		return hostPhone;
-	}
-	public void setHostPhone(String hostPhone) {
-		this.hostPhone = hostPhone;
 	}
 	public String getCompany() {
 		return company;
@@ -102,17 +74,13 @@ public class LodgmentDTO {
 	public void setLodgmentInfo(String lodgmentInfo) {
 		this.lodgmentInfo = lodgmentInfo;
 	}
-	
 	@Override
 	public String toString() {
-		return "LodgmentDTO [lodgmentNo=" + lodgmentNo + ", hostId=" + hostId + ", hostEmail=" + hostEmail + ", hostPw="
-				+ hostPw + ", hostPhone=" + hostPhone + ", company=" + company + ", address=" + address
+		return "LodgmentDTO [lodgmentNo=" + lodgmentNo + ", company=" + company + ", address=" + address
 				+ ", businessNo=" + businessNo + ", hostName=" + hostName + ", location=" + location
 				+ ", lodgmentState=" + lodgmentState + ", lodgmentType=" + lodgmentType + ", lodgmentImg=" + lodgmentImg
 				+ ", lodgmentInfo=" + lodgmentInfo + "]";
 	}
 	
-	
-
 	
 }
