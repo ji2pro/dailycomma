@@ -4,12 +4,12 @@
 "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
 	<definition name="mainTemplate" template="/WEB-INF/views/tiles/layout.jsp">
-<!-- 		<put-attribute name="header" -->
-<!-- 			value="/WEB-INF/views/tiles/header.jsp" /> -->
-<!-- 		<put-attribute name="content"
-			value="/WEB-INF/views/tiles/content.jsp" /> -->
-<!-- 		<put-attribute name="footer" -->
-<!-- 			value="/WEB-INF/views/tiles/footer.jsp" /> -->
+ 		<put-attribute name="header" 
+			value="/WEB-INF/views/tiles/header.jsp" /> 
+ 		<put-attribute name="content"
+			value="/WEB-INF/views/tiles/content.jsp" /> 
+ 		<put-attribute name="footer"
+ 			value="/WEB-INF/views/tiles/footer.jsp" />
 	</definition>
 	
 		<!-- 타일즈 레이아웃 미적용 페이지 설정 테스트 중 ^^ -->	

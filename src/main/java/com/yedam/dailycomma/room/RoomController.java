@@ -28,7 +28,7 @@ public class RoomController {
 	}
 
 	@RequestMapping("/detailRoomTest.do")
-	public String detailRoom(Model model) {
+	public String detailRoom() {
 		return "room/detailRoom";
 	}
 	
