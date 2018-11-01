@@ -5,13 +5,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
+	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- jQuery 3.3.1 -->
 	<script src="<%=request.getContextPath()%>/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
 	<!-- Bootstrap 4.1.3 -->
     <script src="<%=request.getContextPath()%>/webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link href="<%=request.getContextPath()%>/webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome 5.4.1 -->
+    <link href="<%=request.getContextPath()%>/webjars/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Custom Style -->
     <link href="<%=request.getContextPath()%>/resources/include/css/common.css" rel="stylesheet" type="text/css" /> 
     <link href="<%=request.getContextPath()%>/resources/include/css/main.css" rel="stylesheet" type="text/css" />
