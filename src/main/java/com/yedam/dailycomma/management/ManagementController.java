@@ -26,7 +26,7 @@ public class ManagementController {
 	@RequestMapping("/managementList.do")
 	public String managementList(Model model, ReservationDTO dto) {
 	
-		return "noTiles/management/managementList";
+		return "management/managementList";
 //		return "user/main";
 	}
 	

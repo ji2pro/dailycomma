@@ -11,28 +11,22 @@
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link href="./resources/include/css/management.css" rel="stylesheet" type="text/css"> 
   	 
 <script>
-	/* $(function(){ //jQuery 데이터 테이블 가져와서 씀.
-		$("#empList").DataTable();
-		//$("#empList").DataTable({ajax:{}}); 아작스 사용시
-	}); */
-	
-	
-	
-    <script>
-    $(document).ready(function(){
-            $('#userTable').dataTable({
-                pageLength: 3,
+
+      $(document).ready(function(){
+            $('#empList').DataTable({
+                 pageLength: 4,
                 bPaginate: true,
                 bLengthChange: true,
-                lengthMenu : [ [ 3, 5, 10, -1 ], [ 3, 5, 10, "All" ] ],
+                lengthMenu : [ [ 5, 10, 30, -1 ], [ 5, 10, 30, "All" ] ],
                 bAutoWidth: false,
                 processing: true,
                 ordering: true,
                 serverSide: false,
-                searching: true,
-                ajax : {
+                searching: true,  
+                /* ajax : {
                     "url":"/managementList.do",
                     "type":"POST",
                     "data": function (d) {
@@ -45,25 +39,32 @@
                     {data: "reserve_state"},
                     {data: "reserve_date"}
                 ]
- 
+  */
             });
  
-    });
+    });  
     </script>
+    
 
-
-
-
+    
 <title>예약관리 managementList.do</title>
 
 </head>
 <body>
-<table id="userTable"  class="table table-striped table-bordered table-hover" >
+<div class="contentMargin">
+<table id="empList" class="table table-striped table-bordered table-hover tableAlign " >
 	<thead>
-		<tr>
+		<tr style="background:#ffaabb;">
 			<th>이름</th>
 			<th>이메일</th>
 			<th>예약상태</th>
+			<th>예약날짜</th>
+			<th>예약날짜</th>
+			<th>예약날짜</th>
+			<th>예약날짜</th>
+			<th>예약날짜</th>
+			<th>예약날짜</th>
+			<th>예약날짜</th>
 			<th>예약날짜</th>
 <!-- 			<th>예약날짜</th>
 			<th>예약인원</th>
@@ -75,26 +76,29 @@
 			<th>상태변경일</th> -->
 		</tr>
 	</thead>
-	<tbody align="center">
-	<div align="center"><h1>예약관리</h1></div>
+	<div class="titleAlign">
+	<h1><b>예약관리</b></h1>
+	</div> 
+	<tbody>
+	
 		<tr>
-		<td>체크박스</td>
-		<td>memberName</td>
+		<td><input type="checkbox"></td>
+		<td>${member_name}</td>
 		<td>memberEmail</td>
 		<td>reserveState</td>
 		<td>reserveDate</td>
 		<td>reservePeople</td>
 		<td>roomName</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td>roomName</td>
+		<td>roomName</td>
+		<td>roomName</td>
+		<td>roomName</td> 
+		
 		</tr>
 		
 	</tbody>
 </table>
+</div>
 </body>
 </html>
 
