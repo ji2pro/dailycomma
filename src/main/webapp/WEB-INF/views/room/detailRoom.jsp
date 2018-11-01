@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -9,10 +10,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <script> $(document).ready(funcion(){
-    $('#carousel').carousel'cycle');
-    });
-  </script>
+  <%--<script> $(document).ready(funcion(){
+      $('#carousel').carousel,'cycle');
+  });
+  </script>--%>
   <link rel="stylesheet" href="theme.css">
   <style> textarea:focus{outline: none;}
     
@@ -21,7 +22,7 @@
     color: #333;
 }
  .color-gradation {
-	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #0000ff), color-stop(100%, #dfb8ff));
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #dffff5), color-stop(100%, #dfb8ff));
     color: white;
 }
 	.roomtip{
@@ -37,31 +38,11 @@
     font-weight:900;
     margin-top: 10px;
 }
-    .butt{
-   vertical-align:button;  
-}
 
   </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="container"> <a class="navbar-brand" href="#">
-        <i class="fa d-inline fa-lg fa-stop-circle"></i>
-        <b> BRAND</b>
-      </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar10">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link" href="#">Features</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Pricing</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">FAQ</a> </li>
-        </ul> <a class="btn navbar-btn ml-md-2 btn-light text-dark">Contact us</a>
-      </div>
-    </div>
-  </nav>
   <div class="py-5">
     <div class="container-fluid">
       <div class="row">
@@ -93,7 +74,7 @@
         <div class="col-md-12">
           <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a class="nav-link active show" href="" data-toggle="tab" data-target="#tabone">객실정보</a> </li>
+              <a class="nav-link active show" href="" data-toggle="tab" data-target="#tabone">${getDetailRoom.roomInfo}</a> </li>
             <li class="nav-item"> <a href="" class="nav-link" data-toggle="tab" data-target="#tabtwo">후기</a> </li>
           </ul>
           <div class="tab-content mt-2">

@@ -23,6 +23,6 @@ public class DetailRoomDAOMybatis {
        dto.setRoomNo("RO181818");
        RoomDTO dto2 = dao.getDetailRoom(dto);
 
-       System.out.println(dto2.getRoomNo() + " : "+ dto2.getRoomImg());
+       System.out.println(dto2.getRoomNo() + " : "+ dto2.getRoomImg()+","+dto2.getRoomInfo());
     }
 }

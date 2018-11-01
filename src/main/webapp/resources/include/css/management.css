@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+ .contentMargin {
+ 	margin-left:10%; 
+ 	margin-right:10%;
+ 	margin-top:10%;
+ 	margin-bottom:10%;
+ }
+ .titleAlign {
+ 	text-align : center;
+ }
+ .tableAlign {
+	text-align : center;
+}

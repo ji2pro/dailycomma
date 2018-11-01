@@ -2,6 +2,8 @@ package com.yedam.dailycomma.reservation;
 
 import java.util.List;
 
+import com.yedam.dailycomma.room.RoomDTO;
+
 public interface ReservationService {
 	
 	public int insertReservation(ReservationDTO dto);
@@ -10,11 +12,11 @@ public interface ReservationService {
 
 	public int deleteReservation(ReservationDTO dto);
 	
-	public ReservationDTO getReservation(ReservationDTO dto);
+	public RoomDTO getReservation(RoomDTO dto);
 	
-	public List<ReservationDTO> getReservations(ReservationSearchDTO searchDTO);
+	public List<ReservationDTO> getReservations(ReservationSearchDTO searchDto);
 
-	public int getCnt(ReservationSearchDTO searchDTO);
+	public int getCnt(ReservationSearchDTO searchDto);
 	
 	
 }

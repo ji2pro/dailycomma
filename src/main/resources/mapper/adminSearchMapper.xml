@@ -3,9 +3,9 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="admin">
 	<!-- 전체 조회 -->
-	<select id="getUsers" resultType="user" parameterType="userSearch">
+	<!-- <select id="getAdminMembers" resultType="member" parameterType="memberSearch">
 		SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
-		SELECT * FROM USERS
+		SELECT * FROM MEMBER
 		<where>
 			<if test="ids != null">
 				ID IN
@@ -33,7 +33,7 @@
 			</otherwise>
 		</choose>
 	) U ) A WHERE RN BETWEEN #{start} and #{end}
-	</select>
+	</select> -->
 	
 <!-- 관리자 회원 검색 -->	
 <select id="getAdminMember" resultType="member" parameterType="adminSearch">
@@ -42,14 +42,14 @@ SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
 	<where>
 		<choose>
 			<when test="searchCondition == 'nick'">
-				member_nick = #{searchKeyword} 
+				MEMBER_NICK = #{searchKeyword} 
 			</when>
 			<when test="searchCondition == 'name'">
-				member_name = #{searchKeyword} 
+				MEMBER_NAME = #{searchKeyword} 
 			</when>
 		</choose>
 	</where>			
-) U ) A WHERE RN BETWEEN #{start} and #{end}a
+) U ) A WHERE RN BETWEEN #{start} and #{end}
 </select> 
 
 <!-- 관리자 숙박업주 검색 -->	
@@ -59,17 +59,17 @@ SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
 	<where>
 		<choose>
 			<when test="searchCondition == 'email'">
-				host_email = #{searchKeyword} 
+				HOST_EMAIL = #{searchKeyword} 
 			</when>
 			<when test="searchCondition == 'id'">
-				host_id = #{searchKeyword} 
+				HOST_ID = #{searchKeyword} 
 			</when>
 			<otherwise>
-				business_no = #{searchKeyword}
+				BUSINESS_NO = #{searchKeyword}
 			</otherwise>
 		</choose>
 	</where>			
-) U ) A WHERE RN BETWEEN #{start} and #{end}a
+) U ) A WHERE RN BETWEEN #{start} and #{end}
 </select> -->
 
 <select id="getAdminLodgment" resultType="host" parameterType="adminSearch">
@@ -78,20 +78,20 @@ SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
 	<where>
 		<choose>
 			<when test="searchCondition == 'company'">
-				company = #{searchKeyword} 
+				COMPANY = #{searchKeyword} 
 			</when>
 			<when test="searchCondition == 'location'">
-				location = #{searchKeyword} 
+				LOCATION = #{searchKeyword} 
 			</when>
 			<when test="searchCondition == 'state'">
-				lodgment_state = #{searchKeyword} 
+				LODGMENT_STATE = #{searchKeyword} 
 			</when>
 			<otherwise>
-				lodgment_type = #{searchKeyword}
+				LODGMENT_TYPE = #{searchKeyword}
 			</otherwise>
 		</choose>
 	</where>			
-) U ) A WHERE RN BETWEEN #{start} and #{end}a
+) U ) A WHERE RN BETWEEN #{start} and #{end}
 </select> 
 
 <!-- 관리자 예약 검색 -->
@@ -100,7 +100,7 @@ SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
 	SELECT * FROM RESERVATION
 	<where>
 	</where>			
-) U ) A WHERE RN BETWEEN #{start} and #{end}a
+) U ) A WHERE RN BETWEEN #{start} and #{end}
 </select>-->
 
 <!-- 관리자 캐스트 검색 -->
@@ -110,19 +110,19 @@ SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
 	<where>
 		<choose>
 			<when test="searchCondition == 'name'">
-				tour_name = #{searchKeyword} 
+				TOUR_NAME = #{searchKeyword} 
 			</when>
 			<when test="searchCondition == 'title'">
-				tour_title = #{searchKeyword} 
+				TOUR_TITLE = #{searchKeyword} 
 			</when>
 			<when test="searchCondition == 'location'">
-				tour_location = #{searchKeyword} 
+				TOUR_LOCATION = #{searchKeyword}
 			</when>
 			<otherwise>
-				tour_state = #{searchKeyword}
+				TOUR_STATE = #{searchKeyword}
 			</otherwise>
 		</choose>
 	</where>			
-) U ) A WHERE RN BETWEEN #{start} and #{end}a
+) U ) A WHERE RN BETWEEN #{start} and #{end}
 </select>
 </mapper> 
