@@ -58,10 +58,10 @@
               <div class="carousel-item">
                 <img class="d-block img-fluid w-100" src="../../객실이미지3.png">
               </div> -->
-<!--                      <div class="carousel-item">
+<!--                <div class="carousel-item">
             	      <img class="d-block img-fluid w-100" src="/dailycomma/upload/b.jpg"/>
           	 	    </div> -->
-          	 	              	 	    <div class="carousel-item active">
+          	 	    <div class="carousel-item active">
             	      <img class="d-block img-fluid w-100" src="/dailycomma/upload/a.jpg"/>
           	 	    </div>
            		
@@ -77,10 +77,10 @@
             	      <img class="d-block img-fluid w-100" src="/dailycomma/upload/d.jpg"/>
           	 	    </div>
               	<c:forTokens items="${getDetailRoom.roomImg}" delims="||" var="img">
-              <!-- 	 	<div class="carousel-item active">
+              <!-- 	<div class="carousel-item active">
             	      <img class="d-block img-fluid w-100" src="/dailycomma/upload/${img}"/>
           	 	    </div> -->
-<!--           	 	    <div class="carousel-item active">
+			  <!--  <div class="carousel-item active">
             	      <img class="d-block img-fluid w-100" src="/dailycomma/upload/a.jpg"/>
           	 	    </div>
            		
