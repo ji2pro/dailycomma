@@ -35,94 +35,94 @@
 	) U ) A WHERE RN BETWEEN #{start} and #{end}
 	</select> -->
 	
-<!-- 관리자 회원 검색 -->	
-<select id="getAdminMember" resultType="member" parameterType="adminSearch">
-SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
-	SELECT * FROM MEMBER
-	<where>
-		<choose>
-			<when test="searchCondition == 'nick'">
-				MEMBER_NICK = #{searchKeyword} 
-			</when>
-			<when test="searchCondition == 'name'">
-				MEMBER_NAME = #{searchKeyword} 
-			</when>
-		</choose>
-	</where>			
-) U ) A WHERE RN BETWEEN #{start} and #{end}
-</select> 
-
-<!-- 관리자 숙박업주 검색 -->	
-<!-- <select id="getAdminHost" resultType="host" parameterType="adminSearch">
-SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
-	SELECT * FROM LODGMENT
-	<where>
-		<choose>
-			<when test="searchCondition == 'email'">
-				HOST_EMAIL = #{searchKeyword} 
-			</when>
-			<when test="searchCondition == 'id'">
-				HOST_ID = #{searchKeyword} 
-			</when>
-			<otherwise>
-				BUSINESS_NO = #{searchKeyword}
-			</otherwise>
-		</choose>
-	</where>			
-) U ) A WHERE RN BETWEEN #{start} and #{end}
-</select> -->
-
-<select id="getAdminLodgment" resultType="host" parameterType="adminSearch">
-SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
-	SELECT * FROM LODGMENT
-	<where>
-		<choose>
-			<when test="searchCondition == 'company'">
-				COMPANY = #{searchKeyword} 
-			</when>
-			<when test="searchCondition == 'location'">
-				LOCATION = #{searchKeyword} 
-			</when>
-			<when test="searchCondition == 'state'">
-				LODGMENT_STATE = #{searchKeyword} 
-			</when>
-			<otherwise>
-				LODGMENT_TYPE = #{searchKeyword}
-			</otherwise>
-		</choose>
-	</where>			
-) U ) A WHERE RN BETWEEN #{start} and #{end}
-</select> 
-
-<!-- 관리자 예약 검색 -->
-<!-- <select id="getAdminReservation" resultType="reservation" parameterType="adminSearch">
-SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
-	SELECT * FROM RESERVATION
-	<where>
-	</where>			
-) U ) A WHERE RN BETWEEN #{start} and #{end}
-</select>-->
-
-<!-- 관리자 캐스트 검색 -->
-<select id="getAdminReservation" resultType="reservation" parameterType="adminSearch">
-SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
-	SELECT * FROM TOUR
-	<where>
-		<choose>
-			<when test="searchCondition == 'name'">
-				TOUR_NAME = #{searchKeyword} 
-			</when>
-			<when test="searchCondition == 'title'">
-				TOUR_TITLE = #{searchKeyword} 
-			</when>
-			<when test="searchCondition == 'location'">
-				TOUR_LOCATION = #{searchKeyword}
-			</when>
-			<otherwise>
-				TOUR_STATE = #{searchKeyword}
-			</otherwise>
-		</choose>
-	</where>			
-) U ) A WHERE RN BETWEEN #{start} and #{end}
-</select>
+	<!-- 관리자 회원 검색 -->	
+	<select id="getAdminMember" resultType="member" parameterType="adminSearch">
+		SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
+			SELECT * FROM MEMBER
+			<where>
+				<choose>
+					<when test="searchCondition == 'nick'">
+						MEMBER_NICK = #{searchKeyword} 
+					</when>
+					<when test="searchCondition == 'name'">
+						MEMBER_NAME = #{searchKeyword} 
+					</when>
+				</choose>
+			</where>			
+		) U ) A WHERE RN BETWEEN #{start} and #{end}
+	</select> 
+	
+	<!-- 관리자 숙박업주 검색 -->	
+	<!-- <select id="getAdminHost" resultType="host" parameterType="adminSearch">
+	SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
+		SELECT * FROM LODGMENT
+		<where>
+			<choose>
+				<when test="searchCondition == 'email'">
+					HOST_EMAIL = #{searchKeyword} 
+				</when>
+				<when test="searchCondition == 'id'">
+					HOST_ID = #{searchKeyword} 
+				</when>
+				<otherwise>
+					BUSINESS_NO = #{searchKeyword}
+				</otherwise>
+			</choose>
+		</where>			
+	) U ) A WHERE RN BETWEEN #{start} and #{end}
+	</select> -->
+	
+	<select id="getAdminLodgment" resultType="host" parameterType="adminSearch">
+		SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
+			SELECT * FROM LODGMENT
+			<where>
+				<choose>
+					<when test="searchCondition == 'company'">
+						COMPANY = #{searchKeyword} 
+					</when>
+					<when test="searchCondition == 'location'">
+						LOCATION = #{searchKeyword} 
+					</when>
+					<when test="searchCondition == 'state'">
+						LODGMENT_STATE = #{searchKeyword} 
+					</when>
+					<otherwise>
+						LODGMENT_TYPE = #{searchKeyword}
+					</otherwise>
+				</choose>
+			</where>			
+		) U ) A WHERE RN BETWEEN #{start} and #{end}
+	</select> 
+	
+	<!-- 관리자 예약 검색 -->
+	<!-- <select id="getAdminReservation" resultType="reservation" parameterType="adminSearch">
+	SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
+		SELECT * FROM RESERVATION
+		<where>
+		</where>			
+	) U ) A WHERE RN BETWEEN #{start} and #{end}
+	</select>-->
+	
+	<!-- 관리자 캐스트 검색 -->
+	<select id="getAdminReservation" resultType="reservation" parameterType="adminSearch">
+		SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
+			SELECT * FROM TOUR
+			<where>
+				<choose>
+					<when test="searchCondition == 'name'">
+						TOUR_NAME = #{searchKeyword} 
+					</when>
+					<when test="searchCondition == 'title'">
+						TOUR_TITLE = #{searchKeyword} 
+					</when>
+					<when test="searchCondition == 'location'">
+						TOUR_LOCATION = #{searchKeyword}
+					</when>
+					<otherwise>
+						TOUR_STATE = #{searchKeyword}
+					</otherwise>
+				</choose>
+			</where>			
+		) U ) A WHERE RN BETWEEN #{start} and #{end}
+	</select>
 </mapper> 
