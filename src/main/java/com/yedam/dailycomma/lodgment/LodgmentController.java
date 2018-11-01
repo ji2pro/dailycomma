@@ -19,10 +19,15 @@ public class LodgmentController {
 		return "lodgment/lodgmentSearch";
 	}
 	
+	@RequestMapping("/registerLodgmentForm.do")
+	public String registerLodgmentForm() {
+		return "lodgment/registerLodgment";
+	}
+	
 	@RequestMapping("/getMainSearch.do")
 	public String getMainSearch(Model model, LodgmentDTO dto) {
 		dto.setLocation("서울");
-		dto.setLodgmentType("호텔");
+		dto.setLodgmentType("A4");
 		model.addAttribute("lod",lodgmentService.getMainSearch(dto));
 		return "lodgment/lodgmentSearch";		
 	}

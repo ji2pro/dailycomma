@@ -74,12 +74,13 @@
 
  <div class="row mb-2">
         <div class="col-md-10">
+           <c:forEach items="${lod}" var="temp"> 
             <div class="card flex-md-row mb-4 shadow-sm h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
                      <h3 class="mb-0">
-                     <c:forEach items="${lod}" var="temp">
+                     
                         <a class="text-dark" href="#">${temp.company}</a>
-                    </c:forEach>
+                   
                     </h3>
                    <i class="price-label label-reserve">예약가</i>
 
@@ -88,6 +89,8 @@
 						<i class='fas fa-star-half-alt starColor'></i>
 						<i class='far fa-star starColor'></i>
                     </span>
+                   
+                    <span>${temp.peopleCnt }</span>
       
 
                     <p class="card-text mb-auto">
@@ -96,10 +99,9 @@
                     </p>
 
                 </div>
-                <img class="card-img-right "
-                     src="./room.jpg"
-                     width="230" height="260" alt="Card image cap">
+                <img class="card-img-right" src="./resources/lodgment-Image/room.jpg" width="230" height="260" alt="Card image cap">
             </div>
+           </c:forEach> 
 
 <!--             <div class="card flex-md-row mb-4 shadow-sm h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">

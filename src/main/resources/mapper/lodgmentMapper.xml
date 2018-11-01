@@ -79,14 +79,13 @@
 	</insert> 
 	
 <select id="getMainSearch" parameterType="lodgment" resultType="lodgment">
-	  SELECT l.COMPANY
-      FROM LODGMENT l  LEFT OUTER JOIN (SELECT AVG(GRADE) AS AVERAGE ,COUNT(*) AS CNT, LODGMENT_NO
+	  SELECT l.COMPANY, g.AVG_GRADE, g.people_cnt
+      FROM LODGMENT l  LEFT OUTER JOIN (SELECT ROUND(AVG(GRADE),-1) AS AVG_GRADE ,COUNT(*) AS people_cnt, LODGMENT_NO
                                         FROM POSTSCRIPT
                                         GROUP BY LODGMENT_NO) g
       ON l.LODGMENT_NO = G.LODGMENT_NO 
       AND l.LOCATION = #{location}
       AND l.LODGMENT_TYPE = #{lodgmentType}
-      WHERE l.LODGMENT_NO = 'LOD49'    
 </select>
 	
 	<!-- 수정 미완성-->
