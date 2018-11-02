@@ -53,9 +53,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-<%--                <div class="carousel slide" data-ride="carousel" id="carousel2">
+                <div class="carousel slide" data-ride="carousel" id="carousel2">
                     <div class="carousel-inner">
-                        <c:forTokens items="${getAllImg.roomImg}" delims="||" var="img" varStatus="status">
+                        <c:forTokens items="${getAllImg}" delims="||" var="img" varStatus="status">
                             <c:if test="${status.first}">
                                 <div class="carousel-item active">
                                     <img class="d-block img-fluid w-100" src="/dailycomma/upload/${img}"/>
@@ -73,7 +73,7 @@
                         <span class="sr-only">Previous</span> </a>
                     <a class="carousel-control-next" href="#carousel" role="button" data-slide="next" style="">
                         <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
-                </div>--%>
+                </div>
             </div>
         </div>
     </div>
