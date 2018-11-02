@@ -4,7 +4,7 @@
 <mapper namespace="room">
 
 <!-- 전체 조회 -->
-<insert id="insertRoom" parameterType="com.yedam.dailycomma.room.RoomDTO">
+<insert id="insertRoom" parameterType="detailRoom">
 	INSERT INTO room
 	(	
 		ROOM_NO, 	LODGMENT_NO, 
