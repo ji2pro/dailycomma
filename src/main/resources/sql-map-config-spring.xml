@@ -20,6 +20,7 @@
 	
 		<!-- 회원 설정 -->
 		<typeAlias alias="member" type="com.yedam.dailycomma.member.MemberDTO"/>
+		<typeAlias alias="memberSearch" type="com.yedam.dailycomma.member.MemberSearchDTO"/>
 		
 		<!-- 관리자 검색 -->
 		<typeAlias alias="adminSearch" type="com.yedam.dailycomma.admin.AdminSearchDTO"/>
@@ -34,6 +35,9 @@
 		<!-- 숙소 상세 -->
 		<typeAlias alias="lodgment" type="com.yedam.dailycomma.lodgment.LodgmentDTO"/>
 		<typeAlias alias="lodgmentSearch" type="com.yedam.dailycomma.lodgment.LodgmentSearchDTO" />
+		
+		<!-- 마이페이지 -->
+		<typeAlias alias="Mypage" type="com.yedam.dailycomma.Mypage.MypageDTO"/>
 
 	</typeAliases>	
 </configuration>
