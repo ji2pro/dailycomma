@@ -12,7 +12,7 @@ public interface ReservationService {
 
 	public int deleteReservation(ReservationDTO dto);
 	
-	public RoomDTO getReservation(RoomDTO dto);
+	public int getReservation(ReservationDTO dto);
 	
 	public List<ReservationDTO> getReservations(ReservationSearchDTO searchDto);
 

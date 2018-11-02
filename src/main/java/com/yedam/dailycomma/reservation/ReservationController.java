@@ -8,25 +8,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yedam.dailycomma.lodgment.LodgmentDTO;
+import com.yedam.dailycomma.lodgment.LodgmentService;
 import com.yedam.dailycomma.room.RoomDTO;
 import com.yedam.dailycomma.room.RoomService;
 
 @Controller
 public class ReservationController {
-//	@Autowired LodgmentService lodgmentService; 
+	@Autowired LodgmentService lodgmentService; 
 	@Autowired RoomService roomService;
 	@Autowired ReservationService reservationService;
 	
 	//등록 폼
-	@RequestMapping(value="/insertReservationForm/{roomNo}", method=RequestMethod.GET)
+	@RequestMapping(value="/detailRoom.do/{roomNo}/reservationForm", method=RequestMethod.GET)
 	public String insertReservationForm(Model model,
+										//@PathVariable String lodgmentNo,							
 										@PathVariable String roomNo,
 										LodgmentDTO lDto,
 										RoomDTO rDto) {
-		//lDto.setLodgmentNo("1");
+		lDto.setLodgmentNo("LOD50");
 //		rDto.setRoomNo("RO181818");
+//		lDto.setLodgmentNo(lodgmentNo);
 		rDto.setRoomNo(roomNo);
-		model.addAttribute("room", reservationService.getReservation(rDto));
+		model.addAttribute("lodgment", lodgmentService.getLodgment(lDto));
+		model.addAttribute("room", roomService.getDetailRoom(rDto));
 		return "reservation/insertReservation";
 	}
 	

@@ -19,4 +19,9 @@ public class LodgmentDAO {
 	public int setLodgment(LodgmentDTO dto) {
 		return mybatis.update("lodgment.setLodgment", dto);
 	}
+	
+	//숙소 상세정보(단건 조회)
+	public LodgmentDTO getLodgment(LodgmentDTO dto) {
+		return mybatis.selectOne("lodgment.getLodgment", dto);
+	}
 }
