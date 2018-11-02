@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 	<div class="container-fluid">
 		<div class="row">
@@ -60,6 +61,7 @@
 								</tr>
 							</thead>
 							<tbody>
+								<c:forEach items="${list}" var="member">
 								<tr class="text-center">
 									<th scope="row">
 										<div class="custom-control custom-checkbox">
@@ -68,12 +70,12 @@
 												class="custom-control-label" for="same-address">&nbsp;</label>
 										</div>
 									</th>
-									<td>100001</td>
-									<td>홍지상</td>
-									<td>hong</td>
-									<td>hjs@dc.com</td>
-									<td>4,500</td>
-									<td>2018-10-01</td>
+									<td>${member.memberNo}</td>
+									<td>${member.memberName}</td>
+									<td>${member.memberNick}</td>
+									<td>${member.memberEmail}</td>
+									<td>${member.memberPoint}</td>
+									<td>${member.signupDate}</td>
 									<td>
 										<div class="btn-group">
 											<a href="#" class="btn btn-outline-success btn-sm">수정</a>
@@ -81,6 +83,7 @@
 										</div>
 									</td>
 								</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
@@ -207,7 +210,6 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr></tr>
 								<tr class="text-center">
 									<th scope="row">
 										<div class="custom-control custom-checkbox">

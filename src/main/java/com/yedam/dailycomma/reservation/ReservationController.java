@@ -25,7 +25,7 @@ public class ReservationController {
 										@PathVariable String roomNo,
 										LodgmentDTO lDto,
 										RoomDTO rDto) {
-		lDto.setLodgmentNo("LOD50");
+		lDto.setLodgmentNo("LOD49");
 //		rDto.setRoomNo("RO181818");
 //		lDto.setLodgmentNo(lodgmentNo);
 		rDto.setRoomNo(roomNo);
