@@ -30,6 +30,4 @@ public class RoomServiceImpl implements RoomService {
 		// TODO Auto-generated method stub
 		return dao.insertRoom(dto);
 	}
-	
-	
 }

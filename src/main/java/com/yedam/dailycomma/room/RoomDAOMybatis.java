@@ -17,13 +17,13 @@ public class RoomDAOMybatis {
 		return mybatis.selectOne("detailRoom.getDetailRoom",dto);
 	}
 
-	public List<RoomDTO> getDetailRooms(LodgmentDTO dto) {
-		System.out.println("========객실들 상세 조회========");
-        System.out.println(dto.getLodgmentNo());
-		return mybatis.selectList("detailRoom.getDetailRooms",dto);
-	}
-	
-	public int insertRoom(RoomDTO dto) {
+        public List<RoomDTO> getDetailRooms(LodgmentDTO dto) {
+            System.out.println("========객실들 상세 조회========");
+            System.out.println(dto.getLodgmentNo());
+        return mybatis.selectList("detailRoom.getDetailRooms",dto);
+    }
+
+    public int insertRoom(RoomDTO dto) {
 		return mybatis.insert("room.insertRoom", dto);
 	}
 }

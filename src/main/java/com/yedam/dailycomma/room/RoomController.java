@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.yedam.dailycomma.lodgment.LodgmentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +18,9 @@ import org.springframework.web.multipart.MultipartFile;
 public class RoomController {
 
 	@Autowired RoomService roomService;
-		
+	@Autowired LodgmentDTO lodgmentDTO;
+
+	/*건수조회 추후 토탈 이미지로 들어갈 예정*/
 	@RequestMapping("/detailRoom.do/{roomNo}")
 	public String detailRoom(Model model,
 							 @PathVariable String roomNo,
@@ -27,10 +30,15 @@ public class RoomController {
 		return "room/detailRoom";
 	}
 
-	@RequestMapping("/detailRoomTest.do")
-	public String detailRoom(Model model) {
-		return "room/detailRoom";
-	}
+	/*숙박 업체에 대한 전체 객실 리스트*/
+    @RequestMapping("/detailRoom.do/{lodgmentNo}")
+    public String detailRooms(Model model,
+                             @PathVariable String lodgmentNo,
+                             LodgmentDTO dto) {
+        dto.setLodgmentNo(lodgmentNo);
+        model.addAttribute("getDetailRooms", roomService.getDetailRooms(dto));
+        return "room/detailRoom";
+    }
 	
 	@RequestMapping("/insertRoomForm.do")
 	public String RoomForm() {
