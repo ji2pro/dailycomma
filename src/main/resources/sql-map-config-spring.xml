@@ -30,7 +30,9 @@
 		
 		<!-- 룸 상세 -->
 		<typeAlias alias="detailRoomDTO" type="com.yedam.dailycomma.room.RoomDTO"/>
-		
+
+		<!-- 숙박 업체 -->
+		<typeAlias alias="lodgmentDTO" type="com.yedam.dailycomma.lodgment.LodgmentDTO"/>
 		
 		
 	</typeAliases>	

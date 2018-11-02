@@ -1,5 +1,8 @@
 package com.yedam.dailycomma.lodgment;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class LodgmentDTO {
 
 	private String lodgmentNo;		//숙박업체 번호
