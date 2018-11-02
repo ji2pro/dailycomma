@@ -3,10 +3,6 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reservation">
 	<!-- 단건 조회 -->
-	<select id="getReservation" parameterType="detailRoomDTO" resultType="detailRoomDTO">
-		SELECT * FROM ROOM
-			WHERE ROOM_NO = #{roomNo}
-	</select>
 	
 	<!-- 예약 등록(예약하기) -->
 	<insert id="insertReservation" parameterType="reservation">
