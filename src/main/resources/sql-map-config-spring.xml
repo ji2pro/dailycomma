@@ -20,6 +20,7 @@
 	
 		<!-- 회원 설정 -->
 		<typeAlias alias="member" type="com.yedam.dailycomma.member.MemberDTO"/>
+		<typeAlias alias="memberSearch" type="com.yedam.dailycomma.member.MemberSearchDTO"/>
 		
 		<!-- 관리자 검색 -->
 		<typeAlias alias="adminSearch" type="com.yedam.dailycomma.admin.AdminSearchDTO"/>

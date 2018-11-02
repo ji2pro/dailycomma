@@ -3,25 +3,25 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 	<!-- 전체 조회 -->
-	<!-- <select id="getMembers" resultType="member" parameterType="memberSearch">
+	<select id="getMembers" resultType="member" parameterType="memberSearch">
 	SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
 		SELECT * FROM MEMBER
 		<where>
 			<if test="ids != null">
-				ID IN
+				MEMBER_NO IN
 				<foreach collection="ids" open="(" close=")" separator="," item="item">
 					#{item}
 				</foreach>
 			</if>
-			<if test="searchCondition == 'id'">
-				AND ID LIKE '%' || #{searchKeyword} || '%'
+			<if test="searchCondition == 'member_email'">
+				AND MEMBER_EMAIL LIKE '%' || #{searchKeyword} || '%'
 			</if>
-			<if test="searchCondition == 'name'">
-				AND NAME LIKE '%' || #{searchKeyword} || '%'		
+			<if test="searchCondition == 'member_name'">
+				AND MEMBER_NAME LIKE '%' || #{searchKeyword} || '%'		
 			</if>
-			<if test="role != null and role != ''">
+<!-- 			<if test="role != null and role != ''">
 				AND ROLE = #{role}
-			</if>
+			</if> -->
 		</where>
 		ORDER BY
 		<choose>
@@ -29,30 +29,30 @@
 				#{sort}
 			</when>
 			<otherwise>
-				ID
+				MEMBER_NO
 			</otherwise>
 		</choose>
 	) U ) A WHERE RN BETWEEN #{start} and #{end}
-	</select> -->
+	</select>
 	
-	<!-- <select id="getCnt" resultType="int" parameterType="memberSearch">
+	<select id="getCnt" resultType="int" parameterType="memberSearch">
 		SELECT COUNT(*)
 			FROM MEMBER
 		<where>
 			<if test="ids != null">
-				ID IN
+				MEMBER_NO IN
 				<foreach collection="ids" open="(" close=")" separator="," item="item">
 					#{item}
 				</foreach>
 			</if>
-			<if test="searchCondition == 'id'">
-				AND ID LIKE '%' || #{searchKeyword} || '%'
+			<if test="searchCondition == 'member_email'">
+				AND MEMBER_EMAIL LIKE '%' || #{searchKeyword} || '%'
 			</if>
-			<if test="searchCondition == 'name'">
-				AND NAME LIKE '%' || #{searchKeyword} || '%'		
+			<if test="searchCondition == 'member_name'">
+				AND MEMBER_NAME LIKE '%' || #{searchKeyword} || '%'		
 			</if>
 		</where>
-	</select> -->
+	</select>
 	
 	<!-- 단건 조회 -->
 	<select id="getMember" parameterType="member" resultType="member">
