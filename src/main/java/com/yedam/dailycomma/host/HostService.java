@@ -8,7 +8,7 @@ public interface HostService {
 	//등록
 	public int insertHost(HostDTO dto);
 	//수정
-	public int updatetHost(HostDTO dto);
+	public int updateHost(HostDTO dto);
 	//삭제 
 	public int deleteHost(HostDTO dto);
 	//글 상세 조회

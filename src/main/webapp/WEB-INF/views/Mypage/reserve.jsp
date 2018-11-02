@@ -1,55 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
-    
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="resources/include/css/Mypage.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  
-    <style> 
-    .lineset{
-	margin-top: 40px;
-	border-top-width: 3px; 
-	border-top-style: solid;
-	border-top-color: rgb(229, 229, 229);
-}
-</style>
-    
-    
-    
+   
 </head>          
             
 <body>
         <div class="reta">
-            ¿¹¾à³»¿ª 
+            ì˜ˆì•½ë‚´ì—­ 
             <table class="table mt-3">
             <tbody class="lineset">
               <tr>
-                <th>¿¹¾à¹øÈ£</th>
-                <th>¿¹¾à³¯Â¥</th>
-                <th>¼÷¼Ò¸í</th>
-                <th>°´½Ç¸í</th>
-                <th>ÀÌ¿ë±â°£</th>
-                <th>¿¹¾à±İ¾×</th>
+                <th>ì˜ˆì•½ë²ˆí˜¸</th>
+                <th>ì˜ˆì•½ë‚ ì§œ</th>
+                <th>ìˆ™ì†Œëª…</th>
+                <th>ê°ì‹¤ëª…</th>
+                <th>ì´ìš©ê¸°ê°„</th>
+                <th>ì˜ˆì•½ê¸ˆì•¡</th>
               </tr>
+           <c:forEach items="${reserve}" var="res">   
               <tr>
-                <td>123456</td>
-                <td>2018-10-01</td>
-                <td>°­¿ø Ææ¼Ç</td>
-                <td>µğ·°½º</td>
-                <td>2¹Ú3ÀÏ</td>
-                <td>8¸¸¿ø</td>
+                <td>${res.reserveNo}</td>
+                <td>${res.reserveDate}</td>
+                <td>${res.company}</td>
+                <td>${res.roomName}</td>
+                <td>${res.checkDate}</td>
+                <td>${res.reservePrice}</td>
               </tr>
-              <tr>
-                <td>123456</td>
-                <td>2018-10-01</td>
-                <td>°­¿ø Ææ¼Ç</td>
-                <td>µğ·°½º</td>
-                <td>2¹Ú3ÀÏ</td>
-                <td>8¸¸¿ø</td>
-              </tr>
+           </c:forEach>   
             </tbody>
                 </table>
                 </div>

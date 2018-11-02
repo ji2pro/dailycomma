@@ -1,46 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    
-    <style> 
-    .lineset{
-	margin-top: 40px;
-	border-top-width: 3px; 
-	border-top-style: solid;
-	border-top-color: rgb(229, 229, 229);
-}
-</style>
-    
-    
-    
-</head>          
-            
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+	type="text/css">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/include/css/Mypage.css">
+</head>
+
 <body>
-        <div class="reta">
-           	 ÃÖ±Ù º» ¼÷¼Ò
-            <table class="table mt-3">
-            <tbody class="lineset">
-              <tr>
-                <th>¼÷¼ÒÀÌ¸§</th>
-                <th>°´½ÇÁ¾·ù</th>
-                <th>°¡°İ</th>
-              </tr>
-              <tr>
-                
-              </tr>
-              <tr>
-				<td>´ë±¸Ææ¼Ç</td>
-                <td>µğ·°½º</td>
-                <td>50000</td>
-              </tr>
-            </tbody>
-                </table>
-                </div>
-    </body>
-    </html>
+	<div class="reta">
+		ìµœê·¼ ë³¸ ìˆ™ì†Œ
+		<table class="table mt-3">
+			<tbody class="lineset">
+				<tr>
+					<th>ìˆ™ì†Œì´ë¦„</th>
+					<th>ê°ì‹¤ì¢…ë¥˜</th>
+					<th>ê°€ê²©</th>
+				</tr>
+				
+		<c:forEach items="${country}" var="coun"> 
+				<tr>
+					<td>${coun.company}</td>
+					<td>${coun.roomName}</td>
+					<td>${coun.roomPrice}</td>
+				</tr>
+			</c:forEach> 	
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
