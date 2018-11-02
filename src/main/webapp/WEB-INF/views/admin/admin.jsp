@@ -46,9 +46,9 @@
 			<div class="tab-pane fade show active" role="tabpanel" id="memberAdmin" aria-labelledby="memberTab">
 				<div class="row">
 					<div class="col-md-12">
-						<table class="table table-hover table-bordered table-sm">
-							<thead class="thead-inverse">
-								<tr class="table-primary text-center">
+						<table class="table table-hover table-sm">
+							<thead class="thead-light">
+								<tr class="text-center">
 									<th scope="col">선택</th>
 									<th scope="col">회원 번호</th>
 									<th scope="col">이름</th>
@@ -96,9 +96,9 @@
 			<div class="tab-pane fade" role="tabpanel" id="hostAdmin" aria-labelledby="hostTab">
 				<div class="row">
 					<div class="col-md-12">
-						<table class="table table-hover table-bordered table-sm">
-							<thead class="thead-inverse">
-								<tr class="table-primary text-center">
+						<table class="table table-hover table-sm">
+							<thead class="thead-light">
+								<tr class="text-center">
 									<th scope="col">선택</th>
 									<th scope="col">이름</th>
 									<th scope="col">아이디</th>
@@ -192,9 +192,9 @@
 			<div class="tab-pane fade" role="tabpanel" id="lodgmentAdmin" aria-labelledby="lodgmentTab">
 				<div class="row">
 					<div class="col-md-12">
-						<table class="table table-hover table-bordered table-sm">
-							<thead class="thead-inverse">
-								<tr class="table-primary text-center">
+						<table class="table table-hover table-sm">
+							<thead class="thead-light">
+								<tr class="text-center">
 									<th scope="col">선택</th>
 									<th scope="col">지역</th>
 									<th scope="col">업체 번호</th>
@@ -297,9 +297,9 @@
 				<!-- 숙소 관리 - 객실 관리 -->
 				<div class="row">
 					<div class="col-md-12">
-						<table class="table table-hover table-bordered table-sm">
-							<thead class="thead-inverse">
-								<tr class="table-primary text-center">
+						<table class="table table-hover table-sm">
+							<thead class="thead-light">
+								<tr class="text-center">
 									<th scope="col">선택</th>
 									<th scope="col">객실명</th>
 									<th scope="col">객실수</th>
@@ -361,9 +361,9 @@
 			<div class="tab-pane fade" role="tabpanel" id="reservationAdmin" aria-labelledby="reservationTab">
 				<div class="row">
 					<div class="col-md-12">
-						<table class="table table-hover table-bordered table-sm">
-							<thead class="thead-inverse">
-								<tr class="table-primary text-center">
+						<table class="table table-hover table-sm">
+							<thead class="thead-light">
+								<tr class="text-center">
 									<th scope="col">예약번호</th>
 									<th scope="col">이름</th>
 									<th scope="col">이메일</th>
@@ -436,9 +436,9 @@
 			<div class="tab-pane fade" role="tabpanel" id="castAdmin" aria-labelledby="castTab">
 				<div class="row">
 					<div class="col-md-12">
-						<table class="table table-hover table-bordered table-sm">
-							<thead class="thead-inverse">
-								<tr class="table-primary text-center">
+						<table class="table table-hover table-sm">
+							<thead class="thead-light">
+								<tr class="text-center">
 									<th scope="col">선택</th>
 									<th scope="col">관광 지역</th>
 									<th scope="col">제목</th>
