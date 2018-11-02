@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +10,16 @@
   
     <!-- Custom Stylesheets -->
     <link rel="stylesheet" type="text/css" href="./resources/include/css/lodgmentSearch-css.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+   	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+   	crossorigin="anonymous">	<!-- 별모양 링크 -->
+    
     <script type="text/javascript"
             src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript"
             src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+            src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> 
     <link rel="stylesheet" type="text/css"
           href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
@@ -69,25 +74,34 @@
 
  <div class="row mb-2">
         <div class="col-md-10">
+           <c:forEach items="${lod}" var="temp"> 
             <div class="card flex-md-row mb-4 shadow-sm h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
-                    <strong class="d-inline-block mb-2 text-primary">World</strong>
-                    <h3 class="mb-0">
-                        <a class="text-dark" href="#">Featured post</a>
+                     <h3 class="mb-0">
+                     
+                        <a class="text-dark" href="#">${temp.company}</a>
+                   
                     </h3>
-                    <div class="mb-1 text-muted">Nov 12</div><i class="price-label label-reserve">예약가</i>
+                   <i class="price-label label-reserve">예약가</i>
 
+                    <span class="score-rap">                    	
+						<i class='fas fa-star starColor'></i>
+						<i class='fas fa-star-half-alt starColor'></i>
+						<i class='far fa-star starColor'></i>
+                    </span>
+                   
+                    <span>${temp.peopleCnt }</span>
+      
 
-                    <span class="score-rap"><i class="icon-staylist icon-staylist-score score10"></i><i class="icon-staylist icon-staylist-score score10"></i><i class="icon-staylist icon-staylist-score score10"></i><i class="icon-staylist icon-staylist-score score10"></i><i class="icon-staylist icon-staylist-score score05"></i></span>
+                    <p class="card-text mb-auto">
+                    	This is a wider card with
+                        supporting text below as a natural lead-in to additional content.
+                    </p>
 
-                    <p class="card-text mb-auto">This is a wider card with
-                        supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#">Continue reading</a>
                 </div>
-                <img class="card-img-right "
-                     src="./room.jpg"
-                     width="230" height="260" alt="Card image cap">
+                <img class="card-img-right" src="./resources/lodgment-Image/room.jpg" width="230" height="260" alt="Card image cap">
             </div>
+           </c:forEach> 
 
 <!--             <div class="card flex-md-row mb-4 shadow-sm h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">

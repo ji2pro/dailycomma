@@ -5,23 +5,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
+	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>데일리 콤마</title>
 	<!-- jQuery 3.3.1 -->
-	<script src="./webjars/jquery/3.3.1/dist/jquery.min.js"></script>
+	<script src="<%=request.getContextPath()%>/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
 	<!-- Bootstrap 4.1.3 -->
-    <script src="./webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <link href="./webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="<%=request.getContextPath()%>/webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link href="<%=request.getContextPath()%>/webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome 4.7.0 -->
+    <link href="<%=request.getContextPath()%>/webjars/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Custom Style -->
-    <link href="./resources/include/css/common.css" rel="stylesheet" type="text/css" /> 
-    <link href="./resources/include/css/main.css" rel="stylesheet" type="text/css" />
-    <link href="./resources/include/css/reservation.css" rel="stylesheet" type="text/css" />
-    <script src="./resources/include/js/clock.js"></script> <!-- 현재시간 자바스크립트 파일 --> 
+    <link href="<%=request.getContextPath()%>/resources/include/css/common.css" rel="stylesheet" type="text/css" /> 
+    <link href="<%=request.getContextPath()%>/resources/include/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/resources/include/css/reservation.css" rel="stylesheet" type="text/css" />
+    <script src="<%=request.getContextPath()%>/resources/include/js/clock.js"></script> <!-- 현재시간 자바스크립트 파일 --> 
 </head>
 <body>
 	<%-- 			<tiles:insertAttribute name="header" /> --%>
 	<nav class="navbar fixed-top navbar-expand-lg navbar-light">
-	    <a class="navbar-brand" href="getUsers.do">Daily Comma</a>
+	    <a class="navbar-brand" href="/dailycomma/">Daily Comma</a>
 	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="navbar-toggler-icon"></span>
 	    </button>
@@ -34,8 +37,8 @@
 	        </ul> -->
 	        <ul class="navbar-nav ml-auto">
 	            <!-- <li class="nav-item"><a class="nav-link" href="#">예약 내역</a></li> -->
-	            <li class="nav-item"><a class="nav-link" href="insertHostForm.do">회원 가입</a></li>
-	            <li class="nav-item"><a class="nav-link" href="login.do">로그인</a></li>
+	            <li class="nav-item"><a class="nav-link" href="/dailycomma/insertHostForm.do">회원 가입</a></li>
+	            <li class="nav-item"><a class="nav-link" href="/dailycomma/login.do">로그인</a></li>
 	        </ul>
 	    </div>
 	</nav>
