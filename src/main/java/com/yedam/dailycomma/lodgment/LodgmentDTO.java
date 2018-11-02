@@ -1,5 +1,7 @@
 package com.yedam.dailycomma.lodgment;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class LodgmentDTO {
 
 	private String lodgmentNo;		//숙박업체 번호
@@ -12,9 +14,15 @@ public class LodgmentDTO {
 	private String lodgmentInfo;	//업체정보
 	private String avgGrade;		//평균평점
 	private String peopleCnt;		//평가인원수
-	
+	private MultipartFile uploadFile; 
 		
-
+	
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
 	public String getAvgGrade() {
 		return avgGrade;
 	}
