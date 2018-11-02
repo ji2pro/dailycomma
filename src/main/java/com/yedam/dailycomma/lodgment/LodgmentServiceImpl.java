@@ -15,4 +15,10 @@ public class LodgmentServiceImpl implements LodgmentService {
 		return dao.getMainSearch(dto);
 	}
 
+	@Override
+	public int setLodgment(LodgmentDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.setLodgment(dto);
+	}
+
 }

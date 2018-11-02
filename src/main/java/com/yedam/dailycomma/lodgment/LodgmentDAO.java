@@ -12,8 +12,11 @@ public class LodgmentDAO {
 	
 	//메인검색
 	public List<LodgmentDTO> getMainSearch(LodgmentDTO dto) {
-		return mybatis.selectList("host.getMainSearch", dto);
+		return mybatis.selectList("lodgment.getMainSearch", dto);
 	}
-
-
+	
+	//숙박업체 등록
+	public int setLodgment(LodgmentDTO dto) {
+		return mybatis.update("lodgment.setLodgment", dto);
+	}
 }

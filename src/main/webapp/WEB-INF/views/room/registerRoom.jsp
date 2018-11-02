@@ -36,10 +36,10 @@
 				<input type="text" name="roomPrice" class="form-control" placeholder="가격"/>
 			</div>
 			<div class="col">
-				<input type="text" name="roomCapa" class="form-control" placeholder="최대인원"/>
+				<input type="number" name="roomCapa" class="form-control" min="1" max="30" placeholder="최대인원"/>
 			</div>
 			<div class="col">
-				<input type="text" id="roomQuantity" name="roomQuantity" class="form-control" placeholder="객실수"/>
+				<input type="number" id="roomQuantity" name="roomQuantity" min="1" max="30" class="form-control" placeholder="객실수"/>
 			</div>
 
 		  </div>
