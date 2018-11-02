@@ -22,7 +22,7 @@ public class ReservationDAOMybatis {
 		return mybatis.selectOne("reservation.getCnt",searchDTO);
 	}
 	//단건 조회
-	public RoomDTO getReservation(RoomDTO dto) {
+	public int getReservation(ReservationDTO dto) {
 		System.out.println("reservation mybatis 단건 조회========");
 		return mybatis.selectOne("reservation.getReservation", dto);
 	}

@@ -9,15 +9,14 @@
 <script src="http://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false"></script>
 <link href="./resources/include/css/hostSignup.css" rel="stylesheet" type="text/css">
 
-
 <style>
 .img_wrap {
-    width:300px;
-    margin-top: 50px;
-}
-.img_wrap img{
+    width: 200px;
+    height: 200px;
+  }
+/*  .img_wrap img{
     max-width: 100%;
-}
+}  */
 </style>
 
 <script>
@@ -53,45 +52,50 @@
 	</div>
 	
 	<div class="lineset">
-	<form action="insertHost.do">
+	<form action="registerLodgment.do" method="post" enctype="multipart/form-data">
 	 <div>
 		 <div class="row">
 	    	<div class="col-5">
 	      		<label for="inputId">숙박업체명</label>
-	      		<input type="text" class="form-control" name="company" placeholder="id">
+	      		<input type="text" class="form-control" name="company" placeholder="코끼리하우스">
 	    	</div>
-	    	<button type="button" class="btn">중복확인</button>
-	    	   	
+	        	   	
 	    	
 	    	<div class="col-5">
 	      		<label for="inputEmail">숙박업체 유형</label>
-	      		<input type="text" class="form-control" name="lodgmentType" placeholder="Email">
+	      	  	<select class="custom-select" id="inputGroupSelect01" name="lodgmentType">
+				    <option value="A1"selected>모텔</option>
+				    <option value="A2">호텔</option>
+				    <option value="A3">펜션</option>
+				    <option value="A4">게스트하우스</option>
+ 				 </select>
 	    	</div>
 	     </div><br>
 	     
 	     <div class="row">
-	     	<div class="col-5 img_wrap" >
-                <img id="img" />
+	     	<div class="col-5" >
+	     		<div class="img_wrap">
+                	<img id="img" class="img-fluid" />
+	     		</div>
 	     	</div>	     
 	     </div>
 	    
 	    <div class="row">
 	    	<div class="col-5">
-	      		<label for="inputPW">업체이미지</label>
-	      		 <input type="file" class="form-control" id="input_img" name="hostPw" value="${lodgment.hostPw}">
+	       		 <input type="file" id="input_img" name="uploadFile" value="${lodgment.hostPw}">
 	    	</div>
         </div><br>
 	  	 
 	  	 <div class="row">
 	    	<div class="col-5">
 	      		<label for="inputName">업체정보</label>
-	      		<input type="text" class="form-control" name="hostName" value="${lodgment.hostName}" placeholder="이름"> 
+	      		<input type="text" class="form-control" name="lodgmentInfo" value="${lodgment.hostName}" placeholder="조식제공, 비흡연구역"> 
 	    	</div>
 	     </div><br>
   	   
   	   <div class="text-center">
-  	   	<button type="submit" class="btn">등록요청</button>&nbsp&nbsp&nbsp
-  	   	<button type="button" class="btn">취소</button>  	   
+  	   	<button type="submit" class="btn btn-primary">등록요청</button>&nbsp&nbsp&nbsp
+  	   	<button type="button" class="btn btn-danger">취소</button>  	   
  	   </div>
  	  </div> 
 	</form>

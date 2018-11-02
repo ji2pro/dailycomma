@@ -21,7 +21,7 @@ public class ReservationServiceImpl implements ReservationService {
 		return dao.insertReservation(dto); // 두번의 인설트를 만들어 일부러 에러를 만듬 트랜잭션 처리를 하게 되면 둘다 인설트가 되지 않게 한다.
 	}
 
-	public RoomDTO getReservation(RoomDTO dto) {
+	public int getReservation(ReservationDTO dto) {
 		//logAdvice.printLogging();	//횡단관심
 		return dao.getReservation(dto);	//핵심관심
 	}

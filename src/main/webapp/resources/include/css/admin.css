@@ -1,0 +1,7 @@
+a {color: #d728ff;}
+a:hover {color: #9a00b2;}
+
+.table .thead-light th {
+	background-color: #FCEDFF;
+	border-color: #dfd9e0;
+}

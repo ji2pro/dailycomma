@@ -9,10 +9,13 @@ import org.springframework.stereotype.Service;
 public class LodgmentServiceImpl implements LodgmentService {
 	@Autowired LodgmentDAO dao;
 
-	@Override
 	public List<LodgmentDTO> getMainSearch(LodgmentDTO dto) {
-		// TODO Auto-generated method stub
 		return dao.getMainSearch(dto);
 	}
-
+	public int setLodgment(LodgmentDTO dto) {
+		return dao.setLodgment(dto);
+	}
+	public LodgmentDTO getLodgment(LodgmentDTO dto) {
+		return dao.getLodgment(dto);
+	}
 }

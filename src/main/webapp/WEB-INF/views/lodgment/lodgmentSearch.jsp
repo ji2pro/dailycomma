@@ -99,7 +99,7 @@
                     </p>
 
                 </div>
-                <img class="card-img-right" src="./resources/lodgment-Image/room.jpg" width="230" height="260" alt="Card image cap">
+                <img class="card-img-right" src="/dailycomma/lodgment-Image/room.jpg" width="230" height="260" alt="Card image cap">
             </div>
            </c:forEach> 
 

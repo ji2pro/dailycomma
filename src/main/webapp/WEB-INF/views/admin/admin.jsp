@@ -3,7 +3,7 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<h2>관리자 페이지</h2>
+			<h2 class="px-3 py-3">관리자 페이지</h2>
 		</div>
 
 		<!-- 메뉴 탭 -->
@@ -46,9 +46,9 @@
 			<div class="tab-pane fade show active" role="tabpanel" id="memberAdmin" aria-labelledby="memberTab">
 				<div class="row">
 					<div class="col-md-12">
-						<table class="table table-hover table-bordered">
-							<thead class="thead-inverse">
-								<tr class="table-primary text-center">
+						<table class="table table-hover table-sm">
+							<thead class="thead-light">
+								<tr class="text-center">
 									<th scope="col">선택</th>
 									<th scope="col">회원 번호</th>
 									<th scope="col">이름</th>
@@ -85,8 +85,8 @@
 						</table>
 					</div>
 				</div>
-				<div class="row d-flex flex-row">
-					<div class="col-md-12 d-flex flex-row justify-content-end">
+				<div class="row">
+					<div class="col-md-12 d-flex flex-row justify-content-end mb-4">
 						<a class="btn btn-outline-danger" href="#">선택 삭제</a>
 					</div>
 				</div>
@@ -96,9 +96,9 @@
 			<div class="tab-pane fade" role="tabpanel" id="hostAdmin" aria-labelledby="hostTab">
 				<div class="row">
 					<div class="col-md-12">
-						<table class="table table-hover table-bordered">
-							<thead class="thead-inverse">
-								<tr class="table-primary text-center">
+						<table class="table table-hover table-sm">
+							<thead class="thead-light">
+								<tr class="text-center">
 									<th scope="col">선택</th>
 									<th scope="col">이름</th>
 									<th scope="col">아이디</th>
@@ -181,8 +181,8 @@
 						</table>
 					</div>
 				</div>
-				<div class="row d-flex flex-row">
-					<div class="col-md-12 d-flex flex-row justify-content-end">
+				<div class="row">
+					<div class="col-md-12 d-flex flex-row justify-content-end mb-4">
 						<a class="btn btn-outline-danger" href="#">선택 삭제</a>
 					</div>
 				</div>
@@ -192,9 +192,9 @@
 			<div class="tab-pane fade" role="tabpanel" id="lodgmentAdmin" aria-labelledby="lodgmentTab">
 				<div class="row">
 					<div class="col-md-12">
-						<table class="table table-hover table-bordered">
-							<thead class="thead-inverse">
-								<tr class="table-primary text-center">
+						<table class="table table-hover table-sm">
+							<thead class="thead-light">
+								<tr class="text-center">
 									<th scope="col">선택</th>
 									<th scope="col">지역</th>
 									<th scope="col">업체 번호</th>
@@ -278,8 +278,8 @@
 						</table>
 					</div>
 				</div>
-				<div class="row d-flex flex-row">
-					<div class="col-md-12 d-flex flex-row justify-content-end">
+				<div class="row">
+					<div class="col-md-12 d-flex flex-row justify-content-end mb-4">
 						<a class="btn btn-outline-danger" href="#">선택 삭제</a>
 					</div>
 				</div>
@@ -297,9 +297,9 @@
 				<!-- 숙소 관리 - 객실 관리 -->
 				<div class="row">
 					<div class="col-md-12">
-						<table class="table table-hover table-bordered">
-							<thead class="thead-inverse">
-								<tr class="table-primary text-center">
+						<table class="table table-hover table-sm">
+							<thead class="thead-light">
+								<tr class="text-center">
 									<th scope="col">선택</th>
 									<th scope="col">객실명</th>
 									<th scope="col">객실수</th>
@@ -350,8 +350,8 @@
 						</table>
 					</div>
 				</div>
-				<div class="row d-flex flex-row">
-					<div class="col-md-12 d-flex flex-row justify-content-end">
+				<div class="row">
+					<div class="col-md-12 d-flex flex-row justify-content-end mb-4">
 						<a class="btn btn-outline-danger" href="#">선택 삭제</a>
 					</div>
 				</div>
@@ -361,9 +361,9 @@
 			<div class="tab-pane fade" role="tabpanel" id="reservationAdmin" aria-labelledby="reservationTab">
 				<div class="row">
 					<div class="col-md-12">
-						<table class="table table-hover table-bordered">
-							<thead class="thead-inverse">
-								<tr class="table-primary text-center">
+						<table class="table table-hover table-sm">
+							<thead class="thead-light">
+								<tr class="text-center">
 									<th scope="col">예약번호</th>
 									<th scope="col">이름</th>
 									<th scope="col">이메일</th>
@@ -425,8 +425,8 @@
 						</table>
 					</div>
 				</div>
-				<div class="row d-flex flex-row">
-					<div class="col-md-12 d-flex flex-row justify-content-end">
+				<div class="row">
+					<div class="col-md-12 d-flex flex-row justify-content-end mb-4">
 						<a class="btn btn-outline-danger" href="#">선택 삭제</a>
 					</div>
 				</div>
@@ -436,14 +436,14 @@
 			<div class="tab-pane fade" role="tabpanel" id="castAdmin" aria-labelledby="castTab">
 				<div class="row">
 					<div class="col-md-12">
-						<table class="table table-hover table-bordered">
-							<thead class="thead-inverse">
-								<tr class="table-primary text-center">
+						<table class="table table-hover table-sm">
+							<thead class="thead-light">
+								<tr class="text-center">
 									<th scope="col">선택</th>
-									<th scope="col">작성일</th>
 									<th scope="col">관광 지역</th>
 									<th scope="col">제목</th>
 									<th scope="col">작성자</th>
+									<th scope="col">작성일</th>
 									<th scope="col">승인 상태</th>
 									<th scope="col">관리</th>
 								</tr>
@@ -457,10 +457,10 @@
 												class="custom-control-label" for="same-address">&nbsp;</label>
 										</div>
 									</th>
-									<td>2018-10-02 21:09</td>
 									<td>수원</td>
 									<td>먹고 놀다 지쳐 잠들 수원 핵잼 핫플</td>
 									<td>대한민국방방곡곡</td>
+									<td>2018-10-02 21:09</td>
 									<td>승인 완료</td>
 									<td>
 										<div class="btn-group">
@@ -477,10 +477,10 @@
 												class="custom-control-label" for="same-address">&nbsp;</label>
 										</div>
 									</th>
-									<td>2018-10-06 20:04</td>
 									<td>대구</td>
 									<td>교통&미식&감성의 3박자 대구</td>
 									<td>콤마늬우스</td>
+									<td>2018-10-06 20:04</td>
 									<td>승인 전</td>
 									<td>
 										<div class="btn-group">
@@ -497,10 +497,10 @@
 												class="custom-control-label" for="same-address">&nbsp;</label>
 										</div>
 									</th>
-									<td>2018-10-09 21:45</td>
 									<td>제주</td>
 									<td>인생샷 풍년이라는 갬성만렙 '가을제주'</td>
 									<td>콤마여행</td>
+									<td>2018-10-09 21:45</td>
 									<td>승인 완료</td>
 									<td>
 										<div class="btn-group">
@@ -513,8 +513,8 @@
 						</table>
 					</div>
 				</div>
-				<div class="row d-flex flex-row">
-					<div class="col-md-12 d-flex flex-row justify-content-end">
+				<div class="row">
+					<div class="col-md-12 d-flex flex-row justify-content-end mb-4">
 						<a class="btn btn-outline-danger" href="#">선택 삭제</a>
 					</div>
 				</div>
