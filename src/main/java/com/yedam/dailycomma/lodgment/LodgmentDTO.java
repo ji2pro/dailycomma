@@ -1,13 +1,10 @@
 package com.yedam.dailycomma.lodgment;
 
-<<<<<<< HEAD
 import org.springframework.web.multipart.MultipartFile;
 
-=======
 import org.springframework.stereotype.Repository;
 
 @Repository
->>>>>>> branch 'master' of https://github.com/ji2pro/dailycomma.git
 public class LodgmentDTO {
 
 	private String lodgmentNo;		//숙박업체 번호
