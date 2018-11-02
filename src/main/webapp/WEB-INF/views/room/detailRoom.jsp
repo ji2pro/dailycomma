@@ -53,9 +53,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-<%--                <div class="carousel slide" data-ride="carousel" id="carousel2">
+                <div class="carousel slide" data-ride="carousel" id="carousel2">
                     <div class="carousel-inner">
-                        <c:forTokens items="${getAllImg.roomImg}" delims="||" var="img" varStatus="status">
+                        <c:forTokens items="${getAllImg}" delims="||" var="img" varStatus="status">
                             <c:if test="${status.first}">
                                 <div class="carousel-item active">
                                     <img class="d-block img-fluid w-100" src="/dailycomma/upload/${img}"/>
@@ -68,12 +68,12 @@
                             </c:if>
                         </c:forTokens>
                     </div>
-                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
                         <span class="sr-only">Previous</span> </a>
-                    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next" style="">
+                    <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next" style="">
                         <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
-                </div>--%>
+                </div>
             </div>
         </div>
     </div>
@@ -84,9 +84,11 @@
             <div class="col-md-12">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active show" href="" data-toggle="tab"
-                           data-target="#tabone">객실</a></li>
-                    <li class="nav-item"><a href="" class="nav-link" data-toggle="tab" data-target="#tabtwo">후기</a></li>
+                        <a class="nav-link active show" href="" data-toggle="tab" data-target="#tabone">객실</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link" data-toggle="tab" data-target="#tabtwo">후기</a>
+                    </li>
                 </ul>
                 <div class="tab-content mt-2">
                     <div class="tab-pane fade active show" id="tabone" role="tabpanel">
@@ -158,5 +160,4 @@
     </div>
 </div>
 </body>
-
 </html>

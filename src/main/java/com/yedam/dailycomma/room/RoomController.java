@@ -37,16 +37,15 @@ public class RoomController {
                              @PathVariable String lodgmentNo,
                              LodgmentDTO dto) {
         dto.setLodgmentNo(lodgmentNo);
-/*        StringBuffer str = new StringBuffer();
+        StringBuffer str = new StringBuffer();
         List<RoomDTO> list = roomService.getDetailRooms(dto);
         for(RoomDTO r : list)
         {
             str.append(r.getRoomImg());
         }
-        System.out.println("---------------------"+str);*/
 
         model.addAttribute("getDetailRooms", roomService.getDetailRooms(dto));
-        /*model.addAttribute("getAllImg" , str.toString());*/
+        model.addAttribute("getAllImg" , str.toString());
         return "room/detailRoom";
     }
 	
