@@ -2,6 +2,7 @@ package com.yedam.dailycomma.room;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,12 +32,21 @@ public class RoomController {
 	}
 
 	/*숙박 업체에 대한 전체 객실 리스트*/
-    @RequestMapping("/detailRoom.do/{lodgmentNo}")
+    @RequestMapping("/detailRooms.do/{lodgmentNo}")
     public String detailRooms(Model model,
                              @PathVariable String lodgmentNo,
                              LodgmentDTO dto) {
         dto.setLodgmentNo(lodgmentNo);
+/*        StringBuffer str = new StringBuffer();
+        List<RoomDTO> list = roomService.getDetailRooms(dto);
+        for(RoomDTO r : list)
+        {
+            str.append(r.getRoomImg());
+        }
+        System.out.println("---------------------"+str);*/
+
         model.addAttribute("getDetailRooms", roomService.getDetailRooms(dto));
+        /*model.addAttribute("getAllImg" , str.toString());*/
         return "room/detailRoom";
     }
 	
