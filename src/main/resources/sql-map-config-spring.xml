@@ -39,5 +39,7 @@
 		<!-- 마이페이지 -->
 		<typeAlias alias="Mypage" type="com.yedam.dailycomma.Mypage.MypageDTO"/>
 
+		<!-- tour(cast) 설정 -->
+		<typeAlias alias="tour" type="com.yedam.dailycomma.tour.TourDTO"/>
 	</typeAliases>	
 </configuration>
