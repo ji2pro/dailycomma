@@ -1,4 +1,4 @@
-package com.yedam.dailycomma.Mypage;
+package com.yedam.dailycomma.myPage;
 
 import java.util.List;
 
@@ -7,24 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.yedam.dailycomma.member.MemberDTO;
+
 @Repository
-public class MypageDAOMybatis {
+public class MyPageDAOMybatis {
 	
 	@Autowired SqlSessionTemplate mybatis;
 	
 	public MemberDTO getMember(MemberDTO dto) {
 		 return mybatis.selectOne("member.getMember",dto);
 	}
-	
-	public List<MypageDTO> getReserves(MypageDTO dto) {
-		 return mybatis.selectList("Mypage.getReserves",dto);
+	public List<MyPageDTO> getReserves(MyPageDTO dto) {
+		 return mybatis.selectList("myPage.getReserves",dto);
 	}
-	
-	public List<MypageDTO> getPoints(MypageDTO dto){
-		return mybatis.selectList("Mypage.getPoints",dto);
+	public List<MyPageDTO> getPoints(MyPageDTO dto){
+		return mybatis.selectList("myPage.getPoints",dto);
 	}
-	public List<MypageDTO> getCountrys(MypageDTO dto){
-		return mybatis.selectList("Mypage.getCountrys",dto);
+	public List<MyPageDTO> getCountries(MyPageDTO dto){
+		return mybatis.selectList("myPage.getCountries",dto);
 	}
 
 }

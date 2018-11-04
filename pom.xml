@@ -205,6 +205,13 @@
 			<artifactId>jquery</artifactId>
 			<version>3.3.1</version>
 		</dependency>
+		
+		<!-- jQuery UI -->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>jquery-ui</artifactId>
+		    <version>1.12.1</version>
+		</dependency>
 
 		<!-- Bootstrap 4 -->
 		<dependency>

@@ -38,7 +38,7 @@
 		<typeAlias alias="lodgmentSearch" type="com.yedam.dailycomma.lodgment.LodgmentSearchDTO" />
 		
 		<!-- 마이페이지 -->
-		<typeAlias alias="Mypage" type="com.yedam.dailycomma.Mypage.MypageDTO"/>
+		<typeAlias alias="myPage" type="com.yedam.dailycomma.myPage.MyPageDTO"/>
 
 		<!-- tour(cast) 설정 -->
 		<typeAlias alias="tour" type="com.yedam.dailycomma.tour.TourDTO"/>

@@ -1,7 +1,6 @@
-package com.yedam.dailycomma.Mypage;
+package com.yedam.dailycomma.myPage;
 
-public class MypageDTO {
-
+public class MyPageDTO {
 	private String reserveNo;
 	private String reserveDate;
 	private String company;
@@ -89,12 +88,9 @@ public class MypageDTO {
 	}
 	@Override
 	public String toString() {
-		return "MypageDTO [reserveNo=" + reserveNo + ", reserveDate=" + reserveDate + ", company=" + company
+		return "MyPageDTO [reserveNo=" + reserveNo + ", reserveDate=" + reserveDate + ", company=" + company
 				+ ", roomName=" + roomName + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", checkDate="
 				+ checkDate + ", memberNo=" + memberNo + ", reservePrice=" + reservePrice + ", reservePoints="
 				+ reservePoints + ", memberPoint=" + memberPoint + ", roomPrice=" + roomPrice + "]";
 	}
-	
-	
-	
 }

@@ -1,55 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="resources/include/css/Mypage.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-
-
-<style>
-.ui-tabs-vertical {
-	width: 55em;
-}
-
-.ui-tabs-vertical .ui-tabs-nav {
-	padding: .2em .1em .2em .2em;
-	float: left;
-	width: 12em;
-}
-
-.ui-tabs-vertical .ui-tabs-nav li {
-	clear: left;
-	width: 100%;
-	border-bottom-width: 1px !important;
-	border-right-width: 0 !important;
-	margin: 0 -1px .2em 0;
-}
-
-.ui-tabs-vertical .ui-tabs-nav li a {
-	display: block;
-}
-
-.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
-	padding-bottom: 0;
-	padding-right: .1em;
-	border-right-width: 1px;
-}
-
-.ui-tabs-vertical .ui-tabs-panel {
-	padding: 1em;
-	float: right;
-	width: 40em;
-}
-</style>
+<!-- jQuery UI -->
+<%-- <script src="<%=request.getContextPath()%>/webjars/jquery/1.12.0/jquery.min.js"></script> --%>
+<script src="<%=request.getContextPath()%>/webjars/jquery-ui/1.12.1/jquery-ui.min.js"></script>
+<link href="<%=request.getContextPath()%>/webjars/jquery-ui/1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<!-- myPage.css -->
+<link href="<%=request.getContextPath()%>/resources/include/css/myPage.css" rel="stylesheet" type="text/css" />
 
 <script>
 	$(function() {
@@ -99,7 +57,7 @@
 					<h4>소개</h4>
 				</div>
 				<div class="col-md-6">
-					<form action="Mypage.do">
+					<form action="myPage.do">
 						<br> 
 						<input type="text" size="70" class="my-3" name="memberName"readonly="readonly" value="${member.memberName}"> 
 						<input type="text" size="70" class="mt-2" name="memberNick"value="${member.memberNick}"> 

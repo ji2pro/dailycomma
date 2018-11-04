@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myPage">
+	<resultMap id="myPageResult" type="myPage">
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="reserveNo" column="RESERVE_NO" />
+		<result property="reserveDate" column="RESERVE_DATE" />
+		<result property="checkOut" column="CHECKOUT" />
+		<result property="checkIn" column="CHECKIN" />
+		<result property="reservePrice" column="RESERVE_PRICE" />
+		<result property="roomName" column="ROOM_NAME" />
+		<result property="checkDate" column="CHECKDATE" />
+		<result property="reservePoints" column="RESERVE_POINTS" />
+		<result property="memberPoint" column="MEMBER_POINT" />
+		<result property="roomPrice" column="ROOM_PRICE" />
+	</resultMap>
+
+	<!-- 예약내역 -->
+	<select id="getReserves" parameterType="myPage"
+		resultMap="myPageResult">
+		SELECT
+			R.RESERVE_NO, R.RESERVE_DATE, L.COMPANY, M.ROOM_NAME, R.CHECKOUT-R.CHECKIN
+			AS CHECKDATE, R.RESERVE_PRICE
+		FROM RESERVATION R JOIN LODGMENT L
+		ON
+			R.LODGMENT_NO = L.LODGMENT_NO
+		JOIN ROOM M
+			ON M.ROOM_NO = R.ROOM_NO
+		JOIN MEMBER F
+		ON
+			F.MEMBER_NO = R.MEMBER_NO
+	</select>
+
+	<select id="getPoints" resultMap="myPageResult" parameterType="myPage">
+		SELECT R.RESERVE_POINTS, R.CHECKOUT, M.MEMBER_POINT
+			FROM MEMBER M JOIN RESERVATION R
+		ON M.MEMBER_NO = R.MEMBER_NO
+	</select>
+
+	<select id="getCountries" resultMap="myPageResult" parameterType="myPage">
+		SELECT L.COMPANY, R.ROOM_NAME, R.ROOM_PRICE
+			FROM ROOM R JOIN LODGMENT L
+		ON R.LODGMENT_NO = L.LODGMENT_NO
+	</select>
+
+</mapper> 
