@@ -12,6 +12,9 @@ public interface RoomService {
 	/* 숙박 업체에 대한 전체 객실 리스트*/
 	public List<RoomDTO> getDetailRooms(LodgmentDTO dto);
 
+	/*숙박 업체에 대한 전체 후기 리스트*/
+	public List<RoomPostDTO> getDetailRoomPosts(LodgmentDTO dto);
+
 	//객실 등록
 	public int insertRoom(RoomDTO dto);
 }

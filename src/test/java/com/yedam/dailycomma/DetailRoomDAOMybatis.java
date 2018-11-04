@@ -3,6 +3,7 @@ package com.yedam.dailycomma;
 import com.yedam.dailycomma.lodgment.LodgmentDTO;
 import com.yedam.dailycomma.room.RoomDAOMybatis;
 import com.yedam.dailycomma.room.RoomDTO;
+import com.yedam.dailycomma.room.RoomPostDTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,17 @@ public class DetailRoomDAOMybatis {
 
         for(RoomDTO list : dto2) {
             System.out.println(list.getRoomImg());
+        }
+    }
+
+    @Test
+    public void getDetailRoomPosts() {
+        ldto.setLodgmentNo("LOD50");
+        List<RoomPostDTO> dto2 = dao.getDetailRoomPosts(ldto);
+
+        for(RoomPostDTO list : dto2) {
+            System.out.println(list.getPostscriptContent() + ", " + list.getRoomName()+", "+ list.getLodgmentNo()
+            +", " + list.getMemberNick());
         }
     }
 }

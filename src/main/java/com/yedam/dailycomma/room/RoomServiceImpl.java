@@ -25,6 +25,10 @@ public class RoomServiceImpl implements RoomService {
 		return dao.getDetailRooms(dto);
 	}
 
+	/*숙박 업체에 대한 전체 후기 리스트*/
+	@Override
+	public List<RoomPostDTO> getDetailRoomPosts(LodgmentDTO dto) {return dao.getDetailRoomPosts(dto);}
+
 	@Override
 	public int insertRoom(RoomDTO dto) {
 		// TODO Auto-generated method stub
