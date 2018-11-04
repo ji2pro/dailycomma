@@ -51,9 +51,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-12" id="filetag">
-			
-			</div>
+			<div class="col-md-12" id="filetag"></div>
 		   <div class="row">
 				<div class="col-md-8">
 					<button type="button" class="btn btn-danger" id="add_more">추가하기</button>

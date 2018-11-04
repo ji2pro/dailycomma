@@ -14,4 +14,10 @@ public class TourServiceImpl implements TourService {
 		// TODO Auto-generated method stub
 		return dao.getTours();
 	}
+
+	@Override
+	public int insertTour(TourDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.insertTour(dto);
+	}
 }

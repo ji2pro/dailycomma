@@ -20,4 +20,16 @@ public class TourController {
 	public String castListForm() {	
 		return "cast/castList";
 	}
+	
+	@RequestMapping("/registerCastForm.do")
+	public String registerCastForm() {
+		return "cast/registerCast";
+	}
+	
+	@RequestMapping("/insertTour.do")
+	public String insertTour(TourDTO dto) {
+		tourService.insertTour(dto);
+		return "redirect:/registerCastForm.do";
+	}
+	
 }

@@ -14,4 +14,8 @@ public class TourDAO {
 	public List<TourDTO> getTours() {
 		return mybatis.selectList("tour.getTours");
 	}
+	
+	public int insertTour(TourDTO dto) {
+		return mybatis.insert("tour.insertTour", dto);
+	}
 }

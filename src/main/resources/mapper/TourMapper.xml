@@ -9,4 +9,18 @@
 	ORDER BY TOUR_DATE
 </select>
 
+<insert id="insertTour" parameterType="tour">
+	INSERT INTO TOUR
+	(
+		TOUR_ID, 
+		TOUR_TITLE, 
+		TOUR_IMG
+	)	
+	VALUES
+	(
+		CONCAT('TO',TO_CHAR(TOUR_SEQ.nextval)), 
+		#{tourTitle},
+		#{tourImg}
+	)	
+</insert>
 </mapper> 
