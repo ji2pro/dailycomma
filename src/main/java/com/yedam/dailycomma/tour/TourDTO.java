@@ -1,5 +1,7 @@
 package com.yedam.dailycomma.tour;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class TourDTO {
 	private String tourId;			//관광 ID
 	private String memberNo;		//회원 번호(FK)
@@ -10,7 +12,15 @@ public class TourDTO {
 	private String tourDate;		//관광 작성일
 	private String tourLocation;	//관광 지역
 	private String tourState;		//관광 승인(상태)
+	private MultipartFile[] uploadFile; //다중 파일시 배열로
 	
+	
+	public MultipartFile[] getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile[] uploadFile) {
+		this.uploadFile = uploadFile;
+	}
 	public String getTourId() {
 		return tourId;
 	}

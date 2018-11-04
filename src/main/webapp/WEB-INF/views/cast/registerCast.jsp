@@ -25,7 +25,7 @@
 	</div>
 	
 	<div>		
-	  <form action="insertRoom.do" method="post" enctype="multipart/form-data">
+	  <form action="insertTour.do" method="post" enctype="multipart/form-data">
 		  <div class="row">
 			<div class="col">
 				<input type="text" name="tourTitle" class="form-control" placeholder="Cast제목"/>

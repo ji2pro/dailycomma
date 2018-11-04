@@ -2,83 +2,34 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<script>
-// external js: masonry.pkgd.js, imagesloaded.pkgd.js
-
-// init Masonry after all images have loaded
-    var $grid = $('.grid').imagesLoaded( function() {
-    $grid.masonry({
-        itemSelector: '.grid-item',
-        percentPosition: true,
-        columnWidth: '.grid-sizer'
-    }); 
-    });
-</script>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        /* force scrollbar */
-
-        html {
-            overflow-y: scroll;
-        }
-
-        body {
-            font-family: sans-serif;
-        }
-
-        /* ---- grid ---- */
-
-        .grid {
-            background: #ffffff;
-        }
-
-        /* clear fix */
-
-        .grid:after {
-            content: '';
-            display: block;
-            clear: both;
-        }
-
-        /* ---- .grid-item ---- */
-
-        .grid-sizer,
-        .grid-item {
-            width: 370px;
-        }
-
-        .grid-item {
-            float: left;
-        }
-
-        .grid-item img {
-            display: block;
-            max-width: 100%;
-        }
-    </style>
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./resources/include/css/cast/cast-css.css">
+	<script src="./resources/include/js/cast/cast-js.js"></script>
 </head>
 
 <body>
+
     <h1>Masonry - imagesLoaded progress</h1>
 
 <div class="grid">
-  <div class="grid-sizer"></div>
-  <div class="grid-item">
+  <div class="grid-sizer"></div>    
+    
+<c:forEach items="${tours}" var="t">
+  <div class="grid-item" id="${t.tourId}">    
     <div class="card" style="width: 23rem;">
-        <img class="card-img-top" src="resources/images/cast/castimg-1.jpg" alt="Card image cap">
+    <c:forTokens items="${t.tourImg}" var="img" delims=",">
+        <img class="card-img-top" src="resources/images/cast/${img}" alt="Card image cap">
+    </c:forTokens>    
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title">${t.tourTitle}</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
     </div> 
-    
+</c:forEach>    
   
   <div class="grid-item">
      <div class="card" style="width: 23rem;">
@@ -152,9 +103,7 @@
     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg" />
   </div>
 </div>
-
 </body>
-
 </html>
 
 

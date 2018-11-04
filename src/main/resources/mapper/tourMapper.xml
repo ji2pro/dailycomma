@@ -14,13 +14,15 @@
 	(
 		TOUR_ID, 
 		TOUR_TITLE, 
-		TOUR_IMG
+		TOUR_IMG,
+		TOUR_DATE
 	)	
 	VALUES
 	(
 		CONCAT('TO',TO_CHAR(TOUR_SEQ.nextval)), 
 		#{tourTitle},
-		#{tourImg}
+		#{tourImg},
+		SYSDATE
 	)	
 </insert>
 </mapper> 
