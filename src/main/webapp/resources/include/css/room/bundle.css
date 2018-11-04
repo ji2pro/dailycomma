@@ -1,0 +1,518 @@
+.detail-info__title {
+    font-size: 42px;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: 200;
+    letter-spacing: -1px
+}
+
+.detail-info__address {
+    font-size: 14px
+}
+
+.detail-info__score {
+    margin-top: 20px
+}
+
+.detail-info__score .score-rap {
+    margin-top: -2px;
+    display: inline-block;
+    vertical-align: middle
+}
+
+.detail-info__score em {
+    font-size: 14px;
+    display: inlie-block;
+    margin-left: 5px;
+    margin-top: 1px
+}
+
+.detail-info__tag {
+    margin-top: 15px;
+    min-height: 24px
+}
+
+.detail-info__tip {
+    margin-top: 15px
+}
+
+.detail-info__tip li {
+    font-size: 14px;
+    color: #333;
+    padding-left: 20px;
+    margin-top: 5px;
+    background: url(https://yaimg.yanolja.com/joy/pw/place/bullet-tip-list.svg) no-repeat 0 0
+}
+
+.detail-info__tip li:first-child {
+    margin-top: 0
+}
+.mapinfo-content .mapinfo-box .score-rap {
+    margin-top: -2px;
+    display: inline-block;
+    vertical-align: middle
+}
+.recommends-list .recommend-item .info-box .score-rap .icon-staylist-score {
+    margin-top: -1px
+}
+.recommends-list .recommend-item .info-box .score-rap .icon-score {
+    display: inline-block;
+    width: 90px;
+    height: 20px;
+    background-color: #eee
+}
+.recommends-list .recommend-item .info-box .score-rap em {
+    font-size: 14px;
+    color: #aaa;
+    margin-left: 10px
+}
+.icon-staylist {
+    display: inline-block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    vertical-align: middle;
+    background: url(https://yaimg.yanolja.com/joy/pw/search/icon-staylist.svg) no-repeat
+}
+
+i.icon-staylist.icon-staylist-score.score10 {
+}
+
+.icon-staylist-hot {
+    width: 34px;
+    height: 14px;
+    background-position: 0 -17px
+}
+
+.icon-staylist-new {
+    width: 36px;
+    height: 14px;
+    background-position: -34px -17px
+}
+
+.icon-staylist-score {
+    width: 16px;
+    height: 16px
+}
+
+.icon-staylist-score.score10 {
+    background-position: 0 0
+}
+
+.icon-staylist-score.score05 {
+    background-position: -18px 0
+}
+
+.icon-staylist-score.score00 {
+    background-position: -38px 0
+}
+
+.icon-staylist-distance {
+    width: 16px;
+    height: 16px;
+    background-position: -84px 0
+}
+
+.icon-staylist-goodstay {
+    width: 30px;
+    height: 30px;
+    background-position: 0 -70px
+}
+.tag-rap .tag-primary,
+.tag-rap .tag-default {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.tag-primary {
+    background-color: #FF2D60;
+    color: white;
+    font-size: 13px;
+    display: inline-block;
+    padding: 4px 8px;
+}
+.detail-theme {
+    margin-top: 40px
+}
+
+.detail-theme__inner {
+    position: relative;
+    overflow: hidden
+}
+
+.detail-theme .theme-list {
+    margin-left: -20px
+}
+.sc-out {
+    overflow: hidden;
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+.theme-list .theme-item {
+    float: left;
+    width: 60px;
+    min-height: 84px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    text-align: center
+}
+
+.theme-list .theme-item img {
+    width: 60px
+}
+
+.theme-list .theme-item span {
+    font-size: 13px;
+    display: block;
+    margin-top: 5px;
+    text-align: center
+}
+.theme-list:after {
+    content: "";
+    display: table;
+    clear: both;
+    *zoom: 1
+}
+.place-badge {
+    position: absolute;
+    top: 0;
+    right: 0
+}
+
+.place-badge .share-rap {
+    margin-top: 5px;
+    text-align: right
+}
+
+.place-badge .share-rap .icon-sharesns {
+    margin-left: 10px
+}
+
+.place-badge .coupon-rap {
+    margin-top: 70px
+}
+
+.place-badge {
+    position: absolute;
+    top: 0;
+    right: 0
+}
+
+.place-badge .share-rap {
+    margin-top: 5px;
+    text-align: right
+}
+
+.place-badge .share-rap .icon-sharesns {
+    margin-left: 10px
+}
+
+.place-badge .coupon-rap {
+    margin-top: 70px
+}
+.icon-badge-bestpick {
+    width: 60px;
+    height: 40px;
+    background-position: -54px -102px
+}
+.place-room__reserve-btn {
+    /*position: absolute;*/
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    text-align: center;
+    color: #fff
+}
+
+.place-room__reserve-btn.btn-reserve_on {
+    --webkit--background: linear-gradient(top, #ff4143, #ff1764);
+    background: linear-gradient(top, #ff4143, #ff1764);
+    background: #ff4143;
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0, #ff4143), color-stop(100%, #ff1764));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0dca9a", endColorstr="#22c4d1", GradientType=0)
+}
+
+.place-room__message {
+    min-height: 22px;
+    margin-top: 30px;
+    padding: 18px 20px 14px;
+    background-color: #f1fcfc;
+    border: 1px solid #e3eded;
+    font-size: 13px
+}
+.badge-live {
+    background-color: #18d0c5
+}
+
+.place-review__item.is-thumbnail .review-info {
+    padding-left: 240px
+}
+.review-info:hover {
+    color: #666;
+    background-color: #fafafa
+}
+
+.review-info__title {
+    margin-bottom: 20px
+}
+
+.review-info__title .badge-rap {
+    display: inline-block;
+    vertical-align: middle
+}
+
+.review-info__title strong {
+    color: #333;
+    display: inline-block;
+    margin-right: 100px;
+    vertical-align: top
+}
+
+.review-info__content {
+    font-size: 15px
+}
+.review-info {
+    display: block;
+    padding: 30px 10px;
+    min-height: 140px
+}
+
+.place-review__item.is-thumbnail .review-info {
+    padding-left: 240px
+}
+
+.badge-best, .badge-live, .badge-visited {
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    padding: 3px 5px 2px;
+    margin-right: 5px
+}
+.badge-best {
+    background-color: #ff2d60
+}
+
+.review-userinfo {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #888
+}
+.review-userinfo .bar {
+    margin: 0 10px;
+    width: 1px;
+    height: 13px;
+    background-color: #ddd
+}
+.review-userinfo .bar, .review-userinfo .date, .review-userinfo .nicname, .review-userinfo .roomtype {
+    display: inline-block;
+    vertical-align: middle
+}
+.comment-item .nicname {
+    color: #333;
+    font-weight: 600
+}
+.toast-cont .bar {
+    background-color: #fff;
+    display: inline-block;
+    width: 1px;
+    height: 18px;
+    margin: 0 10px;
+    vertical-align: middle
+}
+.place-review__score {
+    top: 28px;
+    right: 10px
+}
+.detail-info__score .score-rap {
+    margin-top: -2px;
+    display: inline-block;
+    vertical-align: middle
+}
+.icon-staylist {
+    display: inline-block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    vertical-align: middle;
+    background: url(https://yaimg.yanolja.com/joy/pw/search/icon-staylist.svg) no-repeat
+}
+
+i.icon-staylist.icon-staylist-score.score10 {
+}
+
+.icon-staylist-hot {
+    width: 34px;
+    height: 14px;
+    background-position: 0 -17px
+}
+
+.icon-staylist-new {
+    width: 36px;
+    height: 14px;
+    background-position: -34px -17px
+}
+
+.icon-staylist-score {
+    width: 16px;
+    height: 16px
+}
+
+.icon-staylist-score.score10 {
+    background-position: 0 0
+}
+
+.icon-staylist-score.score05 {
+    background-position: -18px 0
+}
+
+.icon-staylist-score.score00 {
+    background-position: -38px 0
+}
+
+.icon-staylist-distance {
+    width: 16px;
+    height: 16px;
+    background-position: -84px 0
+}
+
+.icon-staylist-goodstay {
+    width: 30px;
+    height: 30px;
+    background-position: 0 -70px
+}
+.recommends-list .recommend-item .info-box .score-rap .icon-staylist-score {
+    margin-top: -1px
+}
+.icon-badge-bestpick {
+    width: 60px;
+    height: 40px;
+    background-position: -54px -102px
+}
+.promotion-topbanner .banner-cont .badge-rap {
+    margin-top: 100px;
+    margin-bottom: 25px
+}
+.best-recommends-list.mobile .badge-box .badge-rap {
+    font-size: 12px;
+    color: #fff;
+    --webkit--background: linear-gradient(top, #0dca9a, #22c4d1);
+    background: linear-gradient(top, #0dca9a, #22c4d1);
+    background: #0dca9a;
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0, #0dca9a), color-stop(100%, #22c4d1));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0dca9a", endColorstr="#22c4d1", GradientType=0);
+    padding: 5px 10px
+}
+.recommends-list .recommend-item .image-box .badge-rap {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100%
+}
+.recommends-list .recommend-item .image-box .badge-rap:after {
+    content: "";
+    display: table;
+    clear: both;
+    *zoom: 1
+}
+
+.recommends-list .recommend-item .image-box .badge-rap span {
+    font-size: 13px;
+    color: #fff;
+    display: inline-block;
+    padding: 4px 5px;
+    margin-left: 5px
+}
+
+.recommends-list .recommend-item .image-box .badge-rap span:first-child {
+    margin-left: 0
+}
+
+.recommends-list .recommend-item .image-box .badge-rap span.badge-coupon {
+    background-color: #18d0c5
+}
+
+.recommends-list .recommend-item .image-box .badge-rap span.badge-goodstay, .recommends-list .recommend-item .image-box .badge-rap span.badge-myroom {
+    background-color: #ff2d60
+}
+.recommends-list .recommend-item .info-box .badge-rap {
+    margin-top: 30px
+}
+
+.recommends-list .recommend-item .info-box .badge-rap span {
+    display: inline-block;
+    margin-left: 15px
+}
+
+.recommends-list .recommend-item .info-box .badge-rap span em {
+    font-size: 14px;
+    color: #333;
+    margin-left: 5px
+}
+
+.recommends-list .recommend-item .info-box .badge-rap span:first-child {
+    margin-left: 0
+}
+.promotion-list-mobile .badge-rap, .promotion-list-mobile .text-cnt-para, .promotion-list-mobile .text-cnt-tit {
+    display: block
+}
+.promotion-list-pc .image-cnt .badge-rap {
+    position: absolute;
+    top: 5px;
+    left: 5px
+}
+.review-detail__title .badge-rap, .review-detail__title em {
+    display: inline-block;
+    vertical-align: middle
+}
+.review-detail .place-review__score {
+    display: inline-block;
+    position: static;
+    margin-right: 15px
+}
+.mapinfo-content .mapinfo-box .score-rap {
+    margin-top: -2px;
+    display: inline-block;
+    vertical-align: middle
+}
+.recommends-list .recommend-item .info-box .score-rap .icon-score {
+    display: inline-block;
+    width: 90px;
+    height: 20px;
+    background-color: #eee
+}
+.recommends-list .recommend-item .info-box .score-rap em {
+    font-size: 14px;
+    color: #aaa;
+    margin-left: 10px
+}
+.place-review__item {
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+}
+dl, ul, ol, menu, li {
+    list-style: none;
+    outline: none;
+}
+a {
+    color: #666666;
+    text-decoration: none;
+    cursor: pointer;
+}
+.pc-wrapper .column1, .pc-wrapper .column2 {
+    width: 1180px;
+    margin: 0 auto;
+}
+.pc-wrapper .column2 {
+    position: relative;
+}
+.place-detail {
+    padding-top: 38px;
+}

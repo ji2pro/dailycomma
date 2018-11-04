@@ -31,6 +31,7 @@
 		
 		<!-- 룸 상세 -->
 		<typeAlias alias="detailRoom" type="com.yedam.dailycomma.room.RoomDTO"/>
+		<typeAlias alias="roomPost" type="com.yedam.dailycomma.room.RoomPostDTO" />
 
 		<!-- 숙소 상세 -->
 		<typeAlias alias="lodgment" type="com.yedam.dailycomma.lodgment.LodgmentDTO"/>

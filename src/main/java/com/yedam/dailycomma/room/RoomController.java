@@ -31,21 +31,27 @@ public class RoomController {
 		return "room/detailRoom";
 	}
 
-	/*숙박 업체에 대한 전체 객실 리스트*/
+	/*숙박 업체에 대한 전체 객실 리스트 및 후기 리스트*/
     @RequestMapping("/detailRooms.do/{lodgmentNo}")
     public String detailRooms(Model model,
                              @PathVariable String lodgmentNo,
                              LodgmentDTO dto) {
         dto.setLodgmentNo(lodgmentNo);
+
+        /*전체 이미지를 가져온다.*/
         StringBuffer str = new StringBuffer();
         List<RoomDTO> list = roomService.getDetailRooms(dto);
         for(RoomDTO r : list)
         {
             str.append(r.getRoomImg());
         }
-
+        /*숙박 업체에 대한 전체 객실 리스트*/
         model.addAttribute("getDetailRooms", roomService.getDetailRooms(dto));
+        /*숙박 업체에 대한 전체 후기 리스트*/
+        model.addAttribute("getDetailRoomPosts", roomService.getDetailRoomPosts(dto));
+        /*전체 이미지*/
         model.addAttribute("getAllImg" , str.toString());
+
         return "room/detailRoom";
     }
 	
