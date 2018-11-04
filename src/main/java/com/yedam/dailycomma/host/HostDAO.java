@@ -13,17 +13,17 @@ public class HostDAO {
 	
 	@Autowired SqlSessionTemplate mybatis;
 	
-/*	//전체조회
-	public List<LodgmentDTO> getUsers(HostSearchDTO searchDTO){
+	//전체조회
+	public List<HostDTO> getHosts(HostSearchDTO searchDTO){
 		System.out.println("host mybatis 전체 조회========");
-		return mybatis.selectList("host.getHosts",searchDTO);
+		return mybatis.selectList("host.getHosts", searchDTO);
 	}
 	//건수 조회
 	public int getCnt(HostSearchDTO searchDTO) {
-		return mybatis.selectOne("host.getCnt",searchDTO);
+		return mybatis.selectOne("host.getCnt", searchDTO);
 	}
 	//단건조회
-	public LodgmentDTO getUser(LodgmentDTO dto){
+	/*public LodgmentDTO getUser(LodgmentDTO dto){
 		System.out.println("host mybatis 단건 조회========");
 		return mybatis.selectOne("host.getHost", dto);
 	}*/
