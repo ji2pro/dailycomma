@@ -19,7 +19,7 @@
     <link href="<%=request.getContextPath()%>/resources/include/css/common.css" rel="stylesheet" type="text/css" /> 
     <link href="<%=request.getContextPath()%>/resources/include/css/main.css" rel="stylesheet" type="text/css" />
     <link href="<%=request.getContextPath()%>/resources/include/css/reservation.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/resources/include/css/admin.css" rel="stylesheet" type="text/css" />
+<%--     <link href="<%=request.getContextPath()%>/resources/include/css/admin.css" rel="stylesheet" type="text/css" /> --%>
        
     <script src="<%=request.getContextPath()%>/resources/include/js/clock.js"></script> <!-- 현재시간 자바스크립트 파일 --> 
 	<script src="<%=request.getContextPath()%>/webjars/masonry/4.2.0/masonry.pkgd.min.js"></script>
