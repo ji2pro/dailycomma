@@ -6,17 +6,16 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="./resources/include/css/cast/cast-css.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.js"></script>
 	<script src="./resources/include/js/cast/cast-js.js"></script>
 </head>
 
 <body>
-
     <h1>Masonry - imagesLoaded progress</h1>
-
 <div class="grid">
   <div class="grid-sizer"></div>    
-    
-<c:forEach items="${tours}" var="t">
+
+<%--  <c:forEach items="${tours}" var="t">
   <div class="grid-item" id="${t.tourId}">    
     <div class="card" style="width: 23rem;">
     <c:forTokens items="${t.tourImg}" var="img" delims=",">
@@ -29,9 +28,9 @@
         </div>
       </div>
     </div> 
-</c:forEach>    
+</c:forEach>   --%>   
   
-  <div class="grid-item">
+ <!--  <div class="grid-item">
      <div class="card" style="width: 23rem;">
             <img class="card-img-top" src="resources/images/cast/castimg-2.jpg" alt="Card image cap">
             <div class="card-body">
@@ -101,7 +100,7 @@
   </div>
   <div class="grid-item">
     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg" />
-  </div>
+  </div> -->
 </div>
 </body>
 </html>

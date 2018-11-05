@@ -5,8 +5,10 @@
 
 <!-- 전체 조회 -->
 <select id="getTours" resultType="tour">
+SELECT * FROM ( SELECT T.*, ROWNUM RN FROM (	
 	SELECT * FROM TOUR
-	ORDER BY TOUR_DATE
+
+) T ) A WHERE RN BETWEEN #{start} and #{end}	
 </select>
 
 <insert id="insertTour" parameterType="tour">
