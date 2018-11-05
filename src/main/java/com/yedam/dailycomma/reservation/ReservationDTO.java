@@ -3,6 +3,8 @@ package com.yedam.dailycomma.reservation;
 public class ReservationDTO {
 	//예약
 	private String reserveNo;		//예약번호
+	private String memberName;		//회원 이름
+	private String memberEmail;		//회원 이메일
 	private String lodgmentNo;		//숙박업체번호
 	private String memberNo;		//회원번호
 	private String roomNo;			//객실번호
@@ -14,12 +16,23 @@ public class ReservationDTO {
 	private String reservePoints;	//예약포인트
 	private String reserveState;	//예약상태
 	
-	
 	public String getReserveNo() {
 		return reserveNo;
 	}
 	public void setReserveNo(String reserveNo) {
 		this.reserveNo = reserveNo;
+	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+	public String getMemberEmail() {
+		return memberEmail;
+	}
+	public void setMemberEmail(String memberEmail) {
+		this.memberEmail = memberEmail;
 	}
 	public String getLodgmentNo() {
 		return lodgmentNo;

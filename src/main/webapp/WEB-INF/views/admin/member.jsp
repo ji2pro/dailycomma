@@ -3,25 +3,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 
-<!-- 업주 관리 -->
+<!-- 회원 관리 -->
 <div class="row">
 	<div class="col-md-12">
 		<table class="table table-hover table-sm">
 			<thead class="thead-light">
 				<tr class="text-center">
 					<th scope="col">선택</th>
+					<th scope="col">회원 번호</th>
 					<th scope="col">이름</th>
-					<th scope="col">아이디</th>
+					<th scope="col">닉네임</th>
 					<th scope="col">이메일</th>
-					<th scope="col">연락처</th>
-					<th scope="col">사업자 번호</th>
-					<th scope="col">업주 등록일</th>
-					<th scope="col">업주 승인</th>
+					<th scope="col">보유 포인트</th>
+					<th scope="col">가입일</th>
 					<th scope="col">관리</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${list}" var="host">
+				<c:forEach items="${list}" var="member">
 				<tr class="text-center">
 					<th scope="row">
 						<div class="custom-control custom-checkbox">
@@ -30,13 +29,12 @@
 								class="custom-control-label" for="same-address">&nbsp;</label>
 						</div>
 					</th>
-					<td>${host.hostName}</td>
-					<td>${host.hostId}</td>
-					<td>${host.hostEmail}</td>
-					<td>${host.hostPhone}</td>
-					<td>${host.businessNo}</td>
-					<td>${host.signupDate}</td>
-					<td>승인 ?</td>
+					<td>${member.memberNo}</td>
+					<td>${member.memberName}</td>
+					<td>${member.memberNick}</td>
+					<td>${member.memberEmail}</td>
+					<td>${member.memberPoint}</td>
+					<td>${member.signupDate}</td>
 					<td>
 						<div class="btn-group">
 							<a href="#" class="btn btn-outline-success btn-sm">수정</a>
@@ -56,3 +54,4 @@
 </div>
 <!-- 페이징 버튼 -->
 <my:paging paging="${paging}" />
+		
