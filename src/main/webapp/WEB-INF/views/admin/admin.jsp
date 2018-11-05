@@ -63,6 +63,9 @@
 
 <script>
 $(function() {
+	/*
+	* Ajax Tabs(탭 클릭할 때마다 페이지 출력하기)
+	*/
 	$('#adminTabs li a').on('click', function(e) {
 		e.preventDefault()
 		
@@ -75,6 +78,7 @@ $(function() {
 
 		$(this).tab('show');
 	});
+	//기본 첫 페이지 출력(페이지 들어오면 보이도록.)
 	$.get('member.do', function(data) {
 		$('#memberAdmin').html(data);
 	});
