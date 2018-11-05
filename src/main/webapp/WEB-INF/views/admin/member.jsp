@@ -61,6 +61,7 @@
 
 <script>
 $(function() {
+	//테이블 체크박스(선택) 기능
 	$('input[name=_selected_all_]').on('change', function() {
 		$('input[name=_selected_]').prop('checked', this.checked);
 	});
@@ -68,5 +69,5 @@ $(function() {
 	var arr = $('input[name=_selected_]:checked').serializeArray().map(function(item) {
 		return item.value
 	})
-})
+});
 </script>
