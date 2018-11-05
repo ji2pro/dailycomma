@@ -9,21 +9,22 @@
 	</select>
 
 	<!-- 전체 조회 -->
-	<select id="getHosts" resultType="host" parameterType="hostSearch">
+	<select id="getLodgments" resultType="lodgment" parameterType="lodgmentSearch">
 	SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
-		SELECT host_id, host_email, host_phone, host_name, address, business_no FROM LODGMENT
+		SELECT lodgment_no, company, address, location, lodgment_type, lodgment_info
+			FROM LODGMENT
 		<where>
 			<if test="ids != null">
-				HOST_ID IN
+				lodgment_no IN
 				<foreach collection="ids" open="(" close=")" separator="," item="item">
 					#{item}
 				</foreach>
 			</if>
-			<if test="searchCondition == 'id'">
-				AND HOST_ID LIKE '%' || #{searchKeyword} || '%'
+			<if test="searchCondition == 'company'">
+				AND company LIKE '%' || #{searchKeyword} || '%'
 			</if>
-			<if test="searchCondition == 'name'">
-				AND COMPANY LIKE '%' || #{searchKeyword} || '%'		
+			<if test="searchCondition == 'location'">
+				AND location LIKE '%' || #{searchKeyword} || '%'		
 			</if>
 <!-- 			<if test="role != null and role != ''">
 				AND ROLE = #{role}
@@ -35,13 +36,31 @@
 				#{sort}
 			</when>
 			<otherwise>
-				HOST_ID
+				lodgment_no
 			</otherwise>
 		</choose>
 	) U ) A WHERE RN BETWEEN #{start} and #{end}
 	</select>
 	
 	<!-- 페이징 처리에 필요. 검색 조건에 대한 Cnt 조회 -->
+	<select id="getCnt" resultType="int" parameterType="lodgmentSearch">
+		SELECT COUNT(*)
+			FROM LODGMENT
+		<where>
+			<if test="ids != null">
+				lodgment_no IN
+				<foreach collection="ids" open="(" close=")" separator="," item="item">
+					#{item}
+				</foreach>
+			</if>
+			<if test="searchCondition == 'company'">
+				AND company LIKE '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="searchCondition == 'location'">
+				AND location LIKE '%' || #{searchKeyword} || '%'		
+			</if>
+		</where>
+	</select>
 
 <select id="getMainSearch" parameterType="lodgment" resultType="lodgment">
 	  SELECT l.COMPANY, g.AVG_GRADE, g.people_cnt

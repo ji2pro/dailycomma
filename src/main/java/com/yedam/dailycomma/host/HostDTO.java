@@ -9,7 +9,7 @@ public class HostDTO {
 	private String address;			//숙박업체 주소
 	private String businessNo;		//사업자 번호
 	private String location;
-	
+	private String signupDate;
 	
 	public String getLocation() {
 		return location;
@@ -59,7 +59,12 @@ public class HostDTO {
 	public void setBusinessNo(String businessNo) {
 		this.businessNo = businessNo;
 	}
-	
+	public String getSignupDate() {
+		return signupDate;
+	}
+	public void setSignupDate(String signupDate) {
+		this.signupDate = signupDate;
+	}
 	@Override
 	public String toString() {
 		return "HostDTO [hostId=" + hostId + ", hostEmail=" + hostEmail + ", hostPw=" + hostPw + ", hostPhone="

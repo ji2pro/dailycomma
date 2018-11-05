@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import com.yedam.dailycomma.host.HostDAO;
 import com.yedam.dailycomma.host.HostDTO;
 import com.yedam.dailycomma.host.HostSearchDTO;
+import com.yedam.dailycomma.lodgment.LodgmentDAO;
+import com.yedam.dailycomma.lodgment.LodgmentDTO;
+import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
 import com.yedam.dailycomma.member.MemberDAOMybatis;
 import com.yedam.dailycomma.member.MemberDTO;
 import com.yedam.dailycomma.member.MemberSearchDTO;
@@ -16,17 +19,29 @@ import com.yedam.dailycomma.member.MemberSearchDTO;
 public class AdminServiceImpl implements AdminService {
 	@Autowired MemberDAOMybatis memberDAO;
 	@Autowired HostDAO hostDAO;
+	@Autowired LodgmentDAO lodgmentDAO;
 	
-	public List<MemberDTO> getMembers(MemberSearchDTO searchDTO) {
-		return memberDAO.getMembers(searchDTO);
+	//회원
+	public List<MemberDTO> getMembers(MemberSearchDTO memberSearchDTO) {
+		return memberDAO.getMembers(memberSearchDTO);
 	}
-	public List<HostDTO> getHosts(HostSearchDTO searchDTO) {
-		return hostDAO.getHosts(searchDTO);
+	public int getMemberCnt(MemberSearchDTO memberSearchDTO) {
+		return memberDAO.getCnt(memberSearchDTO);
 	}
-	public int getMemberCnt(MemberSearchDTO searchDTO) {
-		return memberDAO.getCnt(searchDTO);
+	
+	//업주
+	public List<HostDTO> getHosts(HostSearchDTO hostSearchDTO) {
+		return hostDAO.getHosts(hostSearchDTO);
 	}
-	public int getHostCnt(HostSearchDTO searchDTO) {
-		return hostDAO.getCnt(searchDTO);
+	public int getHostCnt(HostSearchDTO hostSearchDTO) {
+		return hostDAO.getCnt(hostSearchDTO);
+	}
+	
+	//업체
+	public List<LodgmentDTO> getLodgments(LodgmentSearchDTO lodgmentSearchDTO) {
+		return lodgmentDAO.getLodgments(lodgmentSearchDTO);
+	}
+	public int getLodgmentCnt(LodgmentSearchDTO lodgmentSearchDTO) {
+		return lodgmentDAO.getCnt(lodgmentSearchDTO);
 	}
 }

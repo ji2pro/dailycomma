@@ -7,6 +7,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.yedam.dailycomma.common.Paging;
 import com.yedam.dailycomma.host.HostSearchDTO;
+import com.yedam.dailycomma.lodgment.LodgmentDTO;
+import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
 import com.yedam.dailycomma.member.MemberSearchDTO;
 
 @Controller
@@ -17,13 +19,13 @@ public class AdminController {
 	public String admin() {
 		return "admin/admin";
 	}*/
-	@RequestMapping("/admin.do")
-	public ModelAndView getInformations(ModelAndView mv,
-										MemberSearchDTO memberSearchDTO,
-										HostSearchDTO hostSearchDTO,
-										Paging paging) {
+	
+	@RequestMapping("/admin.do")  //관리자 페이지 메인
+	public ModelAndView getMembers(ModelAndView mv,
+								   MemberSearchDTO memberSearchDTO,
+								   Paging paging) {
 		// 조회할 레코드 건수
-		paging.setPageUnit(3);
+		paging.setPageUnit(10);
 
 		// 현재 페이지 번호. 없으면 1page로 설정
 		if (paging.getPage() == null) {
@@ -32,7 +34,7 @@ public class AdminController {
 		// 전체 건수
 		int total = adminService.getMemberCnt(memberSearchDTO);
 		paging.setTotalRecord(total);
-		mv.addObject("pagning", paging);
+		mv.addObject("paging", paging);
 
 		// 시작/마지막 레코드 번호
 		memberSearchDTO.setStart(paging.getFirst());
@@ -40,6 +42,56 @@ public class AdminController {
 		mv.addObject("list", adminService.getMembers(memberSearchDTO));
 
 		mv.setViewName("admin/admin");
+		return mv;
+	}
+	
+	@RequestMapping("/host.do")  //업주 관리 탭
+	public ModelAndView getHosts(ModelAndView mv,
+								 HostSearchDTO hostSearchDTO,
+								 Paging paging) {
+		// 조회할 레코드 건수
+		paging.setPageUnit(10);
+
+		// 현재 페이지 번호. 없으면 1page로 설정
+		if (paging.getPage() == null) {
+			paging.setPage(1);
+		}
+		// 전체 건수
+		int total = adminService.getHostCnt(hostSearchDTO);
+		paging.setTotalRecord(total);
+		mv.addObject("paging", paging);
+
+		// 시작/마지막 레코드 번호
+		hostSearchDTO.setStart(paging.getFirst());
+		hostSearchDTO.setEnd(paging.getLast());
+		mv.addObject("list", adminService.getHosts(hostSearchDTO));
+
+		mv.setViewName("noTiles/admin/host");
+		return mv;
+	}
+	
+	@RequestMapping("/lodgment.do")  //숙소 관리 탭
+	public ModelAndView getLodgments(ModelAndView mv,
+								 	 LodgmentSearchDTO lodgmentSearchDTO,
+								 	 Paging paging) {
+		// 조회할 레코드 건수
+		paging.setPageUnit(10);
+
+		// 현재 페이지 번호. 없으면 1page로 설정
+		if (paging.getPage() == null) {
+			paging.setPage(1);
+		}
+		// 전체 건수
+		int total = adminService.getLodgmentCnt(lodgmentSearchDTO);
+		paging.setTotalRecord(total);
+		mv.addObject("paging", paging);
+
+		// 시작/마지막 레코드 번호
+		lodgmentSearchDTO.setStart(paging.getFirst());
+		lodgmentSearchDTO.setEnd(paging.getLast());
+		mv.addObject("list", adminService.getLodgments(lodgmentSearchDTO));
+
+		mv.setViewName("noTiles/admin/lodgment");
 		return mv;
 	}
 }
