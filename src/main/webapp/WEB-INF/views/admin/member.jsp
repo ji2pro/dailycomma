@@ -9,7 +9,12 @@
 		<table class="table table-hover table-sm">
 			<thead class="thead-light">
 				<tr class="text-center">
-					<th scope="col">선택</th>
+					<th scope="col">
+						<label class="custom-control custom-checkbox">
+							<input type="checkbox" name="_selected_all_" class="custom-control-input">
+							<span class="custom-control-indicator"></span>
+						</label>
+					</th>
 					<th scope="col">회원 번호</th>
 					<th scope="col">이름</th>
 					<th scope="col">닉네임</th>
@@ -22,13 +27,12 @@
 			<tbody>
 				<c:forEach items="${list}" var="member">
 				<tr class="text-center">
-					<th scope="row">
-						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input"
-								id="same-address" value="on"> <label
-								class="custom-control-label" for="same-address">&nbsp;</label>
-						</div>
-					</th>
+					<td scope="row">
+						<label class="custom-control custom-checkbox">
+							<input type="checkbox" name="_selected_" value="${member.memberNo}" class="custom-control-input">
+							<span class="custom-control-indicator"></span>
+						</label>
+					</td>
 					<td>${member.memberNo}</td>
 					<td>${member.memberName}</td>
 					<td>${member.memberNick}</td>
@@ -54,4 +58,15 @@
 </div>
 <!-- 페이징 버튼 -->
 <my:paging paging="${paging}" />
-		
+
+<script>
+$(function() {
+	$('input[name=_selected_all_]').on('change', function() {
+		$('input[name=_selected_]').prop('checked', this.checked);
+	});
+	
+	var arr = $('input[name=_selected_]:checked').serializeArray().map(function(item) {
+		return item.value
+	})
+})
+</script>
