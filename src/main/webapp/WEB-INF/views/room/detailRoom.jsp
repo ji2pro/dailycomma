@@ -10,8 +10,7 @@
           type="text/css">
     <link rel="stylesheet" type="text/css"
           href="<%=request.getContextPath()%>/resources/include/css/room/bundle.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/include/js/room/detailRooms.js"></script>
     <%--<script> $(document).ready(funcion(){
         $('#carousel').carousel,'cycle');
     });
@@ -83,6 +82,7 @@
 </div>
 
 <%--호텔정보--%>
+<div class="container">
 <section>
 
     <div class="place-detail column2"><h2 class="detail-info__title">H Avenue 역삼점</h2>
@@ -146,6 +146,7 @@
         </div>
     </div>
 </section>
+</div>
 <%--객실정보 리스트--%>
 <div class="py-5">
     <div class="container">
@@ -205,45 +206,15 @@
                             </div>
                         </c:forEach>
                     </div>
+                    <%--후기 리스트--%>
                     <div class="tab-pane fade" id="tabtwo" role="tabpanel">
-                        <div class="place-room__message"><i class="badge-live">바른후기</i><!-- react-text: 1100 -->는 숙소에 직접
-                            방문한 회원만 작성할 수 있습니다.<!-- /react-text --></div>
-<%--                        <div class="row">
-                            <div class="col-sm-1">
-                                <button class="btn btn-primary" type="submit" style="">추천</button>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="col offset-md-10">
-                                    <p class="icon text-warning">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>--%>
-                        <%--                        <textarea rows="6" cols="100" style="border:0; resize:none;"
-                                                          placeholder="후기를 남겨주세요."></textarea>
-                                               <div class="row">
-                                                    <div class="col-sm-2">록맨</div>
-                                                    <div class="col-sm-3">프리미엄룸</div>
-                                                    <div class="col-sm-3">2018-10-13</div>
-                                                </div>--%>
-
+                        <div class="review-box" id="postResult"></div>
+                        <div class="place-room__message"><i class="badge-live">바른후기</i>는 숙소에 직접
+                            방문한 회원만 작성할 수 있습니다.</div>
                         <ul class="review-list">
                         <c:forEach var="list" items="${getDetailRoomPosts}">
-<%--                            <div class="row py-4 border-bottom border-secondary">
-                                <div class="col">
-                                    <div class="roomtitle">닉네임 : ${list.memberNick}</div>
-                                    <div class="roomtip">객실 이름 : ${list.roomName}</div>
-                                    <div class="roomtip">내용 : ${list.postscriptContent}</div>
-                                    <div class="py-3"><span class="room-label f-right">${list.grade}</span></div>
-                                </div>
-                            </div>--%>
                             <li class="place-review__item"></li>
-                            <a role="button">
+                            <a role="button" class="detail" id="${list.postscriptNo}">
                             <div class="review-info">
                                 <div class="review-info__title">
                                     <span class="badge-rap"><i class="badge-best"><em>추천</em></i></span><strong>일요일 가기 좋은곳</strong></div>
@@ -267,6 +238,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </div>
 </body>

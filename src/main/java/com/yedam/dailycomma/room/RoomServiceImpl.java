@@ -29,7 +29,13 @@ public class RoomServiceImpl implements RoomService {
 	@Override
 	public List<RoomPostDTO> getDetailRoomPosts(LodgmentDTO dto) {return dao.getDetailRoomPosts(dto);}
 
-	@Override
+    /*숙박 업체에 대한 상세 후기*/
+    @Override
+    public RoomPostDTO getDetailPost(RoomPostDTO dto) {
+        return dao.getDetailPost(dto);
+    }
+
+    @Override
 	public int insertRoom(RoomDTO dto) {
 		// TODO Auto-generated method stub
 		return dao.insertRoom(dto);

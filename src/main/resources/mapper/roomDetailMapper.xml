@@ -16,7 +16,7 @@
   </select>
     <!--   숙박 업체에 대한 전체 후기 리스트 -->
     <select id="getDetailRoomPosts" resultType="roomPost" parameterType="lodgment">
-        SELECT p.POSTSCRIPT_CONTENT, r.ROOM_NAME, l.LODGMENT_NO, m.member_nick, p.GRADE
+        SELECT p.POSTSCRIPT_CONTENT, r.ROOM_NAME, l.LODGMENT_NO, m.member_nick, p.GRADE, p.POSTSCRIPT_NO
         FROM POSTSCRIPT p JOIN ROOM r
                  ON p.ROOM_NO = r.ROOM_NO
                JOIN LODGMENT l
@@ -26,4 +26,15 @@
                             AND l.LODGMENT_NO = #{lodgmentNo}
         order by p.POSTSCRIPT_NO desc
   </select>
+    <select id="getDetailPost" resultType="roomPost" parameterType="roomPost">
+        SELECT p.POSTSCRIPT_CONTENT, r.ROOM_NAME, l.LODGMENT_NO, m.member_nick, p.GRADE, p.POSTSCRIPT_NO
+        FROM POSTSCRIPT p JOIN ROOM r
+                 ON p.ROOM_NO = r.ROOM_NO
+               JOIN LODGMENT l
+                 ON p.LODGMENT_NO = l.LODGMENT_NO
+                     join member m
+                      on p.member_no = m.member_no
+                            AND p.POSTSCRIPT_NO = #{postscriptNo}
+        order by p.POSTSCRIPT_NO desc
+    </select>
 </mapper>

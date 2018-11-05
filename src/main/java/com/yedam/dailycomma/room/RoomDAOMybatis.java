@@ -27,6 +27,11 @@ public class RoomDAOMybatis {
 		return mybatis.selectList("detailRoom.getDetailRoomPosts",dto);
 	}
 
+    public RoomPostDTO getDetailPost(RoomPostDTO dto){
+        System.out.println("========숙박 업체 상세 후기 조회========");
+	    return mybatis.selectOne("detailRoom.getDetailPost",dto);
+    }
+
     public int insertRoom(RoomDTO dto) {
 		return mybatis.insert("room.insertRoom", dto);
 	}

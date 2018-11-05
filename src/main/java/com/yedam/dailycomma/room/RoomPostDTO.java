@@ -4,11 +4,13 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class RoomPostDTO {
+
     private String postscriptContent;
     private String roomName;
     private String lodgmentNo;
     private String memberNick;
     private int grade;
+    private String postscriptNo;
 
 
     public int getGrade() {
@@ -51,6 +53,14 @@ public class RoomPostDTO {
         this.lodgmentNo = lodgmentNo;
     }
 
+    public String getPostscriptNo() {
+        return postscriptNo;
+    }
+
+    public void setPostscriptNo(String postscriptNo) {
+        this.postscriptNo = postscriptNo;
+    }
+
     @Override
     public String toString() {
         return "RoomPostDTO{" +
@@ -58,6 +68,8 @@ public class RoomPostDTO {
                 ", roomName='" + roomName + '\'' +
                 ", lodgmentNo='" + lodgmentNo + '\'' +
                 ", memberNick='" + memberNick + '\'' +
+                ", grade=" + grade +
+                ", postscriptNo='" + postscriptNo + '\'' +
                 '}';
     }
 }

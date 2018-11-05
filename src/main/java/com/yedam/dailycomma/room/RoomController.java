@@ -20,6 +20,7 @@ public class RoomController {
 
 	@Autowired RoomService roomService;
 	@Autowired LodgmentDTO lodgmentDTO;
+    @Autowired RoomPostDTO roomPostDTO;
 
 	/*건수조회 추후 토탈 이미지로 들어갈 예정*/
 	@RequestMapping("/detailRoom.do/{roomNo}")
@@ -53,6 +54,17 @@ public class RoomController {
         model.addAttribute("getAllImg" , str.toString());
 
         return "room/detailRoom";
+    }
+
+    /*숙박 업체에 대한 상세 후기*/
+    @RequestMapping("postDetail.do/{postscriptNo}")
+    public String detailPost(Model model,
+                              @PathVariable String postscriptNo,
+                              RoomPostDTO dto) {
+        dto.setPostscriptNo(postscriptNo);
+        model.addAttribute("getDetailPost", roomService.getDetailPost(dto));
+
+        return "noTiles/room/detailPost";
     }
 	
 	@RequestMapping("/insertRoomForm.do")
