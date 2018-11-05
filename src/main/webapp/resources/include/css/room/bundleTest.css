@@ -12879,50 +12879,7 @@ table.tbl-charge caption {
 
 
 
-.review-detail {
-    padding: 0 20px
-}
 
-.review-detail__title {
-    position: relative;
-    margin-bottom: 15px
-}
-
-.review-detail__title em {
-    font-size: 21px;
-    color: #333;
-    font-weight: 400;
-    letter-spacing: -1px
-}
-
-
-
-
-
-.review-detail__content {
-    font-size: 15px;
-    margin-top: 35px
-}
-
-.review-detail__content img {
-    max-width: 100%;
-    margin: 15px 0
-}
-
-.review-detail__btn-rap {
-    padding: 40px 0;
-    text-align: center
-}
-
-.review-detail__list-btn {
-    min-width: 86px;
-    height: 36px;
-    padding: 10px 0;
-    color: #fff;
-    font-size: 15px;
-    background-color: #595f63;
-    text-align: center
-}
 
 .comment-item {
     padding: 20px;

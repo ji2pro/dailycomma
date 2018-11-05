@@ -71,5 +71,87 @@ function deleteImageAction(index) {
 	$(input_id).remove(); 
 }
 
+let isEnd = false;
 
 
+
+$(function(){
+  $(window).scroll(function(){
+	  let $window = $(this);
+	  let scrollTop = $window.scrollTop();
+	  let windowHeight = $window.height();
+      let documentHeight = $(document).height();
+     console.log("documentHeight:" + documentHeight + " | scrollTop:" +
+                   scrollTop + " | windowHeight: " + windowHeight );
+     
+     if( scrollTop + windowHeight + 30 > documentHeight ){
+                          fetchList();
+         }
+     })
+      fetchList();
+
+})
+
+let fetchList = function(){
+
+         if(isEnd == true){
+
+                  return;
+
+         }
+         // 방명록 리스트를 가져올 때 시작 번호
+         // renderList 함수에서 html 코드를 보면 <li> 태그에 data-no 속성이 있는 것을 알 수 있다.
+         // ajax에서는 data- 속성의 값을 가져오기 위해 data() 함수를 제공.
+
+         let tourId = $(".grid-item").last().attr('id') || 0;
+         
+         $.ajax({
+              url:"getTours.do"  ,
+              //data : {'tourId' : tourId },
+              type: "GET",
+              dataType: "json",
+              success: callbackScroll
+	
+         });
+}
+
+
+function callbackScroll(data){
+		
+	
+	let length = data.length;
+
+    if( length < 5 ){
+  	  isEnd = true;
+    }
+    
+    $.each(data, function(index, tours){
+             renderList(false, tours);
+    })
+}
+
+
+let renderList = function(mode, tours){
+
+         // 리스트 html을 정의
+
+    let html =   "<div class='grid-item' id='"+tours.tourId+"'>" +    
+    			 "<div class='card' style='width: 23rem;'>" +
+    		     "<img class='card-img-top' src='resources/images/cast/"+tours.tourImg+"' alt='Card image cap'>" +
+    		     "<div class='card-body'>"+
+    		     "<h5 class='card-title'>"+tours.tourTitle+"</h5>"+
+    		     "<p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>"+
+    		     "<a href='#' class='btn btn-primary'>Go somewhere</a>"+
+    		     "</div>"+
+    		     "</div>"+
+    		     "</div>"; 
+  
+    
+    if( mode ){
+             $(".grid").prepend(html);         
+     }
+     else{
+              $(".grid").append(html);
+     }
+
+}

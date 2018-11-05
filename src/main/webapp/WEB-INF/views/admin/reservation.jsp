@@ -29,15 +29,15 @@
 					<td>${reservation.reserveNo}</td>
 					<td>${reservation.memberName}</td>
 					<td>${reservation.memberEmail}</td>
-					<td>010-0000-0000</td>
+					<td>(010-0000-0000)</td>
 					<td>${reservation.reserveDate}</td>
 					<td>${reservation.reservePeople}</td>
 					<td>${reservation.reservePrice}</td>
 					<td>${reservation.reserveState}</td>
 					<td>${reservation.checkin}</td>
 					<td>${reservation.checkout}</td>
-					<td>예약일수?</td>
-					<td>상태변경일?</td>
+					<td>(예약일수)</td>
+					<td>(상태변경일)</td>
 				</tr>
 				</c:forEach>
 			</tbody>

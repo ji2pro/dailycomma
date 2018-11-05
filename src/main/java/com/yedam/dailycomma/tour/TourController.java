@@ -2,11 +2,13 @@ package com.yedam.dailycomma.tour;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -15,9 +17,12 @@ public class TourController {
 	TourService tourService;
 	
 	@RequestMapping("/getTours.do")
-	public String getTours(Model model, TourDTO dto) {
-		model.addAttribute("tours",tourService.getTours());
-		return "cast/castList";
+	@ResponseBody
+	public List<TourDTO> getTours() {
+		TourSearchDTO dto = new TourSearchDTO();
+		dto.setStart(1);
+		dto.setEnd(10);
+		return tourService.getTours(dto);		
 	}
 	
 	@RequestMapping("/castListForm.do")
