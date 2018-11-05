@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class LodgmentDTO {
-
 	private String lodgmentNo;		//숙박업체 번호
+	private String hostName;		//숙박업주명
 	private String company;			//숙박업체명
 	private String address;			//숙박업체 주소
 	private String location;		//숙박업체 지역
@@ -17,32 +17,20 @@ public class LodgmentDTO {
 	private String lodgmentInfo;	//업체정보
 	private String avgGrade;		//평균평점
 	private String peopleCnt;		//평가인원수
-	private MultipartFile uploadFile; 
-		
+	private String roomCnt;			//객실 수
+	private MultipartFile uploadFile;
 	
-	public MultipartFile getUploadFile() {
-		return uploadFile;
-	}
-	public void setUploadFile(MultipartFile uploadFile) {
-		this.uploadFile = uploadFile;
-	}
-	public String getAvgGrade() {
-		return avgGrade;
-	}
-	public void setAvgGrade(String avgGrade) {
-		this.avgGrade = avgGrade;
-	}
-	public String getPeopleCnt() {
-		return peopleCnt;
-	}
-	public void setPeopleCnt(String peopleCnt) {
-		this.peopleCnt = peopleCnt;
-	}
 	public String getLodgmentNo() {
 		return lodgmentNo;
 	}
 	public void setLodgmentNo(String lodgmentNo) {
 		this.lodgmentNo = lodgmentNo;
+	}
+	public String getHostName() {
+		return hostName;
+	}
+	public void setHostName(String hostName) {
+		this.hostName = hostName;
 	}
 	public String getCompany() {
 		return company;
@@ -86,5 +74,28 @@ public class LodgmentDTO {
 	public void setLodgmentInfo(String lodgmentInfo) {
 		this.lodgmentInfo = lodgmentInfo;
 	}
-	
+	public String getAvgGrade() {
+		return avgGrade;
+	}
+	public void setAvgGrade(String avgGrade) {
+		this.avgGrade = avgGrade;
+	}
+	public String getPeopleCnt() {
+		return peopleCnt;
+	}
+	public void setPeopleCnt(String peopleCnt) {
+		this.peopleCnt = peopleCnt;
+	}
+	public String getRoomCnt() {
+		return roomCnt;
+	}
+	public void setRoomCnt(String roomCnt) {
+		this.roomCnt = roomCnt;
+	}
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	} 
 }

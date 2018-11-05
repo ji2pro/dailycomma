@@ -11,20 +11,25 @@
 	<!-- 전체 조회 -->
 	<select id="getLodgments" resultType="lodgment" parameterType="lodgmentSearch">
 	SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
-		SELECT lodgment_no, company, address, location, lodgment_type, lodgment_info
+		SELECT LODGMENT_NO, COMPANY, ADDRESS,
+			   LOCATION, LODGMENT_TYPE, LODGMENT_INFO, HOST_NAME,
+			   (SELECT COUNT(*)
+				FROM ROOM
+				WHERE ROOM.LODGMENT_NO = LODGMENT.LODGMENT_NO)
+				AS roomCnt
 			FROM LODGMENT
 		<where>
 			<if test="ids != null">
-				lodgment_no IN
+				LODGMENT_NO IN
 				<foreach collection="ids" open="(" close=")" separator="," item="item">
 					#{item}
 				</foreach>
 			</if>
 			<if test="searchCondition == 'company'">
-				AND company LIKE '%' || #{searchKeyword} || '%'
+				AND COMPANY LIKE '%' || #{searchKeyword} || '%'
 			</if>
 			<if test="searchCondition == 'location'">
-				AND location LIKE '%' || #{searchKeyword} || '%'		
+				AND LOCATION LIKE '%' || #{searchKeyword} || '%'		
 			</if>
 <!-- 			<if test="role != null and role != ''">
 				AND ROLE = #{role}
@@ -36,7 +41,7 @@
 				#{sort}
 			</when>
 			<otherwise>
-				lodgment_no
+				LODGMENT_NO
 			</otherwise>
 		</choose>
 	) U ) A WHERE RN BETWEEN #{start} and #{end}
@@ -48,16 +53,16 @@
 			FROM LODGMENT
 		<where>
 			<if test="ids != null">
-				lodgment_no IN
+				LODGMENT_NO IN
 				<foreach collection="ids" open="(" close=")" separator="," item="item">
 					#{item}
 				</foreach>
 			</if>
 			<if test="searchCondition == 'company'">
-				AND company LIKE '%' || #{searchKeyword} || '%'
+				AND COMPANY LIKE '%' || #{searchKeyword} || '%'
 			</if>
 			<if test="searchCondition == 'location'">
-				AND location LIKE '%' || #{searchKeyword} || '%'		
+				AND LOCATION LIKE '%' || #{searchKeyword} || '%'		
 			</if>
 		</where>
 	</select>

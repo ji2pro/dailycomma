@@ -42,5 +42,6 @@
 
 		<!-- tour(cast) 설정 -->
 		<typeAlias alias="tour" type="com.yedam.dailycomma.tour.TourDTO"/>
+		<typeAlias alias="tourSearch" type="com.yedam.dailycomma.tour.TourSearchDTO"/>
 	</typeAliases>	
 </configuration>

@@ -10,8 +10,8 @@ import com.yedam.dailycomma.room.RoomDTO;
 
 @Repository
 public class ReservationDAOMybatis {	
-	
 	@Autowired SqlSessionTemplate mybatis;
+	
 	//전체조회
 	public List<ReservationDTO> getReservations(ReservationSearchDTO searchDTO) {
 		System.out.println("reservation mybatis 전체 조회========");

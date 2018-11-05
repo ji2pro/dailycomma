@@ -14,12 +14,18 @@ import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
 import com.yedam.dailycomma.member.MemberDAOMybatis;
 import com.yedam.dailycomma.member.MemberDTO;
 import com.yedam.dailycomma.member.MemberSearchDTO;
+import com.yedam.dailycomma.reservation.ReservationDAOMybatis;
+import com.yedam.dailycomma.reservation.ReservationDTO;
+import com.yedam.dailycomma.reservation.ReservationSearchDTO;
+import com.yedam.dailycomma.tour.TourDAO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
 	@Autowired MemberDAOMybatis memberDAO;
 	@Autowired HostDAO hostDAO;
 	@Autowired LodgmentDAO lodgmentDAO;
+	@Autowired ReservationDAOMybatis reservationDAO;
+	@Autowired TourDAO tourDAO;
 	
 	//회원
 	public List<MemberDTO> getMembers(MemberSearchDTO memberSearchDTO) {
@@ -44,4 +50,20 @@ public class AdminServiceImpl implements AdminService {
 	public int getLodgmentCnt(LodgmentSearchDTO lodgmentSearchDTO) {
 		return lodgmentDAO.getCnt(lodgmentSearchDTO);
 	}
+	
+	//예약
+	public List<ReservationDTO> getReservations(ReservationSearchDTO reservationSearchDTO) {
+		return reservationDAO.getReservations(reservationSearchDTO);
+	}
+	public int getReservationCnt(ReservationSearchDTO reservationSearchDTO) {
+		return reservationDAO.getCnt(reservationSearchDTO);
+	}
+	
+	//캐스트(투어)
+	/*public List<ReservationDTO> getCasts(TourSearchDTO tourSearchDTO) {
+		return tourDAO.getCasts(tourSearchDTO);
+	}
+	public int getCastCnt(TourSearchDTO tourSearchDTO) {
+		return tourDAO.getCnt(tourSearchDTO);
+	}*/
 }

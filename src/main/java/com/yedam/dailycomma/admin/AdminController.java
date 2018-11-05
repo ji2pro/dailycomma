@@ -10,17 +10,19 @@ import com.yedam.dailycomma.host.HostSearchDTO;
 import com.yedam.dailycomma.lodgment.LodgmentDTO;
 import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
 import com.yedam.dailycomma.member.MemberSearchDTO;
+import com.yedam.dailycomma.reservation.ReservationSearchDTO;
 
 @Controller
 public class AdminController {
 	@Autowired AdminService adminService;
 	
-	/*@RequestMapping("/admin.do")
+	@RequestMapping("/admin.do")
 	public String admin() {
 		return "admin/admin";
-	}*/
+	}
 	
-	@RequestMapping("/admin.do")  //관리자 페이지 메인
+	//관리자 페이지 메인
+	@RequestMapping("/member.do")
 	public ModelAndView getMembers(ModelAndView mv,
 								   MemberSearchDTO memberSearchDTO,
 								   Paging paging) {
@@ -41,11 +43,12 @@ public class AdminController {
 		memberSearchDTO.setEnd(paging.getLast());
 		mv.addObject("list", adminService.getMembers(memberSearchDTO));
 
-		mv.setViewName("admin/admin");
+		mv.setViewName("noTiles/admin/member");
 		return mv;
 	}
 	
-	@RequestMapping("/host.do")  //업주 관리 탭
+	//업주 관리 탭
+	@RequestMapping("/host.do")
 	public ModelAndView getHosts(ModelAndView mv,
 								 HostSearchDTO hostSearchDTO,
 								 Paging paging) {
@@ -70,7 +73,8 @@ public class AdminController {
 		return mv;
 	}
 	
-	@RequestMapping("/lodgment.do")  //숙소 관리 탭
+	//숙소 관리 탭
+	@RequestMapping("/lodgment.do")
 	public ModelAndView getLodgments(ModelAndView mv,
 								 	 LodgmentSearchDTO lodgmentSearchDTO,
 								 	 Paging paging) {
@@ -92,6 +96,32 @@ public class AdminController {
 		mv.addObject("list", adminService.getLodgments(lodgmentSearchDTO));
 
 		mv.setViewName("noTiles/admin/lodgment");
+		return mv;
+	}
+	
+	//예약 내역 탭
+	@RequestMapping("/reservation.do")
+	public ModelAndView getReservations(ModelAndView mv,
+								 	    ReservationSearchDTO reservationSearchDTO,
+								 	    Paging paging) {
+		// 조회할 레코드 건수
+		paging.setPageUnit(10);
+
+		// 현재 페이지 번호. 없으면 1page로 설정
+		if (paging.getPage() == null) {
+			paging.setPage(1);
+		}
+		// 전체 건수
+		int total = adminService.getReservationCnt(reservationSearchDTO);
+		paging.setTotalRecord(total);
+		mv.addObject("paging", paging);
+
+		// 시작/마지막 레코드 번호
+		reservationSearchDTO.setStart(paging.getFirst());
+		reservationSearchDTO.setEnd(paging.getLast());
+		mv.addObject("list", adminService.getReservations(reservationSearchDTO));
+
+		mv.setViewName("noTiles/admin/reservation");
 		return mv;
 	}
 }
