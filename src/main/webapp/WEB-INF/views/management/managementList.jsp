@@ -3,6 +3,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 
 
 <html>
@@ -12,16 +14,40 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <link href="./resources/include/css/management.css" rel="stylesheet" type="text/css"> 
+
+
+<%--  <body>
+    <h1>DB값들</h1>
+ 
+    <table>
+        <thead>
+            <tr>
+                <th>아이디</th>
+                <th>비밀번호</th>
+                <th>이름</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach items="${memberList}" var="member">
+                <tr>
+                    <td>${member.memberName}</td>
+                     <td>${member.memberEmail}</td>
+                    <td>${member.reserveState}</td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
+ --%>
+
   	 
   	 
-  	 
-  	 <style>
-  	 	.wrap {
+ <style>
+  	 	/* .wrap {
   	 	width: 940px;
         margin: 10px auto;
         padding: 20px;
         border: 1px solid #bcbcbc;
-  	 	}
+  	 	} */
   	 </style>
 <script>
 
@@ -35,20 +61,20 @@
                 processing: true, /* 값을 가져올때 로딩 processing ui보여줌 */
                 ordering: true, /* 항목 정렬 사용 */
                 serverSide: false,
-                searching: true,  
-                 ajax : {
+                searching: true  
+                /*  ajax : {
                     "url":"/managementList.do",
                     "type":"POST",
                     "data": function (d) {
                         d.userStatCd = "NR";
                     }
                 },
-                columns : [
-                    {data: "member_name"},
-                    {data: "member_email"},
+                 columns : [
+                    {data: "member.memberName"}
+                     {data: "member_email"},
                     {data: "reserve_state"},
-                    {data: "reserve_date"}
-                ]
+                    {data: "reserve_date"} 
+                ]  */
   
             });
  
@@ -62,7 +88,7 @@
 </head>
 <body>
 <div class="contentMargin">
-<table id="empList" class="table table-striped table-bordered table-hover tableAlign wrap " >
+<table id="empList" style="font-size: 15px; "class="table table-striped table-bordered table-hover tableAlign wrap " >
 	<thead>
 		<tr style="background:#ffaabb;">
 			<th>선택</th>
@@ -86,23 +112,24 @@
 	<br>
 	<p align="right"><button type="button" class="btn btn-primary">예약취소</button></p>
 	<tbody>
+	<c:forEach items="${memberList}" var="member">
 		<tr>
 		<td><input type="checkbox"></td>
-		<td>${member_name}</td>
-		<td>${member_email}</td>
+		<td>${member.memberName}</td>
+		<td>${member.memberEmail}</td>
 		<td>	</td>
-		<td>${reserve_state}</td>
-		<td>${reserve_date}</td>
-		<td>${reserve_people}</td>
-		<td>${room_name}</td>
-		<td>${room_price}</td>
-		<td>${checkin}</td>
-		<td>${checkout}</td>
-		<td>	</td>
-		<td>	</td>
+		<td>${member.reserveState}</td>
+		<td>${member.reserveDate}</td>
+		<td>${member.reservePeople}</td>
+		<td>${member.roomName}</td>
+		<td>${member.reservePrice}</td>
+		<td>${member.checkin}</td>
+		<td>${member.checkout}</td>
+ 		<td><%-- ${member.reserveDays} --%></td>  
+		<td></td>
 		
 		</tr>
-		
+		</c:forEach>
 	</tbody>
 </table>
 </div>
