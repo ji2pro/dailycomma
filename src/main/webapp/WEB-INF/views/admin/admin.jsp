@@ -14,7 +14,7 @@
 		<div class="col-md-9">
 			<ul class="nav nav-tabs mb-3" id="adminTabs" role="tablist">
 				<li class="nav-item">
-					<a class="nav-link active" id="memberTab" href="member.do"
+					<a class="nav-link" id="memberTab" href="member.do"
 					   aria-controls="memberAdmin" aria-selected="true"
 					   data-target="#memberAdmin" data-toggle="tab" role="tab">회원 관리</a>
 				</li>
@@ -53,7 +53,7 @@
 	</div>
 	
 	<div class="tab-content">
-		<div class="tab-pane fade show active" role="tabpanel" id="memberAdmin" aria-labelledby="memberTab"></div>
+		<div class="tab-pane fade" role="tabpanel" id="memberAdmin" aria-labelledby="memberTab"></div>
 		<div class="tab-pane fade" role="tabpanel" id="hostAdmin" aria-labelledby="hostTab"></div>
 		<div class="tab-pane fade" role="tabpanel" id="lodgmentAdmin" aria-labelledby="lodgmentTab"></div>
 		<div class="tab-pane fade" role="tabpanel" id="reservationAdmin" aria-labelledby="reservationTab"></div>
@@ -75,5 +75,9 @@ $(function() {
 
 		$(this).tab('show');
 	});
+	$.get('member.do', function(data) {
+		$('#memberAdmin').html(data);
+	});
+	$('#adminTabs li:first-child a').tab('show');
 });
 </script>
