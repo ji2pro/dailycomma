@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 
-<form action="admin.do" name="frm">
+<form name="frm" id="frm">
 	<input type="hidden" name="page" value="1">
 	<input type="hidden" name="sort" value="member_no">
 </form>
@@ -29,7 +29,7 @@
 					<th scope="col">관리</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="membertbody">
 				<c:forEach items="${list}" var="member">
 				<tr class="text-center">
 					<td scope="row">
@@ -66,4 +66,4 @@
 	</div>
 </div>
 <!-- 페이징 버튼 -->
-<my:paging paging="${paging}" />
+ <my:paging paging="${paging}" jsFunc="go_page"/> 

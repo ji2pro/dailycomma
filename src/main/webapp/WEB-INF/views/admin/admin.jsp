@@ -15,7 +15,7 @@
 		<div class="col-md-9">
 			<ul class="nav nav-tabs mb-3" id="adminTabs" role="tablist">
 				<li class="nav-item">
-					<a class="nav-link" id="memberTab" href="member.do"
+					<a class="nav-link" id="memberTab" href="./member"
 					   aria-controls="memberAdmin" aria-selected="true"
 					   data-target="#memberAdmin" data-toggle="tab" role="tab">회원 관리</a>
 				</li>

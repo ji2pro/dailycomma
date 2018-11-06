@@ -3,6 +3,8 @@ package com.yedam.dailycomma.admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yedam.dailycomma.common.Paging;
@@ -22,10 +24,11 @@ public class AdminController {
 	}
 	
 	//관리자 페이지 메인
-	@RequestMapping("/member")
+	@RequestMapping(value= {"/member"}, method=RequestMethod.GET)
 	public ModelAndView getMembers(ModelAndView mv,
 								   MemberSearchDTO memberSearchDTO,
-								   Paging paging) {
+								   Paging paging
+								   ) {
 		// 조회할 레코드 건수
 		paging.setPageUnit(3);
 
@@ -42,7 +45,6 @@ public class AdminController {
 		memberSearchDTO.setStart(paging.getFirst());
 		memberSearchDTO.setEnd(paging.getLast());
 		mv.addObject("list", adminService.getMembers(memberSearchDTO));
-		
 		mv.setViewName("noTiles/admin/member");
 		return mv;
 	}
@@ -94,7 +96,7 @@ public class AdminController {
 		lodgmentSearchDTO.setStart(paging.getFirst());
 		lodgmentSearchDTO.setEnd(paging.getLast());
 		mv.addObject("list", adminService.getLodgments(lodgmentSearchDTO));
-
+		
 		mv.setViewName("noTiles/admin/lodgment");
 		return mv;
 	}
