@@ -18,4 +18,9 @@ public class LodgmentServiceImpl implements LodgmentService {
 	public LodgmentDTO getLodgment(LodgmentDTO dto) {
 		return dao.getLodgment(dto);
 	}
+	
+	@Override
+	public int insertHashTag(HashtagDTO dto) {
+		return dao.insertHashTag(dto);
+	}
 }

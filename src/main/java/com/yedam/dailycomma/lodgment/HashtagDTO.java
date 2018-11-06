@@ -1,4 +1,4 @@
-package com.yedam.dailycomma.hashtag;
+package com.yedam.dailycomma.lodgment;
 
 public class HashtagDTO {
 

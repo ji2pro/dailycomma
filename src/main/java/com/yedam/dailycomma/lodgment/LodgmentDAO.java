@@ -32,4 +32,8 @@ public class LodgmentDAO {
 	public LodgmentDTO getLodgment(LodgmentDTO dto) {
 		return mybatis.selectOne("lodgment.getLodgment", dto);
 	}
+	
+	public int insertHashTag(HashtagDTO dto) {
+		return mybatis.insert("lodgment.insertHashTag", dto);
+	}
 }

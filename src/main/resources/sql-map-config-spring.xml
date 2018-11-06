@@ -50,5 +50,8 @@
 
         <!-- 후기 -->
         <typeAlias alias="postscript" type="com.yedam.dailycomma.postscript.PostscriptDTO"/>
+        
+        <!-- 해시태그 -->
+        <typeAlias alias="hashtag" type="com.yedam.dailycomma.lodgment.HashtagDTO"/>
 	</typeAliases>	
 </configuration>

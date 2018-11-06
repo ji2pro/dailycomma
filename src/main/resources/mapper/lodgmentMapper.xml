@@ -85,6 +85,11 @@
 		LODGMENT_INFO 	= #{lodgmentInfo}
 	WHERE LODGMENT_NO	= #{lodgmentNo}
 </update>
+
+<insert id="insertHashTag" parameterType="hashtag">
+	INSERT INTO HASHTAG(HASHTAG_NO, HASHTAG_CONTENT, LODGMENT_NO)
+	VALUES(TO_CHAR(HASHTAG_SEQ.nextval), #{hashtagContent}, #{lodgmentNo})
+</insert>
 	
 	<!-- 수정 미완성-->
 <!-- 	

@@ -13,4 +13,6 @@ public interface LodgmentService {
 	public LodgmentDTO getLodgment(LodgmentDTO dto);
 	//삭제
 	
+	//해시태그 
+	public int insertHashTag(HashtagDTO dto);
 }
