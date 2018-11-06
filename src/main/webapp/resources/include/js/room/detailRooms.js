@@ -17,5 +17,17 @@ $(function () {
         $("#postResult").hide();
         $(".review-list").show();
     });
+
+    $(".postList").on('click',function () {
+        console.log($(this).attr('id'));
+        var lodgmentNo = $(this).attr('id');
+        $.ajax({
+            url:"/postScriptList.do/"+lodgmentNo,
+            success :
+                function(result) {
+                    $(".review-list").html(result).show();
+                }
+        })
+    });
 });
 

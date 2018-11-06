@@ -12,7 +12,6 @@ public class RoomPostDTO {
     private int grade;
     private String postscriptNo;
 
-
     public int getGrade() {
         return grade;
     }

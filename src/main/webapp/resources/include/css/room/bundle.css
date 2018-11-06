@@ -335,15 +335,6 @@ i.icon-staylist.icon-staylist-score.score10 {
     display: inline-block;
     vertical-align: middle
 }
-.icon-staylist {
-    display: inline-block;
-    overflow: hidden;
-    font-size: 0;
-    line-height: 0;
-    text-indent: -9999px;
-    vertical-align: middle;
-    background: url(https://yaimg.yanolja.com/joy/pw/search/icon-staylist.svg) no-repeat
-}
 
 i.icon-staylist.icon-staylist-score.score10 {
 }

@@ -47,5 +47,8 @@
 		<typeAlias alias="managementDTO" type="com.yedam.dailycomma.management.ManagementDTO"/>
 		
 		<typeAlias alias="tourSearch" type="com.yedam.dailycomma.tour.TourSearchDTO"/>
+
+        <!-- 후기 -->
+        <typeAlias alias="postscript" type="com.yedam.dailycomma.postscript.PostscriptDTO"/>
 	</typeAliases>	
 </configuration>

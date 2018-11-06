@@ -60,18 +60,18 @@
                         <c:forTokens items="${getAllImg}" delims="||" var="img" varStatus="status">
                             <c:if test="${status.first}">
                                 <div class="carousel-item active">
-                                    <img class="d-block img-fluid w-100" src="/dailycomma/upload/${img}"/>
+                                    <img class="d-block img-fluid w-100" src="/resources/images/room/${img}"/>
                                 </div>
                             </c:if>
                             <c:if test="${!status.first}">
                                 <div class="carousel-item">
-                                    <img class="d-block img-fluid w-100" src="/dailycomma/upload/${img}"/>
+                                    <img class="d-block img-fluid w-100" src="/resources/images/room/${img}"/>
                                 </div>
                             </c:if>
                         </c:forTokens>
                     </div>
                     <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>훅
+                        <span class="carousel-control-prev-icon"></span>
                     <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next" style="">
                         <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
                 </div>
@@ -156,10 +156,11 @@
                         <a class="nav-link active show" href="" data-toggle="tab" data-target="#tabone">객실</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link" data-toggle="tab" data-target="#tabtwo">후기</a>
+                        <a href="" class="nav-link postList" data-toggle="tab" data-target="#tabtwo" id="${getDetailRooms[0].lodgmentNo}">후기</a>
                     </li>
                 </ul>
                 <div class="tab-content mt-2">
+
                     <div class="tab-pane fade active show" id="tabone" role="tabpanel">
                         <c:forEach var="list" items="${getDetailRooms}">
                             <div class="row py-4 border-bottom border-secondary">
@@ -180,13 +181,13 @@
                                                 <c:if test="${status.first}">
                                                     <div class="carousel-item active">
                                                         <img class="d-block img-fluid w-100"
-                                                             src="/dailycomma/upload/${img}"/>
+                                                             src="/resources/images/room/${img}"/>
                                                     </div>
                                                 </c:if>
                                                 <c:if test="${!status.first}">
                                                     <div class="carousel-item">
                                                         <img class="d-block img-fluid w-100"
-                                                             src="/dailycomma/upload/${img}"/>
+                                                             src="/resources/images/room/${img}"/>
                                                     </div>
                                                 </c:if>
                                             </c:forTokens>
@@ -205,10 +206,11 @@
                             </div>
                         </c:forEach>
                     </div>
+
                     <%--후기 리스트--%>
                     <div class="tab-pane fade" id="tabtwo" role="tabpanel">
                         <div class="place-room__message"><i class="badge-live">바른후기</i>는 숙소에 직접
-                            방문한 회원만 작성할 수 있습니다.</div>
+                            방문한 회원만 작성할 수 있습니다.<button type="button" class="review-post__insert-btn" style="float:right">후기등록</button></div>
                         <div class="review-box" id="postResult">
                         </div>
                         <ul class="review-list">

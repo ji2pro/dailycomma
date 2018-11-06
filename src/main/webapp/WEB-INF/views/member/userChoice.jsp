@@ -57,7 +57,7 @@
 			<span class="size1" onmouseover="mOver(this)" onmouseout="mOut(this)" onclick="location.href='insertHostForm.do'">
                 업주 회원<br>Owner
 			</span></a> <span class="size1" onmouseover="mOver(this)"
-				onmouseout="mOut(this)" onclick="location.href='userJoin.jsp'"> 일반 회원<br>Member
+				onmouseout="mOut(this)" onclick="location.href='insertMemberForm.do'"> 일반 회원<br>Member
 			</span>
 		</div>
 		<div class="size3"></div>

@@ -47,6 +47,7 @@ public class PostscriptDTO {
 	public void setPostscriptDate(String postscriptDate) {
 		this.postscriptDate = postscriptDate;
 	}
+
 	@Override
 	public String toString() {
 		return "PostscriptDTO [lodgmentNo=" + lodgmentNo + ", reserveNo=" + reserveNo + ", memberNo=" + memberNo

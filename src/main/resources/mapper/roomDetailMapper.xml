@@ -9,7 +9,7 @@
 
   <!-- 숙박 업체에 대한 전체 객실 리스트-->
     <select id="getDetailRooms" resultType="detailRoom" parameterType="lodgment">
-        select R.ROOM_PRICE, R.ROOM_CAPA, R.ROOM_INFO, R.ROOM_IMG, R.ROOM_NAME, R.ROOM_QUANTITY
+        select R.ROOM_PRICE, R.ROOM_CAPA, R.ROOM_INFO, R.ROOM_IMG, R.ROOM_NAME, R.ROOM_QUANTITY, L.LODGMENT_NO
           from LODGMENT L join ROOM R
             on(L.LODGMENT_NO = R.LODGMENT_NO)
         where R.LODGMENT_NO = #{lodgmentNo}
@@ -35,6 +35,18 @@
                      join member m
                       on p.member_no = m.member_no
                             AND p.POSTSCRIPT_NO = #{postscriptNo}
+        order by p.POSTSCRIPT_NO desc
+    </select>
+    <!--   숙박 업체에 대한 전체 후기 리스트 분할-->
+    <select id="getPostscriptList" resultType="postscript" parameterType="lodgment">
+        SELECT p.POSTSCRIPT_CONTENT, r.ROOM_NAME, l.LODGMENT_NO, m.member_nick, p.GRADE, p.POSTSCRIPT_NO
+        FROM POSTSCRIPT p JOIN ROOM r
+                 ON p.ROOM_NO = r.ROOM_NO
+               JOIN LODGMENT l
+                 ON p.LODGMENT_NO = l.LODGMENT_NO
+                     join member m
+                      on p.member_no = m.member_no
+                            AND l.LODGMENT_NO = #{lodgmentNo}
         order by p.POSTSCRIPT_NO desc
     </select>
 </mapper>
