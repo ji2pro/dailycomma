@@ -44,7 +44,14 @@
 	        <ul class="navbar-nav ml-auto">
 	            <!-- <li class="nav-item"><a class="nav-link" href="#">예약 내역</a></li> -->
 	            <li class="nav-item"><a class="nav-link" href="/userChoice.do">회원 가입</a></li>
-	            <li class="nav-item"><a class="nav-link" href="/dailycomma/login.do">로그인</a></li>
+	            <c:choose>
+		            <c:when test="${sessionScope.memberLogin eq null }">
+		            	<li class="nav-item"><a class="nav-link" href="/dailycomma/loginForm.do">로그인</a></li>
+		        	</c:when>
+		        	<c:otherwise>
+		        		<li class="nav-item"><a class="nav-link" href="/dailycomma/memberLogout.do">로그아웃</a></li>	        	
+		        	</c:otherwise>
+	        	</c:choose>
 	        </ul>
 	    </div>
 	</nav>

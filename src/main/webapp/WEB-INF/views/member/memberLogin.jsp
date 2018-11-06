@@ -16,7 +16,7 @@
 	</div>
 	
 	<div>		
-	  <form class="form-signup" action="insertMember.do">
+	  <form class="form-signup" action="memberLogin.do" method="POST">
 		  <div class="row">
 			<div class="col-md-12">
 				<input type="email"  name="memberEmail" class="form-control" value="이메일"/>

@@ -11,7 +11,7 @@ public class TourDAO {
 	@Autowired SqlSessionTemplate mybatis;
 	
 	//전체 조회
-	public List<TourDTO> getTours(TourSearchDTO dto) {
+	public List<TourDTO> getTours(TourDTO dto) {
 		return mybatis.selectList("tour.getTours",dto);
 	}
 	
