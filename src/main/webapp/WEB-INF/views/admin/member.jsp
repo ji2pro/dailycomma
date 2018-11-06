@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 
 <!-- 회원 관리 -->
@@ -38,7 +39,10 @@
 					<td>${member.memberNick}</td>
 					<td>${member.memberEmail}</td>
 					<td>${member.memberPoint}</td>
-					<td>${member.signupDate}</td>
+					<td>
+						<fmt:parseDate value="${member.signupDate}" var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
+						<fmt:formatDate value="${dateFmt}" pattern="yyyy.MM.dd"/>
+					</td>
 					<td>
 						<div class="btn-group">
 							<a href="#" class="btn btn-outline-success btn-sm">수정</a>
@@ -58,16 +62,3 @@
 </div>
 <!-- 페이징 버튼 -->
 <my:paging paging="${paging}" />
-
-<script>
-$(function() {
-	//테이블 체크박스(선택) 기능
-	$('input[name=_selected_all_]').on('change', function() {
-		$('input[name=_selected_]').prop('checked', this.checked);
-	});
-	
-	var arr = $('input[name=_selected_]:checked').serializeArray().map(function(item) {
-		return item.value
-	})
-});
-</script>

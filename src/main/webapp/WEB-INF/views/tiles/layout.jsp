@@ -8,6 +8,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>데일리 콤마</title>
+	<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="<%=request.getContextPath()%>/resources/favicon.ico" type="image/x-icon" />
+	
 	<!-- jQuery 3.3.1 -->
 	<script src="<%=request.getContextPath()%>/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
 	<!-- Bootstrap 4.1.3 -->
@@ -27,7 +30,7 @@
 <body>
 	<%-- 			<tiles:insertAttribute name="header" /> --%>
 	<nav class="navbar fixed-top navbar-expand-lg navbar-light">
-	    <a class="navbar-brand" href="/dailycomma/">Daily Comma</a>
+	    <a class="navbar-brand" href="/">Daily Comma</a>
 	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="navbar-toggler-icon"></span>
 	    </button>
@@ -40,8 +43,15 @@
 	        </ul> -->
 	        <ul class="navbar-nav ml-auto">
 	            <!-- <li class="nav-item"><a class="nav-link" href="#">예약 내역</a></li> -->
-	            <li class="nav-item"><a class="nav-link" href="/dailycomma/insertHostForm.do">회원 가입</a></li>
-	            <li class="nav-item"><a class="nav-link" href="/dailycomma/login.do">로그인</a></li>
+	            <li class="nav-item"><a class="nav-link" href="/userChoice.do">회원 가입</a></li>
+	            <c:choose>
+		            <c:when test="${sessionScope.memberLogin eq null }">
+		            	<li class="nav-item"><a class="nav-link" href="/dailycomma/loginForm.do">로그인</a></li>
+		        	</c:when>
+		        	<c:otherwise>
+		        		<li class="nav-item"><a class="nav-link" href="/dailycomma/memberLogout.do">로그아웃</a></li>	        	
+		        	</c:otherwise>
+	        	</c:choose>
 	        </ul>
 	    </div>
 	</nav>

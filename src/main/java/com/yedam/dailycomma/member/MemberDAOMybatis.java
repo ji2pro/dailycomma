@@ -30,5 +30,9 @@ public class MemberDAOMybatis {
 	public int deleteUser(MemberDTO dto) {
 		return mybatis.delete("member.deleteMember", dto);
 	}
+	
+	public MemberDTO getMember(MemberDTO dto) {
+		return mybatis.selectOne("login.getMember", dto);
+	}
 
 }

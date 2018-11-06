@@ -1,24 +1,26 @@
-<!-- 패키지 cast 의 CastController 와 연결 -->
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
+<html>
 <head>
+<title>캐스트</title>
 	<link rel="stylesheet" type="text/css" href="./resources/include/css/cast/cast-css.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.js"></script>
 	<script src="./resources/include/js/cast/cast-js.js"></script>
+<style>
+.grid{
+	height : auto;
+}
+</style>
+
 </head>
 
-<meta charset="utf-8" />
-<title>캐스트</title>
-
-
-<html>
-
+<body>
     <h1>Masonry - imagesLoaded progress</h1>
-<div class="grid">
+
+<div class="grid"  style = "hegiht : auto">
   <div class="grid-sizer"></div>    
 
 <%--  <c:forEach items="${tours}" var="t">

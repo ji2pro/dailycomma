@@ -16,5 +16,10 @@ public class MemberServiceImpl implements MemberService {
 	public int deleteMember(MemberDTO dto) {
 		return dao.deleteUser(dto);
 	}
+	@Override
+	public MemberDTO getMember(MemberDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.getMember(dto);
+	}
 
 }

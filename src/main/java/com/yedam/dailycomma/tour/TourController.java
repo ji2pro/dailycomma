@@ -18,10 +18,9 @@ public class TourController {
 	
 	@RequestMapping("/getTours.do")
 	@ResponseBody
-	public List<TourDTO> getTours() {
-		TourSearchDTO dto = new TourSearchDTO();
-		dto.setStart(1);
-		dto.setEnd(10);
+	public List<TourDTO> getTours(TourDTO dto) {
+		//TourSearchDTO dto = new TourSearchDTO();
+		System.out.println("==============="+dto.getPageUnit());
 		return tourService.getTours(dto);		
 	}
 	
