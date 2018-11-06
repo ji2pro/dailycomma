@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
+<script src="<%=request.getContextPath()%>/resources/include/js/admin/admin.js"></script>
 <link href="<%=request.getContextPath()%>/resources/include/css/admin.css" rel="stylesheet" type="text/css" />
 
 <div class="container-fluid">
@@ -60,28 +61,3 @@
 		<div class="tab-pane fade" role="tabpanel" id="castAdmin" aria-labelledby="castTab"></div>
 	</div>
 </div>
-
-<script>
-$(function() {
-	/*
-	* Ajax Tabs(탭 클릭할 때마다 페이지 출력하기)
-	*/
-	$('#adminTabs li a').on('click', function(e) {
-		e.preventDefault()
-		
-		var loadurl = $(this).attr('href'),
-	        target = $(this).attr('data-target');
-
-	    $.get(loadurl, function(data) {
-			$(target).html(data);
-		});
-
-		$(this).tab('show');
-	});
-	//기본 첫 페이지 출력(페이지 들어오면 보이도록.)
-	$.get('member.do', function(data) {
-		$('#memberAdmin').html(data);
-	});
-	$('#adminTabs li:first-child a').tab('show');
-});
-</script>
