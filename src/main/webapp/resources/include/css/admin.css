@@ -4,11 +4,17 @@
 
 a {color: #d728ff;}
 a:hover {color: #9a00b2;}
-
+.table {
+	font-size: 0.9rem;
+}
 .table .thead-light th {
 	background-color: #FCEDFF;
 	border-color: #dfd9e0;
 }
+.table th, .table td {
+	vertical-align: middle;
+}
+.table label {margin-bottom: .2rem;}
 
 /* 체크박스 디자인 */
 .custom-checkbox {

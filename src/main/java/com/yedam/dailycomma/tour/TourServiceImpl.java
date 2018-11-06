@@ -16,7 +16,7 @@ public class TourServiceImpl implements TourService {
 	}
 
 	@Override
-	public List<TourDTO> getTours(TourSearchDTO dto) {
+	public List<TourDTO> getTours(TourDTO dto) {
 		// TODO Auto-generated method stub
 		return dao.getTours(dto);
 	}

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 
 <!-- 업주 관리 -->
@@ -9,7 +10,12 @@
 		<table class="table table-hover table-sm">
 			<thead class="thead-light">
 				<tr class="text-center">
-					<th scope="col">선택</th>
+					<th scope="col">
+						<label class="custom-control custom-checkbox">
+							<input type="checkbox" name="_selected_all_" class="custom-control-input">
+							<span class="custom-control-indicator"></span>
+						</label>
+					</th>
 					<th scope="col">이름</th>
 					<th scope="col">아이디</th>
 					<th scope="col">이메일</th>
@@ -23,19 +29,21 @@
 			<tbody>
 				<c:forEach items="${list}" var="host">
 				<tr class="text-center">
-					<th scope="row">
-						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input"
-								id="same-address" value="on"> <label
-								class="custom-control-label" for="same-address">&nbsp;</label>
-						</div>
-					</th>
+					<td scope="row">
+						<label class="custom-control custom-checkbox">
+							<input type="checkbox" name="_selected_" value="${host.hostId}" class="custom-control-input">
+							<span class="custom-control-indicator"></span>
+						</label>
+					</td>
 					<td>${host.hostName}</td>
 					<td>${host.hostId}</td>
 					<td>${host.hostEmail}</td>
 					<td>${host.hostPhone}</td>
 					<td>${host.businessNo}</td>
-					<td>${host.signupDate}</td>
+					<td>
+						<fmt:parseDate value="${host.signupDate}" var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
+						<fmt:formatDate value="${dateFmt}" pattern="yyyy.MM.dd"/>
+					</td>
 					<td>승인 ?</td>
 					<td>
 						<div class="btn-group">

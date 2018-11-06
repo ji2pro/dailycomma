@@ -17,6 +17,7 @@ import com.yedam.dailycomma.member.MemberSearchDTO;
 import com.yedam.dailycomma.reservation.ReservationDAOMybatis;
 import com.yedam.dailycomma.reservation.ReservationDTO;
 import com.yedam.dailycomma.reservation.ReservationSearchDTO;
+import com.yedam.dailycomma.room.RoomDAOMybatis;
 import com.yedam.dailycomma.tour.TourDAO;
 
 @Service
@@ -24,6 +25,7 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired MemberDAOMybatis memberDAO;
 	@Autowired HostDAO hostDAO;
 	@Autowired LodgmentDAO lodgmentDAO;
+	@Autowired RoomDAOMybatis roomDAO;
 	@Autowired ReservationDAOMybatis reservationDAO;
 	@Autowired TourDAO tourDAO;
 	
@@ -43,14 +45,19 @@ public class AdminServiceImpl implements AdminService {
 		return hostDAO.getCnt(hostSearchDTO);
 	}
 	
-	//업체
+	//업체(숙소)
 	public List<LodgmentDTO> getLodgments(LodgmentSearchDTO lodgmentSearchDTO) {
 		return lodgmentDAO.getLodgments(lodgmentSearchDTO);
 	}
 	public int getLodgmentCnt(LodgmentSearchDTO lodgmentSearchDTO) {
 		return lodgmentDAO.getCnt(lodgmentSearchDTO);
 	}
-	
+
+	//객실
+	/*public List<RoomDTO> getDetailRooms(RoomSearchDTO roomSearchDTO) {
+		return roomDAO.getDetailRooms(roomSearchDTO);
+	}*/
+
 	//예약
 	public List<ReservationDTO> getReservations(ReservationSearchDTO reservationSearchDTO) {
 		return reservationDAO.getReservations(reservationSearchDTO);

@@ -4,7 +4,7 @@
 
 <mapper namespace="management">
  
- 	<select id="selectReservation" resultType="managementDTO">
+ 	<select id="selectReservation" resultType="management">
         select * <!-- reservation.reserve_state, member.member_name, member.member_email -->
 		from reservation, member, room, lodgment
 		where reservation.member_no = member.member_no

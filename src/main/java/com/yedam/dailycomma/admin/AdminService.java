@@ -21,6 +21,8 @@ public interface AdminService {
 	//업체(숙소)
 	public List<LodgmentDTO> getLodgments(LodgmentSearchDTO lodgmentSearchDTO);
 	public int getLodgmentCnt(LodgmentSearchDTO lodgmentSearchDTO);
+	//객실
+	/*public List<RoomDTO> getDetailRooms(RoomSearchDTO roomSearchDTO);*/
 	//예약 내역
 	public List<ReservationDTO> getReservations(ReservationSearchDTO reservationSearchDTO);
 	public int getReservationCnt(ReservationSearchDTO reservationSearchDTO);

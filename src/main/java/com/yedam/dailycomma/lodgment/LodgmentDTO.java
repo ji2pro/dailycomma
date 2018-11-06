@@ -15,6 +15,7 @@ public class LodgmentDTO {
 	private String lodgmentType;	//숙박유형
 	private String lodgmentImg;		//업체이미지
 	private String lodgmentInfo;	//업체정보
+	
 	private String avgGrade;		//평균평점
 	private String peopleCnt;		//평가인원수
 	private String roomCnt;			//객실 수

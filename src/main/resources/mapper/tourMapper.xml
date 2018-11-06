@@ -7,8 +7,27 @@
 <select id="getTours" resultType="tour">
 SELECT * FROM ( SELECT T.*, ROWNUM RN FROM (	
 	SELECT * FROM TOUR
-
-) T ) A WHERE RN BETWEEN #{start} and #{end}	
+	 <where>
+	 	<if test="tourId != null and tourId != ''">
+		  <![CDATA[
+		   	TOUR_ID > #{tourId}
+		  ]]>
+		 </if>
+	 </where>
+	 ORDER BY TOUR_DATE
+) T ) A 
+	<choose>
+		<when test="pageUnit != 0">
+		 <![CDATA[	
+			WHERE RN  <= #{pageUnit}
+		]]>	
+		</when>
+		<otherwise>
+		 <![CDATA[	
+			WHERE RN <= 8
+		]]>	
+		</otherwise>
+	</choose>
 </select>
 
 <insert id="insertTour" parameterType="tour">

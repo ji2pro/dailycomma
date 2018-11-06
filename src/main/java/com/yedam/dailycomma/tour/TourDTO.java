@@ -12,9 +12,16 @@ public class TourDTO {
 	private String tourDate;		//관광 작성일
 	private String tourLocation;	//관광 지역
 	private String tourState;		//관광 승인(상태)
+	private int    pageUnit;
 	private MultipartFile[] uploadFile; //다중 파일시 배열로
 	
-	
+		
+	public int getPageUnit() {
+		return pageUnit;
+	}
+	public void setPageUnit(int pageUnit) {
+		this.pageUnit = pageUnit;
+	}
 	public MultipartFile[] getUploadFile() {
 		return uploadFile;
 	}

@@ -13,7 +13,8 @@ $(document).ready(function() {
 		     itemSelector: '.grid-item',
 		     percentPosition: true,
 		     columnWidth: '.grid-sizer'
-		 }); 
+		  });
+		 $('.grid').css("height","auto");
 	 });	
 	
 	$('#add_more').click(function(){
@@ -81,10 +82,12 @@ $(function(){
 	  let scrollTop = $window.scrollTop();
 	  let windowHeight = $window.height();
       let documentHeight = $(document).height();
-     console.log("documentHeight:" + documentHeight + " | scrollTop:" +
-                   scrollTop + " | windowHeight: " + windowHeight );
-     
+   
      if( scrollTop + windowHeight + 30 > documentHeight ){
+    	 
+    	 console.log("documentHeight:" + documentHeight + " | scrollTop:" +
+                  scrollTop + " | windowHeight: " + windowHeight );
+    
                           fetchList();
          }
      })
@@ -95,9 +98,7 @@ $(function(){
 let fetchList = function(){
 
          if(isEnd == true){
-
                   return;
-
          }
          // 방명록 리스트를 가져올 때 시작 번호
          // renderList 함수에서 html 코드를 보면 <li> 태그에 data-no 속성이 있는 것을 알 수 있다.
@@ -107,7 +108,8 @@ let fetchList = function(){
          
          $.ajax({
               url:"getTours.do"  ,
-              //data : {'tourId' : tourId },
+              data : {'tourId' : tourId,
+              		  'pageUnit' : 6},
               type: "GET",
               dataType: "json",
               success: callbackScroll
@@ -115,13 +117,12 @@ let fetchList = function(){
          });
 }
 
-
 function callbackScroll(data){
 		
 	
 	let length = data.length;
 
-    if( length < 5 ){
+    if( length < 4 ){
   	  isEnd = true;
     }
     
@@ -148,10 +149,10 @@ let renderList = function(mode, tours){
   
     
     if( mode ){
-             $(".grid").prepend(html);         
+         $(".grid").prepend(html);         
      }
      else{
-              $(".grid").append(html);
+         $(".grid").append(html);
      }
 
 }
