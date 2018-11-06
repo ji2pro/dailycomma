@@ -49,7 +49,7 @@ public class CastController {
 			
 			model.addAttribute("memberList", memberList);*/
 
-			return "cast/castList";
+			return "cast/detailCast";
 		}
 		
 
