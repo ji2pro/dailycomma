@@ -8,6 +8,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>데일리 콤마</title>
+	<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="<%=request.getContextPath()%>/resources/favicon.ico" type="image/x-icon" />
+	
 	<!-- jQuery 3.3.1 -->
 	<script src="<%=request.getContextPath()%>/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
 	<!-- Bootstrap 4.1.3 -->
