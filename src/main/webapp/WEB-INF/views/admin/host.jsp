@@ -41,10 +41,11 @@
 					<td>${host.hostPhone}</td>
 					<td>${host.businessNo}</td>
 					<td>
-						<fmt:parseDate value="${host.signupDate}" var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
-						<fmt:formatDate value="${dateFmt}" pattern="yyyy.MM.dd"/>
+						<fmt:parseDate value="${host.signupDate}" var="signupDate_D" pattern="yyyy-MM-dd HH:mm:ss"/>
+						<fmt:formatDate value="${signupDate_D}" var="signupDate_FD" pattern="yyyy.MM.dd"/>
+						${signupDate_FD}
 					</td>
-					<td>승인 ?</td>
+					<td>(승인)</td>
 					<td>
 						<div class="btn-group">
 							<a href="#" class="btn btn-outline-success btn-sm">수정</a>

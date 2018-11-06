@@ -16,18 +16,18 @@ import com.yedam.dailycomma.reservation.ReservationSearchDTO;
 public class AdminController {
 	@Autowired AdminService adminService;
 	
-	@RequestMapping("/admin.do")
+	@RequestMapping("/admin")
 	public String admin() {
 		return "admin/admin";
 	}
 	
 	//관리자 페이지 메인
-	@RequestMapping("/member.do")
+	@RequestMapping("/member")
 	public ModelAndView getMembers(ModelAndView mv,
 								   MemberSearchDTO memberSearchDTO,
 								   Paging paging) {
 		// 조회할 레코드 건수
-		paging.setPageUnit(10);
+		paging.setPageUnit(3);
 
 		// 현재 페이지 번호. 없으면 1page로 설정
 		if (paging.getPage() == null) {
@@ -42,13 +42,13 @@ public class AdminController {
 		memberSearchDTO.setStart(paging.getFirst());
 		memberSearchDTO.setEnd(paging.getLast());
 		mv.addObject("list", adminService.getMembers(memberSearchDTO));
-
+		
 		mv.setViewName("noTiles/admin/member");
 		return mv;
 	}
 	
 	//업주 관리 탭
-	@RequestMapping("/host.do")
+	@RequestMapping("/host")
 	public ModelAndView getHosts(ModelAndView mv,
 								 HostSearchDTO hostSearchDTO,
 								 Paging paging) {
@@ -74,7 +74,7 @@ public class AdminController {
 	}
 	
 	//숙소 관리 탭
-	@RequestMapping("/lodgment.do")
+	@RequestMapping("/lodgment")
 	public ModelAndView getLodgments(ModelAndView mv,
 								 	 LodgmentSearchDTO lodgmentSearchDTO,
 								 	 Paging paging) {
@@ -100,7 +100,7 @@ public class AdminController {
 	}
 	
 	//예약 내역 탭
-	@RequestMapping("/reservation.do")
+	@RequestMapping("/reservation")
 	public ModelAndView getReservations(ModelAndView mv,
 								 	    ReservationSearchDTO reservationSearchDTO,
 								 	    Paging paging) {

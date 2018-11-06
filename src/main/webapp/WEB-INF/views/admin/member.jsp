@@ -4,6 +4,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 
+<form action="admin.do" name="frm">
+	<input type="hidden" name="page" value="1">
+	<input type="hidden" name="sort" value="member_no">
+</form>
 <!-- 회원 관리 -->
 <div class="row">
 	<div class="col-md-12">
@@ -40,8 +44,9 @@
 					<td>${member.memberEmail}</td>
 					<td>${member.memberPoint}</td>
 					<td>
-						<fmt:parseDate value="${member.signupDate}" var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
-						<fmt:formatDate value="${dateFmt}" pattern="yyyy.MM.dd"/>
+						<fmt:parseDate value="${member.signupDate}" var="signupDate_D" pattern="yyyy-MM-dd HH:mm:ss"/>
+						<fmt:formatDate value="${signupDate_D}" var="signupDate_FD" pattern="yyyy.MM.dd"/>
+						${signupDate_FD}
 					</td>
 					<td>
 						<div class="btn-group">
@@ -62,7 +67,3 @@
 </div>
 <!-- 페이징 버튼 -->
 <my:paging paging="${paging}" />
-<form action="member.do" name="frm">
-	<input type="hidden" name="page" value="1">
-	<input type="hidden" name="sort" value="member_no">
-</form>
