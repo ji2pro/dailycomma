@@ -1,5 +1,8 @@
 package com.yedam.dailycomma.postscript;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class PostscriptDTO {
 	//후기
 	private String postscriptNo;			//후기번호
@@ -9,6 +12,8 @@ public class PostscriptDTO {
 	private String postscriptContent;		//후기내용
 	private String grade;					//평점
 	private String postscriptDate;			//후기작성일
+	private String roomName;
+	private String memberNick;
 	
 	
 	public String getLodgmentNo() {
@@ -46,6 +51,30 @@ public class PostscriptDTO {
 	}
 	public void setPostscriptDate(String postscriptDate) {
 		this.postscriptDate = postscriptDate;
+	}
+
+	public String getPostscriptNo() {
+		return postscriptNo;
+	}
+
+	public void setPostscriptNo(String postscriptNo) {
+		this.postscriptNo = postscriptNo;
+	}
+
+	public String getRoomName() {
+		return roomName;
+	}
+
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
+	}
+
+	public String getMemberNick() {
+		return memberNick;
+	}
+
+	public void setMemberNick(String memberNick) {
+		this.memberNick = memberNick;
 	}
 
 	@Override

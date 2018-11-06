@@ -1,5 +1,18 @@
 $(function () {
-    $(".detail").on('click',function () {
+    $(".postList").on('click',function () {
+        console.log($(this).attr('id'));
+        var lodgmentNo = $(this).attr('id');
+
+        $.ajax({
+            url:"/postScriptList.do/"+lodgmentNo,
+            success :
+                function(result) {
+                    $(".review-list").html(result).show();
+                }
+        })
+    });
+
+    $(document).on('click',".detail",function () {
         console.log($(this).attr('id'));
         var postNo = $(this).attr('id');
         $.ajax({
@@ -16,18 +29,6 @@ $(function () {
         console.log("test");
         $("#postResult").hide();
         $(".review-list").show();
-    });
-
-    $(".postList").on('click',function () {
-        console.log($(this).attr('id'));
-        var lodgmentNo = $(this).attr('id');
-        $.ajax({
-            url:"/postScriptList.do/"+lodgmentNo,
-            success :
-                function(result) {
-                    $(".review-list").html(result).show();
-                }
-        })
     });
 });
 

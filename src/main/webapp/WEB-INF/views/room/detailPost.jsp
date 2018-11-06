@@ -24,5 +24,4 @@
             <button type="button" class="review-detail__list-btn" >목록</button>
         </div>
     </div>
-</div>
 

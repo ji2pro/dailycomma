@@ -6,11 +6,13 @@
 <html>
 
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
           type="text/css">
     <link rel="stylesheet" type="text/css"
           href="<%=request.getContextPath()%>/resources/include/css/room/bundle.css">
     <script src="<%=request.getContextPath()%>/resources/include/js/room/detailRooms.js"></script>
+
     <%--<script> $(document).ready(funcion(){
         $('#carousel').carousel,'cycle');
     });
@@ -214,26 +216,6 @@
                         <div class="review-box" id="postResult">
                         </div>
                         <ul class="review-list">
-                        <c:forEach var="list" items="${getDetailRoomPosts}">
-                            <li class="place-review__item"></li>
-                            <a role="button" class="detail" id="${list.postscriptNo}">
-                            <div class="review-info">
-                                <div class="review-info__title">
-                                    <span class="badge-rap"><i class="badge-best"><em>추천</em></i></span><strong>일요일 가기 좋은곳</strong></div>
-                                <p class="review-info__content"> ${list.postscriptContent}</p>
-                                <div class="review-userinfo">
-                                    <span class="nicname">${list.memberNick}</span><i class="bar"></i><span class="roomtype">${list.roomName}</span><i class="bar"></i><span class="date">2017.05.07</span>
-                                </div>
-                                <div class="place-review__score"><span class="score-rap"><i
-                                        class="icon-staylist icon-staylist-score score10"></i><i
-                                        class="icon-staylist icon-staylist-score score10"></i><i
-                                        class="icon-staylist icon-staylist-score score10"></i><i
-                                        class="icon-staylist icon-staylist-score score10"></i><i
-                                        class="icon-staylist icon-staylist-score score10"></i></span>
-                                </div>
-                            </div>
-                            </a>
-                        </c:forEach>
                         </ul>
                     </div>
                 </div>
