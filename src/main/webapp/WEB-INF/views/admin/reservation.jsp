@@ -50,7 +50,7 @@
 						<fmt:formatDate value="${reserveDate_D}" pattern="yyyy.MM.dd"/>
 					</td>
 					<td>${reservation.reservePeople}</td>
-					<td>${reservation.reservePrice}</td>
+					<td>${reservation.reservePrice}원</td>
 					<td>${reservation.reserveState}</td>
 					<td>${checkin_FD}</td>
 					<td>${checkout_FD}</td>

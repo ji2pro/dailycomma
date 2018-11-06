@@ -62,3 +62,7 @@
 </div>
 <!-- 페이징 버튼 -->
 <my:paging paging="${paging}" />
+<form action="member.do" name="frm">
+	<input type="hidden" name="page" value="1">
+	<input type="hidden" name="sort" value="member_no">
+</form>

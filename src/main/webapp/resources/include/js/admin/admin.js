@@ -35,3 +35,13 @@ $(function() {
 		return item.value
 	})
 });
+
+//페이징 처리
+function go_page(p) {
+	document.frm.page.value = p;
+	document.frm.submit();
+}
+function sort(s) {
+	document.frm.sort.value = s;
+	document.frm.submit();
+}
