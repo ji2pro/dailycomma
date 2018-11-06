@@ -16,8 +16,13 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/insertMember.do")
-	public String insertMember(Model model, MemberDTO dto) {
-		model.addAttribute("member", memberService.insertMember(dto));
-		return "home/home";
+        public String insertMember(Model model, MemberDTO dto) {
+            model.addAttribute("member", memberService.insertMember(dto));
+            return "home/home";
 	}
+
+    @RequestMapping("/userChoice.do")
+    public String insertMember(Model model) {
+        return "member/userChoice";
+    }
 }

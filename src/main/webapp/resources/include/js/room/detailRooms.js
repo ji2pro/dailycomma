@@ -1,11 +1,3 @@
-/*$(document).ready(function () {
-    $(document).on('click',)(function () {
-        console.log(this);
-        $.ajax({
-            url:"/postDetail.do/"+postNo
-        })
-    })
-})*/
 $(function () {
     $(".detail").on('click',function () {
         console.log($(this).attr('id'));
@@ -14,9 +6,16 @@ $(function () {
             url:"/postDetail.do/"+postNo,
             success :
                 function(result) {
-                    $("#postResult").html(result);
-                    $(".review-list").empty();
+                    $("#postResult").html(result).show();
+                    $(".review-list").hide();
             }
         })
-    })
-})
+    });
+
+    $(document).on('click', ".review-detail__list-btn" ,function () {
+        console.log("test");
+        $("#postResult").hide();
+        $(".review-list").show();
+    });
+});
+

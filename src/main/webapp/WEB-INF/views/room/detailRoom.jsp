@@ -71,8 +71,7 @@
                         </c:forTokens>
                     </div>
                     <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                        <span class="sr-only">Previous</span> </a>
+                        <span class="carousel-control-prev-icon"></span>훅
                     <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next" style="">
                         <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
                 </div>
@@ -208,9 +207,10 @@
                     </div>
                     <%--후기 리스트--%>
                     <div class="tab-pane fade" id="tabtwo" role="tabpanel">
-                        <div class="review-box" id="postResult"></div>
                         <div class="place-room__message"><i class="badge-live">바른후기</i>는 숙소에 직접
                             방문한 회원만 작성할 수 있습니다.</div>
+                        <div class="review-box" id="postResult">
+                        </div>
                         <ul class="review-list">
                         <c:forEach var="list" items="${getDetailRoomPosts}">
                             <li class="place-review__item"></li>
@@ -229,7 +229,6 @@
                                         class="icon-staylist icon-staylist-score score10"></i><i
                                         class="icon-staylist icon-staylist-score score10"></i></span>
                                 </div>
-
                             </div>
                             </a>
                         </c:forEach>
@@ -238,7 +237,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
 </body>
