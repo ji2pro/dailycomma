@@ -1,4 +1,4 @@
-package com.yedam.dailycomma.management;
+package com.yedam.dailycomma.cast;
 
 import java.util.List;
 import java.util.Locale;
@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yedam.dailycomma.management.EmpService;
+import com.yedam.dailycomma.management.ManagementDTO;
+import com.yedam.dailycomma.management.ManagementService;
 import com.yedam.dailycomma.reservation.ReservationDTO;
 import com.yedam.dailycomma.reservation.ReservationSearchDTO;
 import com.yedam.dailycomma.room.RoomDTO;
@@ -23,49 +25,35 @@ import com.yedam.dailycomma.room.RoomDTO;
  * Handles requests for the application home page.
  */
 @Controller
-public class ManagementController {
+public class CastController {
 
-		//구글차트 
+	/*	//구글차트 
 		@Autowired EmpService empService;
-		@RequestMapping("/getEmpChart.do")
+		@RequestMapping("/detailCast.do")
 		@ResponseBody
 		public List<Map<String, Object>> getEmpChart() {
 			
 			return empService.getEmpChart();
 
-		}
+		}*/
 		
-		
-		
-		//사장님 예약자 리스트 
 		@Autowired
 		private ManagementService service;
 	
-		@RequestMapping("/managementList.do")
-		public String management(Locale locale, Model model, ManagementDTO dto) throws Exception{
+		@RequestMapping("/detailCast.do")
+		public String cast(Locale locale, Model model) throws Exception{
 
 			//logger.info("home");
 			
-			List<ManagementDTO> memberList = service.selectReservation(dto);
+			/*List<ManagementDTO> memberList = service.selectReservation(dto);
 			
-			model.addAttribute("memberList", memberList);
+			model.addAttribute("memberList", memberList);*/
 
-			return "management/managementList";
+			return "cast/detailCast";
 		}
+		
+
 	
 
-		/*	@RequestMapping("/stats.do")
-		public String stats(Model model ReservationDTO dto) {
-		
-			return "noTiles/management/stats";
-//			return "user/main";
-		}*/
-		
-	/*	@RequestMapping("/managementList.do")
-		public String managementList(Model model, ReservationDTO dto) {
-		
-			return "management/managementList";
-//			return "user/main";
-		}*/
 
 }

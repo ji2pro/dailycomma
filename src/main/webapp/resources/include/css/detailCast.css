@@ -1,0 +1,795 @@
+@charset "UTF-8";
+
+/*리스트 css*/
+#wrapper {
+	margin-top: 60px;
+}
+
+.datepicker-container {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-color: #F2F2F2;
+	position: relative;
+	width: 100%;
+	height: 55px;
+	font-size: 24px;
+	padding: 0;
+}
+
+.search-calendar-area .datepicker-days {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+.placelist-content .placelist-area {
+	z-index: 2;
+	position: relative;
+	margin-right: 40%;
+	padding: 108px 30px 20px;
+	background-color: #fff;
+}
+
+.popover-container-pc .popover-content.animate-bounce-down {
+	animation-name: fadeIn;
+	animation-iteration-count: 1;
+	animation-duration: .6s;
+	animation-delay: 0s;
+	animation-timing-function: ease;
+	animation-fill-mode: both;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.popover-container-pc .popover-content {
+	position: absolute;
+}
+
+.popover-filter__option {
+	top: 37px;
+	width: 150px;
+}
+
+.popover-filter__option .layer-default {
+	box-sizing: border-box;
+	box-shadow: 0 3px 7px rgba(0, 0, 0, .2);
+	border-top: 2px solid #ff2d60;
+	background-color: #fff;
+	padding: 20px;
+}
+
+.filter__refresh-btn {
+	font-size: 14px;
+	color: #aaa;
+}
+
+button {
+	outline: none;
+	border: 0 none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.f-right {
+	float: right;
+}
+
+.filter-icon__refresh {
+	width: 18px;
+	height: 18px;
+	background:
+		url(https://yaimg.yanolja.com/joy/pw/search/filter-icon__refresh.svg)
+		50%;
+}
+
+.filter-icon {
+	display: inline-block;
+	overflow: hidden;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -9999px;
+	vertical-align: middle;
+}
+
+.placelist-content .content .title-box .tooltip-wrap {
+	margin-top: 18px;
+	margin-right: -4px;
+}
+
+.tooltip-wrap {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	vertical-align: middle;
+	position: relative;
+	z-index: 1;
+}
+
+.recommend-item .image-box {
+	float: left;
+	width: 30%;
+	position: relative;
+	max-height: 240px;
+	overflow: hidden;
+}
+
+.recommend-item .image-box .badge-rap {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 100%;
+}
+
+.recommends-list .recommend-item .image-box .maker-rap {
+	background-color: rgba(0, 0, 0, .5);
+	display: none;
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.placemap-container .map-maker-guide {
+	box-sizing: border-box;
+	box-shadow: 0 2px 13px rgba(0, 0, 0, .13);
+	background-color: hsla(0, 0%, 100%, .9);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 16px 20px 15px;
+}
+
+.placemap-container .map-maker-guide span i.maker-motel {
+	background-color: #00e0d1;
+}
+
+.placemap-container .map-maker-guide span i.maker-hotel {
+	background-color: #722c82;
+}
+
+.placemap-container .map-maker-guide span i.maker-pension {
+	background-color: #ff6659;
+}
+
+.placemap-container .map-maker-guide span i.maker-guesthouse {
+	background-color: #97c91d;
+}
+
+.placemap-container .map-maker-guide span i.maker-nopartner {
+	background-color: #ccc;
+}
+
+.datepicker-yanolja-pc .DateInput {
+	font-size: 24px;
+	padding: 0;
+	background: none;
+}
+
+.icon-staylist {
+	display: inline-block;
+	overflow: hidden;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -9999px;
+	vertical-align: middle;
+	background:
+		url(https://yaimg.yanolja.com/joy/pw/search/icon-staylist.svg)
+		no-repeat;
+}
+
+.icon-calendar-on {
+	width: 32px;
+	height: 32px;
+	background-position: 0 -34px;
+}
+
+.icon-staylist-score.score10 {
+	background-position: 0 0;
+}
+
+.icon-staylist-score {
+	width: 16px;
+	height: 16px;
+}
+
+.recommends-list .recommend-item .info-box .score-rap .icon-staylist-score
+	{
+	margin-top: -1px;
+}
+
+.recommends-list .recommend-item .info-box .price-rap .price-item .price-label.label-reserve
+	{
+	background-color: #ff2d60;
+}
+
+.recommends-list .recommend-item .info-box .price-rap .price-item .price-label
+	{
+	font-size: 12px;
+	color: #fff;
+	display: inline-block;
+	padding: 3px 5px 2px;
+	vertical-align: top;
+	margin-top: 3px;
+}
+
+.contents {
+	padding: 60px 0;
+	min-height: 720px;
+}
+
+.con_inner {
+	width: 960px;
+	min-height: 552px;
+	padding-bottom: 60px;
+	margin: 0 auto;
+}
+
+.con_detail .inner_bg {
+	height: 100%;
+	padding: 60px;
+	background: #fff;
+}
+
+.con_detail .detail_user {
+	position: relative;
+	width: 100%;
+}
+
+.con_detail .user_pic {
+	width: 34px;
+	height: 34px;
+}
+
+.detail_user .user_name span {
+	display: inline-block;
+	height: 30px;
+	color: #ff5f81;
+	line-height: 30px;
+}
+
+.con_detail .side_menu {
+	position: absolute;
+	right: -80px;
+	top: 0;
+	width: 50px;
+	margin-top: 252px;
+}
+
+.con_detail .side_menu ul {
+	display: block;
+	position: fixed;
+	width: 50px;
+	z-index: 0;
+}
+
+.con_detail .side_menu li {
+	width: 48px;
+	height: 49px;
+	margin-top: -1px;
+	border: solid 1px #e5e5e5;
+	background: #fff;
+}
+
+/* 01 타이틀 */
+.count span {
+	display: inline-block;
+	margin-left: 14px;
+	color: #aaa;
+	vertical-align: middle
+} /*날짜*/
+.count span:first-child {
+	margin-left: 0
+}
+
+.count b {
+	display: inline-block;
+	margin-left: 4px;
+	color: #aaa;
+	font-weight: normal;
+	vertical-align: middle
+} /*날짜 뒷부분*/
+
+/* 02 캐스트 상세페이지 */
+.con_detail {
+	position: relative; /*overflow:hidden;*/
+	width: 896px;
+	margin: 0 auto;
+	border: solid 1px #eaeaea;
+	text-align: left
+}
+
+.con_detail .side_menu {
+	position: absolute;
+	right: -80px;
+	top: 0;
+	width: 50px;
+	margin-top: 252px
+}
+
+.con_detail .side_menu ul {
+	display: block;
+	position: fixed;
+	width: 50px;
+	z-index: 0
+}
+
+.con_detail .side_menu li {
+	width: 48px;
+	height: 49px;
+	margin-top: -1px;
+	border: solid 1px #e5e5e5;
+	background: #fff
+}
+
+.con_detail .side_menu li:hover, .con_detail .side_menu li:focus,
+	.con_detail .side_menu li:active {
+	background: #eee
+}
+
+.con_detail .side_menu li.mg_top {
+	margin-top: 16px
+}
+
+.con_detail .side_menu a {
+	display: block;
+	width: 100%;
+	height: 100%
+}
+
+.con_detail .side_menu li span {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin: 14px
+}
+
+.con_detail .side_menu li.on span {
+	display: inline-block
+}
+
+.con_detail .inner_bg {
+	height: 100%;
+	padding: 60px;
+	background: #fff
+}
+
+.con_detail .detail_user {
+	position: relative;
+	width: 100%
+}
+
+.con_detail .user_pic {
+	width: 34px;
+	height: 34px
+}
+
+.detail_user .user_name {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 46px
+}
+
+.detail_user .user_name span {
+	display: inline-block;
+	height: 30px;
+	color: #ff5f81;
+	line-height: 30px
+}
+
+.con_detail .detail_title {
+	position: relative;
+	width: 100%;
+	margin-top: 20px
+}
+
+.con_detail .detail_title p {
+	font-size: 32px;
+	color: #444;
+	font-weight: 600;
+	letter-spacing: -1px
+}
+
+.detail_title .count {
+	margin-top: 20px
+}
+
+.detail_title .reply {
+	display: block;
+	position: absolute;
+	bottom: -12px;
+	right: 0;
+	width: 90px;
+	height: 38px;
+	text-align: center
+}
+
+.detail_title .reply span {
+	display: inline-block;
+	height: 38px;
+	line-height: 38px;
+	font-size: 14px;
+	color: #666;
+	vertical-align: middle
+}
+
+.detail_title .reply b {
+	display: inline-block;
+	height: 38px;
+	line-height: 38px;
+	margin-left: 5px;
+	font-size: 14px;
+	color: #ff5f81;
+	vertical-align: middle
+}
+
+.detail_title .reply:hover span, .detail_title .reply:focus span,
+	.detail_title .reply:active span, .detail_title .reply:hover b,
+	.detail_title .reply:focus b, .detail_title .reply:active b {
+	color: #fff
+}
+
+.con_detail .detail_area {
+	width: 100%;
+	margin-top: 70px
+}
+
+.detail_area img {
+	max-width: 750px;
+	margin-top: 0
+}
+
+.detail_area p {
+	width: 100%;
+	margin-top: 0;
+	font-size: 14px;
+	color: #444
+}
+
+.con_detail .inner_bg.type {
+	height: 80px;
+	padding: 30px 60px;
+	background: #fbf9f9
+}
+
+.inner_bg.type .user_cast {
+	position: relative;
+	width: 100%
+}
+
+.inner_bg.type .user_pic {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 80px;
+	height: 80px
+}
+
+.inner_bg.type .user_txt {
+	height: 80px;
+	margin-left: 100px
+}
+
+.inner_bg.type .user_txt a {
+	display: inline-block
+}
+
+.inner_bg.type .user_txt strong {
+	font-size: 16px;
+	color: #444;
+	line-height: 24px
+}
+
+.inner_bg.type .user_txt p {
+	font-size: 14px;
+	color: #999;
+	line-height: 22px
+}
+
+.inner_bg.type .user_txt .count {
+	margin-top: 12px;
+	line-height: 18px
+}
+
+.inner_bg.type .user_txt .count span {
+	font-size: 14px;
+	color: #666
+}
+
+.inner_bg.type .user_txt .count b {
+	margin-left: 4px;
+	font-size: 14px;
+	color: #ff5f81
+}
+
+.user_cast .bt_read {
+	position: absolute;
+	right: 0;
+	top: 20px;
+	width: 113px;
+	height: 40px
+}
+
+.bt_read button {
+	width: 100%;
+	height: 40px
+}
+
+.bt_read button span.bt_reading {
+	display: inline-block;
+	width: 113px;
+	height: 40px
+}
+
+/*상세캐스트 아래 이미지*/
+.bt_detail button span, a span.ico_report, .nav_sns li span, .nav_sns li.on span
+	{
+	background:
+		url(http://image2.yanolja.com/100/pc/cast/icon_img2_v20170126.png)
+		no-repeat;
+	background-size: 400px 350px;
+}
+
+.bt_detail button .ico_detaillike {
+	background-position: 0 -62px
+}
+
+.bt_detail button.on .ico_detaillike {
+	background-position: 0 -120px
+}
+
+.bt_detail button .ico_detailbook {
+	background-position: -68px -62px
+}
+
+.bt_detail button.on .ico_detailbook {
+	background-position: -68px -120px
+}
+
+.bt_detail button .ico_detailface {
+	background-position: -136px -62px
+}
+
+.bt_detail button .ico_detaillink {
+	background-position: -136px -120px
+}
+
+a span.ico_report {
+	background-position: -204px -62px
+}
+
+.nav_sns li .ico_face {
+	background-position: 0 0
+}
+
+.nav_sns li .ico_blog {
+	background-position: -35px 0
+}
+
+.nav_sns li .ico_web {
+	background-position: -70px 0
+}
+
+.nav_sns li:hover .ico_face, .nav_sns li:focus .ico_face, .nav_sns li:active .ico_face
+	{
+	background-position: 0 -27px
+}
+
+.nav_sns li:hover .ico_blog, .nav_sns li:focus .ico_blog, .nav_sns li:active .ico_blog
+	{
+	background-position: -35px -27px
+}
+
+.nav_sns li:hover .ico_web, .nav_sns li:focus .ico_web, .nav_sns li:active .ico_web
+	{
+	background-position: -70px -27px
+}
+
+/*popup이미지*/
+.gnb_left button .bt_mainsearch, .g_alram a .ico_alram, .g_alram.on a .ico_alram,
+	.g_menu a .ico_menu, .g_userrap .inner_menu ul li span, .re_edit .edit_file .ico_cam,
+	.re_comment .ico_reply, span.ico_like, span.ico_read, .ico_play,
+	.caster_c span.ico_caster, .con_detail .side_menu li span, .con_detail .side_menu li.on span,
+	.ico_new, .bl_arrow01, .list_del a .ico_del, .flex-control-paging li a,
+	.flex-control-paging li a.flex-active, .inp_form .notifile div:first-child button
+	{
+	background: url(http://image2.yanolja.com/100/pc/cast/icon_img1.png)
+		no-repeat;
+	background-size: 300px 250px
+}
+
+.gnb_left button .bt_mainsearch {
+	background-position: -63px -40px
+}
+
+.g_alram a .ico_alram {
+	background-position: 0 -40px
+}
+
+.g_alram.on a .ico_alram {
+	background-position: 0 -35px
+}
+
+.g_menu a .ico_menu {
+	background-position: -34px -40px
+}
+
+.g_userrap .inner_menu ul li span.ico_menu1 {
+	background-position: 0 -162px
+}
+
+.g_userrap .inner_menu ul li span.ico_menu2 {
+	background-position: -25px -162px
+}
+
+.g_userrap .inner_menu ul li span.ico_menu3 {
+	background-position: -50px -162px
+}
+
+.g_userrap .inner_menu ul li span.ico_menu4 {
+	background-position: -75px -162px
+}
+
+.g_userrap .inner_menu ul li span.ico_menu5 {
+	background-position: -100px -162px
+}
+
+.re_edit .edit_file .ico_cam {
+	background-position: -91px -40px
+}
+
+.re_comment .ico_reply {
+	background-position: -38px -69px
+}
+
+span.ico_like {
+	background-position: 0px -69px
+}
+
+span.ico_read {
+	background-position: -14px -69px
+}
+
+.ico_play {
+	background-position: -40px -121px
+}
+
+.caster_c span.ico_caster {
+	background-position: -76px -121px
+}
+
+.con_detail .side_menu li span.bl_like {
+	background-position: 0 -91px
+}
+
+.con_detail .side_menu li span.bl_reply {
+	background-position: -30px -91px
+}
+
+.con_detail .side_menu li span.bl_bookmark {
+	background-position: -60px -91px
+}
+
+.con_detail .side_menu li span.bl_facebook {
+	background-position: -90px -91px
+}
+
+.con_detail .side_menu li span.bl_share {
+	background-position: -120px -91px
+}
+
+.con_detail .side_menu li span.bl_top {
+	background-position: -150px -91px
+}
+
+.con_detail .side_menu li.on span.bl_like {
+	background-position: -180px -91px
+}
+
+.con_detail .side_menu li.on span.bl_bookmark {
+	background-position: -210px -91px
+}
+
+.ico_new {
+	background-position: -123px -40px
+}
+
+.bl_arrow01 {
+	background-position: -56px -69px
+}
+
+.list_del a .ico_del {
+	background-position: -192px -40px
+}
+
+.flex-control-paging li a {
+	background-position: -150px -40px
+}
+
+.flex-control-paging li a.flex-active {
+	background-position: -169px -40px
+}
+
+/* button */
+.bt_rap {
+	width: 100%;
+	height: 100%
+}
+
+.bt_rap .bt_more {
+	display: block;
+	margin: 60px 0
+}
+
+.bt_rap .bt_more button {
+	width: 100%;
+	height: 44px;
+	margin: 0 auto;
+	font-size: 14px;
+	color: #444;
+	background: #eee;
+	font-weight: 600
+}
+
+.bt_rap .bt_detail {
+	display: block;
+	width: 410px;
+	margin: 74px auto 0 auto;
+	text-align: center
+}
+
+.bt_rap .bt_detail ul {
+	width: 100%
+}
+
+.bt_rap .bt_detail ul li {
+	overflow: hidden;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	width: 80px;
+	margin-left: 12px;
+	background: #fff;
+	vertical-align: top;
+	text-align: center
+}
+
+.bt_rap .bt_detail ul li:first-child {
+	margin-left: 0
+}
+
+.bt_rap .bt_detail li button {
+	display: block;
+	width: 60px;
+	height: 60px;
+	margin: 0 auto 12px auto
+}
+
+.bt_rap .bt_detail li button span {
+	display: inline-block;
+	width: 58px;
+	height: 58px
+}
+
+.bt_rap .bt_detail li span.bt_txt {
+	font-size: 14px;
+	color: #999;
+	line-height: 16px
+}
+
+.bt_rap .bt_detail li b {
+	padding-left: 3px;
+	font-size: 14px;
+	color: #666;
+	line-height: 16px;
+	font-weight: normal
+}
+
+dl, ul, ol, menu, li {
+	list-style: none;
+	outline: none;
+}

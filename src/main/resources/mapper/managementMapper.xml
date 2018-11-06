@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="management">
+ 
+ 	<select id="selectReservation" resultType="managementDTO">
+        select * <!-- reservation.reserve_state, member.member_name, member.member_email -->
+		from reservation, member, room, lodgment
+		where reservation.member_no = member.member_no
+		and room.lodgment_no = reservation.lodgment_no
+		and lodgment.lodgment_no = room.lodgment_no
+		and lodgment.lodgment_no = '1'<!-- #{lodgmentNo}  지금은 값을 직접 2로 지정해뒀으나 나중에 숙박업체 번호 lodgmentNo 변수로 받아와야됨-->
+		<!-- and lodgment.lodgment_no = 1 -->
+
+	<!-- 	select * from reservation;
+		select * from member;
+		select * from room; -->
+    </select>
+
+   <!--  SELECT member_name, member_email ,member_pw FROM MEMBER -->
+</mapper>
+
+

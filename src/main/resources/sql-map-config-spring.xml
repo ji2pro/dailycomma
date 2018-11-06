@@ -42,6 +42,10 @@
 
 		<!-- tour(cast) 설정 -->
 		<typeAlias alias="tour" type="com.yedam.dailycomma.tour.TourDTO"/>
+		
+		<!-- 사장관리 -->
+		<typeAlias alias="managementDTO" type="com.yedam.dailycomma.management.ManagementDTO"/>
+		
 		<typeAlias alias="tourSearch" type="com.yedam.dailycomma.tour.TourSearchDTO"/>
 	</typeAliases>	
 </configuration>
