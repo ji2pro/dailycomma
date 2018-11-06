@@ -27,15 +27,6 @@ import com.yedam.dailycomma.room.RoomDTO;
 @Controller
 public class CastController {
 
-	/*	//구글차트 
-		@Autowired EmpService empService;
-		@RequestMapping("/detailCast.do")
-		@ResponseBody
-		public List<Map<String, Object>> getEmpChart() {
-			
-			return empService.getEmpChart();
-
-		}*/
 		
 		@Autowired
 		private ManagementService service;
