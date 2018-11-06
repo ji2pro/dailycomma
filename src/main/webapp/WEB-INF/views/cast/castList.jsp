@@ -5,6 +5,16 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./resources/include/css/cast/cast-css.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.js"></script>
+	<script src="./resources/include/js/cast/cast-js.js"></script>
+</head>
+
+<meta charset="utf-8" />
+<title>캐스트</title>
+
+
 <html>
 
     <h1>Masonry - imagesLoaded progress</h1>
