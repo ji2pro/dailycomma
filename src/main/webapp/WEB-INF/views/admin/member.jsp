@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
+<script src="<%=request.getContextPath()%>/resources/include/js/admin/member.js"></script>
 
 <form name="frm" id="frm">
 	<input type="hidden" name="page" value="1">
@@ -55,7 +56,7 @@
 						</div>
 					</td>
 				</tr>
-				</c:forEach>
+				</c:forEach> 
 			</tbody>
 		</table>
 	</div>
@@ -65,5 +66,8 @@
 		<a class="btn btn-outline-danger" href="#">선택 삭제</a>
 	</div>
 </div>
+<div id="memberPaging">
+	  <my:paging paging="${paging}" jsFunc="go_page"/> 
+</div>
 <!-- 페이징 버튼 -->
- <my:paging paging="${paging}" jsFunc="go_page"/> 
+<%--  <my:paging paging="${paging}" jsFunc="go_page"/>  --%>

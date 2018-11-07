@@ -17,7 +17,8 @@
 				<li class="nav-item">
 					<a class="nav-link" id="memberTab" href="./member"
 					   aria-controls="memberAdmin" aria-selected="true"
-					   data-target="#memberAdmin" data-toggle="tab" role="tab">회원 관리</a>
+					   data-target="#memberAdmin" data-toggle="tab" role="tab"
+					 >회원 관리</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" id="hostTab" href="host.do"

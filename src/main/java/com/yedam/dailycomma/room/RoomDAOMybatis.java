@@ -1,11 +1,12 @@
 package com.yedam.dailycomma.room;
 
-import com.yedam.dailycomma.lodgment.LodgmentDTO;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import com.yedam.dailycomma.lodgment.LodgmentDTO;
 
 @Repository
 public class RoomDAOMybatis {
@@ -35,4 +36,13 @@ public class RoomDAOMybatis {
     public int insertRoom(RoomDTO dto) {
 		return mybatis.insert("room.insertRoom", dto);
 	}
+    
+    public List<RoomDTO> getRooms(RoomSearchDTO roomSearchDTO) {
+        System.out.println("========객실들 조회(관리자)========");
+        return mybatis.selectList("room.getRooms", roomSearchDTO);
+    }
+    //건수 조회
+    public int getCnt(RoomSearchDTO roomSearchDTO) {
+    	return mybatis.selectOne("room.getCnt", roomSearchDTO);
+    }
 }

@@ -1,5 +1,8 @@
 package com.yedam.dailycomma.admin;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,10 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.yedam.dailycomma.common.Paging;
 import com.yedam.dailycomma.host.HostSearchDTO;
-import com.yedam.dailycomma.lodgment.LodgmentDTO;
 import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
 import com.yedam.dailycomma.member.MemberSearchDTO;
 import com.yedam.dailycomma.reservation.ReservationSearchDTO;
+import com.yedam.dailycomma.room.RoomSearchDTO;
 
 @Controller
 public class AdminController {
@@ -23,6 +26,33 @@ public class AdminController {
 		return "admin/admin";
 	}
 	
+	//관리자 맴버 아작스 호출 페이지
+	@RequestMapping(value= {"/member.ajax"}, method=RequestMethod.GET)
+	@ResponseBody
+	public Map getMembers(MemberSearchDTO memberSearchDTO,
+						 Paging paging
+						 ) {
+		
+		Map map = new HashMap<String,Object>();
+		// 조회할 레코드 건수
+		paging.setPageUnit(3);
+
+		// 현재 페이지 번호. 없으면 1page로 설정
+		if (paging.getPage() == null) {
+			paging.setPage(1);
+		}
+		// 전체 건수
+		int total = adminService.getMemberCnt(memberSearchDTO);
+		paging.setTotalRecord(total);
+		map.put("paging", paging);
+
+		// 시작/마지막 레코드 번호
+		memberSearchDTO.setStart(paging.getFirst());
+		memberSearchDTO.setEnd(paging.getLast());
+		map.put("list", adminService.getMembers(memberSearchDTO));
+		return map;
+	}
+		
 	//관리자 페이지 메인
 	@RequestMapping(value= {"/member"}, method=RequestMethod.GET)
 	public ModelAndView getMembers(ModelAndView mv,
@@ -98,6 +128,32 @@ public class AdminController {
 		mv.addObject("list", adminService.getLodgments(lodgmentSearchDTO));
 		
 		mv.setViewName("noTiles/admin/lodgment");
+		return mv;
+	}
+	
+	//숙소 관리 탭
+	@RequestMapping("/room")
+	public ModelAndView getRooms(ModelAndView mv,
+								 RoomSearchDTO roomSearchDTO,
+								 Paging paging) {
+		// 조회할 레코드 건수
+		paging.setPageUnit(10);
+
+		// 현재 페이지 번호. 없으면 1page로 설정
+		if (paging.getPage() == null) {
+			paging.setPage(1);
+		}
+		// 전체 건수
+		int total = adminService.getRoomCnt(roomSearchDTO);
+		paging.setTotalRecord(total);
+		mv.addObject("paging", paging);
+
+		// 시작/마지막 레코드 번호
+		roomSearchDTO.setStart(paging.getFirst());
+		roomSearchDTO.setEnd(paging.getLast());
+		mv.addObject("list", adminService.getRooms(roomSearchDTO));
+		
+		mv.setViewName("admin/room");
 		return mv;
 	}
 	
