@@ -9,4 +9,5 @@ import java.util.List;
 public interface PostscriptService {
 
     public List<PostscriptDTO> getPostscriptList(LodgmentDTO dto);
+    public List<RoomDTO> insertPostscriptForm(LodgmentDTO vo);
 }

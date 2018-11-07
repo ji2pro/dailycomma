@@ -13,6 +13,7 @@ public class MyPageDTO {
 	private String reservePoints;
 	private String memberPoint;
 	private String roomPrice;
+	private String memberEmail;
 	
 	public String getMemberPoint() {
 		return memberPoint;
@@ -86,11 +87,18 @@ public class MyPageDTO {
 	public void setRoomPrice(String roomPrice) {
 		this.roomPrice = roomPrice;
 	}
+	public String getMemberEmail() {
+		return memberEmail;
+	}
+	public void setMemberEmail(String memberEmail) {
+		this.memberEmail = memberEmail;
+	}
 	@Override
 	public String toString() {
 		return "MyPageDTO [reserveNo=" + reserveNo + ", reserveDate=" + reserveDate + ", company=" + company
 				+ ", roomName=" + roomName + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", checkDate="
 				+ checkDate + ", memberNo=" + memberNo + ", reservePrice=" + reservePrice + ", reservePoints="
-				+ reservePoints + ", memberPoint=" + memberPoint + ", roomPrice=" + roomPrice + "]";
+				+ reservePoints + ", memberPoint=" + memberPoint + ", roomPrice=" + roomPrice + ", memberEmail="
+				+ memberEmail + "]";
 	}
 }

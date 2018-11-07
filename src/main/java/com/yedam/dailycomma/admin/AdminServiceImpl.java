@@ -18,6 +18,8 @@ import com.yedam.dailycomma.reservation.ReservationDAOMybatis;
 import com.yedam.dailycomma.reservation.ReservationDTO;
 import com.yedam.dailycomma.reservation.ReservationSearchDTO;
 import com.yedam.dailycomma.room.RoomDAOMybatis;
+import com.yedam.dailycomma.room.RoomDTO;
+import com.yedam.dailycomma.room.RoomSearchDTO;
 import com.yedam.dailycomma.tour.TourDAO;
 
 @Service
@@ -54,9 +56,15 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	//객실
-	/*public List<RoomDTO> getDetailRooms(RoomSearchDTO roomSearchDTO) {
-		return roomDAO.getDetailRooms(roomSearchDTO);
-	}*/
+	public List<RoomDTO> getRooms(RoomSearchDTO roomSearchDTO) {
+		return roomDAO.getRooms(roomSearchDTO);
+	}
+	public int getRoomCnt(RoomSearchDTO roomSearchDTO) {
+		return roomDAO.getCnt(roomSearchDTO);
+	}
+	public List<RoomDTO> getEachRooms(RoomSearchDTO roomSearchDTO) {
+		return roomDAO.getEachRooms(roomSearchDTO);
+	}
 
 	//예약
 	public List<ReservationDTO> getReservations(ReservationSearchDTO reservationSearchDTO) {

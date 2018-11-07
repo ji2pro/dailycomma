@@ -78,11 +78,13 @@
 	
 	<!-- 수정 -->
 	<update id="updateMember" parameterType="member">
-		UPDATE MEMBER SET MEMBER_PW = #{memberPw},
-						  MEMBER_NICK = #{memberNick},
-						  MEMBER_IMG = #{memberImg},
-						  MEMBER_INTRO = #{memberIntro}
-		WHERE MEMBER_NO = #{memberNo}
+		UPDATE MEMBER <set>
+						  <if test="memberPw!=null">MEMBER_PW = #{memberPw},</if>
+						  <if test="memberNick!=null">MEMBER_NICK = #{memberNick},</if>
+						  <if test="memberImg!=null">MEMBER_IMG = #{memberImg},</if>
+						  <if test="memberIntro!=null">MEMBER_INTRO = #{memberIntro}</if>
+					  </set>		  
+		WHERE MEMBER_EMAIL = #{memberEmail}
 	</update>
 	
 	<!-- 삭제 -->

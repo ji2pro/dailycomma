@@ -37,8 +37,7 @@ public class LoginController {
 	@RequestMapping("/loginForm.do")
 	public String loginForm() {
 		return "member/memberLogin";
-	}
-	
+	}	
 	
 	//로그아웃 처리
 	@RequestMapping("/memberLogout.do")

@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 
+
 <!-- 숙소 관리 경로 표시 -->
 <div class="row">
 	<div class="col-md-12">
@@ -25,25 +26,28 @@
 							<span class="custom-control-indicator"></span>
 						</label>
 					</th>
+					<th scope="col">객실번호</th>
 					<th scope="col">객실명</th>
 					<th scope="col">객실수</th>
 					<th scope="col">가격(1박)</th>
-					<th scope="col">최대 인원(객실)</th>
+					<th scope="col">최대 인원(1객실)</th>
 					<th scope="col">관리</th>
 				</tr>
 			</thead>
 			<tbody>
+				<c:forEach items="${list}" var="room">
 				<tr class="text-center">
 					<td scope="row">
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" name="_selected_" value="" class="custom-control-input">
+							<input type="checkbox" name="_selected_" value="${room.roomNo}" class="custom-control-input">
 							<span class="custom-control-indicator"></span>
 						</label>
 					</td>
-					<td class="text-center">스탠다드</td>
-					<td>12</td>
-					<td>35,000</td>
-					<td>4</td>
+					<td>${room.roomNo}</td>
+					<td>${room.roomName}</td>
+					<td>${room.roomQuantity}</td>
+					<td>${room.roomPrice}</td>
+					<td>${room.roomCapa}</td>
 					<td>
 						<div class="btn-group">
 							<a href="#" class="btn btn-outline-success btn-sm">수정</a>
@@ -51,6 +55,7 @@
 						</div>
 					</td>
 				</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
