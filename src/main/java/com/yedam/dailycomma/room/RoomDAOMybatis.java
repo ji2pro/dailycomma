@@ -41,6 +41,10 @@ public class RoomDAOMybatis {
         System.out.println("========객실들 조회(관리자)========");
         return mybatis.selectList("room.getRooms", roomSearchDTO);
     }
+    public List<RoomDTO> getEachRooms(RoomSearchDTO roomSearchDTO) {
+        System.out.println("========숙소별 객실 조회(관리자)========");
+        return mybatis.selectList("room.getEachRooms", roomSearchDTO);
+    }
     //건수 조회
     public int getCnt(RoomSearchDTO roomSearchDTO) {
     	return mybatis.selectOne("room.getCnt", roomSearchDTO);

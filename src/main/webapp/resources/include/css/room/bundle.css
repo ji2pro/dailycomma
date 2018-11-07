@@ -556,3 +556,45 @@ a {
     background-color: #595f63;
     text-align: center
 }
+.place-room__title {
+    font-size: 28px;
+    color: #333;
+}
+i, em, address {
+    font-style: normal;
+}
+.place-room__tip {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/*후기 등록 폼*/
+.sc-out {
+    overflow: hidden;
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+.inp-txt-member input {
+/*    width: 100%;*/
+    color: #666;
+    font-size: 15px;
+    background: transparent;
+    border:none;
+}
+.inp-txt-member {
+    position: relative;
+    margin-top: 13px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+.inp-txt-member:first-child {
+    margin-top: 0;
+}
+img, fieldset, iframe {
+    border: 0 none;
+}

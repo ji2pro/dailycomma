@@ -6,8 +6,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.yedam.dailycomma.host.HostSearchDTO;
-
 @Repository
 public class LodgmentDAO {
 	@Autowired SqlSessionTemplate mybatis;

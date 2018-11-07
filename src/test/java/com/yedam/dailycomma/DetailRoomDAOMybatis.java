@@ -50,6 +50,16 @@ public class DetailRoomDAOMybatis {
         }
     }
 
+    @Test
+    public void insertPostscriptForm() {
+        ldto.setLodgmentNo("LOD50");
+        List<RoomDTO> dto2 = postdao.insertPostscriptForm(ldto);
+
+        for(RoomDTO list : dto2) {
+            System.out.println(list.getRoomImg());
+        }
+    }
+
 
     @Test
     public void getDetailRoomPosts() {

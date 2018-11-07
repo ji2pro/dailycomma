@@ -62,6 +62,9 @@ public class AdminServiceImpl implements AdminService {
 	public int getRoomCnt(RoomSearchDTO roomSearchDTO) {
 		return roomDAO.getCnt(roomSearchDTO);
 	}
+	public List<RoomDTO> getEachRooms(RoomSearchDTO roomSearchDTO) {
+		return roomDAO.getEachRooms(roomSearchDTO);
+	}
 
 	//예약
 	public List<ReservationDTO> getReservations(ReservationSearchDTO reservationSearchDTO) {

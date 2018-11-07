@@ -21,6 +21,46 @@
 		)
 	</insert>
 	
+	<resultMap id="eachRooms" type="detailRoom">
+		<id property="roomNo" column="ROOM_NO" />
+		<result property="roomName" column="ROOM_NAME" />
+		<result property="roomQuantity" column="ROOM_QUANTITY" />
+		<result property="roomPrice" column="ROOM_PRICE" />
+		<result property="roomCapa" column="ROOM_CAPA" />
+	</resultMap>
+	
+	<!-- 숙소별 객실 조회 -->
+	<select id="getEachRooms" parameterType="roomSearch" resultMap="eachRooms">
+		SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
+			SELECT R.ROOM_NO, R.ROOM_NAME, R.ROOM_QUANTITY, R.ROOM_PRICE, R.ROOM_CAPA
+			FROM ROOM R JOIN LODGMENT L
+			ON L.LODGMENT_NO = R.LODGMENT_NO
+		<where>
+			<if test="ids != null">
+				ROOM_NO IN
+				<foreach collection="ids" open="(" close=")" separator="," item="item">
+					#{item}
+				</foreach>
+			</if>
+			<if test="searchCondition == 'room_no'">
+				AND ROOM_NO LIKE '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="searchCondition == 'room_name'">
+				AND ROOM_NAME LIKE '%' || #{searchKeyword} || '%'		
+			</if>
+		</where>
+		ORDER BY
+		<choose>
+			<when test="sort != null and sort != ''">
+				#{sort}
+			</when>
+			<otherwise>
+				ROOM_NO
+			</otherwise>
+		</choose>
+	) U ) A WHERE RN BETWEEN #{start} and #{end}
+	</select>
+	
 	<!-- 전체 조회 -->
 	<select id="getRooms" resultType="detailRoom" parameterType="roomSearch">
 		SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (

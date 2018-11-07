@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yedam.dailycomma.management.EmpService;
+//import com.yedam.dailycomma.management.EmpService;
 import com.yedam.dailycomma.management.ManagementDTO;
 import com.yedam.dailycomma.management.ManagementService;
 import com.yedam.dailycomma.reservation.ReservationDTO;
