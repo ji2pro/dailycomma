@@ -12,11 +12,11 @@
 				<th>가격</th>
 			</tr>
 
-			<c:forEach items="${list}" var="country">
+			<c:forEach items="${country}" var="co">
 				<tr>
-					<td>${country.company}</td>
-					<td>${country.roomName}</td>
-					<td>${country.roomPrice}</td>
+					<td>${co.company}</td>
+					<td>${co.roomName}</td>
+					<td>${co.roomPrice}원</td>
 				</tr>
 			</c:forEach>
 		</tbody>

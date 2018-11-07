@@ -14,14 +14,14 @@
 				<th>이용기간</th>
 				<th>예약금액</th>
 			</tr>
-		<c:forEach items="${list}" var="reserve">   
+		<c:forEach items="${reserve}" var="res">   
 			<tr>
-				<td>${reserve.reserveNo}</td>
-				<td>${reserve.reserveDate}</td>
-				<td>${reserve.company}</td>
-				<td>${reserve.roomName}</td>
-				<td>${reserve.checkDate}</td>
-				<td>${reserve.reservePrice}</td>
+				<td>${res.reserveNo}</td>
+				<td>${res.reserveDate}</td>
+				<td>${res.company}</td>
+				<td>${res.roomName}</td>
+				<td>${res.checkDate-1}박${res.checkDate}일</td>
+				<td>${res.reservePrice}</td>
 			</tr>
 		</c:forEach>   
 		</tbody>
