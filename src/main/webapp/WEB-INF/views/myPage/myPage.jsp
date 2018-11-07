@@ -44,7 +44,6 @@
 							<li>한줄소개 :<input type="text" size="40" name="memberIntro"
 								placeholder="자신을 소개하세요" value="${memberLogin.memberIntro}"
 								style="border:none" class="ml-3 my-3"></li>
-
 						</ul>
 						<button class="btn btn-primary btn-lg mt-3 ml-3" type="submit">정보수정</button>
 					</div>
