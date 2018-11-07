@@ -55,4 +55,34 @@
                             AND l.LODGMENT_NO = #{lodgmentNo}
         ORDER BY p.POSTSCRIPT_NO DESC
     </select>
+    
+    <!-- 후기 등록 폼에 필요한 룸 리스트-->
+    <select id="insertPostscriptForm" resultType="detailRoom" parameterType="lodgment">
+          select R.ROOM_NO,R.ROOM_NAME
+    from LODGMENT L join ROOM R
+        on(L.LODGMENT_NO = R.LODGMENT_NO)
+    where R.LODGMENT_NO = #{lodgmentNo}
+    </select>
+
+
+
+<!--    <insert id="insertPostscript" parameterType="postscript">
+        <selectKey keyProperty="seq" resultType="string" order="BEFORE">
+            select nvl(max(seq),0)+1 from comments
+        </selectKey>
+        INSERT INTO COMMENTS(
+        SEQ
+        , NAME
+        , CONTENT
+        , BOARD_SEQ
+        , REGDATE
+        )
+        VALUES(
+        #{seq}
+        , #{name}
+        , #{content}
+        , #{boardSeq}
+        , SYSDATE
+        )
+    </insert>-->
 </mapper>

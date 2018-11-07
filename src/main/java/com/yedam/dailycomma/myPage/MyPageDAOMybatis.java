@@ -13,9 +13,6 @@ public class MyPageDAOMybatis {
 	
 	@Autowired SqlSessionTemplate mybatis;
 	
-	public MemberDTO getMember(MemberDTO dto) {
-		 return mybatis.selectOne("member.getMember",dto);
-	}
 	public List<MyPageDTO> getReserves(MyPageDTO dto) {
 		 return mybatis.selectList("myPage.getReserves",dto);
 	}
