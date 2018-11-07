@@ -11,8 +11,6 @@ public class AdminSearchDTO extends MemberDTO {
 	//페이징
 	private Integer start;
 	private Integer end;
-	
-
 	//foreach
 	private String[] ids;
 	//정렬 기준
