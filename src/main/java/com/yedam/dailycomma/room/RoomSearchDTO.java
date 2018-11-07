@@ -11,11 +11,13 @@ public class RoomSearchDTO extends MemberDTO {
 	//페이징
 	private Integer start;
 	private Integer end;
+	//숙소별 객실 조회
+	private String lodgmentNo;
 	//foreach
 	private String[] ids;
 	//정렬 기준
 	private String sort;
-		
+	
 	public String getSearchCondition() {
 		return searchCondition;
 	}
@@ -40,6 +42,12 @@ public class RoomSearchDTO extends MemberDTO {
 	public void setEnd(Integer end) {
 		this.end = end;
 	}
+	public String getLodgmentNo() {
+		return lodgmentNo;
+	}
+	public void setLodgmentNo(String lodgmentNo) {
+		this.lodgmentNo = lodgmentNo;
+	}
 	public String[] getIds() {
 		return ids;
 	}
@@ -54,7 +62,8 @@ public class RoomSearchDTO extends MemberDTO {
 	}
 	@Override
 	public String toString() {
-		return "UserSearchDTO [searchCondition=" + searchCondition + ", searchKeyword=" + searchKeyword + ", start="
-				+ start + ", end=" + end + ", ids=" + Arrays.toString(ids) + ", sort=" + sort + "]";
+		return "RoomSearchDTO [searchCondition=" + searchCondition + ", searchKeyword=" + searchKeyword + ", start="
+				+ start + ", end=" + end + ", lodgmentNo=" + lodgmentNo + ", ids=" + Arrays.toString(ids) + ", sort="
+				+ sort + "]";
 	}
 }
