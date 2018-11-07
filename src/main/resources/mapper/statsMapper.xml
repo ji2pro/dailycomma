@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="stats">
+
+<select id="getStatsChart" resultType="map">
+	
+		select to_char(checkin, 'MM') as CHECKIN, sum(reservation.reserve_price) as PRICE 
+		from reservation, lodgment
+		where reservation.lodgment_no = '1'  <!-- 숙박업체번호 동적으로 들어가야되는 자리 '1'로 일단 지정해놈 lodgment.lodgment_no -->
+  	 	and '2018' = TO_CHAR(CHECKIN, 'YYYY') <!-- 년도 버튼으로 선택 뒤 받아와서 동적처리 -->
+   	 	group by to_char(checkin, 'MM')
+   	 	order by CHECKIN
+   	 	
+		</select>
+
+</mapper> 
