@@ -32,10 +32,11 @@
 	<!-- 숙소별 객실 조회 -->
 	<select id="getEachRooms" parameterType="roomSearch" resultMap="eachRooms">
 		SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
-			SELECT R.ROOM_NO, R.ROOM_NAME, R.ROOM_QUANTITY, R.ROOM_PRICE, R.ROOM_CAPA
+			SELECT R.LODGMENT_NO, R.ROOM_NO, R.ROOM_NAME, R.ROOM_QUANTITY, R.ROOM_PRICE, R.ROOM_CAPA
 			FROM ROOM R JOIN LODGMENT L
 			ON L.LODGMENT_NO = R.LODGMENT_NO
 		<where>
+			R.LODGMENT_NO = #{lodgmentNo}
 			<if test="ids != null">
 				ROOM_NO IN
 				<foreach collection="ids" open="(" close=")" separator="," item="item">

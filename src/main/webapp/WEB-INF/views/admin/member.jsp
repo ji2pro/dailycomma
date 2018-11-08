@@ -67,7 +67,7 @@
 	</div>
 </div>
 <div id="memberPaging">
-	  <my:paging paging="${paging}" jsFunc="go_page"/> 
+	<my:paging paging="${paging}" jsFunc="go_page"/> 
 </div>
 <!-- 페이징 버튼 -->
 <%--  <my:paging paging="${paging}" jsFunc="go_page"/>  --%>
