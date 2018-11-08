@@ -19,6 +19,8 @@ public class PostscriptController {
     PostscriptService postscriptService;
     @Autowired
     LodgmentDTO lodgmentDTO;
+    @Autowired
+    PostscriptDTO postscriptDTO;
 
     //후기 등록 폼
     @RequestMapping("/insertPostscriptForm.do")
@@ -27,9 +29,9 @@ public class PostscriptController {
     }
 
     //후기 등록 폼
-    @RequestMapping(value="/postscriptForm/{lodgmentNo}", method=RequestMethod.GET)
-    public List<RoomDTO> insertPostscript(@PathVariable String lodgmentNo,
-                                          LodgmentDTO dto){
+    @RequestMapping(value = "/postscriptForm/{lodgmentNo}", method = RequestMethod.GET)
+    public List<RoomDTO> insertPostscriptForm(@PathVariable String lodgmentNo,
+                                          LodgmentDTO dto) {
         dto.setLodgmentNo(lodgmentNo);
 
         //vo 안에는 insertComments를 했기 때문에 현재 seq와 작성 날짜가 들어가 있다. 이를 가지고 다시 단건 조회를 한다.
@@ -38,11 +40,13 @@ public class PostscriptController {
 
     //후기 등록 처리
     @RequestMapping("/insertPostscript.do")
-    public String insertPostscriptForm(Model model, PostscriptDTO dto) {return "user/insertUserValid";}
+    public String insertPostscriptForm(Model model, PostscriptDTO dto) {
+        return "user/insertUserValid";
+    }
 
     /*숙박 업체 후기 리스트*/
     /*@RequestMapping("/postScriptList.do/{lodgmentNo}")*/
-    @RequestMapping(value="/postscript/{lodgmentNo}",method = RequestMethod.GET)
+    @RequestMapping(value = "/postscript/{lodgmentNo}", method = RequestMethod.GET)
     public List<PostscriptDTO> detailRooms(@PathVariable String lodgmentNo,
                                            LodgmentDTO dto) {
         dto.setLodgmentNo(lodgmentNo);
@@ -50,5 +54,13 @@ public class PostscriptController {
         /*model.addAttribute("getPostscriptList", postscriptService.getPostscriptList(dto));*/
         /*return "noTiles/room/postList";*/
         return postscriptService.getPostscriptList(dto);
+    }
+
+    /*숙박 업체 후기 등록*/
+    @RequestMapping(value = "/postscript", method = RequestMethod.POST)
+    public int insertPostscript(PostscriptDTO dto) {
+        System.out.println("--------------------------"+dto.getRoomNo());
+
+        return postscriptService.insertPostscript(dto);
     }
 }

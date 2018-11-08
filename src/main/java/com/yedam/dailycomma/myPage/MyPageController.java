@@ -16,14 +16,12 @@ public class MyPageController {
 	
 	@Autowired	MyPageService myPageService;
 	@Autowired	MemberService memberService;
-	
-	
+
 	@RequestMapping("/myPage.do")
 	public String myPage(Model model, MemberDTO dto, HttpSession session) { // HttpSession session <-세션에 대한 정보를 다음
 		//String email = ((MemberDTO)session.getAttribute("memberLogin")).getMemberEmail();
 		//model.addAttribute("member", memberService.getMember(dto));
 		return "myPage/myPage";
-
 	}
 	@RequestMapping("/point.do")
 	public String getPoints(Model model, MyPageDTO dto, HttpSession session) {
@@ -52,5 +50,4 @@ public class MyPageController {
 		//model.addAttribute("member", memberService.updateMember(dto));
 		return "redirect:/myPage.do";
 	}
-	
 }

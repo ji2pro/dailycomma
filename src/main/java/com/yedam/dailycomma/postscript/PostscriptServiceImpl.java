@@ -11,14 +11,21 @@ import java.util.List;
 @Service("postscriptService")
 public class PostscriptServiceImpl implements PostscriptService {
 
-	@Autowired
+    @Autowired
     PostscriptDAOMybatis dao;
 
     @Override
-    public List<PostscriptDTO> getPostscriptList(LodgmentDTO dto) {return dao.getPostscriptList(dto);}
+    public List<PostscriptDTO> getPostscriptList(LodgmentDTO dto) {
+        return dao.getPostscriptList(dto);
+    }
 
     @Override
     public List<RoomDTO> insertPostscriptForm(LodgmentDTO dto) {
         return dao.insertPostscriptForm(dto);
+    }
+
+    @Override
+    public int insertPostscript(PostscriptDTO dto) {
+        return dao.insertPostscript(dto);
     }
 }

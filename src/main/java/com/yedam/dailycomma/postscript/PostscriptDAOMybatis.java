@@ -23,4 +23,10 @@ public class PostscriptDAOMybatis {
         System.out.println("========후기 등록 폼가기========");
         return mybatis.selectList("detailRoom.insertPostscriptForm", dto);
     }
+
+    public int insertPostscript(PostscriptDTO dto) {
+        System.out.println("========등록 처리========");
+        return mybatis.insert("detailRoom.insertPostscript",dto);
+    }
+
 }

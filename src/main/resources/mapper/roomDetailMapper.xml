@@ -64,25 +64,22 @@
     where R.LODGMENT_NO = #{lodgmentNo}
     </select>
 
-
-
-<!--    <insert id="insertPostscript" parameterType="postscript">
-        <selectKey keyProperty="seq" resultType="string" order="BEFORE">
-            select nvl(max(seq),0)+1 from comments
-        </selectKey>
-        INSERT INTO COMMENTS(
-        SEQ
-        , NAME
-        , CONTENT
-        , BOARD_SEQ
-        , REGDATE
+   <insert id="insertPostscript" parameterType="postscript">
+        INSERT INTO POSTSCRIPT(
+       POSTSCRIPT_NO
+        , POSTSCRIPT_CONTENT
+        , POSTSCRIPT_DATE
+        , LODGMENT_NO
+        , POSTSCRIPT_TITLE
+        , ROOM_NO
         )
         VALUES(
-        #{seq}
-        , #{name}
-        , #{content}
-        , #{boardSeq}
+          to_char(POSTSCRIPT_SEQ.nextval)
+        , #{postscriptContent}
         , SYSDATE
+        , #{lodgmentNo}
+        , #{postscriptTitle}
+        , #{roomNo}
         )
-    </insert>-->
+    </insert>
 </mapper>

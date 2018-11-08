@@ -160,7 +160,7 @@
                         <a class="nav-link active show" href="" data-toggle="tab" data-target="#tabone">객실</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link postList" data-toggle="tab" data-target="#tabtwo"
+                        <a href="" class="nav-link postScript" data-toggle="tab" data-target="#tabtwo"
                            id="${getDetailRooms[0].lodgmentNo}">후기</a>
                     </li>
                 </ul>
