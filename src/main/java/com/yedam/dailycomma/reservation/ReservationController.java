@@ -1,5 +1,7 @@
 package com.yedam.dailycomma.reservation;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,4 +42,5 @@ public class ReservationController {
 //		model.addAttribute("reservation", reservationService.insertReservation(dto));
 		return "home/home";
 	}
+	
 }

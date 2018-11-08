@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.yedam.dailycomma.host.HostService;
+import com.yedam.dailycomma.reservation.ReservationDTO;
 
 
 @Controller
@@ -62,9 +64,17 @@ public class LodgmentController {
 	}	
 	
 	@RequestMapping("/getMainSearch.do")
-	public String getMainSearch(Model model, LodgmentDTO dto) {
-		dto.setLocation("서울");
-		dto.setLodgmentType("A4");
+	public String getMainSearch(Model model, 
+								LodgmentDTO dto,
+								@RequestParam(value="checkIn") String checkin,
+								@RequestParam(value="checkOut") String checkout,
+								HttpSession session) {
+		/*dto.setLocation("서울");
+		dto.setLodgmentType("A4");*/
+		
+		System.out.println("checkIn : " + checkin + " checkOut : " + checkout);		
+		session.setAttribute("checkIn", checkin);
+		session.setAttribute("checkOut", checkout);
 		model.addAttribute("lod",lodgmentService.getMainSearch(dto));
 		return "lodgment/lodgmentSearch";		
 	}

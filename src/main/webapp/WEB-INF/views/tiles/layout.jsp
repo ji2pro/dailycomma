@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<c:url value=""/>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>데일리 콤마</title>

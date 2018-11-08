@@ -1,5 +1,7 @@
 package com.yedam.dailycomma.reservation;
 
+import com.yedam.dailycomma.lodgment.LodgmentDTO;
+
 public class ReservationDTO {
 	//예약
 	private String reserveNo;		//예약번호
