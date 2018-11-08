@@ -14,6 +14,7 @@
 	
 	<!-- jQuery 3.3.1 -->
 	<script src="<c:url value="/webjars/jquery/3.3.1/dist/jquery.min.js"/>"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script> <!-- 드롭다운 기능 때문에 추가한 CDN -->
 	<!-- Bootstrap 4.1.3 -->
     <script src="<c:url value="/webjars/bootstrap/4.1.3/js/bootstrap.min.js"/>"></script>
     <link href="<c:url value="/webjars/bootstrap/4.1.3/css/bootstrap.min.css"/>" rel="stylesheet" type="text/css" />
