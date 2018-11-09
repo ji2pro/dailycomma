@@ -18,4 +18,8 @@ public class StatsDAO {
 	}
 	
 	
+	public List<ManagementDTO> selectRoomList(){
+		return mybatis.selectList("stats.selectRoomList");
+	}
+	
 }

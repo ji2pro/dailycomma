@@ -1,9 +1,11 @@
 package com.yedam.dailycomma.room;
 
+import java.util.Arrays;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Arrays;
+
 
 @Repository
 public class RoomDTO {

@@ -12,13 +12,16 @@ public class StatsServiceImpl implements StatsService {
 	@Autowired
 	StatsDAO dao;
 	
-	
 	@Override
 	public List<Map<String, Object>> getStatsChart() {
 		
 		return dao.getStatsChart();
 	}
 
-	
+	@Override
+    public List<ManagementDTO> selectRoomList(ManagementDTO dto){
+    	
+        return dao.selectRoomList();
+    }
 
 }

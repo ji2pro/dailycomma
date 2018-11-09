@@ -20,13 +20,13 @@
 		<div class="container">
 			<form action="updateMember.do">
 				<div class="row">
-					<div class="col-md-4" align="center">
+					<div class="col-md-4" style="margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto; width:100%;" align="center" >
 						<c:choose>
 							<c:when test="${memberLogin.memberImg==null}">
-								<i class="fas fa-user"></i>
+								<i class="fas fa-user fa-9x"></i>
 							</c:when>
 							<c:otherwise>
-       						<img src="resources/images/cast/${memberLogin.memberImg}">
+       						<img src="resources/images/cast/${memberLogin.memberImg}" class="rounded-circle">
         				 </c:otherwise>
 						</c:choose>
 					</div>

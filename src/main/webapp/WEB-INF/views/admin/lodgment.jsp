@@ -16,11 +16,11 @@
 						</label>
 					</th>
 					<th scope="col">업체 번호</th>
-					<th scope="col">업체명</th>
+					<th scope="col">업체 이름</th>
 					<th scope="col">숙소 종류</th>
 					<th scope="col">총 객실수</th>
 					<th scope="col">숙소 옵션</th>
-					<th scope="col">업주명</th>
+					<th scope="col">업주 이름</th>
 					<th scope="col">지역</th>
 					<th scope="col">관리</th>
 				</tr>
@@ -35,7 +35,7 @@
 						</label>
 					</td>
 					<td>${lodgment.lodgmentNo}</td>
-					<td><a class="selectedTr" data-toggle="collapse" href="#">${lodgment.company}</a></td>
+					<td><a id="selectedTr" href="lodgment/${lodgment.lodgmentNo}" data-target="#lodgmentAdmin">${lodgment.company}</a></td>
 					<td>${lodgment.lodgmentType}</td>
 					<td>${lodgment.roomCnt}</td>
 					<td>${lodgment.lodgmentInfo}</td>
@@ -43,8 +43,8 @@
 					<td>${lodgment.location}</td>
 					<td>
 						<div class="btn-group">
-							<a href="#" class="btn btn-outline-success btn-sm">수정</a>
-							<a href="#" class="btn btn-outline-danger btn-sm">삭제</a>
+							<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>
+							<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>
 						</div>
 					</td>
 				</tr>
@@ -55,14 +55,14 @@
 </div>
 <div class="row">
 	<div class="col-md-12 d-flex flex-row justify-content-end mb-4">
-		<a class="btn btn-outline-danger" href="#">선택 삭제</a>
+		<button id="btnDeleteSelected" class="btn btn-outline-danger">선택 삭제</button>
 	</div>
 </div>
 <!-- 페이징 버튼 -->
 <my:paging paging="${paging}" />
 
 <!-- 객실 목록 -->
-<div class="collapse" id="${lodgment.lodgmentNo}_rooms">
+<%-- <div class="collapse" id="${lodgment.lodgmentNo}_rooms">
 	<table id="roomList" class="table table-hover table-sm">
 		<thead class="thead-light">
 			<tr class="text-center">
@@ -72,9 +72,9 @@
 						<span class="custom-control-indicator"></span>
 			  		</label>
 			  	</th>
-				<th scope="col">객실번호</th>
-				<th scope="col">객실명</th>
-				<th scope="col">객실수</th>
+				<th scope="col">객실 번호</th>
+				<th scope="col">객실 이름</th>
+				<th scope="col">객실 수</th>
 				<th scope="col">가격(1박)</th>
 				<th scope="col">최대 인원(1객실)</th>
 				<th scope="col">관리</th>
@@ -82,10 +82,10 @@
 		</thead>
 		<tbody></tbody>
 	</table>
-</div>
+</div> --%>
 
 <script>
-$(function() {
+/* $(function() {
 	lodgmentSelect();
 });
 
@@ -129,5 +129,5 @@ function lodgmentSelect() {
 			}
 		});
 	})
-}//roomList
+}//roomList */
 </script>

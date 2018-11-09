@@ -46,6 +46,7 @@
 		
 		<!-- 사장관리 -->
 		<typeAlias alias="management" type="com.yedam.dailycomma.management.ManagementDTO"/>
+	
 		
 		<typeAlias alias="tourSearch" type="com.yedam.dailycomma.tour.TourSearchDTO"/>
 

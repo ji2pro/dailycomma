@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <script src="<%=request.getContextPath()%>/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
+<link href="./resources/include/css/management.css" rel="stylesheet" type="text/css"> 
 <script src="//www.google.com/jsapi"></script>
 
 <script>
@@ -25,7 +25,7 @@
 	/* 객실별 판매금액 데이터 테이블 */
 	 $(document).ready(function(){
          $('#roomSell').DataTable({
-              pageLength: 4,
+              pageLength: 10,
              bPaginate: true, /* 페이징 처리 할것인가 */
              bLengthChange: true, /* true 하면 리스트 박스 추가 */
              lengthMenu : [ [ 5, 10, 30, -1 ], [ 5, 10, 30, "All" ] ],
@@ -36,11 +36,26 @@
              searching: true  
 
          });
- });  
+ }); 
+	
+	 /* 객실별 판매금액 데이터 테이블 */
+	 $(document).ready(function(){
+         $('#roomSell1').DataTable({
+              pageLength: 10,
+             bPaginate: true, /* 페이징 처리 할것인가 */
+             bLengthChange: true, /* true 하면 리스트 박스 추가 */
+             lengthMenu : [ [ 5, 10, 30, -1 ], [ 5, 10, 30, "All" ] ],
+             bAutoWidth: true,
+             processing: true, /* 값을 가져올때 로딩 processing ui보여줌 */
+             ordering: true, /* 항목 정렬 사용 */
+             serverSide: false,
+             searching: true  
+
+         });
+ }); 
 	
 	
-	
-	
+
 	/* 여기서 부터 구글 차트 자바스크립트 부분 */
 	/* var colors = ['#e0440e', '#e6693e','#ec8f6e' ,'#f3b49f', '#f6c7b6'] */ /* 개별로 색 정의할 시 변수 지정 */
 	var options = { /* 차트옵션 수정부분 */
@@ -137,6 +152,31 @@ $.ajax({
 		<tr><td>Superior</td><td>24건</td><td>40000</td></tr>
 	</tbody>
 </table>
+
+	
+<div align="center"><h1>금월 객실별 예약 건수 및 판매금액</h1></div>
+<table id="roomSell1" style="font-size: 15px;" class="table table-striped table-bordered table-hover tableAlign wrap " >
+	<thead>
+		<tr style="background:#ffaabb; text-align:center; ">
+			<th>객실명</th>
+			<th>예약수</th>
+			<th>판매금액</th>
+			
+		</tr>
+	</thead>
+	
+	<tbody>
+		 <c:forEach items="${statsList}" var="roomlist"> 
+			<tr>
+			<td>${roomlist.roomName}</td>   
+			<td><%-- ${roomlist.reservationNum} --%></td>
+			<td><%-- ${roomlist.totalPrice} --%></td>
+			</tr>
+		</c:forEach>
+	</tbody>
+</table>
+
+
 
 <div id="chart_div"></div>
 </body>

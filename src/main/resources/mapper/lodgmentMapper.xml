@@ -69,14 +69,19 @@
 
 <select id="getMainSearch" parameterType="lodgment" resultType="lodgment">
 	  SELECT l.COMPANY, g.AVG_GRADE, g.people_cnt
-      FROM LODGMENT l  LEFT OUTER JOIN (SELECT ROUND(AVG(GRADE),-1) AS AVG_GRADE ,COUNT(*) AS people_cnt, LODGMENT_NO
+      FROM LODGMENT l  LEFT OUTER JOIN (SELECT ROUND(AVG(GRADE),1) AS AVG_GRADE ,COUNT(*) AS people_cnt, LODGMENT_NO
                                         FROM POSTSCRIPT
                                         GROUP BY LODGMENT_NO) g
-      ON l.LODGMENT_NO = g.LODGMENT_NO 
-      WHERE l.LOCATION = #{location}
-      AND l.LODGMENT_TYPE = #{lodgmentType}
+      ON l.LODGMENT_NO = g.LODGMENT_NO
+      <where> 
+      	<if test="location != null and location != '' ">
+      		AND l.LOCATION = #{location}
+      	</if>
+      </where>
 </select>
-
+<!--       	<if test="lodgmentType != null AND lodgmentType != '' ">	
+      		AND l.LODGMENT_TYPE = #{lodgmentType}
+      	</if> -->
 <update id="setLodgment" parameterType="lodgment">
 	UPDATE LODGMENT
 	SET COMPANY 	 	= #{company},

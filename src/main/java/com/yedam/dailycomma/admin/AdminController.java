@@ -29,7 +29,7 @@ public class AdminController {
 		return "admin/admin";
 	}
 	
-	//관리자 맴버 아작스 호출 페이지
+	//관리자 멤버 아작스 호출 페이지
 	@RequestMapping(value= {"/member.ajax"}, method=RequestMethod.GET)
 	@ResponseBody
 	public Map getMembers(MemberSearchDTO memberSearchDTO,
@@ -136,13 +136,30 @@ public class AdminController {
 	
 	//숙소별 개별 객실 정보
 	@RequestMapping(value="/lodgment/{lodgmentNo}",method=RequestMethod.GET)
-	@ResponseBody
-	public List<RoomDTO> getEachRooms(@PathVariable String lodgmentNo,
-									  RoomSearchDTO roomSearchDto) {
-		roomSearchDto.setLodgmentNo(lodgmentNo);
-		roomSearchDto.setStart(1);
-		roomSearchDto.setEnd(10);
-		return adminService.getEachRooms(roomSearchDto);
+//	@ResponseBody
+	public ModelAndView getEachRooms(@PathVariable String lodgmentNo,
+									 ModelAndView mv,
+									 RoomSearchDTO roomSearchDto,
+									 Paging paging) {
+		// 조회할 레코드 건수
+		paging.setPageUnit(10);
+
+		// 현재 페이지 번호. 없으면 1page로 설정
+		if (paging.getPage() == null) {
+			paging.setPage(1);
+		}
+		// 전체 건수
+		int total = adminService.getRoomCnt(roomSearchDto);
+		paging.setTotalRecord(total);
+		mv.addObject("paging", paging);
+
+		// 시작/마지막 레코드 번호
+		roomSearchDto.setStart(paging.getFirst());
+		roomSearchDto.setEnd(paging.getLast());
+		mv.addObject("list", adminService.getEachRooms(roomSearchDto));
+
+		mv.setViewName("noTiles/admin/room");
+		return mv;
 	}
 	
 	//예약 내역 탭

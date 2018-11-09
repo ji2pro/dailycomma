@@ -72,6 +72,7 @@ public class LodgmentController {
 		/*dto.setLocation("서울");
 		dto.setLodgmentType("A4");*/
 		
+		dto.setLocation("대구");
 		System.out.println("checkIn : " + checkin + " checkOut : " + checkout);		
 		session.setAttribute("checkIn", checkin);
 		session.setAttribute("checkOut", checkout);

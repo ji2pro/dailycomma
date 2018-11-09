@@ -12,8 +12,6 @@ public class ManagementServiceImpl implements ManagementService {
 	@Autowired
 	ManagementDAO dao;
 	
-	/* @Inject
-	    private MemberDAO dao;*/
 	    
 	    @Override
 	    public List<ManagementDTO> selectReservation(ManagementDTO dto){

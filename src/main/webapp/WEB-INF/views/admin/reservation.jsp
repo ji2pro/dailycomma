@@ -62,10 +62,10 @@
 		</table>
 	</div>
 </div>
-<div class="row">
+<!-- <div class="row">
 	<div class="col-md-12 d-flex flex-row justify-content-end mb-4">
-		<a class="btn btn-outline-danger" href="#">선택 삭제</a>
+		<button id="btnDeleteSelected" class="btn btn-outline-danger">선택 삭제</button>
 	</div>
-</div>
+</div> -->
 <!-- 페이징 버튼 -->
 <my:paging paging="${paging}" />

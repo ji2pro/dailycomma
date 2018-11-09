@@ -1,7 +1,5 @@
 package com.yedam.dailycomma.reservation;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,13 +19,13 @@ public class ReservationController {
 	@Autowired ReservationService reservationService;
 	
 	//등록 폼
-	@RequestMapping(value="/detailRoom.do/{roomNo}/reservationForm", method=RequestMethod.GET)
+	@RequestMapping(value="/detailRoom/{roomNo}/reservationForm", method=RequestMethod.GET)
 	public String insertReservationForm(Model model,
 										//@PathVariable String lodgmentNo,							
 										@PathVariable String roomNo,
 										LodgmentDTO lDto,
 										RoomDTO rDto) {
-		lDto.setLodgmentNo("LOD49");
+		lDto.setLodgmentNo("LOD1");
 //		rDto.setRoomNo("RO181818");
 //		lDto.setLodgmentNo(lodgmentNo);
 		rDto.setRoomNo(roomNo);
@@ -37,10 +35,16 @@ public class ReservationController {
 	}
 	
 	//등록 처리
-	@RequestMapping("/insertReservation.do")
+	@RequestMapping("/insertReservation")
 	public String insertReservation(Model model, ReservationDTO dto) {		
 //		model.addAttribute("reservation", reservationService.insertReservation(dto));
 		return "home/home";
+	}
+	
+	@RequestMapping("/insertReservationForm.do")
+	public String insertReservation() {		
+//		model.addAttribute("reservation", reservationService.insertReservation(dto));
+		return "reservation/insertReservation";
 	}
 	
 }
