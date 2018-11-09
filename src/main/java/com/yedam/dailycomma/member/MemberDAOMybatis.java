@@ -27,7 +27,7 @@ public class MemberDAOMybatis {
 		return mybatis.update("member.updateMember", dto);
 	}
 	//삭제
-	public int deleteUser(MemberDTO dto) {
+	public int deleteMember(MemberDTO dto) {
 		return mybatis.delete("member.deleteMember", dto);
 	}
 	

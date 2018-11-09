@@ -38,7 +38,9 @@ public class AdminServiceImpl implements AdminService {
 	public int getMemberCnt(MemberSearchDTO memberSearchDTO) {
 		return memberDAO.getCnt(memberSearchDTO);
 	}
-	
+	public int deleteMember(MemberDTO dto) {
+		return memberDAO.deleteMember(dto);
+	}
 	//업주
 	public List<HostDTO> getHosts(HostSearchDTO hostSearchDTO) {
 		return hostDAO.getHosts(hostSearchDTO);

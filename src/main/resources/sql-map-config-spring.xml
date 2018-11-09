@@ -9,7 +9,7 @@
 	
 	<!-- Alias 설정 -->
 	<typeAliases>
-	
+
 		<!-- 유저 예시 -->
 		<typeAlias alias="user" type="com.yedam.dailycomma.user.UserDTO" />
 		<typeAlias alias="userSearch" type="com.yedam.dailycomma.user.UserSearchDTO" />
@@ -22,38 +22,37 @@
 		<typeAlias alias="member" type="com.yedam.dailycomma.member.MemberDTO"/>
 		<typeAlias alias="memberSearch" type="com.yedam.dailycomma.member.MemberSearchDTO"/>
 		
-		<!-- 관리자 검색 -->
-		<typeAlias alias="adminSearch" type="com.yedam.dailycomma.admin.AdminSearchDTO"/>
+		<!-- 마이페이지 -->
+		<typeAlias alias="myPage" type="com.yedam.dailycomma.myPage.MyPageDTO"/>
 		
-		<!-- 예약 설정 -->
-		<typeAlias alias="reservation" type="com.yedam.dailycomma.reservation.ReservationDTO"/>
-		<typeAlias alias="reservationSearch" type="com.yedam.dailycomma.reservation.ReservationSearchDTO"/>
+		<!-- 숙소 상세 -->
+		<typeAlias alias="lodgment" type="com.yedam.dailycomma.lodgment.LodgmentDTO"/>
+		<typeAlias alias="lodgmentSearch" type="com.yedam.dailycomma.lodgment.LodgmentSearchDTO" />
 		
 		<!-- 룸 상세 -->
 		<typeAlias alias="detailRoom" type="com.yedam.dailycomma.room.RoomDTO"/>
 		<typeAlias alias="roomPost" type="com.yedam.dailycomma.room.RoomPostDTO" />
 		<typeAlias alias="roomSearch" type="com.yedam.dailycomma.room.RoomSearchDTO"/>
-
-		<!-- 숙소 상세 -->
-		<typeAlias alias="lodgment" type="com.yedam.dailycomma.lodgment.LodgmentDTO"/>
-		<typeAlias alias="lodgmentSearch" type="com.yedam.dailycomma.lodgment.LodgmentSearchDTO" />
 		
-		<!-- 마이페이지 -->
-		<typeAlias alias="myPage" type="com.yedam.dailycomma.myPage.MyPageDTO"/>
+		<!-- 해시태그 -->
+        <typeAlias alias="hashtag" type="com.yedam.dailycomma.lodgment.HashtagDTO"/>
+		
+		<!-- 예약 설정 -->
+		<typeAlias alias="reservation" type="com.yedam.dailycomma.reservation.ReservationDTO"/>
+		<typeAlias alias="reservationSearch" type="com.yedam.dailycomma.reservation.ReservationSearchDTO"/>
+
+		<!-- 후기 -->
+        <typeAlias alias="postscript" type="com.yedam.dailycomma.postscript.PostscriptDTO"/>
 
 		<!-- tour(cast) 설정 -->
 		<typeAlias alias="tour" type="com.yedam.dailycomma.tour.TourDTO"/>
-		
-		<!-- 사장관리 -->
-		<typeAlias alias="management" type="com.yedam.dailycomma.management.ManagementDTO"/>
-	
-		
 		<typeAlias alias="tourSearch" type="com.yedam.dailycomma.tour.TourSearchDTO"/>
-
-        <!-- 후기 -->
-        <typeAlias alias="postscript" type="com.yedam.dailycomma.postscript.PostscriptDTO"/>
+		
+		<!-- 사장 관리 -->
+		<typeAlias alias="management" type="com.yedam.dailycomma.management.ManagementDTO"/>
         
-        <!-- 해시태그 -->
-        <typeAlias alias="hashtag" type="com.yedam.dailycomma.lodgment.HashtagDTO"/>
+        <!-- 관리자 -->
+<!--         <typeAlias alias="admin" type="com.yedam.dailycomma.admin.AdminDTO"/> -->
+		<typeAlias alias="adminSearch" type="com.yedam.dailycomma.admin.AdminSearchDTO"/>
 	</typeAliases>	
 </configuration>

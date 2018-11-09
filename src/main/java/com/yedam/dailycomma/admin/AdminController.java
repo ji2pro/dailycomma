@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.yedam.dailycomma.common.Paging;
 import com.yedam.dailycomma.host.HostSearchDTO;
 import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
+import com.yedam.dailycomma.member.MemberDTO;
 import com.yedam.dailycomma.member.MemberSearchDTO;
 import com.yedam.dailycomma.reservation.ReservationSearchDTO;
 import com.yedam.dailycomma.room.RoomDTO;
@@ -81,6 +82,14 @@ public class AdminController {
 		mv.setViewName("noTiles/admin/member");
 		return mv;
 	}
+	
+	//멤버 - 삭제
+	/*@RequestMapping(value="/member/{memberNo}", method=RequestMethod.DELETE)
+	public HashMap<String, Object> deleteMember(@PathVariable String memberNo, MemberDTO dto) {
+		dto.setMemberNo(memberNo);
+		adminService.
+		return map;
+	}*/
 	
 	//업주 관리 탭
 	@RequestMapping("/host")
@@ -187,4 +196,8 @@ public class AdminController {
 		mv.setViewName("noTiles/admin/reservation");
 		return mv;
 	}
+	
+	//캐스트 탭
+//	@RequestMapping("/cast")
+//	public ModelAndView getCasts()
 }

@@ -17,6 +17,7 @@ public interface AdminService {
 	//회원
 	public List<MemberDTO> getMembers(MemberSearchDTO memberSearchDTO);
 	public int getMemberCnt(MemberSearchDTO memberSearchDTO);
+	public int deleteMember(MemberDTO dto);
 	//업주
 	public List<HostDTO> getHosts(HostSearchDTO hostSearchDTO);
 	public int getHostCnt(HostSearchDTO hostSearchDTO);
