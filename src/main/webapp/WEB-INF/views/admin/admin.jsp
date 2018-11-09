@@ -21,22 +21,22 @@
 					 >회원 관리</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="hostTab" href="host.do"
+					<a class="nav-link" id="hostTab" href="./host"
 					   aria-controls="hostAdmin" aria-selected="false"
 					   data-target="#hostAdmin" data-toggle="tab" role="tab">업주 관리</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="lodgmentTab" href="lodgment.do"
+					<a class="nav-link" id="lodgmentTab" href="./lodgment"
 					   aria-controls="lodgmentAdmin" aria-selected="false"
 					   data-target="#lodgmentAdmin" data-toggle="tab" role="tab">숙소 관리</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="reservationTab" href="reservation.do"
+					<a class="nav-link" id="reservationTab" href="./reservation"
 					   aria-controls="reservationAdmin" aria-selected="false"
 					   data-target="#reservationAdmin" data-toggle="tab" role="tab">예약 내역</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="castTab" href="cast.do"
+					<a class="nav-link" id="castTab" href="./cast"
 					   aria-controls="castAdmin" aria-selected="false"
 					   data-target="#castAdmin" data-toggle="tab" role="tab">캐스트 관리</a>
 				</li>

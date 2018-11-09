@@ -23,6 +23,7 @@
 	
 	<resultMap id="eachRooms" type="detailRoom">
 		<id property="roomNo" column="ROOM_NO" />
+		<result property="company" column="COMPANY" />
 		<result property="roomName" column="ROOM_NAME" />
 		<result property="roomQuantity" column="ROOM_QUANTITY" />
 		<result property="roomPrice" column="ROOM_PRICE" />
@@ -32,7 +33,7 @@
 	<!-- 숙소별 객실 조회 -->
 	<select id="getEachRooms" parameterType="roomSearch" resultMap="eachRooms">
 		SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
-			SELECT R.LODGMENT_NO, R.ROOM_NO, R.ROOM_NAME, R.ROOM_QUANTITY, R.ROOM_PRICE, R.ROOM_CAPA
+			SELECT R.LODGMENT_NO, L.COMPANY AS "company", R.ROOM_NO, R.ROOM_NAME, R.ROOM_QUANTITY, R.ROOM_PRICE, R.ROOM_CAPA
 			FROM ROOM R JOIN LODGMENT L
 			ON L.LODGMENT_NO = R.LODGMENT_NO
 		<where>
