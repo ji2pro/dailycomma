@@ -4,21 +4,19 @@
 
 <mapper namespace="management">
  
- 	<select id="selectReservation" resultType="management">
+ 	<select id="selectReservation" resultType="Management">
         select * <!-- reservation.reserve_state, member.member_name, member.member_email -->
 		from reservation, member, room, lodgment
 		where reservation.member_no = member.member_no
 		and room.lodgment_no = reservation.lodgment_no
 		and lodgment.lodgment_no = room.lodgment_no
-		and lodgment.lodgment_no = '1'<!-- #{lodgmentNo}  지금은 값을 직접 2로 지정해뒀으나 나중에 숙박업체 번호 lodgmentNo 변수로 받아와야됨-->
-		<!-- and lodgment.lodgment_no = 1 -->
+		and reservation.room_no = room.room_no
+		and lodgment.lodgment_no = 'LOD1'<!-- #{lodgmentNo}  지금은 값을 직접 LOD1로 지정해뒀으나 나중에 숙박업체 번호 lodgmentNo 변수로 받아와야됨-->
+		order by reservation.reserve_date desc
 
-	<!-- 	select * from reservation;
-		select * from member;
-		select * from room; -->
     </select>
 
-   <!--  SELECT member_name, member_email ,member_pw FROM MEMBER -->
+
 </mapper>
 
 

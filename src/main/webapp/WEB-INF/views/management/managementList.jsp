@@ -16,30 +16,6 @@
 <link href="./resources/include/css/management.css" rel="stylesheet" type="text/css"> 
 
 
-<%--  <body>
-    <h1>DB값들</h1>
- 
-    <table>
-        <thead>
-            <tr>
-                <th>아이디</th>
-                <th>비밀번호</th>
-                <th>이름</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach items="${memberList}" var="member">
-                <tr>
-                    <td>${member.memberName}</td>
-                     <td>${member.memberEmail}</td>
-                    <td>${member.reserveState}</td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
- --%>
-
-  	 
   	 
  <style>
   	 	/* .wrap {
@@ -48,12 +24,13 @@
         padding: 20px;
         border: 1px solid #bcbcbc;
   	 	} */
-  	 </style>
+</style>
+
 <script>
 
       $(document).ready(function(){
             $('#empList').DataTable({
-                 pageLength: 4,
+                 pageLength: 10,
                 bPaginate: true, /* 페이징 처리 할것인가 */
                 bLengthChange: true, /* true 하면 리스트 박스 추가 */
                 lengthMenu : [ [ 5, 10, 30, -1 ], [ 5, 10, 30, "All" ] ],
@@ -106,32 +83,37 @@
 			<th>상태변경일</th>
 		</tr>
 	</thead>
+	
 	<div class="titleAlign">
-	<h1><b>예약관리</b></h1>
+		<h1><b>예약관리</b></h1>
 	</div>
 	<br>
+	
 	<p align="right"><button type="button" class="btn btn-primary">예약취소</button></p>
+	
 	<tbody>
-	<c:forEach items="${memberList}" var="member">
-		<tr>
-		<td><input type="checkbox"></td>
-		<td>${member.memberName}</td>
-		<td>${member.memberEmail}</td>
-		<td>	</td>
-		<td>${member.reserveState}</td>
-		<td>${member.reserveDate}</td>
-		<td>${member.reservePeople}</td>
-		<td>${member.roomName}</td>
-		<td>${member.reservePrice}</td>
-		<td>${member.checkin}</td>
-		<td>${member.checkout}</td>
- 		<td><%-- ${member.reserveDays} --%></td>  
-		<td></td>
-		
-		</tr>
+		<c:forEach items="${memberList}" var="member">
+			<tr>
+			<td><input type="checkbox"></td>
+			<td>${member.memberName}</td>
+			<td>${member.memberEmail}</td>
+			<td>(연락처)</td>
+			<td>${member.reserveState}</td>
+			<td>${member.reserveDate}</td>
+			<td>${member.reservePeople}</td>
+			<td>${member.roomName}</td>
+			<td>${member.reservePrice}</td>
+			<td>${member.checkin}</td>
+			<td>${member.checkout}</td>
+	 		<td>(일수)<%-- ${member.reserveDays} --%></td>  
+			<td>(상태변경일)</td>
+			
+			</tr>
 		</c:forEach>
 	</tbody>
 </table>
+
+
 </div>
 </body>
 </html>

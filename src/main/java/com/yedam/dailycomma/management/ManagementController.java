@@ -29,9 +29,10 @@ public class ManagementController {
 		//사장님 예약자 리스트 managementList.do 관련 부분 컨트롤러!!
 		@Autowired
 		private ManagementService service;
+
 	
 		@RequestMapping("/managementList.do")
-		public String management(Locale locale, Model model, ManagementDTO dto) throws Exception{
+		public String management(Locale locale, Model model, ManagementDTO dto) {
 
 			//logger.info("home");
 			
@@ -42,7 +43,18 @@ public class ManagementController {
 			return "management/managementList";
 		}
 		
-	
+		
+		//통계 뷰 페이지
+		
+		@RequestMapping("/stats.do") 
+		public String stats(Locale locale, Model model, ManagementDTO dto) {
+			List<ManagementDTO> statsList = statsService.selectRoomList(dto);
+			model.addAttribute("statsList", statsList);
+			return "/management/stats";
+
+		}
+		
+		
 		//구글차트 stats.do 관련 부분 컨트롤러!!
 		@Autowired StatsService statsService;
 		@RequestMapping("/getStatsChart.do") //차트 데이터
@@ -52,11 +64,6 @@ public class ManagementController {
 		}
 		
 		
-		@RequestMapping("/stats.do") //통계 뷰 페이지, ReservationDTO 변수 현재 사용하고있음!!
-		public String stats(Model model, ReservationDTO dto) {
 		
-			return "noTiles/management/stats";
-
-		}
 
 }

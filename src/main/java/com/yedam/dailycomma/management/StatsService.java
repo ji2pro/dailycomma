@@ -7,4 +7,6 @@ public interface StatsService {
 	
 	public List<Map<String,Object>> getStatsChart();
 	
+	public List<ManagementDTO> selectRoomList(ManagementDTO dto);
+	
 }
