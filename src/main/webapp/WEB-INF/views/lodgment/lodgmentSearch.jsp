@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<!DOCTYPE html>
-<html>
-<head>
 
-    <meta charset="utf-8" />
     <title>Daily Comma</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   
@@ -14,7 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
    	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
    	crossorigin="anonymous">	<!-- 별모양 링크 -->
-    
+   
     <script type="text/javascript"
             src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript"
@@ -25,18 +21,79 @@
           href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 <script>
-	$('document').ready(function(){
-	
-	
+	$(document).ready(function(){
+		gradeCal();		
 	});
 	
 	function gradeCal(){
+	
 		var length = $('.score-rap').length;
 		
+		
 		for(var i =0; i<length; i++){
+			
 			var grade = $('.score-rap').eq(i).attr('data-grade');
+			console.log("grade========="+grade);
+			var star = $('.score-rap').eq(i).children("i");
+			
+			
+			gradeScope(star,grade);
+			star.addClass('starColor');
 		}
+	}
 	
+	function gradeScope(star,grade){
+		
+		if(grade >= 9.5){				//5개
+			for(var i=0; i<5; i++) 
+				star.eq(i).attr('class','fas fa-star');	
+		}else if(grade >= 9 ){			//4.5
+			for(var i=0; i<4; i++)	
+				star.eq(i).attr('class','fas fa-star');
+			star.eq(4).attr('class','fas fa-star-half-alt' );
+		}else if(grade >= 7.5 ){			//4
+			for(var i=0; i<4; i++)
+				star.eq(i).attr('class','fas fa-star');
+			star.eq(4).attr('class', 'far fa-star');
+		}else if(grade >= 7){			//3.5
+			for(var i=0; i<3; i++)
+				star.eq(i).attr('class','fas fa-star');
+			star.eq(3).attr('class','fas fa-star-half-alt');
+			star.eq(4).attr('class', 'far fa-star');
+		}else if(grade >= 5.5){			//3
+			for(var i=0; i<3; i++)
+				star.eq(i).attr('class','fas fa-star');
+			for(var i=3; i<5; i++)
+				star.eq(i).attr('class','far fa-star');
+		} else if(grade >= 5){			//2.5
+			for(var i=0; i<2; i++)
+				star.eq(i).attr('class','fas fa-star');
+			star.eq(2).attr('class','fas fa-star-half-alt');
+			for(var i=3; i<5; i++)
+				star.eq(i).attr('class','far fa-star');
+		} else if(grade >= 3.5){			//2
+			for(var i=0; i<2; i++)
+				star.eq(i).attr('class','fas fa-star');
+			for(var i=2; i<5; i++)
+				star.eq(i).attr('class','far fa-star');
+		}else if(grade >= 3){			//1.5
+			star.eq(0).attr('class','fas fa-star');
+			star.eq(1).attr('class', 'fas fa-star-half-alt');
+			for(var i=2; i<5; i++)
+				star.eq(1).attr('class', 'far fa-star');
+		}else if(grade >= 1.5){			//1
+			star.eq(0).attr('class','fas fa-star');
+			for(var i=1; i<5; i++)
+				star.eq(i).attr('class','far fa-star');	
+		}else if(grade >= 1){			//0.5
+			star.eq(0).attr('class','fas fa-star-half-alt');
+			for(var i=1; i<5; i++)
+				star.eq(i).attr('class','far fa-star');			
+		}else{							//0
+			for(var i=0; i<5; i++)
+				star.eq(i).attr('class','far fa-star');			
+		}
+		
 	}
 </script>
 
@@ -47,9 +104,7 @@
         <i class="icon-staylist icon-calendar-on" ></i>
         <input type="text"
                name="daterange" value="01/01/2018 - 01/15/2018" size="22" style="background-color:transparent; border:none"/>
-        <img
-                src="https://yaimg.yanolja.com/joy/pw/place/bullet-datepicker-check.svg"
-                alt=""><span>1박</span>
+        <img src="https://yaimg.yanolja.com/joy/pw/place/bullet-datepicker-check.svg" alt=""><span>1박</span>
     </div>
     <ul class="nav">
         <li class="nav-item"><a class="nav-link active" href="#">모텔</a></li>
@@ -109,12 +164,12 @@
                     	<i class="starColor"></i>
                     	<i class="starColor"></i>
                     	                    	
-						<i class='fas fa-star starColor'></i>
-						<i class='fas fa-star-half-alt starColor'></i>
-						<i class='far fa-star starColor'></i>
+						<!-- <i class='fas fa-star starColor'></i> -->	<!-- 만개 -->
+						<!--<i class='fas fa-star-half-alt starColor'></i>	--> <!-- 반개 -->
+						<!-- <i class='far fa-star starColor'></i> -->		<!-- 공백 -->
                     </span>
                    
-                    <span>${temp.peopleCnt }</span>
+                    <span>후기: ${temp.peopleCnt }개</span>
       
 
                     <p class="card-text mb-auto">
@@ -156,7 +211,7 @@
     </div>
 </div>
 
-</body>
+
 
 <script>
     $(function() {
@@ -172,4 +227,3 @@
     });
 </script>
 <script type="text/javascript"></script>
-</html>

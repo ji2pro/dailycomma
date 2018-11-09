@@ -43,4 +43,10 @@ public class ReservationController {
 		return "home/home";
 	}
 	
+	@RequestMapping("/insertReservationForm.do")
+	public String insertReservation() {		
+//		model.addAttribute("reservation", reservationService.insertReservation(dto));
+		return "reservation/insertReservation";
+	}
+	
 }
