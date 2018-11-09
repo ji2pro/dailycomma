@@ -36,22 +36,6 @@
 	href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 <script>
-	$('document').ready(function() {
-
-	});
-
-	function gradeCal() {
-		var length = $('.score-rap').length;
-
-		for (var i = 0; i < length; i++) {
-			var grade = $('.score-rap').eq(i).attr('data-grade');
-		}
-
-	}
-</script>
-
-
-<script>
 	$(function() {
 		$("#lodgType li a").click(
 				function() {
@@ -190,13 +174,16 @@
 								<a class="text-dark" href="#">${temp.company}</a>
 
 							</h3>
-							<i class="price-label label-reserve">예약가</i> <span
-								class="score-rap" data-grade="${temp.avgGrade}"> <i
-								class="starColor"></i> <i class="starColor"></i> <i
-								class="starColor"></i> <i class="starColor"></i> <i
-								class="starColor"></i> <i class='fas fa-star starColor'></i> <i
-								class='fas fa-star-half-alt starColor'></i> <i
-								class='far fa-star starColor'></i>
+							<i class="price-label label-reserve">예약가</i> 
+							<span class="score-rap" data-grade="${temp.avgGrade}"> 
+							<i	class="starColor"></i> 
+							<i class="starColor"></i> 
+							<i	class="starColor"></i> 
+							<i class="starColor"></i> 
+							<i class="starColor"></i> 
+<!-- 						   <i class='fas fa-star starColor'></i> 
+						   <i class='fas fa-star-half-alt starColor'></i> 
+						   <i class='far fa-star starColor'></i> -->
 							</span> <span>${temp.peopleCnt }</span>
 
 

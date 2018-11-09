@@ -2,6 +2,32 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<script>
+$(document).ready(function(){
+	$('#pointBtn').click(function(){
+		var my_point = parseInt($('.my-point').text());		//보유한 포인트
+		var use_point =  parseInt($('#point').val());		//사용할 포인트
+		var payment_sum = parseInt($('#payment-sum').children("i").text());	//결제금액
+		
+		console.log("=========== my-point" + my_point);
+		console.log("=========== use-point" + use_point);
+		console.log("=========== payment_sum"  + payment_sum);
+		
+		if(use_point > my_point) {
+			alert("포인트가 부족합니다.");
+			return;
+		}		
+		
+		if(use_point > payment_sum ){								//사용할 포인트가 결제금액보다 많을경우
+			$('#payment-sum').children("i").text("0");		   
+			$('#discount-point').children("i").text(use_point);		//차감될 포인트
+		}else
+			$('#payment-sum').children("i").text(payment_sum - use_point);
+		
+	});
+});
+</script>
+
 <div class="container">
 	<div class="row">
 		<div role="main" class="col-md-9 mr-auto">
@@ -31,8 +57,21 @@
 							<!-- <div class="col-10 col-md-4">
 								<input type="text" class="form-control" id="inputReserveName" placeholder="예약자명을 입력하세요.">
 							</div> -->
-							<div class="col-md-5">
-								<span><a href="">로그인</a>하면 적립한 포인트를 사용할 수 있어요.</span>
+							<div class="col-md-10">
+								<c:if test="${memberLogin eq null }">
+									<span><a href="#">로그인</a>하면 적립한 포인트를 사용할 수 있어요.</span>
+								</c:if>
+								
+								<c:if test="${memberLogin ne null }">
+									<span>	
+										<input type="text" id="point" value="0"> &nbsp;&nbsp;
+										<button type="button" class="btn btn-secondary" id="pointBtn">포인트 적용</button> &nbsp;
+																		
+										사용( <em class="my-point">${memberLogin.memberPoint}</em> 보유)
+									</span>
+									
+								</c:if>
+								
 							</div>
 						</div>
 					</div>
@@ -89,18 +128,18 @@
 					<div class="info-box">
 						<div class="point-discount row">
 							<span class="col-6 mr-auto">포인트 할인</span>
-							<em class="col-6 ml-auto">- 0P</em>
+							<em class="col-6 ml-auto" id="discount-point"><i> 0</i>P</em>
 						</div>
 						<div class="point-benefit row">
 							<span class="col-6 mr-auto">적립 포인트</span>
-							<em class="col-6 ml-auto">+ 0P</em>
+							<span><em class="col-6 ml-auto"><i> 0</i>P</em></span>
 						</div>
 						<div class="txt-tip">
 							※ 포인트는 숙박 이용이 완료된 후 적립됩니다.
 						</div>
 						<div class="total-payment row">
 							<span class="col-6 mr-auto">결제 금액</span>
-							<span class="col-6 ml-auto">120,000원</span>
+							<span class="col-6 ml-auto" id="payment-sum"><i value="${room.roomPrice}"> 120000</i>원</span>
 						</div>
 					</div>
 					<button type="button" class="btn-payment">결제하기</button>
