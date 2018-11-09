@@ -3,6 +3,8 @@ package com.yedam.dailycomma.room;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Arrays;
+
 @Repository
 public class RoomDTO {
 
@@ -17,7 +19,45 @@ public class RoomDTO {
 	private String roomState;		//객실승인
 	private MultipartFile[] uploadFile; //다중 파일시 배열로
 
-	public MultipartFile[] getUploadFile() {
+    private String company;
+    private String address;
+    private String hostPhone;
+    private String lodgmentType;
+
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getHostPhone() {
+        return hostPhone;
+    }
+
+    public void setHostPhone(String hostPhone) {
+        this.hostPhone = hostPhone;
+    }
+
+    public String getLodgmentType() {
+        return lodgmentType;
+    }
+
+    public void setLodgmentType(String lodgmentType) {
+        this.lodgmentType = lodgmentType;
+    }
+
+    public MultipartFile[] getUploadFile() {
 		return uploadFile;
 	}
 	public void setUploadFile(MultipartFile[] uploadFile) {
@@ -77,11 +117,24 @@ public class RoomDTO {
 	public void setRoomState(String roomState) {
 		this.roomState = roomState;
 	}
-	
-	@Override
-	public String toString() {
-		return "RoomDTO [roomNo=" + roomNo + ", lodgmentNo=" + lodgmentNo + ", roomPrice=" + roomPrice + ", roomCapa="
-				+ roomCapa + ", roomInfo=" + roomInfo + ", roomImg=" + roomImg + ", roomName=" + roomName
-				+ ", roomQuantity=" + roomQuantity + ", roomState=" + roomState + "]";
-	}	
+
+    @Override
+    public String toString() {
+        return "RoomDTO{" +
+                "roomNo='" + roomNo + '\'' +
+                ", lodgmentNo='" + lodgmentNo + '\'' +
+                ", roomPrice='" + roomPrice + '\'' +
+                ", roomCapa='" + roomCapa + '\'' +
+                ", roomInfo='" + roomInfo + '\'' +
+                ", roomImg='" + roomImg + '\'' +
+                ", roomName='" + roomName + '\'' +
+                ", roomQuantity='" + roomQuantity + '\'' +
+                ", roomState='" + roomState + '\'' +
+                ", uploadFile=" + Arrays.toString(uploadFile) +
+                ", company='" + company + '\'' +
+                ", address='" + address + '\'' +
+                ", hostPhone='" + hostPhone + '\'' +
+                ", lodgmentType='" + lodgmentType + '\'' +
+                '}';
+    }
 }

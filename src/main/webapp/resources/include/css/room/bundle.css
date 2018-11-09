@@ -589,7 +589,7 @@ i, em, address {
 .inp-txt-member {
     position: relative;
     margin-top: 13px;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #ccc;
 }
 .inp-txt-member:first-child {
@@ -597,4 +597,7 @@ i, em, address {
 }
 img, fieldset, iframe {
     border: 0 none;
+}
+textarea{
+    width: 80%;
 }

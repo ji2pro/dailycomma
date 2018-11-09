@@ -41,15 +41,13 @@ public class RoomController {
 
         /*전체 이미지를 가져온다.*/
         StringBuffer str = new StringBuffer();
-        List<RoomDTO> list = roomService.getDetailRooms(dto);
+        List<RoomDTO> list = roomService.getAllimage(dto);
         for(RoomDTO r : list)
         {
             str.append(r.getRoomImg());
         }
         /*숙박 업체에 대한 전체 객실 리스트*/
         model.addAttribute("getDetailRooms", roomService.getDetailRooms(dto));
-        /*숙박 업체에 대한 전체 후기 리스트*/
-        /*model.addAttribute("getDetailRoomPosts", roomService.getDetailRoomPosts(dto));*/
         /*전체 이미지*/
         model.addAttribute("getAllImg" , str.toString());
 

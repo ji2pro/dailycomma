@@ -21,5 +21,5 @@ public interface RoomService {
 	//객실 등록
 	public int insertRoom(RoomDTO dto);
 
-
+    public List<RoomDTO> getAllimage(LodgmentDTO dto);
 }

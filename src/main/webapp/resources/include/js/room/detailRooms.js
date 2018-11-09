@@ -1,28 +1,34 @@
 /*후기 목록 처리*/
 function PostListResult(data) {
     console.log(data);
-    var postList;
+    var postList = "";
+
+    $('.postList').remove();
     $.each(data,function(idx,item){	//forEach
         postList +=
             "<div class=\"postList\">"+
             "<li class=\"place-review__item\"></li>" +
-            "<a role=\"button\" class=\"detail\" id="+item.postscriptNo+">"+
-            "<div class=\"review-info\">"+
-            "<div class=\"review-info__title\">"+
-            "<span class=\"badge-rap\"><i class=\"badge-best\"><em>추천</em></i></span><strong>일요일 가기 좋은곳</strong></div>"+
-            "<p class=\"review-info__content\">"+ item.postscriptContent+"</p>" +
-            "<div class=\"review-userinfo\">"+
-            "<span class=\"nicname\">"+item.memberNick+"</span><i class=\"bar\"></i>" +
-            "<span class=\"roomtype\">"+item.roomName+"</span><i class=\"bar\"></i>" +
-            "<span class=\"date\">2017.05.07</span>" +
-            "</div>"+
-            "<div class=\"place-review__score\">"+
-            "<span class=\"score-rap\">"+
-            "<i class=\"icon-staylist icon-staylist-score score10\"></i>"+
-            "<i class=\"icon-staylist icon-staylist-score score10\"></i>"+
-            "<i class=\"icon-staylist icon-staylist-score score10\"></i>"+
-            "<i class=\"icon-staylist icon-staylist-score score10\"></i>"+
-            "<i class=\"icon-staylist icon-staylist-score score10\"></i>"+
+        "<a role=\"button\" class=\"detail\" id="+item.postscriptNo+">"+
+        "<div class=\"review-info\">"+
+        "<div class=\"review-info__title\">"+
+        "<span class=\"badge-rap\"><i class=\"badge-best\"><em>추천</em></i></span><strong>"+ item.postscriptTitle+"</strong></div>"+
+        "<p class=\"review-info__content\">"+ item.postscriptContent+"</p>" +
+        "<div class=\"review-userinfo\">"+
+        "<span class=\"nicname\">"+item.memberNick+"</span><i class=\"bar\"></i>" +
+        "<span class=\"roomtype\">"+item.roomName+"</span><i class=\"bar\"></i>" +
+        "<span class=\"date\">"+item.postscriptDate+"</span>" +
+        "</div>"+
+        "<div class=\"place-review__score\">"+
+        "<span class=\"score-rap\">";
+        for(var i=0 ; i < 5 ; i++){
+            if(item.grade > i){
+                postList += "<i class='fas fa-star starColor' style=\"color:#ffeb00\"></i>";
+            }
+            else{
+                postList += "<i class='far fa-star starColor' style=\"color:#ffeb00\"></i>";
+            }
+        }
+        postList +=
             "</span>"+
             "</div>"+
             "</div>"+
@@ -53,25 +59,60 @@ function insertPostFormSubmit(){
     console.log(lodgmentNo);
     console.log(params);
    
-    $.ajax({/*인설트 먼저 작업*/
+    $.ajax({/*후기 등록 먼저 작업*/
             url:"/postscript",
             data: params,
             method : "post",
             error:function(data,status,msg){
             alert("상태값 :" + status + " Http에러메시지 :"+msg);
         },
-        success:
+        success:function(){
             $.ajax({/*후기 리스트 가져오기*/
                 url:"/postscript/"+lodgmentNo,
                 error:function(data,status,msg){
                     alert("상태값 :" + status + " Http에러메시지 :"+msg);
                 },
                 success:PostListResult
-            })        
+            })
+        }
     })
 }
 
 $(function () {
+
+    $(document).on('click','#insertStar',function () {
+
+        var star = $(this).attr("class");
+        console.log(star);
+        if(star.substr(0,3)=="far"){//클릭한 i태그가 빈 별 이라면
+            $(this).attr("class","fas fa-star");//선택한 부분을 별로 찍고
+            console.log($(this).attr("class","fas fa-star"));
+            $(this).prevAll().attr("class","fas fa-star");//선택한 부분 이전의 값을 내용이 찬 별로 찍어준다.
+            console.log( $(this).prevAll().attr("class","fas fa-star"));
+        }
+        else{//클릭한 i태그가 빈 별이 아니라면
+            $(this).nextAll().attr("class","far fa-star");//이후의 값을 빈별로 찍어준다.
+            console.log($(this).nextAll().attr("class","far fa-star"));
+        }
+
+        var par = $(this).parent().children("i").index(this)+1;
+        console.log("par = " + par);
+        $('#grade').val(par);
+
+   /*     if(starSpan == "to"){
+            $("#total").val(par);
+            textInput(par,starSpan);
+        }else if(starSpan == "t"){
+            $("#tasty").val(par);
+            textInput(par,starSpan);
+        }else if(starSpan == "p"){
+            $("#price").val(par);
+            textInput(par,starSpan);
+        }else{
+            $("#service").val(par);
+            textInput(par,starSpan);
+        }*/
+    });
 
     /*후기 목록*/
     $(".postScript").on('click',function () {
@@ -127,11 +168,19 @@ $(function () {
             "</div>" +
             "<div class=\"inp-txt-member\">" +
             "<textarea rows=\"4\" name=\"postscriptContent\" id=\"postscriptContent\" cols=\"100\" placeholder=\"내용을 입력 해주세요.\"style=\"resize: none;\"/>" +
+            "<div style=\"width: 130px; height: 30px; display: inline-block; float:left\" id=\"to\">"+
+            "<i class=\"far fa-star\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
+            "<i class=\"far fa-star\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
+            "<i class=\"far fa-star\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
+            "<i class=\"far fa-star\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
+            "<i class=\"far fa-star\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
+            "</div>"+
             "</div>" +
             "<button type=\"button\" onclick=\"insertPostFormSubmit()\" name=\"button\" class=\"btn-gradation\" id=\"btnToJoinEnd\">등록" +
             "</button>" +
             "</div>" +
             "<input type=\"hidden\" name=\"lodgmentNo\" value=\""+lodgmentNo+"\">"+
+            "<input type=\"hidden\" id=\"grade\" name=\"grade\" value=\"\">"+
             "</form>";
         $('#insertPostFieldset').append(insertPost);
         $('.postList').remove();

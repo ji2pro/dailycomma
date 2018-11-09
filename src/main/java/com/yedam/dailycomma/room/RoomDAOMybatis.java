@@ -23,6 +23,11 @@ public class RoomDAOMybatis {
         return mybatis.selectList("detailRoom.getDetailRooms",dto);
     }
 
+    public List<RoomDTO> getAllimage(LodgmentDTO dto) {
+        System.out.println("========전체 이미지를 가져온다.========");
+        return mybatis.selectList("detailRoom.getAllimage",dto);
+    }
+
 	public List<RoomPostDTO> getDetailRoomPosts(LodgmentDTO dto) {
 		System.out.println("========숙박 업체 후기 조회========");
 		return mybatis.selectList("detailRoom.getDetailRoomPosts",dto);

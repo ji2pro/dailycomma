@@ -9,9 +9,17 @@
 		WHERE ROOM_NO = #{roomNo}
 	</select>
 
-	<!-- 숙박 업체에 대한 전체 객실 리스트-->
+    <!-- 숙박 업체에 대한 전체 객실 이미지-->
+    <select id="getAllimage" resultType="detailRoom" parameterType="lodgment">
+        SELECT R.ROOM_IMG
+        FROM LODGMENT L join ROOM R
+                ON (L.LODGMENT_NO = R.LODGMENT_NO)
+        WHERE R.LODGMENT_NO = #{lodgmentNo}
+    </select>
+
+    <!-- 숙박 업체에 대한 전체 객실 리스트-->
 	<select id="getDetailRooms" resultType="detailRoom" parameterType="lodgment">
-        SELECT R.ROOM_PRICE, R.ROOM_CAPA, R.ROOM_INFO, R.ROOM_IMG, R.ROOM_NAME, R.ROOM_QUANTITY, L.LODGMENT_NO
+        SELECT R.ROOM_PRICE, R.ROOM_CAPA, R.ROOM_INFO, R.ROOM_IMG, R.ROOM_NAME, R.ROOM_QUANTITY, L.LODGMENT_NO, L.COMPANY, L.ADDRESS, L.HOST_PHONE, L.LODGMENT_TYPE
 		FROM LODGMENT L join ROOM R
             ON (L.LODGMENT_NO = R.LODGMENT_NO)
         WHERE R.LODGMENT_NO = #{lodgmentNo}
@@ -30,9 +38,9 @@
         order by p.POSTSCRIPT_NO desc
 	</select>
 	
-	<!-- 숙박 업체별 후기 -->
+	<!-- 숙박 업체별 상세 후기 -->
     <select id="getDetailPost" resultType="roomPost" parameterType="roomPost">
-        SELECT p.POSTSCRIPT_CONTENT, r.ROOM_NAME, l.LODGMENT_NO, m.MEMBER_NICK, p.GRADE, p.POSTSCRIPT_NO
+        SELECT p.POSTSCRIPT_CONTENT, r.ROOM_NAME, l.LODGMENT_NO, m.MEMBER_NICK, p.GRADE, p.POSTSCRIPT_NO, p.POSTSCRIPT_TITLE, p.POSTSCRIPT_DATE
         FROM POSTSCRIPT p JOIN ROOM r
                  ON p.ROOM_NO = r.ROOM_NO
                JOIN LODGMENT l
@@ -45,7 +53,7 @@
     
     <!--   숙박 업체에 대한 전체 후기 리스트 분할-->
     <select id="getPostscriptList" resultType="postscript" parameterType="lodgment">
-        SELECT p.POSTSCRIPT_CONTENT, r.ROOM_NAME, l.LODGMENT_NO, m.MEMBER_NICK, p.GRADE, p.POSTSCRIPT_NO
+        SELECT p.POSTSCRIPT_CONTENT, r.ROOM_NAME, l.LODGMENT_NO, m.MEMBER_NICK, p.GRADE, p.POSTSCRIPT_NO, p.POSTSCRIPT_TITLE, p.POSTSCRIPT_DATE
         FROM POSTSCRIPT p JOIN ROOM r
                  ON p.ROOM_NO = r.ROOM_NO
                JOIN LODGMENT l
@@ -72,14 +80,21 @@
         , LODGMENT_NO
         , POSTSCRIPT_TITLE
         , ROOM_NO
+        , MEMBER_NO
+        , GRADE
         )
         VALUES(
-          to_char(POSTSCRIPT_SEQ.nextval)
+        lpad(POSTSCRIPT_SEQ.NEXTVAL ,8,0)
         , #{postscriptContent}
         , SYSDATE
         , #{lodgmentNo}
         , #{postscriptTitle}
         , #{roomNo}
+        , 'MEM1'
+        , #{grade}
         )
     </insert>
 </mapper>
+     <!--/*order by 를 사용하기 위해서 문자로 변경*/
+        /*to_char(POSTSCRIPT_SEQ.nextval)*/
+        /*일단 7로 고정 추후에 session 값 받아와서 처리 할 예정*/-->

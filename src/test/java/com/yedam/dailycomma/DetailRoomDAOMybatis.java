@@ -42,11 +42,11 @@ public class DetailRoomDAOMybatis {
     }
     @Test
     public void getDetailRoomsTest() {
-        ldto.setLodgmentNo("LOD50");
+        ldto.setLodgmentNo("LOD1");
         List<RoomDTO> dto2 = dao.getDetailRooms(ldto);
 
         for(RoomDTO list : dto2) {
-            System.out.println(list.getRoomImg());
+            System.out.println(list.getRoomInfo());
         }
     }
 

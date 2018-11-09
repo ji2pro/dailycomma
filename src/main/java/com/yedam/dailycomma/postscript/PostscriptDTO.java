@@ -15,6 +15,7 @@ public class PostscriptDTO {
     private String roomNo;
     private String memberNick;
     private String postscriptTitle;
+    private String roomName;
 
 
     public String getLodgmentNo() {
@@ -95,6 +96,14 @@ public class PostscriptDTO {
 
     public void setPostscriptTitle(String postscriptTitle) {
         this.postscriptTitle = postscriptTitle;
+    }
+
+    public String getRoomName() {
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
     }
 
     @Override

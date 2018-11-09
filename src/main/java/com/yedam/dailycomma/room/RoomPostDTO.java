@@ -9,14 +9,16 @@ public class RoomPostDTO {
     private String roomName;
     private String lodgmentNo;
     private String memberNick;
-    private int grade;
+    private String grade;
     private String postscriptNo;
+    private String postscriptTitle;
+    private String postscriptDate;
 
-    public int getGrade() {
+    public String getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(String grade) {
         this.grade = grade;
     }
 
@@ -60,6 +62,22 @@ public class RoomPostDTO {
         this.postscriptNo = postscriptNo;
     }
 
+    public String getPostscriptTitle() {
+        return postscriptTitle;
+    }
+
+    public void setPostscriptTitle(String postscriptTitle) {
+        this.postscriptTitle = postscriptTitle;
+    }
+
+    public String getPostscriptDate() {
+        return postscriptDate;
+    }
+
+    public void setPostscriptDate(String postscriptDate) {
+        this.postscriptDate = postscriptDate;
+    }
+
     @Override
     public String toString() {
         return "RoomPostDTO{" +
@@ -69,6 +87,8 @@ public class RoomPostDTO {
                 ", memberNick='" + memberNick + '\'' +
                 ", grade=" + grade +
                 ", postscriptNo='" + postscriptNo + '\'' +
+                ", postscriptTitle='" + postscriptTitle + '\'' +
+                ", postscriptDate='" + postscriptDate + '\'' +
                 '}';
     }
 }

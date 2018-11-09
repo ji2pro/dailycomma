@@ -11,6 +11,10 @@
           type="text/css">
     <link rel="stylesheet" type="text/css"
           href="<%=request.getContextPath()%>/resources/include/css/room/bundle.css">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+          crossorigin="anonymous">
     <script src="<%=request.getContextPath()%>/resources/include/js/room/detailRooms.js"></script>
 
     <%--<script> $(document).ready(funcion(){
@@ -73,9 +77,9 @@
                         </c:forTokens>
                     </div>
                     <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                        <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next" style="">
-                            <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
+                        <span class="carousel-control-prev-icon"></span></a>
+                    <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next" style="">
+                        <span class="carousel-control-next-icon"></span> </a>
                 </div>
             </div>
         </div>
@@ -85,15 +89,11 @@
 <%--호텔정보--%>
 <div class="container">
     <section>
-
-        <div class="place-detail column2"><h2 class="detail-info__title">H Avenue 역삼점</h2>
+        <div class="place-detail column2"><h2 class="detail-info__title">${getDetailRooms[0].company}</h2>
             <div class="detail-info__address">
-                <div><!-- react-text: 1968 --> <!-- /react-text --><!-- react-text: 1969 -->서울특별시 강남구 역삼동 678-14 H
-                    Avenue
-                    역삼점<!-- /react-text --><!-- react-text: 1970 --> <!-- /react-text --></div>
-                <div><!-- react-text: 1972 --> <!-- /react-text --><!-- react-text: 1973 -->050350501306
-                    <!-- /react-text -->
-                    <!-- react-text: 1974 --> <!-- /react-text --></div>
+                <div>상세 주소 : ${getDetailRooms[0].address}</div>
+                <div>연락처 : ${getDetailRooms[0].hostPhone}</div>
+                <div>구분 : ${getDetailRooms[0].lodgmentType}</div>
             </div>
             <div class="detail-info__score"><span class="score-rap"><i
                     class="icon-staylist icon-staylist-score score10"></i><i
@@ -221,9 +221,13 @@
                     <div class="tab-pane fade" id="tabtwo" role="tabpanel">
                         <div class="place-room__message"><i class="badge-live">바른후기</i>는 숙소에 직접
                             방문한 회원만 작성할 수 있습니다.
-                            <button type="button" class="review-post__insert-btn" style="float:right" id="${getDetailRooms[0].lodgmentNo}">후기등록</button>
+                            <c:if test="${memberLogin ne null}">
+                               <%-- ${membarLogin.memberNick}--%>
+                                <button type="button" class="review-post__insert-btn" style="float:right" id="${getDetailRooms[0].lodgmentNo}">후기등록</button>
+                            </c:if>
                         </div>
                         <div class="review-box" id="postResult">
+
                         </div>
                         <ul class="review-list">
 
