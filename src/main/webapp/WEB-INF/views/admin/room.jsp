@@ -3,17 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 
-
 <!-- 숙소 관리 경로 표시 -->
 <div class="row">
 	<div class="col-md-12">
-		<ul class="breadcrumb">
-			<li class="breadcrumb-item"><a href="#">숙소 관리</a></li>
-			<li class="breadcrumb-item"><a href="#">데일리 콤마</a></li>
+		<ul class="breadcrumb" id="lodgmentNav">
+			<li class="breadcrumb-item">/ ${list[0].company}</li>
 		</ul>
 	</div>
 </div>
-
 <!-- 숙소 관리 - 객실 관리 -->
 <div class="row">
 	<div class="col-md-12">
@@ -26,9 +23,9 @@
 							<span class="custom-control-indicator"></span>
 						</label>
 					</th>
-					<th scope="col">객실번호</th>
-					<th scope="col">객실명</th>
-					<th scope="col">객실수</th>
+					<th scope="col">객실 번호</th>
+					<th scope="col">객실 이름</th>
+					<th scope="col">객실 수</th>
 					<th scope="col">가격(1박)</th>
 					<th scope="col">최대 인원(1객실)</th>
 					<th scope="col">관리</th>

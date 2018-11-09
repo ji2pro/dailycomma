@@ -1,5 +1,7 @@
 package com.yedam.dailycomma.room;
 
+import java.util.Arrays;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -8,6 +10,7 @@ public class RoomDTO {
 
 	private String roomNo;			//객실번호
 	private String lodgmentNo;		//숙박업체번호
+	private String company;			//업체명
 	private String roomPrice;		//가격
 	private String roomCapa;		//최대 수용인원
 	private String roomInfo;		//객실정보
@@ -17,12 +20,6 @@ public class RoomDTO {
 	private String roomState;		//객실승인
 	private MultipartFile[] uploadFile; //다중 파일시 배열로
 
-	public MultipartFile[] getUploadFile() {
-		return uploadFile;
-	}
-	public void setUploadFile(MultipartFile[] uploadFile) {
-		this.uploadFile = uploadFile;
-	}
 	public String getRoomNo() {
 		return roomNo;
 	}
@@ -34,6 +31,12 @@ public class RoomDTO {
 	}
 	public void setLodgmentNo(String lodgmentNo) {
 		this.lodgmentNo = lodgmentNo;
+	}
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
 	}
 	public String getRoomPrice() {
 		return roomPrice;
@@ -77,11 +80,17 @@ public class RoomDTO {
 	public void setRoomState(String roomState) {
 		this.roomState = roomState;
 	}
-	
+	public MultipartFile[] getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile[] uploadFile) {
+		this.uploadFile = uploadFile;
+	}
 	@Override
 	public String toString() {
-		return "RoomDTO [roomNo=" + roomNo + ", lodgmentNo=" + lodgmentNo + ", roomPrice=" + roomPrice + ", roomCapa="
-				+ roomCapa + ", roomInfo=" + roomInfo + ", roomImg=" + roomImg + ", roomName=" + roomName
-				+ ", roomQuantity=" + roomQuantity + ", roomState=" + roomState + "]";
-	}	
+		return "RoomDTO [roomNo=" + roomNo + ", lodgmentNo=" + lodgmentNo + ", company=" + company + ", roomPrice="
+				+ roomPrice + ", roomCapa=" + roomCapa + ", roomInfo=" + roomInfo + ", roomImg=" + roomImg
+				+ ", roomName=" + roomName + ", roomQuantity=" + roomQuantity + ", roomState=" + roomState
+				+ ", uploadFile=" + Arrays.toString(uploadFile) + "]";
+	}
 }
