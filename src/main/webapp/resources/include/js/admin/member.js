@@ -35,30 +35,30 @@ function callbackMember(datas){
 	var html="";
 	
 	$.each(list,function(idx,data){
-		html += ("<tr class='text-center'>"+
-				   "<td scope='row'>"+
-				   "<label class='custom-control custom-checkbox'>"+
-				   "<input type='checkbox' name='_selected_' value='"+data.memberNo+"' class='custom-control-input'>"+
-				   "<span class='custom-control-indicator'></span>"+
-				   "</label>"+
-				   "</td>"+
-				   "<td>"+data.memberNo+"</td>"+
-				   "<td>"+data.memberName+"</td>"+
-				   "<td>"+data.memberNick+"</td>"+
-				   "<td>"+data.memberEmail+"</td>"+
-				   "<td>"+data.memberPoint+"</td>"+
-				   "<td>"+
-				   "<fmt:parseDate value='"+data.signupDate+"' var='signupDate_D' pattern='yyyy-MM-dd HH:mm:ss'/>"+
-				   "<fmt:formatDate value='${signupDate_D}' var='signupDate_FD' pattern='yyyy.MM.dd'/>"+
-				   "${signupDate_FD}"+
-				   "</td>"+
-				   "<td>"+
-				   "<div class='btn-group'>"+
-				   "<a href='#' class='btn btn-outline-success btn-sm'>수정</a>"+
-				   "<a href='#' class='btn btn-outline-danger btn-sm'>삭제</a>"+
-				   "</div>"+
-				   "</td>"+
-				   "</tr>");
+		html += ('<tr class="text-center">'+
+				 '<td scope="row">'+
+				 '<label class="custom-control custom-checkbox">'+
+				 '<input type="checkbox" name="_selected_" value="'+data.memberNo+'" class="custom-control-input">'+
+				 '<span class="custom-control-indicator"></span>'+
+				 '</label>'+
+				 '</td>'+
+				 '<td>'+data.memberNo+'</td>'+
+				 '<td>'+data.memberName+'</td>'+
+				 '<td>'+data.memberNick+'</td>'+
+				 '<td>'+data.memberEmail+'</td>'+
+				 '<td>'+data.memberPoint+'</td>'+
+				 '<td>'+
+				 '<fmt:parseDate value="'+data.signupDate+'" var="signupDate_D" pattern="yyyy-MM-dd HH:mm:ss"/>'+
+				 '<fmt:formatDate value="${signupDate_D}" var="signupDate_FD" pattern="yyyy.MM.dd"/>'+
+				 '${signupDate_FD}'+
+				 '</td>'+
+				 '<td>'+
+				 '<div class="btn-group">'+
+				 '<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>'+
+				 '<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>'+
+				 '</div>'+
+				 '</td>'+
+				 '</tr>');
 	});
 	
 	

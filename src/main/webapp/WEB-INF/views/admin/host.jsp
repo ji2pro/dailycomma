@@ -48,8 +48,8 @@
 					<td>(승인)</td>
 					<td>
 						<div class="btn-group">
-							<a href="#" class="btn btn-outline-success btn-sm">수정</a>
-							<a href="#" class="btn btn-outline-danger btn-sm">삭제</a>
+							<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>
+							<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>
 						</div>
 					</td>
 				</tr>
@@ -60,7 +60,7 @@
 </div>
 <div class="row">
 	<div class="col-md-12 d-flex flex-row justify-content-end mb-4">
-		<a class="btn btn-outline-danger" href="#">선택 삭제</a>
+		<button id="btnDeleteSelected" class="btn btn-outline-danger">선택 삭제</button>
 	</div>
 </div>
 <!-- 페이징 버튼 -->
