@@ -7,7 +7,7 @@ $(document).ready(function(){
 	$('#pointBtn').click(function(){
 		var my_point = parseInt($('.my-point').text());		//보유한 포인트
 		var use_point =  parseInt($('#point').val());		//사용할 포인트
-		var payment_sum = parseInt($('#payment-sum').children("i").text());	//결제금액
+		var payment_sum = parseInt($('#payment-sum').children("i").attr("data-sum"));	//결제금액
 		
 		console.log("=========== my-point" + my_point);
 		console.log("=========== use-point" + use_point);
@@ -21,9 +21,10 @@ $(document).ready(function(){
 		if(use_point > payment_sum ){								//사용할 포인트가 결제금액보다 많을경우
 			$('#payment-sum').children("i").text("0");		   
 			$('#discount-point').children("i").text(use_point);		//차감될 포인트
-		}else
+		}else{
 			$('#payment-sum').children("i").text(payment_sum - use_point);
-		
+			$('#discount-point').children("i").text(use_point);
+		}
 	});
 });
 </script>
@@ -139,7 +140,7 @@ $(document).ready(function(){
 						</div>
 						<div class="total-payment row">
 							<span class="col-6 mr-auto">결제 금액</span>
-							<span class="col-6 ml-auto" id="payment-sum"><i value="${room.roomPrice}"> 120000</i>원</span>
+							<span class="col-6 ml-auto" id="payment-sum"><i data-sum="120000"> 120000</i>원</span>
 						</div>
 					</div>
 					<button type="button" class="btn-payment">결제하기</button>
