@@ -9,31 +9,21 @@
 <title>Daily Comma</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="<c:url value="/resources/include/js/home/home.js"/>"></script>
+<script src="<c:url value="/resources/include/js/lodgment/calendar.js"/>"></script>
 
 <!-- Custom Stylesheets -->
 <link rel="stylesheet" type="text/css"
 	href="./resources/include/css/lodgmentSearch.css" />
 <link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-	crossorigin="anonymous">
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 <!-- 별모양 링크 -->
 
 <!-- 캘린더 -->
-<script
-	src="<c:url value="/resources/include/js/lodgment/calendar.js"/>"></script>
-
-
-
-<script type="text/javascript"
-	src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript"
-	src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript"
-	src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<script src="<c:url value="/resources/include/js/lodgment/calendar.js"/>"></script>
+<script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 <script>
 	$(function() {
@@ -128,15 +118,15 @@
 </head>
 <body>
 	<div class="container-fluid" id="wrapper">
-		<div class="row">
+		
 			<div class="datepicker-container">
-				<i class="icon-staylist icon-calendar-on"></i> <input type="text"
-					name="datefilter" value="" />
+				<i class="icon-staylist icon-calendar-on"></i> 
+				<input type="text" name="datefilter" value="" style="margin-top: .40rem!important;"/>
 			</div>
-		</div>
+
 
 		<div class="row">
-			<div class="col">
+			<div class="col md-3">
 				<div class="dropdown ml-2" style="display: inline-block;">
 					<button class="btn btn-defalute btn-lg dropdown-toggle"
 						type="button" id="dropdownMenu1" data-toggle="dropdown"
@@ -162,12 +152,12 @@
 					<ul class="dropdown-menu" role="menu"
 						aria-labelledby="dropdownMenu2" id="loc">
 						<li role="presentation" value="Daegu"><a role="menuitem"
-							tabindex="-1">글자순</a></li>
+							tabindex="-1">5만원 이하</a></li>
 					</ul>
 				</div>
 
 				<c:forEach items="${lod}" var="temp">
-					<div class="card flex-md-row mb-4 shadow-sm h-md-250">
+					<div class="card flex-md-row mb-5 shadow-sm h-md-250">
 						<div class="card-body d-flex flex-column align-items-start">
 							<h3 class="mb-0">
 
@@ -193,9 +183,10 @@
 
 						</div>
 						<img class="card-img-right"
-							src="/dailycomma/lodgment-Image/room.jpg" width="230"
+							src="resources/images/lodgment/roomTest.jpg" width="230"
 							height="260" alt="Card image cap">
 					</div>
+					
 				</c:forEach>
 			</div>
 			<!--             <div class="card flex-md-row mb-4 shadow-sm h-md-250">
@@ -220,9 +211,8 @@
                         class="quadrange maker-pension"></i><em>펜션</em></span><span><i
                         class="quadrange maker-guesthouse"></i><em>게스트하우스</em></span><span><i
                         class="quadrange maker-nopartner"></i><em>비제휴</em></span>-->
-			<div class="col">
-				<img src="resources/images/cast/googleMapTest.jpg" width="100%"
-					height="100%">
+			<div class="col sm-1" align="right">
+				<img src="resources/images/cast/googleMapTest.jpg">
 			</div>
 		</div>
 	</div>

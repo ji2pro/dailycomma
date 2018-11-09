@@ -16,3 +16,18 @@ $(function() {
   });
 
 });
+
+
+//드롭다운 선택표시
+$(function() {
+	$("#lodgType li a").click(
+			function() {
+				$("#dropdownMenu1:first-child").html(
+						$(this).text() + ' <span class="caret"></span>');
+			});
+	$("#loc li a").click(
+			function() {
+				$("#dropdownMenu2:first-child").html(
+						$(this).text() + ' <span class="caret"></span>');
+			});
+});

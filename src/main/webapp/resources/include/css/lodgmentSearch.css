@@ -202,3 +202,10 @@ dl, ul, ol, menu, li {
     list-style: none;
     outline: none;
 } */
+
+.lineset {
+	margin-top: 40px;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: rgb(229, 229, 229);
+}
