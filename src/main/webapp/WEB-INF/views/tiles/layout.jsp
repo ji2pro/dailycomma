@@ -47,7 +47,14 @@
 	        </ul> -->
 	        <ul class="navbar-nav ml-auto">
 	            <!-- <li class="nav-item"><a class="nav-link" href="#">예약 내역</a></li> -->
+	            <c:choose>
+	            	<c:when test="${sessionScope.memberLogin eq null}">
 	            <li class="nav-item"><a class="nav-link" href="<c:url value="/userChoice.do"/>">회원 가입</a></li>
+	            	</c:when>
+	            	<c:otherwise>
+	            		<li class="nav-item"><a class="nav-link" href="<c:url value="/myPage.do"/>">마이페이지</a></li>
+	            	</c:otherwise>
+	            </c:choose>
 	            <c:choose>
 		            <c:when test="${sessionScope.memberLogin eq null }">
 		            	<li class="nav-item"><a class="nav-link" href="<c:url value="/loginForm.do"/>">로그인</a></li>
