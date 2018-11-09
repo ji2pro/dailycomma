@@ -50,6 +50,97 @@
 	}
 </script>
 
+
+<script>
+	$(function() {
+		$("#lodgType li a").click(
+				function() {
+					$("#dropdownMenu1:first-child").html(
+							$(this).text() + ' <span class="caret"></span>');
+				});
+		$("#loc li a").click(
+				function() {
+					$("#dropdownMenu2:first-child").html(
+							$(this).text() + ' <span class="caret"></span>');
+				});
+	});
+</script>
+
+<script>
+	$(document).ready(function() {
+		gradeCal();
+	});
+
+	function gradeCal() {
+
+		var length = $('.score-rap').length;
+
+		for (var i = 0; i < length; i++) {
+
+			var grade = $('.score-rap').eq(i).attr('data-grade');
+			console.log("grade=========" + grade);
+			var star = $('.score-rap').eq(i).children("i");
+
+			gradeScope(star, grade);
+			star.addClass('starColor');
+		}
+	}
+
+	function gradeScope(star, grade) {
+
+		if (grade >= 9.5) { //5개
+			for (var i = 0; i < 5; i++)
+				star.eq(i).attr('class', 'fas fa-star');
+		} else if (grade >= 9) { //4.5
+			for (var i = 0; i < 4; i++)
+				star.eq(i).attr('class', 'fas fa-star');
+			star.eq(4).attr('class', 'fas fa-star-half-alt');
+		} else if (grade >= 7.5) { //4
+			for (var i = 0; i < 4; i++)
+				star.eq(i).attr('class', 'fas fa-star');
+			star.eq(4).attr('class', 'far fa-star');
+		} else if (grade >= 7) { //3.5
+			for (var i = 0; i < 3; i++)
+				star.eq(i).attr('class', 'fas fa-star');
+			star.eq(3).attr('class', 'fas fa-star-half-alt');
+			star.eq(4).attr('class', 'far fa-star');
+		} else if (grade >= 5.5) { //3
+			for (var i = 0; i < 3; i++)
+				star.eq(i).attr('class', 'fas fa-star');
+			for (var i = 3; i < 5; i++)
+				star.eq(i).attr('class', 'far fa-star');
+		} else if (grade >= 5) { //2.5
+			for (var i = 0; i < 2; i++)
+				star.eq(i).attr('class', 'fas fa-star');
+			star.eq(2).attr('class', 'fas fa-star-half-alt');
+			for (var i = 3; i < 5; i++)
+				star.eq(i).attr('class', 'far fa-star');
+		} else if (grade >= 3.5) { //2
+			for (var i = 0; i < 2; i++)
+				star.eq(i).attr('class', 'fas fa-star');
+			for (var i = 2; i < 5; i++)
+				star.eq(i).attr('class', 'far fa-star');
+		} else if (grade >= 3) { //1.5
+			star.eq(0).attr('class', 'fas fa-star');
+			star.eq(1).attr('class', 'fas fa-star-half-alt');
+			for (var i = 2; i < 5; i++)
+				star.eq(1).attr('class', 'far fa-star');
+		} else if (grade >= 1.5) { //1
+			star.eq(0).attr('class', 'fas fa-star');
+			for (var i = 1; i < 5; i++)
+				star.eq(i).attr('class', 'far fa-star');
+		} else if (grade >= 1) { //0.5
+			star.eq(0).attr('class', 'fas fa-star-half-alt');
+			for (var i = 1; i < 5; i++)
+				star.eq(i).attr('class', 'far fa-star');
+		} else { //0
+			for (var i = 0; i < 5; i++)
+				star.eq(i).attr('class', 'far fa-star');
+		}
+
+	}
+</script>
+
 </head>
 <body>
 	<div class="container-fluid" id="wrapper">
@@ -62,21 +153,32 @@
 
 		<div class="row">
 			<div class="col">
-				<div class="dropdown ml-2">
-					<button
-						class="btn btn-defalute btn-lg dropdown-toggle"
-						type="button" id="dropdownMenu2" data-toggle="dropdown"
-						aria-expanded="true">기본순
-						<span class="caret"></span>
+				<div class="dropdown ml-2" style="display: inline-block;">
+					<button class="btn btn-defalute btn-lg dropdown-toggle"
+						type="button" id="dropdownMenu1" data-toggle="dropdown"
+						aria-expanded="true">
+						기본순 <span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" role="menu"
-						aria-labelledby="dropdownMenu2" id="loc">
+						aria-labelledby="dropdownMenu1" id="lodgType">
 						<li role="presentation" value="Daegu"><a role="menuitem"
 							tabindex="-1">글자순</a></li>
 						<li role="presentation" value="Seoul"><a role="menuitem"
 							tabindex="-1">인기순</a></li>
 						<li role="presentation" value="Busan"><a role="menuitem"
 							tabindex="-1">가격순</a></li>
+					</ul>
+				</div>
+				<div class="dropdown ml-2" style="display: inline-block;">
+					<button class="btn btn-defalute btn-lg dropdown-toggle"
+						type="button" id="dropdownMenu2" data-toggle="dropdown"
+						aria-expanded="true">
+						가격대 선택 <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu"
+						aria-labelledby="dropdownMenu2" id="loc">
+						<li role="presentation" value="Daegu"><a role="menuitem"
+							tabindex="-1">글자순</a></li>
 					</ul>
 				</div>
 

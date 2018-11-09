@@ -114,9 +114,8 @@
 						<div class="option-btn">
 							<div class="container">
 								<div class="col">
-
-									<div class="input-group date " id="datetimepicker7"
-										data-target-input="nearest">
+									<div class="input-group date" id="datetimepicker7"
+										data-target-input="nearest" style="display: inline-block;">
 										<input type="text" name="checkIn" class="datetimepicker-input"
 											data-target="#datetimepicker7" />
 										<div class="input-group-append" data-target="#datetimepicker7"
@@ -130,7 +129,7 @@
 
 								<div class="col">
 									<div class="input-group date  " id="datetimepicker8"
-										data-target-input="nearest">
+										data-target-input="nearest" style="display: inline-block;">
 										<input type="text" name="checkOut"
 											class="datetimepicker-input" data-target="#datetimepicker8" />
 										<div class="input-group-append" data-target="#datetimepicker8"

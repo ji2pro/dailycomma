@@ -26,7 +26,7 @@
 								<i class="fas fa-user fa-9x"></i>
 							</c:when>
 							<c:otherwise>
-       						<img src="resources/images/cast/${memberLogin.memberImg}">
+       						<img src="resources/images/cast/${memberLogin.memberImg}" class="rounded-circle">
         				 </c:otherwise>
 						</c:choose>
 					</div>
