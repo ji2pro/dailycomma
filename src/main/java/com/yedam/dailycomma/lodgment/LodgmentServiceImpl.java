@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class LodgmentServiceImpl implements LodgmentService {
 	@Autowired LodgmentDAO dao;
 
-	public List<LodgmentDTO> getMainSearch(LodgmentDTO dto) {
+	public List<LodgmentDTO> getMainSearch(LodgmentSearchDTO dto) {
 		return dao.getMainSearch(dto);
 	}
 	public int setLodgment(LodgmentDTO dto) {

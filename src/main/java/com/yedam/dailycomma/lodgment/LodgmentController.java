@@ -1,7 +1,14 @@
 package com.yedam.dailycomma.lodgment;
 
+
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.Principal;
+import java.util.Enumeration;
+import java.util.Locale;
+import java.util.Map;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -9,16 +16,15 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.yedam.dailycomma.host.HostService;
-import com.yedam.dailycomma.reservation.ReservationDTO;
-
-
 @Controller
+@SessionAttributes("search")
 public class LodgmentController {
 	
 	@Autowired //DI(Dependency Injection)
@@ -65,18 +71,22 @@ public class LodgmentController {
 	
 	@RequestMapping("/getMainSearch.do")
 	public String getMainSearch(Model model, 
-								LodgmentDTO dto,
-								@RequestParam(value="checkIn") String checkin,
-								@RequestParam(value="checkOut") String checkout,
-								HttpSession session) {
-		/*dto.setLocation("서울");
-		dto.setLodgmentType("A4");*/
+								LodgmentSearchDTO dto
+								) {
+		dto.setLocation("서울");
+		//dto.setLodgmentType("A4");*/
 		
-		dto.setLocation("대구");
-		System.out.println("checkIn : " + checkin + " checkOut : " + checkout);		
-		session.setAttribute("checkIn", checkin);
-		session.setAttribute("checkOut", checkout);
+		System.out.println("checkIn =========== : " + dto.getCheckin() + " checkOut ============ : " + dto.getCheckout());		
+		model.addAttribute("search", dto);
 		model.addAttribute("lod",lodgmentService.getMainSearch(dto));
 		return "lodgment/lodgmentSearch";		
 	}
+	
+	@RequestMapping("/updateSearch.do")
+	public String updateSearch(@ModelAttribute("search") LodgmentSearchDTO dto,
+							   Model model) {
+		model.addAttribute("lod",lodgmentService.getMainSearch(dto));
+		return "lodgment/lodgmentSearch";
+	}
+	
 }

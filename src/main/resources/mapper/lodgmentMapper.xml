@@ -67,7 +67,7 @@
 		</where>
 	</select>
 
-<select id="getMainSearch" parameterType="lodgment" resultType="lodgment">
+<select id="getMainSearch" parameterType="lodgmentSearch" resultType="lodgmentSearch">
 	  SELECT l.COMPANY, g.AVG_GRADE, g.people_cnt
       FROM LODGMENT l  LEFT OUTER JOIN (SELECT ROUND(AVG(GRADE),1) AS AVG_GRADE ,COUNT(*) AS people_cnt, LODGMENT_NO
                                         FROM POSTSCRIPT
@@ -77,11 +77,17 @@
       	<if test="location != null and location != '' ">
       		AND l.LOCATION = #{location}
       	</if>
+      	<if test="lodgmentType != null and lodgmentType != '' ">	
+      		AND l.LODGMENT_TYPE = #{lodgmentType}
+      	</if>
+		
+		 <if test="sort == ''ingi and lodgmentType != '' ">	
+      		AND l.LODGMENT_TYPE = #{lodgmentType}
+      	</if>
+		      	
+      	 
       </where>
 </select>
-<!--       	<if test="lodgmentType != null AND lodgmentType != '' ">	
-      		AND l.LODGMENT_TYPE = #{lodgmentType}
-      	</if> -->
 <update id="setLodgment" parameterType="lodgment">
 	UPDATE LODGMENT
 	SET COMPANY 	 	= #{company},
@@ -95,6 +101,7 @@
 	INSERT INTO HASHTAG(HASHTAG_NO, HASHTAG_CONTENT, LODGMENT_NO)
 	VALUES(TO_CHAR(HASHTAG_SEQ.nextval), #{hashtagContent}, #{lodgmentNo})
 </insert>
+
 	
 	<!-- 수정 미완성-->
 <!-- 	

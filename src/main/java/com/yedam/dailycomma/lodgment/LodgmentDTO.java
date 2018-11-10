@@ -2,6 +2,8 @@ package com.yedam.dailycomma.lodgment;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.yedam.dailycomma.reservation.ReservationDTO;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -19,7 +21,7 @@ public class LodgmentDTO {
 	private String peopleCnt;		//평가인원수
 	private String roomCnt;			//객실 수
 	private MultipartFile uploadFile;
-	
+
 	public String getLodgmentNo() {
 		return lodgmentNo;
 	}

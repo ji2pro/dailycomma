@@ -116,7 +116,7 @@
 								<div class="col">
 									<div class="input-group date" id="datetimepicker7"
 										data-target-input="nearest">
-										<input type="text" name="checkIn" class="datetimepicker-input"
+										<input type="text" name="checkin" class="datetimepicker-input"
 											data-target="#datetimepicker7" />
 										<div class="input-group-append" data-target="#datetimepicker7"
 											data-toggle="datetimepicker">
@@ -130,7 +130,7 @@
 								<div class="col">
 									<div class="input-group date  " id="datetimepicker8"
 										data-target-input="nearest">
-										<input type="text" name="checkOut"
+										<input type="text" name="checkout"
 											class="datetimepicker-input" data-target="#datetimepicker8" />
 										<div class="input-group-append" data-target="#datetimepicker8"
 											data-toggle="datetimepicker">
@@ -142,14 +142,12 @@
 								</div>
 							</div>
 						</div>
-						<input type="hidden" name="lodgmentType"> <input
-							type="hidden" name="location">
+						<input type="hidden" name="lodgmentType"> 
+						<input type="hidden" name="location">
 
 					</div>
 				</div>
-				<button type="submit" class="btn btn-search-stay color-gradation">숙소
-					검색</button>
-
+				<button type="submit" class="btn btn-search-stay color-gradation">숙소 검색</button>
 			</div>
 		</form>
 	</div>

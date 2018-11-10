@@ -19,7 +19,7 @@ public class LodgmentDAO {
 		return mybatis.selectOne("lodgment.getCnt", searchDTO);
 	}
 	//메인검색
-	public List<LodgmentDTO> getMainSearch(LodgmentDTO dto) {
+	public List<LodgmentDTO> getMainSearch(LodgmentSearchDTO dto) {
 		return mybatis.selectList("lodgment.getMainSearch", dto);
 	}
 	//숙박업체 등록

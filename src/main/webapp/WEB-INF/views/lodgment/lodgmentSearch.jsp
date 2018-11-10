@@ -1,16 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
 
-<meta charset="utf-8" />
+
 <title>Daily Comma</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="<c:url value="/resources/include/js/lodgment/calendar.js"/>"></script>
-
+<script src="<c:url value="/resources/include/js/lodgment/Search.js"/>"></script>
 <!-- Custom Stylesheets -->
 <link rel="stylesheet" type="text/css"
 	href="./resources/include/css/lodgmentSearch.css" />
@@ -19,109 +14,29 @@
 <!-- 별모양 링크 -->
 
 <!-- 캘린더 -->
-<script src="<c:url value="/resources/include/js/lodgment/calendar.js"/>"></script>
+<%-- <script src="<c:url value="/resources/include/js/lodgment/calendar.js"/>"></script>
 <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+ --%>
+ 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-<script>
-	$(function() {
-		$("#lodgType li a").click(
-				function() {
-					$("#dropdownMenu1:first-child").html(
-							$(this).text() + ' <span class="caret"></span>');
-				});
-		$("#loc li a").click(
-				function() {
-					$("#dropdownMenu2:first-child").html(
-							$(this).text() + ' <span class="caret"></span>');
-				});
-	});
-</script>
 
-<script>
-	$(document).ready(function() {
-		gradeCal();
-	});
-
-	function gradeCal() {
-
-		var length = $('.score-rap').length;
-
-		for (var i = 0; i < length; i++) {
-
-			var grade = $('.score-rap').eq(i).attr('data-grade');
-			console.log("grade=========" + grade);
-			var star = $('.score-rap').eq(i).children("i");
-
-			gradeScope(star, grade);
-			star.addClass('starColor');
-		}
-	}
-
-	function gradeScope(star, grade) {
-
-		if (grade >= 9.5) { //5개
-			for (var i = 0; i < 5; i++)
-				star.eq(i).attr('class', 'fas fa-star');
-		} else if (grade >= 9) { //4.5
-			for (var i = 0; i < 4; i++)
-				star.eq(i).attr('class', 'fas fa-star');
-			star.eq(4).attr('class', 'fas fa-star-half-alt');
-		} else if (grade >= 7.5) { //4
-			for (var i = 0; i < 4; i++)
-				star.eq(i).attr('class', 'fas fa-star');
-			star.eq(4).attr('class', 'far fa-star');
-		} else if (grade >= 7) { //3.5
-			for (var i = 0; i < 3; i++)
-				star.eq(i).attr('class', 'fas fa-star');
-			star.eq(3).attr('class', 'fas fa-star-half-alt');
-			star.eq(4).attr('class', 'far fa-star');
-		} else if (grade >= 5.5) { //3
-			for (var i = 0; i < 3; i++)
-				star.eq(i).attr('class', 'fas fa-star');
-			for (var i = 3; i < 5; i++)
-				star.eq(i).attr('class', 'far fa-star');
-		} else if (grade >= 5) { //2.5
-			for (var i = 0; i < 2; i++)
-				star.eq(i).attr('class', 'fas fa-star');
-			star.eq(2).attr('class', 'fas fa-star-half-alt');
-			for (var i = 3; i < 5; i++)
-				star.eq(i).attr('class', 'far fa-star');
-		} else if (grade >= 3.5) { //2
-			for (var i = 0; i < 2; i++)
-				star.eq(i).attr('class', 'fas fa-star');
-			for (var i = 2; i < 5; i++)
-				star.eq(i).attr('class', 'far fa-star');
-		} else if (grade >= 3) { //1.5
-			star.eq(0).attr('class', 'fas fa-star');
-			star.eq(1).attr('class', 'fas fa-star-half-alt');
-			for (var i = 2; i < 5; i++)
-				star.eq(1).attr('class', 'far fa-star');
-		} else if (grade >= 1.5) { //1
-			star.eq(0).attr('class', 'fas fa-star');
-			for (var i = 1; i < 5; i++)
-				star.eq(i).attr('class', 'far fa-star');
-		} else if (grade >= 1) { //0.5
-			star.eq(0).attr('class', 'fas fa-star-half-alt');
-			for (var i = 1; i < 5; i++)
-				star.eq(i).attr('class', 'far fa-star');
-		} else { //0
-			for (var i = 0; i < 5; i++)
-				star.eq(i).attr('class', 'far fa-star');
-		}
-
-	}
-</script>
-
-</head>
-<body>
 	<div class="container-fluid" id="wrapper">
 		
 			<div class="datepicker-container">
 				<i class="icon-staylist icon-calendar-on"></i> 
-				<input type="text" name="datefilter" value="" style="margin-top: .40rem!important;"/>
+				<!-- <input type="text" name="datefilter" value="" style="margin-top: .40rem!important;"/>-->
+				<!-- <input type="text" name="daterange" value="" style="margin-top: .40rem!important;"/>-->
+				   <form action="updateSearch.do"> 
+					    From: <input type="text" name="checkin" id="datepicker" >
+	    				To: <input type="text" name="checkout" id="datepicker2">
+	    				<button type="submit" class="btn btn-primary">검색</button>
+					</form>
 			</div>
 
 
@@ -174,12 +89,16 @@
 <!-- 						   <i class='fas fa-star starColor'></i> 
 						   <i class='fas fa-star-half-alt starColor'></i> 
 						   <i class='far fa-star starColor'></i> -->
-							</span> <span>${temp.peopleCnt }</span>
+							</span> 
+							<span>${temp.peopleCnt }</span>
 
 
 							<p class="card-text mb-auto">This is a wider card with
 								supporting text below as a natural lead-in to additional
-								content.</p>
+								content.<br>
+								${search.checkin }
+								${search.checkout }
+							</p>
 
 						</div>
 						<img class="card-img-right"
@@ -216,20 +135,3 @@
 			</div>
 		</div>
 	</div>
-</body>
-
-<script>
-	$(function() {
-		$('input[name="daterange"]').daterangepicker(
-				{
-					opens : 'left'
-				},
-				function(start, end, label) {
-					console.log("A new date selection was made: "
-							+ start.format('YYYY-MM-DD') + ' to '
-							+ end.format('YYYY-MM-DD'));
-				});
-	});
-</script>
-<script type="text/javascript"></script>
-</html>

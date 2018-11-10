@@ -43,12 +43,13 @@
 	<aop:aspectj-autoproxy />
 	
 	<!-- DataSource 설정 -->
+	<!-- value="jdbc:oracle:thin:@180.71.250.243:1521:XE" />-->
 	<beans:bean id="dataSourceSpied"
 		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<beans:property name="driverClassName"
 			value="oracle.jdbc.OracleDriver" />
-		<beans:property name="url"
-			value="jdbc:oracle:thin:@180.71.250.243:1521:XE" />
+		<beans:property name="url"			
+			value="jdbc:oracle:thin:@localhost:1521:XE" />
 		<beans:property name="username" value="daily" />
 		<beans:property name="password" value="daily" />
 	</beans:bean>

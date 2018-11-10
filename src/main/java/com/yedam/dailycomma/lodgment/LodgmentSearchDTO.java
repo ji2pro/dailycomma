@@ -14,7 +14,28 @@ public class LodgmentSearchDTO extends LodgmentDTO {
 
 	private String sort;
 	
+	private String checkin;
+	private String checkout;
 	
+	
+	
+
+	public String getCheckin() {
+		return checkin;
+	}
+
+	public void setCheckin(String checkin) {
+		this.checkin = checkin;
+	}
+
+	public String getCheckout() {
+		return checkout;
+	}
+
+	public void setCheckout(String checkout) {
+		this.checkout = checkout;
+	}
+
 	public String getSort() {
 		return sort;
 	}
