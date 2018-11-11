@@ -22,6 +22,11 @@ public class RoomController {
 	@Autowired LodgmentDTO lodgmentDTO;
     @Autowired RoomPostDTO roomPostDTO;
 
+    @RequestMapping("/apiTest.do")
+	public String apiTest(){
+    	return "room/apiTest";
+	}
+
 	/*건수조회 추후 토탈 이미지로 들어갈 예정*/
 	@RequestMapping("/detailRoom.do/{roomNo}")
 	public String detailRoom(Model model,

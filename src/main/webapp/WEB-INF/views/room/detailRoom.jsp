@@ -62,19 +62,19 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="carousel slide" data-ride="carousel" id="carousel2">
-                    <div class="carousel-inner">
-                        <c:forTokens items="${getAllImg}" delims="||" var="img" varStatus="status">
-                            <c:if test="${status.first}">
-                                <div class="carousel-item active">
-                                    <img class="d-block img-fluid w-100" src="/resources/images/room/${img}"/>
-                                </div>
-                            </c:if>
-                            <c:if test="${!status.first}">
-                                <div class="carousel-item">
-                                    <img class="d-block img-fluid w-100" src="/resources/images/room/${img}"/>
-                                </div>
-                            </c:if>
-                        </c:forTokens>
+                        <div class="carousel-inner">
+                            <c:forTokens items="${getAllImg}" delims="||" var="img" varStatus="status">
+                                <c:if test="${status.first}">
+                                    <div class="carousel-item active">
+                                        <img class="d-block img-fluid w-100" src="/resources/images/room/${img}"/>
+                                    </div>
+                                </c:if>
+                                <c:if test="${!status.first}">
+                                    <div class="carousel-item">
+                                        <img class="d-block img-fluid w-100" src="/resources/images/room/${img}"/>
+                                    </div>
+                                </c:if>
+                            </c:forTokens>
                     </div>
                     <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon"></span></a>
