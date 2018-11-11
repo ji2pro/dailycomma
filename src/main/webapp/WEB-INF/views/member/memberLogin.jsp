@@ -9,8 +9,8 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="py-5 text-center">
+	<div class="container py-5">
+		<div class="text-center py-3">
 			<h2>로그인</h2>
 		</div>
 	</div>
