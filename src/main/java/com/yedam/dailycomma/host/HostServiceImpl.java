@@ -31,7 +31,7 @@ public class HostServiceImpl implements HostService {
 
 	public HostDTO getHost(HostDTO dto) {
 		//logAdvice.beforeLog();
-		return null;
+		return dao.getHost(dto);
 	}
 
 	public List<HostDTO> getHosts(HostSearchDTO searchDTO) {

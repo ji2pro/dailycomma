@@ -20,11 +20,6 @@
 <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
  --%>
- 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
 
 	<div class="container-fluid" id="wrapper">
 		
@@ -50,12 +45,15 @@
 					</button>
 					<ul class="dropdown-menu" role="menu"
 						aria-labelledby="dropdownMenu1" id="lodgType">
-						<li role="presentation" value="Daegu"><a role="menuitem"
-							tabindex="-1">글자순</a></li>
-						<li role="presentation" value="Seoul"><a role="menuitem"
-							tabindex="-1">인기순</a></li>
-						<li role="presentation" value="Busan"><a role="menuitem"
-							tabindex="-1">가격순</a></li>
+						<li role="presentation" value="Daegu">
+							<a role="menuitem" tabindex="-1">글자순</a>
+						</li>
+						<li role="presentation" value="Seoul">
+							<a role="menuitem" tabindex="-1">인기순</a>
+						</li>
+						<li role="presentation" value="Busan">
+							<a role="menuitem" tabindex="-1">가격순</a>
+						</li>
 					</ul>
 				</div>
 				<div class="dropdown ml-2" style="display: inline-block;">

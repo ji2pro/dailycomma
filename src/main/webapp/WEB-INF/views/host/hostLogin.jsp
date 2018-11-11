@@ -11,18 +11,18 @@
 <body>
 	<div class="container">
 		<div class="py-5 text-center">
-			<h2>로그인</h2>
+			<h2>점주 로그인</h2>
 		</div>
 	</div>
 	
 	<div>		
-	  <form class="form-signup" action="memberLogin.do" method="POST">
+	  <form class="form-signup" action="hostLogin.do" method="POST">
 		  <div class="row">
 			<div class="col-md-12">
-				<input type="email"  name="memberEmail" class="form-control" placeholder="회원님 이메일"/>
+				<input type="text"  name="hostId" class="form-control" placeholder="점주님 ID"/>
 			</div>
 			<div class="col-md-12">
-				<input type="password" id="memberPw" name="memberPw" class="form-control" placeholder="회원님 패스워드"/>
+				<input type="password" id="hostPw" name="hostPw" class="form-control" placeholder="패스워드"/>
 			</div>
 			<div class="col-md-12">
 				<button type="submit" class="btn btn-primary">로그인</button>

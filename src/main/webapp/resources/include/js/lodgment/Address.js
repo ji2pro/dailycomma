@@ -47,12 +47,11 @@ function execDaumPostcode() {
 						if (fullRoadAddr !== '') {
 							fullRoadAddr += extraRoadAddr;
 						}
-						console.log(data.sido);
 						// 우편번호와 주소 정보를 해당 필드에 넣는다.
 						//document.getElementById('postcode').value = data.zonecode; //5자리 새우편번호 사용
 						//document.getElementById('jibunAddress').value = data.jibunAddress;
 						document.getElementById('address').value = fullRoadAddr;
-						document.getElementById('location').value = data.sido;
+						document.getElementById('location').value = changeLocation(data.sido);
 
 						// 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
 						if (data.autoRoadAddress) {
@@ -72,4 +71,16 @@ function execDaumPostcode() {
 					}
 		}).open();
 	});
+}
+
+function changeLocation(location){
+
+	switch(location){
+		case '서울' : return 'C1';
+		case '부산' : return 'C2';
+		case '광주' : return 'C3';
+		case '대구' : return 'C4';
+		case '제주특별자치도' : return 'C5';
+		default : return 'C6';
+	}
 }

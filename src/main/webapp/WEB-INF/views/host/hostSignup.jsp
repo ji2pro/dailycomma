@@ -25,7 +25,7 @@
 		 <div class="row">
 	    	<div class="col-5">
 	      		<label for="inputId">아이디</label>
-	      		<input type="text" class="form-control" name="hostId" value="${lodgment.hostId}" placeholder="id">
+	      		<input type="text" class="form-control" name="hostId" value="${lodgment.hostId}" placeholder="점주님 아이디">
 	    	</div>
 	    	<button type="button" class="btn">중복확인</button>
 	    	   	

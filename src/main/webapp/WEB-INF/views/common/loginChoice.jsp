@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css?family=Gaegu|Rancho"
 	rel="stylesheet">
 
-<title>회원가입</title>
+<title>로그인</title>
 <style>
 .centered {
 	display: table;
@@ -51,19 +51,19 @@
 <hr>
 	<div class="centered">
 		<br>
-		<h4>회원가입</h4>
+		<h4>로그인</h4>
 		<div class="size3"></div>
 		<div class="size">
-			<span class="size1" onmouseover="mOver(this)" onmouseout="mOut(this)" onclick="location.href='insertHostForm.do'">
+			<span class="size1" onmouseover="mOver(this)" onmouseout="mOut(this)" onclick="location.href='hostLoginForm.do'">
                 업주 회원<br>Owner
 			</span></a> <span class="size1" onmouseover="mOver(this)"
-				onmouseout="mOut(this)" onclick="location.href='insertMemberForm.do'"> 일반 회원<br>Member
+				onmouseout="mOut(this)" onclick="location.href='memberLoginForm.do'"> 일반 회원<br>Member
 			</span>
 		</div>
 		<div class="size3"></div>
 		<div style="text-align:center">  
-		<button type="submit" class="btn btn-primary btn-block btn-dark" 
-				onclick="location.href='/'" >취 소</button>
+		<button type="button" class="btn btn-primary btn-block btn-dark" 
+				onclick="window.history.back()" >취 소</button>
 		</div>
 	</div>
 	<script>

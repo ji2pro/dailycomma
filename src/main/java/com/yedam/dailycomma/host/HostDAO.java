@@ -22,6 +22,12 @@ public class HostDAO {
 	public int getCnt(HostSearchDTO searchDTO) {
 		return mybatis.selectOne("host.getCnt", searchDTO);
 	}
+	
+	//단건조회(점주로그인)
+	public HostDTO getHost(HostDTO dto) {
+		return mybatis.selectOne("login.getHost", dto);
+	}
+	
 	//단건조회
 	/*public LodgmentDTO getUser(LodgmentDTO dto){
 		System.out.println("host mybatis 단건 조회========");

@@ -77,15 +77,14 @@
       	<if test="location != null and location != '' ">
       		AND l.LOCATION = #{location}
       	</if>
+      	
       	<if test="lodgmentType != null and lodgmentType != '' ">	
       		AND l.LODGMENT_TYPE = #{lodgmentType}
       	</if>
 		
-		 <if test="sort == ''ingi and lodgmentType != '' ">	
-      		AND l.LODGMENT_TYPE = #{lodgmentType}
-      	</if>
-		      	
-      	 
+		 <if test="sort != null and sort != '' ">		
+      		ORDER BY #{sort} DESC
+      	</if>		      	
       </where>
 </select>
 <update id="setLodgment" parameterType="lodgment">

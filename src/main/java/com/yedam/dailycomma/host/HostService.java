@@ -11,7 +11,7 @@ public interface HostService {
 	public int updateHost(HostDTO dto);
 	//삭제 
 	public int deleteHost(HostDTO dto);
-	//글 상세 조회
+	//단건조회(점주 로그인)
 	public HostDTO getHost(HostDTO dto);
 	//글 목록 조회
 	public List<HostDTO> getHosts(HostSearchDTO searchDTO);

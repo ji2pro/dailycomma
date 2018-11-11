@@ -73,7 +73,6 @@ public class LodgmentController {
 	public String getMainSearch(Model model, 
 								LodgmentSearchDTO dto
 								) {
-		dto.setLocation("서울");
 		//dto.setLodgmentType("A4");*/
 		
 		System.out.println("checkIn =========== : " + dto.getCheckin() + " checkOut ============ : " + dto.getCheckout());		

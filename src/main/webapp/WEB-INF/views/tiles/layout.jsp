@@ -30,6 +30,11 @@
     <!-- Masonry(그리드 레이아웃 라이브러리) --> 
 	<script src="<c:url value="/webjars/masonry/4.2.0/masonry.pkgd.min.js"/>"></script>
 	
+	<!-- 달력 cdn -->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	
 </head>
 <body>
 	<%-- 			<tiles:insertAttribute name="header" /> --%>
@@ -47,22 +52,20 @@
 	        </ul> -->
 	        <ul class="navbar-nav ml-auto">
 	            <!-- <li class="nav-item"><a class="nav-link" href="#">예약 내역</a></li> -->
-	            <c:choose>
-	            	<c:when test="${sessionScope.memberLogin eq null}">
-	            <li class="nav-item"><a class="nav-link" href="<c:url value="/userChoice.do"/>">회원 가입</a></li>
-	            	</c:when>
-	            	<c:otherwise>
-	            		<li class="nav-item"><a class="nav-link" href="<c:url value="/myPage.do"/>">마이페이지</a></li>
-	            	</c:otherwise>
-	            </c:choose>
-	            <c:choose>
-		            <c:when test="${sessionScope.memberLogin eq null }">
-		            	<li class="nav-item"><a class="nav-link" href="<c:url value="/loginForm.do"/>">로그인</a></li>
-		        	</c:when>
-		        	<c:otherwise>
-		        		<li class="nav-item"><a class="nav-link" href="<c:url value="/memberLogout.do"/>">로그아웃</a></li>	        	
-		        	</c:otherwise>
-	        	</c:choose>
+	            
+            	<c:if test="${sessionScope.memberLogin eq null && sessionScope.hostLogin eq null }">
+            		<li class="nav-item"><a class="nav-link" href="<c:url value="/signupChoice.do"/>">회원 가입</a></li>
+            	</c:if>
+            	<c:if test="${sessionScope.memberLogin ne null || sessionScope.hostLogin ne null }">	
+            		<li class="nav-item"><a class="nav-link" href="<c:url value="/myPage.do"/>">마이페이지</a></li>
+            	</c:if>
+            
+       			<c:if test="${sessionScope.memberLogin eq null && sessionScope.hostLogin eq null }">
+	            	<li class="nav-item"><a class="nav-link" href="<c:url value="/loginChoice.do"/>">로그인</a></li>
+	        	</c:if>
+	        	<c:if test="${sessionScope.memberLogin ne null || sessionScope.hostLogin ne null }">
+	        		<li class="nav-item"><a class="nav-link" href="<c:url value="/memberLogout.do"/>">로그아웃</a></li>	        	
+	    		</c:if>
 	        </ul>
 	    </div>
 	</nav>

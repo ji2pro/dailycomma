@@ -6,5 +6,10 @@
 	<select id="getMember" resultType="member" parameterType="member">
 		SELECT * FROM MEMBER
 		WHERE MEMBER_EMAIL = #{memberEmail} 	
+	</select>
+	
+	<select id="getHost" resultType="host" parameterType="host">
+		SELECT * FROM LODGMENT
+		WHERE HOST_ID = #{hostId}
 	</select>	
 </mapper> 
