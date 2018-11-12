@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.yedam.dailycomma.host.HostDTO;
 import com.yedam.dailycomma.host.HostSearchDTO;
 
 @Repository
@@ -22,5 +23,9 @@ public class TourDAO {
 	}
 	public int insertTour(TourDTO dto) {
 		return mybatis.insert("tour.insertTour", dto);
+	}
+	//삭제
+	public int deleteTour(TourDTO dto) {
+		return mybatis.delete("tour.deleteTour", dto);
 	}
 }

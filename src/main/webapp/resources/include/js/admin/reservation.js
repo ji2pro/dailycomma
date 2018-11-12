@@ -49,6 +49,7 @@ function callbackReservation(datas){
 				 '<td>'+data.memberName+'</td>'+
 				 '<td>'+data.memberEmail+'</td>'+
 				 '<td>'+''+'</td>'+
+				 '<td>'+data.reserveDate+'</td>'+
 				 '<td>'+data.reservePeople+'</td>'+
 				 '<td>'+data.reservePrice+'원</td>'+
 				 '<td>'+data.reserveState+'</td>'+
@@ -88,5 +89,28 @@ function callbackReservation(datas){
 	
 	$('#reservationTbody').append(html);
 	$('#reservationPaging').append(page);
-	
 }
+
+/*
+ * 예약 내역 삭제 이벤트
+ */
+$('body').off().on('click', '#btnDelete', function() {
+	var reserveNo = $(this).closest('tr').find($('input[type=checkbox]')).val();
+	var confirmReservation = confirm(reserveNo + ' 예약 내역을 정말 삭제하겠습니까?');
+	if(confirmReservation) {
+		$.ajax({
+			url: 'reservation/' + reserveNo,
+			type: 'DELETE',
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			error: function(xhr, status, msg) {
+				console.log('상태값 : ' + status + ', Http에러메시지 : ' + msg);
+			},
+			success: function(xhr) {
+				console.log(xhr.result);
+				alert(reserveNo + ' 예약 내역이 삭제되었습니다.');
+				go_page(1);
+			}
+		})
+	}
+})

@@ -1,11 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: JunYoung
-  Date: 2018-11-11
-  Time: 오후 6:01
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page import="javax.naming.Context" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>apiTest.jsp</title>
@@ -18,7 +14,10 @@
           href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
           crossorigin="anonymous">
-    <script src="<%=request.getContextPath()%>/resources/include/js/room/apiTest.js"></script>
+    <script>
+        var path = "<c:url value='/'/>"
+    </script>
+    <script src="<%=request.getContextPath()%>/resources/include/js/room/festivalList.js"></script>
 </head>
 <body>
 <div class="sub-container" id="sub-container-type1">
@@ -30,24 +29,6 @@
 
         </p>
         <ul class="lst-type-card  active">
-            <!-- 인터파크 이벤트 컨텐츠 노출 제외 조건 추가   17007909 -->
-           <%-- <li>
-                <a href="http://korean.visitseoul.net/event-festival/event-festival/DDP-LED-장미정원_/540?curPage=1">
-                    <div class="img-cont"><img
-                            src="http://korean.visitseoul.net/comm/getImage?srvcId=POST&amp;parentSn=540&amp;fileTy=POSTTHUMB&amp;fileNo=3&amp;thumbTy=M"
-                            alt="DDP LED 장미정원"></div>
-                    <div class="lst-infor-wrap">
-                        <div class="lst-infor-title">DDP LED 장미정원</div>
-                        <div class="lst-infor-text">
-                            <div class="lst-infor-text-inner">2015.04.18 ~ 2020.12.31</div>
-                        </div>
-                        <div class="lst-infor-link">
-                            자세히 보기<i class="ion-ios-arrow-thin-right"></i>
-                        </div>
-                    </div>
-                    <div class="ico-arrow"><span></span></div>
-                </a>
-            </li>--%>
         </ul>
 
         <!-- paging -->

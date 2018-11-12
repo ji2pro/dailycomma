@@ -76,7 +76,7 @@
 		<tiles:insertAttribute name="content" />
 	</div>
 	
-	<footer>
+	<footer class="footer">
 		FOOTER<br>
 		  손준우는 바보가 확실하다.<br> 
 		  ${serverTime} <br>

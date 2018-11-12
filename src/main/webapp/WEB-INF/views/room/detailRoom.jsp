@@ -15,7 +15,6 @@
           href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
           crossorigin="anonymous">
-
     <script>
     	var path = "<c:url value='/'/>"
     </script>
@@ -233,10 +232,10 @@
                     <div class="tab-pane fade" id="tabtwo" role="tabpanel">
                         <div class="place-room__message"><i class="badge-live">바른후기</i>는 숙소에 직접
                             방문한 회원만 작성할 수 있습니다.
-                            <c:if test="${memberLogin ne null}">
+                            <%--<c:if test="${memberLogin ne null}">--%>
                                <%-- ${membarLogin.memberNick}--%>
                                 <button type="button" class="review-post__insert-btn" style="float:right" id="${getDetailRooms[0].lodgmentNo}">후기등록</button>
-                            </c:if>
+                            <%--</c:if>--%>
                         </div>
                         <div class="review-box" id="postResult">
 

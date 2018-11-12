@@ -84,5 +84,28 @@ function callbackLodgment(datas){
 	
 	$('#lodgmentTbody').append(html);
 	$('#lodgmentPaging').append(page);
-	
 }
+
+/*
+ * 숙소 삭제 이벤트
+ */
+$('body').off().on('click', '#btnDelete', function() {
+	var lodgmentNo = $(this).closest('tr').find($('input[type=checkbox]')).val();
+	var confirmLodgment = confirm(lodgmentNo + ' 숙소를 정말 삭제하겠습니까?');
+	if(confirmLodgment) {
+		$.ajax({
+			url: 'lodgment/' + lodgmentNo,
+			type: 'DELETE',
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			error: function(xhr, status, msg) {
+				console.log('상태값 : ' + status + ', Http에러메시지 : ' + msg);
+			},
+			success: function(xhr) {
+				console.log(xhr.result);
+				alert(lodgmentNo + ' 숙소가 삭제되었습니다.');
+				go_page(1);
+			}
+		})
+	}
+})

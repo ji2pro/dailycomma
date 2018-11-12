@@ -15,6 +15,12 @@
 		<table class="table table-hover table-sm">
 			<thead class="thead-light">
 				<tr class="text-center">
+					<th scope="col">
+						<label class="custom-control custom-checkbox">
+							<input type="checkbox" name="_selected_all_" class="custom-control-input">
+							<span class="custom-control-indicator"></span>
+						</label>
+					</th>
 					<th scope="col">예약번호</th>
 					<th scope="col">이름</th>
 					<th scope="col">이메일</th>
@@ -27,6 +33,7 @@
 					<th scope="col">체크아웃</th>
 					<th scope="col">일수</th>
 					<th scope="col">상태변경일</th>
+					<th scope="col">관리</th>
 				</tr>
 			</thead>
 			<tbody id="reservationTbody">
@@ -60,6 +67,12 @@
 					<td>${checkout_FD}</td>
 					<td>${totalDate}박 ${totalDate + 1}일</td>
 					<td>(상태변경일)</td>
+					<td>
+						<div class="btn-group">
+							<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>
+							<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>
+						</div>
+					</td>
 				</tr>
 				</c:forEach>
 			</tbody>

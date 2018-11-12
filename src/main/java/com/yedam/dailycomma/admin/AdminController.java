@@ -12,11 +12,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yedam.dailycomma.common.Paging;
+import com.yedam.dailycomma.host.HostDTO;
 import com.yedam.dailycomma.host.HostSearchDTO;
+import com.yedam.dailycomma.lodgment.LodgmentDTO;
 import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
+import com.yedam.dailycomma.member.MemberDTO;
 import com.yedam.dailycomma.member.MemberSearchDTO;
+import com.yedam.dailycomma.reservation.ReservationDTO;
 import com.yedam.dailycomma.reservation.ReservationSearchDTO;
+import com.yedam.dailycomma.room.RoomDTO;
 import com.yedam.dailycomma.room.RoomSearchDTO;
+import com.yedam.dailycomma.tour.TourDTO;
 import com.yedam.dailycomma.tour.TourSearchDTO;
 
 @Controller
@@ -35,7 +41,7 @@ public class AdminController {
 								   Paging paging
 								   ) {
 		// 조회할 레코드 건수
-		paging.setPageUnit(3);
+		paging.setPageUnit(5);
 
 		// 현재 페이지 번호. 없으면 1page로 설정
 		if (paging.getPage() == null) {
@@ -62,7 +68,7 @@ public class AdminController {
 		
 		Map map = new HashMap<String,Object>();
 		// 조회할 레코드 건수
-		paging.setPageUnit(3);
+		paging.setPageUnit(5);
 
 		// 현재 페이지 번호. 없으면 1page로 설정
 		if (paging.getPage() == null) {
@@ -81,12 +87,15 @@ public class AdminController {
 	}
 		
 	//멤버 - 삭제
-	/*@RequestMapping(value="/member/{memberNo}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/member/{memberNo}", method=RequestMethod.DELETE)
+	@ResponseBody
 	public HashMap<String, Object> deleteMember(@PathVariable String memberNo, MemberDTO dto) {
 		dto.setMemberNo(memberNo);
-		adminService.
+		adminService.deleteMember(dto);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("result", Boolean.TRUE);
 		return map;
-	}*/
+	}
 	
 	//업주 관리 탭
 	@RequestMapping("/host")
@@ -94,7 +103,7 @@ public class AdminController {
 								 HostSearchDTO hostSearchDTO,
 								 Paging paging) {
 		// 조회할 레코드 건수
-		paging.setPageUnit(3);
+		paging.setPageUnit(5);
 
 		// 현재 페이지 번호. 없으면 1page로 설정
 		if (paging.getPage() == null) {
@@ -118,11 +127,11 @@ public class AdminController {
 	@RequestMapping(value={"/host.ajax"}, method=RequestMethod.GET)
 	@ResponseBody
 	public Map getHosts(HostSearchDTO hostSearchDTO,
-			 			  Paging paging) {
+			 			Paging paging) {
 		
 		Map map = new HashMap<String,Object>();
 		// 조회할 레코드 건수
-		paging.setPageUnit(3);
+		paging.setPageUnit(5);
 
 		// 현재 페이지 번호. 없으면 1page로 설정
 		if (paging.getPage() == null) {
@@ -140,13 +149,24 @@ public class AdminController {
 		return map;
 	}
 	
+	//업주 - 삭제
+	@RequestMapping(value="/host/{hostId}", method=RequestMethod.DELETE)
+	@ResponseBody
+	public HashMap<String, Object> deleteHost(@PathVariable String hostId, HostDTO dto) {
+		dto.setHostId(hostId);
+		adminService.deleteHost(dto);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("result", Boolean.TRUE);
+		return map;
+	}
+	
 	//숙소 관리 탭
 	@RequestMapping(value="/lodgment",method=RequestMethod.GET)
 	public ModelAndView getLodgments(ModelAndView mv,
 								 	 LodgmentSearchDTO lodgmentSearchDTO,
 								 	 Paging paging) {
 		// 조회할 레코드 건수
-		paging.setPageUnit(3);
+		paging.setPageUnit(5);
 
 		// 현재 페이지 번호. 없으면 1page로 설정
 		if (paging.getPage() == null) {
@@ -174,7 +194,7 @@ public class AdminController {
 		
 		Map map = new HashMap<String,Object>();
 		// 조회할 레코드 건수
-		paging.setPageUnit(3);
+		paging.setPageUnit(5);
 
 		// 현재 페이지 번호. 없으면 1page로 설정
 		if (paging.getPage() == null) {
@@ -192,6 +212,17 @@ public class AdminController {
 		return map;
 	}
 	
+	//숙소 - 삭제
+	@RequestMapping(value="/lodgment/{lodgmentNo}", method=RequestMethod.DELETE)
+	@ResponseBody
+	public HashMap<String, Object> deleteHost(@PathVariable String lodgmentNo, LodgmentDTO dto) {
+		dto.setLodgmentNo(lodgmentNo);
+		adminService.deleteLodgment(dto);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("result", Boolean.TRUE);
+		return map;
+	}
+	
 	//숙소별 개별 객실(rooms) 정보
 	@RequestMapping(value="/lodgment/{lodgmentNo}",method=RequestMethod.GET)
 //	@ResponseBody
@@ -200,7 +231,7 @@ public class AdminController {
 									 RoomSearchDTO roomSearchDto,
 									 Paging paging) {
 		// 조회할 레코드 건수
-		paging.setPageUnit(3);
+		paging.setPageUnit(5);
 
 		// 현재 페이지 번호. 없으면 1page로 설정
 		if (paging.getPage() == null) {
@@ -221,14 +252,14 @@ public class AdminController {
 	}
 	
 	// 숙소별 객실 목록(rooms) 아작스 호출 페이지
-	@RequestMapping(value={"/lodgment/{lodgmentNo}.ajax"}, method=RequestMethod.GET)
+	@RequestMapping(value={"/room.ajax"}, method=RequestMethod.GET)
 	@ResponseBody
 	public Map getEachRooms(RoomSearchDTO roomSearchDto,
 			  				Paging paging) {
 		
 		Map map = new HashMap<String,Object>();
 		// 조회할 레코드 건수
-		paging.setPageUnit(3);
+		paging.setPageUnit(5);
 
 		// 현재 페이지 번호. 없으면 1page로 설정
 		if (paging.getPage() == null) {
@@ -246,13 +277,24 @@ public class AdminController {
 		return map;
 	}
 	
+	//객실 - 삭제
+	@RequestMapping(value="/room/{roomNo}", method=RequestMethod.DELETE)
+	@ResponseBody
+	public HashMap<String, Object> deleteRoom(@PathVariable String roomNo, RoomDTO dto) {
+		dto.setRoomNo(roomNo);
+		adminService.deleteRoom(dto);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("result", Boolean.TRUE);
+		return map;
+	}
+	
 	//예약 내역 탭
 	@RequestMapping("/reservation")
 	public ModelAndView getReservations(ModelAndView mv,
 								 	    ReservationSearchDTO reservationSearchDTO,
 								 	    Paging paging) {
 		// 조회할 레코드 건수
-		paging.setPageUnit(3);
+		paging.setPageUnit(5);
 
 		// 현재 페이지 번호. 없으면 1page로 설정
 		if (paging.getPage() == null) {
@@ -280,7 +322,7 @@ public class AdminController {
 		
 		Map map = new HashMap<String,Object>();
 		// 조회할 레코드 건수
-		paging.setPageUnit(3);
+		paging.setPageUnit(5);
 
 		// 현재 페이지 번호. 없으면 1page로 설정
 		if (paging.getPage() == null) {
@@ -298,13 +340,24 @@ public class AdminController {
 		return map;
 	}
 	
-	//투어(캐스트) 탭
+	//예약 내역 - 삭제
+	@RequestMapping(value="/reservation/{reserveNo}", method=RequestMethod.DELETE)
+	@ResponseBody
+	public HashMap<String, Object> deleteReservation(@PathVariable String reserveNo, ReservationDTO dto) {
+		dto.setReserveNo(reserveNo);
+		adminService.deleteReservation(dto);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("result", Boolean.TRUE);
+		return map;
+	}
+	
+	//관광(캐스트) 탭
 	@RequestMapping("/tour")
 	public ModelAndView getTours(ModelAndView mv,
 	 	    					 TourSearchDTO tourSearchDTO,
 	 	    					 Paging paging) {
 		// 조회할 레코드 건수
-		paging.setPageUnit(3);
+		paging.setPageUnit(5);
 	
 		// 현재 페이지 번호. 없으면 1page로 설정
 		if (paging.getPage() == null) {
@@ -324,7 +377,7 @@ public class AdminController {
 		return mv;
 	}
 	
-	// 투어(캐스트) 아작스 호출 페이지
+	// 관광(캐스트) 아작스 호출 페이지
 	@RequestMapping(value={"/tour.ajax"}, method=RequestMethod.GET)
 	@ResponseBody
 	public Map getTours(TourSearchDTO tourSearchDTO,
@@ -332,7 +385,7 @@ public class AdminController {
 		
 		Map map = new HashMap<String,Object>();
 		// 조회할 레코드 건수
-		paging.setPageUnit(3);
+		paging.setPageUnit(5);
 
 		// 현재 페이지 번호. 없으면 1page로 설정
 		if (paging.getPage() == null) {
@@ -347,6 +400,17 @@ public class AdminController {
 		tourSearchDTO.setStart(paging.getFirst());
 		tourSearchDTO.setEnd(paging.getLast());
 		map.put("list", adminService.getTours(tourSearchDTO));
+		return map;
+	}
+	
+	//관광(캐스트) - 삭제
+	@RequestMapping(value="/tour/{tourId}", method=RequestMethod.DELETE)
+	@ResponseBody
+	public HashMap<String, Object> deleteTour(@PathVariable String tourId, TourDTO dto) {
+		dto.setTourId(tourId);
+		adminService.deleteTour(dto);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("result", Boolean.TRUE);
 		return map;
 	}
 }
