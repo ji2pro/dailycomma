@@ -58,12 +58,12 @@ function insertPostFormSubmit(){
     var lodgmentNo = $(".review-post__insert-btn").attr('id');
     console.log(lodgmentNo);
     console.log(params);
-   
+
     $.ajax({/*후기 등록 먼저 작업*/
-            url:"/postscript",
-            data: params,
-            method : "post",
-            error:function(data,status,msg){
+        url: path + "/postscript",
+        data: params,
+        method : "post",
+        error:function(data,status,msg){
             alert("상태값 :" + status + " Http에러메시지 :"+msg);
         },
         success:function(){
@@ -120,7 +120,7 @@ $(function () {
         var lodgmentNo = $(this).attr('id');
 
         $.ajax({
-            url:"/postscript/"+lodgmentNo,
+            url: path + "/postscript/"+lodgmentNo,
 /*            success :
                 function(result) {
                     console.log(result);
@@ -139,7 +139,7 @@ $(function () {
         var lodgmentNo = $(this).attr('id');
 
         $.ajax({
-            url:"/postscriptForm/"+lodgmentNo,
+            url:path + "/postscriptForm/"+lodgmentNo,
             type: 'GET',
             dataType: 'json',
             error:function(data,status,msg){
@@ -192,7 +192,7 @@ $(function () {
         console.log($(this).attr('id'));
         var postNo = $(this).attr('id');
         $.ajax({
-            url:"/postDetail.do/"+postNo,
+            url: path + "/postDetail.do/"+postNo,
             success :
                 function(result) {
                     $("#postResult").html(result).show();

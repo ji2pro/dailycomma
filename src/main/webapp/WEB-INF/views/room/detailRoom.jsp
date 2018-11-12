@@ -15,6 +15,9 @@
           href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
           crossorigin="anonymous">
+    <script>
+        var path = "<c:url value='/'/>";
+    </script>
     <script src="<%=request.getContextPath()%>/resources/include/js/room/detailRooms.js"></script>
 
     <%--<script> $(document).ready(funcion(){
@@ -66,12 +69,12 @@
                             <c:forTokens items="${getAllImg}" delims="||" var="img" varStatus="status">
                                 <c:if test="${status.first}">
                                     <div class="carousel-item active">
-                                        <img class="d-block img-fluid w-100" src="/resources/images/room/${img}"/>
+                                        <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/room/${img}'/>"/>
                                     </div>
                                 </c:if>
                                 <c:if test="${!status.first}">
                                     <div class="carousel-item">
-                                        <img class="d-block img-fluid w-100" src="/resources/images/room/${img}"/>
+                                        <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/room/${img}'/>"/>
                                     </div>
                                 </c:if>
                             </c:forTokens>
