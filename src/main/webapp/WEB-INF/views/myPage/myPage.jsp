@@ -16,41 +16,45 @@
 </head>
 
 <body>
+
+	<!--개인정보 수정  / 비밀번호, 한줄소개 -->
 	<div class="py-5">
 		<div class="container">
 			<form action="updateMember.do">
 				<div class="row">
-					<div class="col-md-4" style="margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto; width:100%;" align="center" >
-						<c:choose>
-							<c:when test="${memberLogin.memberImg==null}">
-								<i class="fas fa-user fa-9x"></i>
+					<div class="col-md-4" id="photo" style="margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto; width:100%;" align="center" >
+							<c:choose>
+							<c:when test="${login.memberImg==null}">
+								<i class="fas fa-user fa-8x"></i>
 							</c:when>
 							<c:otherwise>
-       						<img src="resources/images/cast/${memberLogin.memberImg}" class="rounded-circle">
+       						<img src="resources/images/cast/${login.memberImg}" class="rounded-circle">
         				 </c:otherwise>
 						</c:choose>
 					</div>
 					<div class="col-md-6 ml-5">
 						<ul>
 							<li>이름 :<input type="text" name="memberName"
-								readonly="readonly" value="${memberLogin.memberName}"
+								readonly="readonly" value="${login.memberName}"
 								style="border:none" class="ml-3 my-3"></li>
 							<li>닉네임 :<input type="text" name="memberNick"
-								value="${memberLogin.memberNick}"
+								value="${login.memberNick}"
 								style="border:none" class="ml-3 my-3"></li>
-							<li>비밀번호 :<input type="password" name="memberPw"
-								value="${memberLogin.memberPw}"
-								style="border:none" class="ml-3 my-3"></li>
+							<li>현재 비밀번호 : <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#exampleModal">변경</button>
+							<li>비밀번호 변경 :<input type="password" name="memberPw"  class="unRead ml-3 my-3" readonly="readonly" ></li>
+							<li>비밀번호 변경 확인:<input type="password" name="pwcheck"  class="unRead ml-3 my-3" readonly="readonly" ></li>
 							<li>한줄소개 :<input type="text" size="40" name="memberIntro"
-								placeholder="자신을 소개하세요" value="${memberLogin.memberIntro}"
+								placeholder="자신을 소개하세요" value="${login.memberIntro}"
 								style="border:none" class="ml-3 my-3"></li>
 						</ul>
-						<button class="btn btn-primary btn-lg mt-3 ml-3" type="button">정보수정</button>
+						<button class="btn btn-primary btn-lg mt-3 ml-3" type="submit">정보수정</button>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
+	
+	<!-- 해당 회원과 관련된 포인트,예약내역,최근 본 숙소 -->
 	<div class="py-5">
 		<div class="container">
 			<div class="row">
@@ -82,8 +86,52 @@
 			</div>
 		</div>
 	</div>
-
-
+	
+	
+<!-- 모달 창 시작 -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">비밀번호 확인</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	현재 비밀번호를 입력해주세요.
+      	<input type="password" id="pw">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >닫기</button>
+        <button type="button" class="btn btn-primary" id="pwbtn">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+	
+	<script>
+	 $(function(){								//비밀번호 readonly 제거 하는 스크립트
+		 $("#pwbtn").on("click",function(){
+			if($("#pw").val()=='${sessionScope.login.memberPw}'){ //input의 값과 세션안에 있는 DB의 비밀번호 값을 비교함.
+			 $(".unRead").removeAttr("readonly");
+			 alert('비밀번호 변경의 잠금이 풀렸습니다.')
+			  $('#exampleModal').modal('hide')
+			}
+			else
+			 alert('비밀번호가 다릅니다.'); 
+		 })
+	 });
+	</script>
+	
+	<script>
+	$(function(){
+		
+	})
+	
+	</script>
+	
+	
 	<script>
 		$(function() {
 			/*
