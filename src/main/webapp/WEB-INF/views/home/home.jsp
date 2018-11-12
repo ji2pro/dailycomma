@@ -6,7 +6,7 @@
 <script src="<c:url value="/resources/include/js/home/home.js"/>"></script>
 
 <script>
-	$(document).ready(function() {
+	$(function() {
 		$('#lodgType').on("click", "li", function() {
 			var temp = $(this).attr("value");
 			$('input:hidden[name="lodgmentType"]').val(temp);
@@ -35,7 +35,7 @@
 								<button class="btn btn-secondary btn-lg dropdown-toggle color-gradation"
 										type="button" id="dropdownMenu1" data-toggle="dropdown"
 										aria-expanded="true">
-									<span class="caret">유형선택</span>
+									<span class="caret">유형 선택</span>
 								</button>
 								<ul class="dropdown-menu" role="menu"
 									aria-labelledby="dropdownMenu1" id="lodgType">
@@ -91,8 +91,8 @@
 
 					<div class="option-item item-option-calendar">
 						<div class="option-title-wrap">
-							<span class="option-title f-left">체크인</span> <span
-								class="option-title f-right">체크아웃</span>
+							<span class="option-title f-left">체크인</span>
+							<span class="option-title f-right">체크아웃</span>
 						</div>
 
 						<div class="option-btn">
@@ -100,7 +100,7 @@
 								<div class="col">
 									<div class="input-group date" id="datetimepicker7"
 										data-target-input="nearest">
-										<input type="text" name="checkin" id="datepicker">
+										<input type="text" name="checkin" id="datepicker" autocomplete="off">
 										<div class="input-group-append" data-target="#datetimepicker7"
 											data-toggle="datetimepicker">
 <!-- 											<div class="input-group-text">
@@ -113,7 +113,7 @@
 								<div class="col">
 									<div class="input-group date  " id="datetimepicker8"
 										data-target-input="nearest">
-										<input type="text" name="checkout" id="datepicker2" >
+										<input type="text" name="checkout" id="datepicker2" autocomplete="off">
 										<div class="input-group-append" data-target="#datetimepicker8"
 											data-toggle="datetimepicker">
 <!-- 											<div class="input-group-text">
