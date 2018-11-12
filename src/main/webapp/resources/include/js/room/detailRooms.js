@@ -120,7 +120,7 @@ $(function () {
         var lodgmentNo = $(this).attr('id');
 
         $.ajax({
-            url:"/postscript/"+lodgmentNo,
+            url: temp+"/postscript/"+lodgmentNo,
 /*            success :
                 function(result) {
                     console.log(result);
