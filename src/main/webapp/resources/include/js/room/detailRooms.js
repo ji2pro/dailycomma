@@ -60,7 +60,7 @@ function insertPostFormSubmit(){
     console.log(params);
    
     $.ajax({/*후기 등록 먼저 작업*/
-            url:"/postscript",
+            url:path+"/postscript",
             data: params,
             method : "post",
             error:function(data,status,msg){
@@ -120,7 +120,7 @@ $(function () {
         var lodgmentNo = $(this).attr('id');
 
         $.ajax({
-            url: temp+"/postscript/"+lodgmentNo,
+            url: path+"/postscript/"+lodgmentNo,
 /*            success :
                 function(result) {
                     console.log(result);
@@ -139,7 +139,7 @@ $(function () {
         var lodgmentNo = $(this).attr('id');
 
         $.ajax({
-            url:"/postscriptForm/"+lodgmentNo,
+            url:path+"/postscriptForm/"+lodgmentNo,
             type: 'GET',
             dataType: 'json',
             error:function(data,status,msg){
@@ -192,7 +192,7 @@ $(function () {
         console.log($(this).attr('id'));
         var postNo = $(this).attr('id');
         $.ajax({
-            url:"/postDetail.do/"+postNo,
+            url:path+"/postDetail.do/"+postNo,
             success :
                 function(result) {
                     $("#postResult").html(result).show();
