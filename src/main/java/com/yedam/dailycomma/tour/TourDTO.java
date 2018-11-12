@@ -1,10 +1,13 @@
 package com.yedam.dailycomma.tour;
 
+import java.util.Arrays;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class TourDTO {
 	private String tourId;			//관광 ID
 	private String memberNo;		//회원 번호(FK)
+	private String memberName;		//회원 이름(FK)
 	private String tourName;		//관광지 명
 	private String tourTitle;		//관광 제목
 	private String tourContent;		//관광 내용
@@ -15,19 +18,6 @@ public class TourDTO {
 	private int    pageUnit;
 	private MultipartFile[] uploadFile; //다중 파일시 배열로
 	
-		
-	public int getPageUnit() {
-		return pageUnit;
-	}
-	public void setPageUnit(int pageUnit) {
-		this.pageUnit = pageUnit;
-	}
-	public MultipartFile[] getUploadFile() {
-		return uploadFile;
-	}
-	public void setUploadFile(MultipartFile[] uploadFile) {
-		this.uploadFile = uploadFile;
-	}
 	public String getTourId() {
 		return tourId;
 	}
@@ -39,6 +29,12 @@ public class TourDTO {
 	}
 	public void setMemberNo(String memberNo) {
 		this.memberNo = memberNo;
+	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 	public String getTourName() {
 		return tourName;
@@ -82,12 +78,23 @@ public class TourDTO {
 	public void setTourState(String tourState) {
 		this.tourState = tourState;
 	}
-	
+	public int getPageUnit() {
+		return pageUnit;
+	}
+	public void setPageUnit(int pageUnit) {
+		this.pageUnit = pageUnit;
+	}
+	public MultipartFile[] getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile[] uploadFile) {
+		this.uploadFile = uploadFile;
+	}
 	@Override
 	public String toString() {
-		return "TourDTO [tourId=" + tourId + ", memberNo=" + memberNo + ", tourName=" + tourName + ", tourTitle="
-				+ tourTitle + ", tourContent=" + tourContent + ", tourImg=" + tourImg + ", tourDate=" + tourDate
-				+ ", tourLocation=" + tourLocation + ", tourState=" + tourState + "]";
+		return "TourDTO [tourId=" + tourId + ", memberNo=" + memberNo + ", memberName=" + memberName + ", tourName="
+				+ tourName + ", tourTitle=" + tourTitle + ", tourContent=" + tourContent + ", tourImg=" + tourImg
+				+ ", tourDate=" + tourDate + ", tourLocation=" + tourLocation + ", tourState=" + tourState
+				+ ", pageUnit=" + pageUnit + ", uploadFile=" + Arrays.toString(uploadFile) + "]";
 	}
-	
 }

@@ -12,6 +12,8 @@ import com.yedam.dailycomma.reservation.ReservationDTO;
 import com.yedam.dailycomma.reservation.ReservationSearchDTO;
 import com.yedam.dailycomma.room.RoomDTO;
 import com.yedam.dailycomma.room.RoomSearchDTO;
+import com.yedam.dailycomma.tour.TourDTO;
+import com.yedam.dailycomma.tour.TourSearchDTO;
 
 public interface AdminService {
 	//회원
@@ -32,6 +34,6 @@ public interface AdminService {
 	public List<ReservationDTO> getReservations(ReservationSearchDTO reservationSearchDTO);
 	public int getReservationCnt(ReservationSearchDTO reservationSearchDTO);
 	//캐스트
-	/*public List<TourDTO> getCasts(TourSearchDTO tourSearchDTO);
-	public int getCastCnt(TourSearchDTO tourSearchDTO);*/
+	public List<TourDTO> getTours(TourSearchDTO tourSearchDTO);
+	public int getTourCnt(TourSearchDTO tourSearchDTO);
 }

@@ -31,7 +31,7 @@
         </p>
         <ul class="lst-type-card  active">
             <!-- 인터파크 이벤트 컨텐츠 노출 제외 조건 추가   17007909 -->
-            <li>
+           <%-- <li>
                 <a href="http://korean.visitseoul.net/event-festival/event-festival/DDP-LED-장미정원_/540?curPage=1">
                     <div class="img-cont"><img
                             src="http://korean.visitseoul.net/comm/getImage?srvcId=POST&amp;parentSn=540&amp;fileTy=POSTTHUMB&amp;fileNo=3&amp;thumbTy=M"
@@ -47,44 +47,7 @@
                     </div>
                     <div class="ico-arrow"><span></span></div>
                 </a>
-            </li>
-            <!-- 인터파크 이벤트 컨텐츠 노출 제외 조건 추가   17007909 -->
-            <li>
-                <a href="/event-festival/김홍도--Alive-Sight-Insight_/27321?curPage=1">
-                    <div class="img-cont"><img
-                            src="http://korean.visitseoul.net/comm/getImage?srvcId=POST&amp;parentSn=27321&amp;fileTy=POSTTHUMB&amp;fileNo=1&amp;thumbTy=M"
-                            alt="김홍도  Alive: Sight, Insight"></div>
-                    <div class="lst-infor-wrap">
-                        <div class="lst-infor-title">김홍도 Alive: Sight, Insight</div>
-                        <div class="lst-infor-text">
-                            <div class="lst-infor-text-inner">2018.09.18 ~ 2019.02.24</div>
-                        </div>
-                        <div class="lst-infor-link">
-                            자세히 보기<i class="ion-ios-arrow-thin-right"></i>
-                        </div>
-                    </div>
-                    <div class="ico-arrow"><span></span></div>
-                </a>
-            </li>
-            <!-- 인터파크 이벤트 컨텐츠 노출 제외 조건 추가   17007909 -->
-            <li>
-                <a href="/event-festival/2018-서울사진축제_/27297?curPage=1">
-                    <div class="img-cont"><img
-                            src="http://korean.visitseoul.net/comm/getImage?srvcId=POST&amp;parentSn=27297&amp;fileTy=POSTTHUMB&amp;fileNo=3&amp;thumbTy=M"
-                            alt="2018 서울사진축제"></div>
-                    <div class="lst-infor-wrap">
-                        <div class="lst-infor-title">2018 서울사진축제</div>
-                        <div class="lst-infor-text">
-                            <div class="lst-infor-text-inner">2018.11.01 ~ 2019.02.10</div>
-                        </div>
-                        <div class="lst-infor-link">
-                            자세히 보기<i class="ion-ios-arrow-thin-right"></i>
-                        </div>
-                    </div>
-                    <div class="ico-arrow"><span></span></div>
-                </a>
-            </li>
-
+            </li>--%>
         </ul>
 
         <!-- paging -->

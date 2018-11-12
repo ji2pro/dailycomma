@@ -1,7 +1,6 @@
 package com.yedam.dailycomma.admin;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.yedam.dailycomma.common.Paging;
 import com.yedam.dailycomma.host.HostSearchDTO;
 import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
-import com.yedam.dailycomma.member.MemberDTO;
 import com.yedam.dailycomma.member.MemberSearchDTO;
 import com.yedam.dailycomma.reservation.ReservationSearchDTO;
-import com.yedam.dailycomma.room.RoomDTO;
 import com.yedam.dailycomma.room.RoomSearchDTO;
+import com.yedam.dailycomma.tour.TourSearchDTO;
 
 @Controller
 public class AdminController {
@@ -31,11 +29,10 @@ public class AdminController {
 	}
 	
 	//관리자 멤버 아작스 호출 페이지
-	@RequestMapping(value= {"/member.ajax"}, method=RequestMethod.GET)
+	@RequestMapping(value={"/member.ajax"}, method=RequestMethod.GET)
 	@ResponseBody
 	public Map getMembers(MemberSearchDTO memberSearchDTO,
-						 Paging paging
-						 ) {
+						 Paging paging) {
 		
 		Map map = new HashMap<String,Object>();
 		// 조회할 레코드 건수
@@ -197,7 +194,29 @@ public class AdminController {
 		return mv;
 	}
 	
-	//캐스트 탭
-//	@RequestMapping("/cast")
-//	public ModelAndView getCasts()
+	//투어(캐스트) 탭
+	@RequestMapping("/tour")
+	public ModelAndView getTours(ModelAndView mv,
+	 	    					 TourSearchDTO tourSearchDTO,
+	 	    					 Paging paging) {
+		// 조회할 레코드 건수
+		paging.setPageUnit(10);
+	
+		// 현재 페이지 번호. 없으면 1page로 설정
+		if (paging.getPage() == null) {
+			paging.setPage(1);
+		}
+		// 전체 건수
+		int total = adminService.getTourCnt(tourSearchDTO);
+		paging.setTotalRecord(total);
+		mv.addObject("paging", paging);
+	
+		// 시작/마지막 레코드 번호
+		tourSearchDTO.setStart(paging.getFirst());
+		tourSearchDTO.setEnd(paging.getLast());
+		mv.addObject("list", adminService.getTours(tourSearchDTO));
+	
+		mv.setViewName("noTiles/admin/tour");
+		return mv;
+	}
 }

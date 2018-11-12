@@ -32,7 +32,8 @@ public class LoginController {
 		if(memberDTO == null || !memberDTO.getMemberPw().equals(dto.getMemberPw())) {
 			return "redirect:/memberLoginForm.do";
 		} else {
-			session.setAttribute("memberLogin", memberDTO);
+			session.setAttribute("login", memberDTO);
+			session.setAttribute("type", "member");
 			return "home/home";
 		}
 	}
@@ -45,7 +46,8 @@ public class LoginController {
 		if(hostDTO == null || !hostDTO.getHostPw().equals(dto.getHostPw())) {
 			return "redirect:/hostLoginForm.do";
 		} else {
-			session.setAttribute("hostLogin", hostDTO);
+			session.setAttribute("login", hostDTO);
+			session.setAttribute("type", "host");
 			return "home/home";
 		}
 	}
