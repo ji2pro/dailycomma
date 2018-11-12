@@ -24,7 +24,7 @@ public class RoomDTO {
 	private String roomState;		//객실승인
 	private String enable;
 	private MultipartFile[] uploadFile; //다중 파일시 배열로
-
+	
 	
     private String company;
     private String address;

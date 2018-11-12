@@ -19,13 +19,14 @@ public class ReservationController {
 	@Autowired ReservationService reservationService;
 	
 	//등록 폼
-	@RequestMapping(value="/detailRoom/{roomNo}/reservationForm", method=RequestMethod.GET)
+	@RequestMapping(value="/reserveRoom/{roomNo}/{lodgmentNo}", method=RequestMethod.GET)
 	public String insertReservationForm(Model model,
 										//@PathVariable String lodgmentNo,							
 										@PathVariable String roomNo,
+										@PathVariable String lodgmentNo,
 										LodgmentDTO lDto,
 										RoomDTO rDto) {
-		lDto.setLodgmentNo("LOD1");
+		lDto.setLodgmentNo(lodgmentNo);
 //		rDto.setRoomNo("RO181818");
 //		lDto.setLodgmentNo(lodgmentNo);
 		rDto.setRoomNo(roomNo);

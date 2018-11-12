@@ -42,13 +42,13 @@ public class RoomController {
     @RequestMapping("/detailRooms.do/{lodgmentNo}")
     public String detailRooms(Model model,
                              @PathVariable String lodgmentNo,
+                         
                              @ModelAttribute("search") LodgmentSearchDTO dto,
                              HttpSession session) {
         
     	dto = (LodgmentSearchDTO)session.getAttribute("search");
     	dto.setLodgmentNo(lodgmentNo);
 
-        System.out.println();
         /*전체 이미지를 가져온다.*/
         StringBuffer str = new StringBuffer();
         List<RoomDTO> list = roomService.getAllimage(dto);
@@ -95,7 +95,6 @@ public class RoomController {
 					temp.append(filename); 
 				else
 					temp.append(filename + ","); 
-				
 			}
 		}
 		dto.setRoomImg(temp.toString());
