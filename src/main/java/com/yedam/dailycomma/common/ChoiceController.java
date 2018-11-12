@@ -27,9 +27,7 @@ public class ChoiceController {
     }
     
     @RequestMapping("/loginChoice.do")
-    public String loginChoice(@CookieValue(value="url",required=false)String url) {
-        System.out.println(url);
-    	
+    public String loginChoice() {          	
     	return "common/loginChoice";
     }
 }
