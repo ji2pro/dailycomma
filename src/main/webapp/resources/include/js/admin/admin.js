@@ -1,4 +1,4 @@
-/**
+/*
  * admin.js
  */
 
@@ -75,8 +75,6 @@ $(function() {
 	})
 
 });
-
-	
 
 
 function sort(s) {
