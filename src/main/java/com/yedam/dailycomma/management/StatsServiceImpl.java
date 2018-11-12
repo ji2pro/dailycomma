@@ -23,5 +23,11 @@ public class StatsServiceImpl implements StatsService {
     	
         return dao.selectRoomList();
     }
+	
+	@Override
+    public List<ManagementDTO> selectTotalList(ManagementDTO dto){
+    	
+        return dao.selectTotalList();
+    }
 
 }

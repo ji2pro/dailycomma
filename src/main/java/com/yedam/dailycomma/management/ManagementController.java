@@ -30,29 +30,29 @@ public class ManagementController {
 		@Autowired
 		private ManagementService service;
 
-	
+
 		@RequestMapping("/managementList.do")
 		public String management(Locale locale, Model model, ManagementDTO dto) {
 
 			//logger.info("home");
-			
 			List<ManagementDTO> memberList = service.selectReservation(dto);
-			
 			model.addAttribute("memberList", memberList);
-
 			return "management/managementList";
 		}
 		
 		
+		 
 		//통계 뷰 페이지
-		
 		@RequestMapping("/stats.do") 
 		public String stats(Locale locale, Model model, ManagementDTO dto) {
 			List<ManagementDTO> statsList = statsService.selectRoomList(dto);
+			List<ManagementDTO> totalList = statsService.selectTotalList(dto);
 			model.addAttribute("statsList", statsList);
+			model.addAttribute("totalList", totalList);
 			return "/management/stats";
 
 		}
+		
 		
 		
 		//구글차트 stats.do 관련 부분 컨트롤러!!

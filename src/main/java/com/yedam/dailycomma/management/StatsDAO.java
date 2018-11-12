@@ -22,4 +22,8 @@ public class StatsDAO {
 		return mybatis.selectList("stats.selectRoomList");
 	}
 	
+	public List<ManagementDTO> selectTotalList(){
+		return mybatis.selectList("stats.selectTotalList");
+	}
+	
 }

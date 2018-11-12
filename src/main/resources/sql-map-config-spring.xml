@@ -50,6 +50,8 @@
 		
 		<!-- 사장 관리 -->
 		<typeAlias alias="management" type="com.yedam.dailycomma.management.ManagementDTO"/>
+        <typeAlias alias="stats" type="com.yedam.dailycomma.management.ManagementDTO"/>
+        <typeAlias alias="totalPrice" type="com.yedam.dailycomma.management.ManagementDTO"/>
         
         <!-- 관리자 -->
 <!--         <typeAlias alias="admin" type="com.yedam.dailycomma.admin.AdminDTO"/> -->

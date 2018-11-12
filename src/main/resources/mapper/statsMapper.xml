@@ -5,27 +5,47 @@
 <mapper namespace="stats">
 
 <select id="getStatsChart" resultType="map">
+	<!-- 년간 월별 판매수익 통계 그래프 -->
+	select to_char(checkin, 'MM') as CHECKIN, sum(reservation.reserve_price) as PRICE
+	from reservation, lodgment, member
+	where reservation.lodgment_no = 'LOD1'  <!-- 숙박업체번호 동적으로 들어가야되는 자리 '1'로 일단 지정해놈 lodgment.lodgment_no -->
+	and TO_CHAR(CHECKIN, 'YYYY') ='2018' <!-- 년도 버튼으로 선택 뒤 받아와서 동적처리 -->
+	and lodgment.lodgment_no = reservation.lodgment_no
+	and member.member_no = reservation.member_no
+	group by to_char(checkin, 'MM')
+	order by CHECKIN
+
+</select>
+
+<select id="selectRoom" resultType="totalPrice">
+	<!-- 이번달 총 예약건수 및 판매금액 -->
 	
-		select to_char(checkin, 'MM') as CHECKIN, sum(reservation.reserve_price) as PRICE 
-		from reservation, lodgment
-		where reservation.lodgment_no = 'LOD1'  <!-- 숙박업체번호 동적으로 들어가야되는 자리 '1'로 일단 지정해놈 lodgment.lodgment_no -->
-  	 	and '2018' = TO_CHAR(CHECKIN, 'YYYY') <!-- 년도 버튼으로 선택 뒤 받아와서 동적처리 -->
-   	 	group by to_char(checkin, 'MM')
-   	 	order by CHECKIN
-   	 	
+	
 </select>
 
 
-<select id="selectRoomList" resultType="map">
-
+<select id="selectRoomList" resultType="stats">
+	<!-- 이번달 객실별 예약 건수 및 판매가격 -->
 	select room.room_name as roomName, count(*) as reservationNum, sum(reservation.reserve_price) as totalPrice
 	from lodgment, reservation, room
 	where to_char(checkin, 'YYYY-MM') = to_char(sysdate, 'YYYY-MM')
 	and lodgment.lodgment_no = reservation.lodgment_no
-	and lodgment.lodgment_no = 'LOD1'
 	and room.room_no = reservation.room_no
+	and lodgment.lodgment_no = 'LOD1'
 	group by room.room_name
-   	 	
+
 </select>
+
+
+ <select id="selectTotalList" resultType="totalPrice">
+	<!-- 이번달 총 예약건수 및 판매금액 -->
+	select count(*) as reservationNum, sum(reservation.reserve_price) as totalPrice 
+	from lodgment, reservation, room
+	where to_char(checkin, 'YYYY-MM') = to_char(sysdate, 'YYYY-MM')
+	and lodgment.lodgment_no = reservation.lodgment_no
+	and room.room_no = reservation.room_no
+	and lodgment.lodgment_no = 'LOD1' <!-- 숙박업체번호 동적으로 들어갈 자리 -->
+</select>
+
 
 </mapper> 

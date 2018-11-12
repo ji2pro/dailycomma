@@ -9,4 +9,6 @@ public interface StatsService {
 	
 	public List<ManagementDTO> selectRoomList(ManagementDTO dto);
 	
+	public List<ManagementDTO> selectTotalList(ManagementDTO dto);
+	
 }

@@ -22,9 +22,28 @@
 	
 	});
 	
-	/* 객실별 판매금액 데이터 테이블 */
+	
+	
+	 /* 이달 객실별 예약 건수 및 판매금액 */
 	 $(document).ready(function(){
-         $('#roomSell').DataTable({
+         $('#statsRoomSell').DataTable({
+              pageLength: 10,
+             bPaginate: true, /* 페이징 처리 할것인가 */
+             bLengthChange: true, /* true 하면 리스트 박스 추가 */
+             lengthMenu : [ [ 5, 10, 30, -1 ], [ 5, 10, 30, "All" ] ],
+             bAutoWidth: true,
+             processing: true, /* 값을 가져올때 로딩 processing ui보여줌 */
+             ordering: true, /* 항목 정렬 사용 */
+             serverSide: false,
+             searching: true  
+
+         });
+ }); 
+	 
+	 
+	 /* 이달 총 예약건수 및 판매금액 */
+	 $(document).ready(function(){
+         $('#statsTotalSell').DataTable({
               pageLength: 10,
              bPaginate: true, /* 페이징 처리 할것인가 */
              bLengthChange: true, /* true 하면 리스트 박스 추가 */
@@ -38,25 +57,10 @@
          });
  }); 
 	
-	 /* 객실별 판매금액 데이터 테이블 */
-	 $(document).ready(function(){
-         $('#roomSell1').DataTable({
-              pageLength: 10,
-             bPaginate: true, /* 페이징 처리 할것인가 */
-             bLengthChange: true, /* true 하면 리스트 박스 추가 */
-             lengthMenu : [ [ 5, 10, 30, -1 ], [ 5, 10, 30, "All" ] ],
-             bAutoWidth: true,
-             processing: true, /* 값을 가져올때 로딩 processing ui보여줌 */
-             ordering: true, /* 항목 정렬 사용 */
-             serverSide: false,
-             searching: true  
-
-         });
- }); 
-	
 	
 
-	/* 여기서 부터 구글 차트 자바스크립트 부분 */
+/* 여기서 부터 구글 차트 자바스크립트 부분 */
+	
 	/* var colors = ['#e0440e', '#e6693e','#ec8f6e' ,'#f3b49f', '#f6c7b6'] */ /* 개별로 색 정의할 시 변수 지정 */
 	var options = { /* 차트옵션 수정부분 */
 		title : '월별 판매수익',
@@ -88,8 +92,8 @@ $.ajax({
 					chartData.push(subarr);
 				}
 				
-				//챠트 그리기
-				var chart = new google.visualization.LineChart(document
+				//차트 그리기
+				var chart = new google.visualization.AreaChart(document
 						.querySelector('#chart_div')); /* ColumnChart 부분 명칭 변경하면 여러차트 모양 사용가능 ex)BarChart*/
 				chart.draw(google.visualization.arrayToDataTable(chartData),
 						options);
@@ -97,6 +101,47 @@ $.ajax({
 		});
 	});
 	//window.onresize 
+	
+	
+/* 년간 월별 객실이용내역 */
+	var options = { /* 차트옵션 수정부분 */
+		title : '월별 객실예약내역',
+		width : "100%"/* 400 */,
+		height : 500,
+		 colors: ['#e0440e', '#e6693e','#ec8f6e' ,'#f3b49f', '#f6c7b6'], /*  */
+		 fontSize:20,
+		 legend : { position: "right", textStyle: {fontSize: 13}},
+
+	
+		is3D: true
+	};
+	google.load('visualization', '1.0', {
+		'packages' : [ 'corechart' ]
+	});
+	
+google.setOnLoadCallback(function() {
+//차트에 넣을 data를 ajax 요청해서 가져옴
+$.ajax({
+			url : "./getStatsChart.do", 
+			method : "post",
+			type : "json",
+			success : function(data) {
+				//ajax결과를 chart에 맞는 data 형태로 가공
+				var chartData = []; //배열 생성
+				chartData.push([ '월', '수익'  ])
+				for (i = 0; i < data.length; i++) {
+					var subarr = [ data[i].CHECKIN + '월',  data[i].PRICE   ];
+					chartData.push(subarr);
+				}
+				
+				//차트 그리기
+				var chart = new google.visualization.AreaChart(document
+						.querySelector('#chart_div')); /* ColumnChart 부분 명칭 변경하면 여러차트 모양 사용가능 ex)BarChart*/
+				chart.draw(google.visualization.arrayToDataTable(chartData),
+						options);
+			}
+		});
+	});
 </script>
 
 <title>stats.do</title>
@@ -104,11 +149,12 @@ $.ajax({
 </head>
 <body>
 
+<!--  -->
 <div align="center"><h1>2018년 월별 객실이용내역</h1></div>
 <table id="empList" class="table table-striped table-bordered table-hover tableAlign wrap ">
 	<thead>
 		<tr>
-			<th>방</th>
+			<th>객실</th>
 			<th>1월</th>
 			<th>2월</th>
 			<th>3월</th>
@@ -124,61 +170,65 @@ $.ajax({
 		</tr>
 	</thead>
 	<tbody align="center">
-	
-		<tr><td>Standard</td><td>23건</td><td>21건</td><td>21건</td><td>23건</td><td>18건</td><td>13건</td><td>18건</td><td>12건</td><td>12건</td><td>12건</td><td>12건</td><td>12건</td></tr>
-		<tr><td>Deluxe</td><td>25건</td><td>31건</td><td>1건</td><td>12건</td><td>17건</td><td>12건</td><td>10건</td><td>51건</td><td>13건</td><td>13건</td><td>13건</td><td>231건</td></tr>
-		<tr><td>Suit</td><td>66건</td><td>23건</td><td>24건</td><td>12건</td><td>54건</td><td>12건</td><td>14건</td><td>2건</td><td>11건</td><td>14건</td><td>12건</td><td>12건</td></tr>
-		<tr><td>Superior</td><td>44건</td><td>22건</td><td>33건</td><td>43건</td><td>35건</td><td>77건</td><td>53건</td><td>33건</td><td>22건</td><td>33건</td><td>55건</td><td>77건</td></tr>
+	<c:forEach items="${statsList}" var="roomlist"> 
+		<tr><td>${roomlist.roomName}</td><td>23건</td><td>21건</td><td>21건</td><td>23건</td><td>18건</td><td>13건</td><td>18건</td><td>12건</td><td>12건</td><td>12건</td><td>12건</td><td>12건</td></tr>
+	</c:forEach>
 	</tbody>
+	
 </table>
 
-<div align="center"><h1> 이번달 객실이용내역</h1></div>
 
-<table id="roomSell" class="table table-striped table-bordered table-hover tableAlign wrap ">
-	<thead>
-		<tr>
-			<th>객실명</th>
-			<th>예약건수</th>
-			<th>판매금액</th>
-			
-		</tr>
-	</thead>
-	
-	<tbody align="center">
-	
-		<tr><td>Standard</td><td>23건</td><td>10000</td></tr> 
-		<tr><td>Deluxe</td><td>12건</td><td>20000</td></tr>
-		<tr><td>Suit</td><td>22건</td><td>30000</td></tr>
-		<tr><td>Superior</td><td>24건</td><td>40000</td></tr>
-	</tbody>
-</table>
 
 	
-<div align="center"><h1>금월 객실별 예약 건수 및 판매금액</h1></div>
-<table id="roomSell1" style="font-size: 15px;" class="table table-striped table-bordered table-hover tableAlign wrap " >
+<!-- 이달 객실별 예약 건수 및 판매금액 -->
+<div align="center"><h1>이달 객실별 예약 건수 및 판매금액</h1></div>
+<table id="statsRoomSell" style="font-size: 15px;" class="table table-striped table-bordered table-hover tableAlign wrap " >
 	<thead>
-		<tr style="background:#ffaabb; text-align:center; ">
+		<tr style="background:#ffaabb; text-align:center;">
 			<th>객실명</th>
 			<th>예약수</th>
 			<th>판매금액</th>
-			
 		</tr>
 	</thead>
 	
 	<tbody>
 		 <c:forEach items="${statsList}" var="roomlist"> 
 			<tr>
-			<td>${roomlist.roomName}</td>   
-			<td><%-- ${roomlist.reservationNum} --%></td>
-			<td><%-- ${roomlist.totalPrice} --%></td>
+				<td>${roomlist.roomName}</td>    
+				<td>${roomlist.reservationNum}</td>
+				<td>${roomlist.totalPrice}</td>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
 
 
+<!-- 이달 총 예약건수 및 판매금액 -->
+<div align="center"><h1>이달 총 예약건수 및 판매금액</h1></div>
+<table id="statsTotalSell" class="table table-striped table-bordered table-hover tableAlign wrap ">
+	<thead>
+			<tr>
+				<th>총 예약건수</th>
+				<th>총 판매금액</th>
+			</tr>
+	</thead>
+	
+	<tbody align="center">
+		<c:forEach items="${totalList}" var="priceTotal">
+			<tr>
+				<td>${priceTotal.reservationNum}</td>
+				<td>${priceTotal.totalPrice}</td> 
+			</tr> 
+		</c:forEach>
+	</tbody>
+</table>
 
+
+
+
+<!-- chart_div 차트 부분 -->
 <div id="chart_div"></div>
+
 </body>
 </html>
 
