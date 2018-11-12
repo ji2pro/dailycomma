@@ -56,6 +56,34 @@
             });
  
     });  
+      
+      
+      
+      /*
+       * 멤버 삭제 이벤트
+       */
+      $('body').off().on('click', '#btnDelete', function() {
+      	var memberNo = $(this).closest('tr').find($('input[type=checkbox]')).val();
+      	var confirmMember = confirm(memberNo + ' 사용자를 정말 삭제하겠습니까?');
+      	if(confirmMember) {
+      		$.ajax({
+      			url: 'member/' + memberNo,
+      			type: 'DELETE',
+      			contentType: 'application/json; charset=utf-8',
+      			dataType: 'json',
+      			error: function(xhr, status, msg) {
+      				console.log('상태값 : ' + status + ', Http에러메시지 : ' + msg);
+      			},
+      			success: function(xhr) {
+      				console.log(xhr.result);
+      				alert(memberNo + ' 회원이 삭제되었습니다.');
+      				go_page(1);
+      			}
+      		})
+      	}
+      })
+      
+      
     </script>
     
 
@@ -89,8 +117,8 @@
 	</div>
 	<br>
 	
-	<p align="right"><button type="button" class="btn btn-primary">예약취소</button></p>
-	
+	<p align="right"><button id="btnDelete" type="button" class="btn btn-primary">예약취소</button></p>
+
 	<tbody>
 		<c:forEach items="${memberList}" var="member">
 			<tr>

@@ -59,16 +59,16 @@ $(document).ready(function(){
 								<input type="text" class="form-control" id="inputReserveName" placeholder="예약자명을 입력하세요.">
 							</div> -->
 							<div class="col-md-10">
-								<c:if test="${memberLogin eq null }">
-									<span><a href="#">로그인</a>하면 적립한 포인트를 사용할 수 있어요.</span>
+								<c:if test="${login eq null }">
+									<span><a href="#" onclick="setCookie(30)">로그인</a>하면 적립한 포인트를 사용할 수 있어요.</span>
 								</c:if>
 								
-								<c:if test="${memberLogin ne null }">
+								<c:if test="${login ne null }">
 									<span>	
 										<input type="text" id="point" value="0"> &nbsp;&nbsp;
 										<button type="button" class="btn btn-secondary" id="pointBtn">포인트 적용</button> &nbsp;
 																		
-										사용( <em class="my-point">${memberLogin.memberPoint}</em> 보유)
+										사용( <em class="my-point">${login.memberPoint}</em> 보유)
 									</span>
 									
 								</c:if>

@@ -78,6 +78,13 @@ function insertPostFormSubmit(){
     })
 }
 
+function reserve_click(room_no,lodgment_no){
+	let url = path + "/reserveRoom/"+room_no+"/"+lodgment_no
+	console.log(path);
+	//location.href = url;
+}
+
+
 $(function () {
 
     $(document).on('click','#insertStar',function () {
@@ -206,6 +213,7 @@ $(function () {
         console.log("test");
         $("#postResult").hide();
         $(".review-list").show();
-    });
+    });   
+   
 });
 
