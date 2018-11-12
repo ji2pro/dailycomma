@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -29,7 +30,7 @@ public class RoomController {
     @Autowired RoomPostDTO roomPostDTO;
 
 	/*건수조회 추후 토탈 이미지로 들어갈 예정*/
-	@RequestMapping("/detailRoom.do/{roomNo}")
+	@RequestMapping("detailRoom.do/{roomNo}")
 	public String detailRoom(Model model,
 							 @PathVariable String roomNo,
 							 RoomDTO dto) {
@@ -39,10 +40,9 @@ public class RoomController {
 	}
 
 	/*숙박 업체에 대한 전체 객실 리스트 및 후기 리스트*/
-    @RequestMapping("/detailRooms.do/{lodgmentNo}")
+    @RequestMapping("detailRooms.do/{lodgmentNo}")
     public String detailRooms(Model model,
-                             @PathVariable String lodgmentNo,
-                         
+    						 @PathVariable String lodgmentNo,	
                              @ModelAttribute("search") LodgmentSearchDTO dto,
                              HttpSession session) {
         
@@ -80,7 +80,7 @@ public class RoomController {
 		return "room/registerRoom";
 	}
 	
-	@RequestMapping(value="/insertRoom.do", method=RequestMethod.POST)
+	@RequestMapping(value="insertRoom.do", method=RequestMethod.POST)
 	public String insertRoom(RoomDTO dto,HttpServletRequest request) throws IllegalStateException, IOException {
 		
 		MultipartFile[] uploadFile = dto.getUploadFile();
@@ -99,7 +99,7 @@ public class RoomController {
 		}
 		dto.setRoomImg(temp.toString());
 		roomService.insertRoom(dto);
-		return "redirect:/insertRoomForm.do";
+		return "redirect:insertRoomForm.do";
 	}
 	
 }
