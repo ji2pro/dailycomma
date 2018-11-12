@@ -1,11 +1,13 @@
 package com.yedam.dailycomma.common;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +27,9 @@ public class ChoiceController {
     }
     
     @RequestMapping("/loginChoice.do")
-    public String loginChoice() {
-        return "common/loginChoice";
+    public String loginChoice(@CookieValue(value="url",required=false)String url) {
+        System.out.println(url);
+    	
+    	return "common/loginChoice";
     }
 }

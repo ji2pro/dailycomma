@@ -9,7 +9,13 @@ $(function() {
 //페이징 처리
 function go_page(p) {
 	console.log("p====="+p);
-	document.frm.page.value = p;
+	var param ;
+	if(document.frm) {
+		document.frm.page.value = p;
+		param = $('#frm').serialize();
+	} else {
+		param = {page: 1, sort: 'member_no'}
+	}
 	
     $.ajax({
         url:"./member.ajax"  ,
@@ -47,10 +53,10 @@ function callbackMember(datas){
 				 '<td>'+data.memberNick+'</td>'+
 				 '<td>'+data.memberEmail+'</td>'+
 				 '<td>'+data.memberPoint+'</td>'+
-				 '<td>'+
-				 '<fmt:parseDate value="'+data.signupDate+'" var="signupDate_D" pattern="yyyy-MM-dd HH:mm:ss"/>'+
-				 '<fmt:formatDate value="${signupDate_D}" var="signupDate_FD" pattern="yyyy.MM.dd"/>'+
-				 '${signupDate_FD}'+
+				 '<td>'+data.signupDate+
+//				 '<fmt:parseDate value="'+data.signupDate+'" var="signupDate_D" pattern="yyyy-MM-dd HH:mm:ss"/>'+
+//				 '<fmt:formatDate value="'+data.signupDate_D+'" var="signupDate_FD" pattern="yyyy.MM.dd"/>'+
+//				 data.signupDate_FD+
 				 '</td>'+
 				 '<td>'+
 				 '<div class="btn-group">'+

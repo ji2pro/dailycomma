@@ -74,8 +74,8 @@
 						<div class="card-body d-flex flex-column align-items-start">
 							<h3 class="mb-0">
 
-								<a class="text-dark" href="#">${temp.company}</a>
-
+								<a class="text-dark" href="./detailRooms.do/${temp.lodgmentNo}">${temp.company}</a>
+			
 							</h3>
 							<i class="price-label label-reserve">예약가</i> 
 							<span class="score-rap" data-grade="${temp.avgGrade}"> 

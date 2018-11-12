@@ -13,10 +13,10 @@
 					#{item}
 				</foreach>
 			</if>
-			<if test="searchCondition == 'member_email'">
+			<if test="searchCondition == 'memberEmail'">
 				AND MEMBER_EMAIL LIKE '%' || #{searchKeyword} || '%'
 			</if>
-			<if test="searchCondition == 'member_name'">
+			<if test="searchCondition == 'memberName'">
 				AND MEMBER_NAME LIKE '%' || #{searchKeyword} || '%'		
 			</if>
 <!-- 			<if test="role != null and role != ''">
@@ -45,10 +45,10 @@
 					#{item}
 				</foreach>
 			</if>
-			<if test="searchCondition == 'member_email'">
+			<if test="searchCondition == 'memberEmail'">
 				AND MEMBER_EMAIL LIKE '%' || #{searchKeyword} || '%'
 			</if>
-			<if test="searchCondition == 'member_name'">
+			<if test="searchCondition == 'memberName'">
 				AND MEMBER_NAME LIKE '%' || #{searchKeyword} || '%'		
 			</if>
 		</where>

@@ -31,10 +31,12 @@
 	<script src="<c:url value="/webjars/masonry/4.2.0/masonry.pkgd.min.js"/>"></script>
 	
 	<!-- 달력 cdn -->
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+	<script src="<c:url value="/webjars/jquery-ui/1.12.1/jquery-ui.min.js"/>"></script>
+	<link rel="stylesheet" href="<c:url value="/webjars/jquery-ui/1.12.1/jquery-ui.min.css"/>">
 	
+	<!-- 쿠키 -->
+	<script src="<c:url value="/resources/include/js/common/Cookie.js"/>"></script>
 </head>
 <body>
 	<%-- 			<tiles:insertAttribute name="header" /> --%>
@@ -61,7 +63,8 @@
             	</c:if>
             
        			<c:if test="${sessionScope.memberLogin eq null && sessionScope.hostLogin eq null }">
-	            	<li class="nav-item"><a class="nav-link" href="<c:url value="/loginChoice.do"/>">로그인</a></li>
+	            	<!-- <li class="nav-item"><a class="nav-link" href="<c:url value="/loginChoice.do"/>">로그인</a></li>-->
+	        		<li class="nav-item"><a class="nav-link" href="#" onclick="setCookie(30)">로그인</a></li>
 	        	</c:if>
 	        	<c:if test="${sessionScope.memberLogin ne null || sessionScope.hostLogin ne null }">
 	        		<li class="nav-item"><a class="nav-link" href="<c:url value="/memberLogout.do"/>">로그아웃</a></li>	        	
