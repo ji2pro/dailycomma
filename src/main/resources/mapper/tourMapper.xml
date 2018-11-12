@@ -5,42 +5,45 @@
 
 	<!-- 전체 조회 -->
 	<select id="getTours" resultType="tour" parameterType="tourSearch">
-	SELECT * FROM ( SELECT T.*, ROWNUM RN FROM (	
-		SELECT TOUR_ID,
-			   TOUR_TITLE,
-			   (SELECT MEMBER_NO
+	SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (	
+		SELECT TOUR_ID
+			   ,TOUR_TITLE
+			   ,(SELECT MEMBER_NO
 			   		FROM MEMBER
 			   		WHERE MEMBER.MEMBER_NO = TOUR.MEMBER_NO)
-			   AS memberNo,
-			   (SELECT MEMBER_NAME
+			   AS memberNo
+			   ,(SELECT MEMBER_NAME
 			   		FROM MEMBER
 			   		WHERE MEMBER.MEMBER_NO = TOUR.MEMBER_NO)
-			   AS memberName,
-			   TOUR_DATE,
-			   TOUR_LOCATION,
-			   TOUR_STATE
+			   AS memberName
+			   ,TOUR_DATE
+			   ,TOUR_LOCATION
+			   ,TOUR_STATE
 			FROM TOUR
 		 <where>
-		 	<if test="tourId != null and tourId != ''">
-			  <![CDATA[
-			   	TOUR_ID > #{tourId}
-			  ]]>
-			 </if>
-		 </where>
-		 ORDER BY TOUR_DATE
-	) T ) A 
+		 	<if test="ids != null">
+			   	TOUR_ID IN
+			   	<foreach collection="ids" open="(" close=")" separator="," item="item">
+					#{item}
+				</foreach>
+			</if>
+			<if test="searchCondition == 'tourId'">
+				AND TOUR_ID LIKE '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="searchCondition == 'tourLocation'">
+				AND TOUR_LOCATION LIKE '%' || #{searchKeyword} || '%'		
+			</if>
+		</where>
+		ORDER BY
 		<choose>
-			<when test="pageUnit != 0">
-			 <![CDATA[	
-				WHERE RN  <= #{pageUnit}
-			]]>	
+			<when test="sort != null and sort != ''">
+				#{sort}
 			</when>
 			<otherwise>
-			 <![CDATA[	
-				WHERE RN <= 8
-			]]>	
+				TOUR_ID
 			</otherwise>
 		</choose>
+	) U ) A WHERE RN BETWEEN #{start} and #{end}
 	</select>
 	
 	<!-- 페이징 처리에 필요. 검색 조건에 대한 Cnt 조회 -->
