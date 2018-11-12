@@ -18,7 +18,6 @@
 
     <script>
     	var path = "<c:url value='/'/>"
-
     </script>
 
     <script src="<%=request.getContextPath()%>/resources/include/js/room/detailRooms.js"></script>
@@ -197,13 +196,13 @@
                                                 <c:if test="${status.first}">
                                                     <div class="carousel-item active">
                                                         <img class="d-block img-fluid w-100"
-                                                             src="/resources/images/room/${img}"/>
+                                                             src="<c:url value='/resources/images/room/${img}'/>"/>
                                                     </div>
                                                 </c:if>
                                                 <c:if test="${!status.first}">
                                                     <div class="carousel-item">
                                                         <img class="d-block img-fluid w-100"
-                                                             src="/resources/images/room/${img}"/>
+                                                             src="<c:url value='/resources/images/room/${img}'/>"/>
                                                     </div>
                                                 </c:if>
                                             </c:forTokens>
