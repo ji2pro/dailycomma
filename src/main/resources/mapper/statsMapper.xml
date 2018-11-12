@@ -17,10 +17,17 @@
 
 </select>
 
-<select id="selectRoom" resultType="totalPrice">
-	<!-- 이번달 총 예약건수 및 판매금액 -->
-	
-	
+
+<select id="getReserveChart" resultType="map">
+	<!-- 년간 월별 객실예약건수 -->
+	select to_char(checkin, 'MM') as CHECKIN, count(*) as RESERVENUM
+	from reservation, lodgment, member
+	where reservation.lodgment_no = 'LOD1'  
+	and TO_CHAR(CHECKIN, 'YYYY') ='2018'
+	and lodgment.lodgment_no = reservation.lodgment_no
+	and member.member_no = reservation.member_no
+	group by to_char(checkin, 'MM')
+	order by CHECKIN
 </select>
 
 

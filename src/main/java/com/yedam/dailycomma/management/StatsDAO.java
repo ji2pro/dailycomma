@@ -17,6 +17,10 @@ public class StatsDAO {
 		return mybatis.selectList("stats.getStatsChart");
 	}
 	
+	public List<Map<String,Object>> getReserveChart(){
+		return mybatis.selectList("stats.getReserveChart");
+	}
+	
 	
 	public List<ManagementDTO> selectRoomList(){
 		return mybatis.selectList("stats.selectRoomList");

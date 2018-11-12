@@ -41,7 +41,6 @@ public class ManagementController {
 		}
 		
 		
-		 
 		//통계 뷰 페이지
 		@RequestMapping("/stats.do") 
 		public String stats(Locale locale, Model model, ManagementDTO dto) {
@@ -54,7 +53,6 @@ public class ManagementController {
 		}
 		
 		
-		
 		//구글차트 stats.do 관련 부분 컨트롤러!!
 		@Autowired StatsService statsService;
 		@RequestMapping("/getStatsChart.do") //차트 데이터
@@ -63,7 +61,10 @@ public class ManagementController {
 			return statsService.getStatsChart();
 		}
 		
-		
-		
+		@RequestMapping("/getReserveChart.do")
+		@ResponseBody
+		public List<Map<String, Object>> getReserveChart() {
+			return statsService.getReserveChart(); 
+		}
 
 }

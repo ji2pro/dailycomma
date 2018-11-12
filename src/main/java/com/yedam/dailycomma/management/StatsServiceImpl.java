@@ -17,7 +17,13 @@ public class StatsServiceImpl implements StatsService {
 		
 		return dao.getStatsChart();
 	}
-
+	
+	@Override
+	public List<Map<String, Object>> getReserveChart() {
+		
+		return dao.getReserveChart();
+	}
+	
 	@Override
     public List<ManagementDTO> selectRoomList(ManagementDTO dto){
     	
