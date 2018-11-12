@@ -87,15 +87,15 @@
 		)
 	</insert> 
 	
-<select id="getMainSearch" parameterType="lodgment" resultType="lodgment">
-	  SELECT l.COMPANY, g.AVG_GRADE, g.people_cnt
-      FROM LODGMENT l  LEFT OUTER JOIN (SELECT ROUND(AVG(GRADE),-1) AS AVG_GRADE ,COUNT(*) AS people_cnt, LODGMENT_NO
-                                        FROM POSTSCRIPT
-                                        GROUP BY LODGMENT_NO) g
-      ON l.LODGMENT_NO = G.LODGMENT_NO 
-      AND l.LOCATION = #{location}
-      AND l.LODGMENT_TYPE = #{lodgmentType}
-</select>
+	<select id="getMainSearch" parameterType="lodgment" resultType="lodgment">
+		  SELECT l.COMPANY, g.AVG_GRADE, g.people_cnt
+	      FROM LODGMENT l  LEFT OUTER JOIN (SELECT ROUND(AVG(GRADE),-1) AS AVG_GRADE ,COUNT(*) AS people_cnt, LODGMENT_NO
+	                                        FROM POSTSCRIPT
+	                                        GROUP BY LODGMENT_NO) g
+	      ON l.LODGMENT_NO = G.LODGMENT_NO 
+	      AND l.LOCATION = #{location}
+	      AND l.LODGMENT_TYPE = #{lodgmentType}
+	</select>
 	
 	<!-- 수정 미완성-->
 <!-- 	<update id="updateHost" parameterType="host">
@@ -105,9 +105,8 @@
 			WHERE ID = #{id}
 	</update> -->
 	
-	<!-- 삭제 미완성 -->
+	<!-- 삭제 -->
 	<delete id="deleteHost" parameterType="host">
-		DELETE FROM LODGMENT WHERE ID = #{hostId}
+		DELETE FROM LODGMENT WHERE HOST_ID = #{hostId}
 	</delete>
-	
 </mapper> 

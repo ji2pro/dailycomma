@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.yedam.dailycomma.host.HostDTO;
 import com.yedam.dailycomma.lodgment.LodgmentDTO;
 
 @Repository
@@ -54,4 +55,8 @@ public class RoomDAOMybatis {
     public int getCnt(RoomSearchDTO roomSearchDTO) {
     	return mybatis.selectOne("room.getCnt", roomSearchDTO);
     }
+    //삭제
+  	public int deleteRoom(RoomDTO dto) {
+  		return mybatis.delete("room.deleteRoom", dto);
+  	}
 }

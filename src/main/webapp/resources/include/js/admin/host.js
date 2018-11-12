@@ -84,5 +84,28 @@ function callbackHost(datas){
 	
 	$('#hostTbody').append(html);
 	$('#hostPaging').append(page);
-	
 }
+
+/*
+ * 업주 삭제 이벤트
+ */
+$('body').off().on('click', '#btnDelete', function() {
+	var hostId = $(this).closest('tr').find($('input[type=checkbox]')).val();
+	var confirmHost = confirm(hostId + ' 업주를 정말 삭제하겠습니까?');
+	if(confirmHost) {
+		$.ajax({
+			url: 'host/' + hostId,
+			type: 'DELETE',
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			error: function(xhr, status, msg) {
+				console.log('상태값 : ' + status + ', Http에러메시지 : ' + msg);
+			},
+			success: function(xhr) {
+				console.log(xhr.result);
+				alert(hostId + ' 업주가 삭제되었습니다.');
+				go_page(1);
+			}
+		})
+	}
+})

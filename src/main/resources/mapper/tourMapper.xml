@@ -80,4 +80,9 @@
 			SYSDATE
 		)	
 	</insert>
+	
+	<!-- 삭제 -->
+	<delete id="deleteTour" parameterType="tour">
+		DELETE FROM TOUR WHERE TOUR_ID = #{tourId}
+	</delete>
 </mapper> 

@@ -50,6 +50,9 @@ public class AdminServiceImpl implements AdminService {
 	public int getHostCnt(HostSearchDTO hostSearchDTO) {
 		return hostDAO.getCnt(hostSearchDTO);
 	}
+	public int deleteHost(HostDTO dto) {
+		return hostDAO.deleteHost(dto);
+	}
 	
 	//업체(숙소)
 	public List<LodgmentDTO> getLodgments(LodgmentSearchDTO lodgmentSearchDTO) {
@@ -57,6 +60,9 @@ public class AdminServiceImpl implements AdminService {
 	}
 	public int getLodgmentCnt(LodgmentSearchDTO lodgmentSearchDTO) {
 		return lodgmentDAO.getCnt(lodgmentSearchDTO);
+	}
+	public int deleteLodgment(LodgmentDTO dto) {
+		return lodgmentDAO.deleteLodgment(dto);
 	}
 
 	//객실
@@ -69,6 +75,9 @@ public class AdminServiceImpl implements AdminService {
 	public List<RoomDTO> getEachRooms(RoomSearchDTO roomSearchDTO) {
 		return roomDAO.getEachRooms(roomSearchDTO);
 	}
+	public int deleteRoom(RoomDTO dto) {
+		return roomDAO.deleteRoom(dto);
+	}
 
 	//예약
 	public List<ReservationDTO> getReservations(ReservationSearchDTO reservationSearchDTO) {
@@ -77,6 +86,9 @@ public class AdminServiceImpl implements AdminService {
 	public int getReservationCnt(ReservationSearchDTO reservationSearchDTO) {
 		return reservationDAO.getCnt(reservationSearchDTO);
 	}
+	public int deleteReservation(ReservationDTO dto) {
+		return reservationDAO.deleteReservation(dto);
+	}
 	
 	//캐스트(투어)
 	public List<TourDTO> getTours(TourSearchDTO tourSearchDTO) {
@@ -84,5 +96,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 	public int getTourCnt(TourSearchDTO tourSearchDTO) {
 		return tourDAO.getCnt(tourSearchDTO);
+	}
+	public int deleteTour(TourDTO dto) {
+		return tourDAO.deleteTour(dto);
 	}
 }

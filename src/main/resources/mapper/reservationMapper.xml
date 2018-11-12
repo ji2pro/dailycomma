@@ -34,19 +34,6 @@
 		)
 	</insert>
 	
-	<!-- 수정 미완성-->
- 	<!--<update id="updateHost" parameterType="host">
-		UPDATE LODGMENT SET PASSWORD = #{password},
-						 NAME = #{name},
-						 ROLE = #{role}
-			WHERE ID = #{id}
-	</update>-->
-	
-	<!-- 삭제 미완성 -->
-	<!--<delete id="deleteReservation" parameterType="reservation">
-		DELETE FROM RESERVATION WHERE RESERVE_NO = #{reserveNo}
-	</delete>-->
-
 	<!-- 전체 조회 -->
 	<select id="getReservations" resultType="reservation" parameterType="reservationSearch">
 	SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
@@ -110,5 +97,18 @@
 			</if>
 		</where>
 	</select>
+	
+	<!-- 수정 미완성-->
+ 	<!--<update id="updateHost" parameterType="host">
+		UPDATE LODGMENT SET PASSWORD = #{password},
+						 NAME = #{name},
+						 ROLE = #{role}
+			WHERE ID = #{id}
+	</update>-->
+	
+	<!-- 삭제 -->
+	<delete id="deleteReservation" parameterType="reservation">
+		DELETE FROM RESERVATION WHERE RESERVE_NO = #{reserveNo}
+	</delete>
 	
 </mapper> 

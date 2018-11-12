@@ -23,17 +23,22 @@ public interface AdminService {
 	//업주
 	public List<HostDTO> getHosts(HostSearchDTO hostSearchDTO);
 	public int getHostCnt(HostSearchDTO hostSearchDTO);
+	public int deleteHost(HostDTO dto);
 	//업체(숙소)
 	public List<LodgmentDTO> getLodgments(LodgmentSearchDTO lodgmentSearchDTO);
 	public int getLodgmentCnt(LodgmentSearchDTO lodgmentSearchDTO);
+	public int deleteLodgment(LodgmentDTO dto);
 	//객실
 	public List<RoomDTO> getRooms(RoomSearchDTO roomSearchDTO);
 	public int getRoomCnt(RoomSearchDTO roomSearchDTO);
 	public List<RoomDTO> getEachRooms(RoomSearchDTO roomSearchDTO);
+	public int deleteRoom(RoomDTO dto);
 	//예약 내역
 	public List<ReservationDTO> getReservations(ReservationSearchDTO reservationSearchDTO);
 	public int getReservationCnt(ReservationSearchDTO reservationSearchDTO);
+	public int deleteReservation(ReservationDTO dto);
 	//캐스트
 	public List<TourDTO> getTours(TourSearchDTO tourSearchDTO);
 	public int getTourCnt(TourSearchDTO tourSearchDTO);
+	public int deleteTour(TourDTO dto);
 }
