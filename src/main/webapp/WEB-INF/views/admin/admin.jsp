@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 <script src="<%=request.getContextPath()%>/resources/include/js/admin/admin.js"></script>
+<script src="<%=request.getContextPath()%>/resources/include/js/admin/member.js"></script>
 <link href="<%=request.getContextPath()%>/resources/include/css/admin.css" rel="stylesheet" type="text/css" />
 
 <div class="container-fluid">
@@ -36,9 +37,9 @@
 					   data-target="#reservationAdmin" data-toggle="tab" role="tab">예약 내역</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="castTab" href="./cast"
-					   aria-controls="castAdmin" aria-selected="false"
-					   data-target="#castAdmin" data-toggle="tab" role="tab">캐스트 관리</a>
+					<a class="nav-link" id="tourTab" href="./tour"
+					   aria-controls="tourAdmin" aria-selected="false"
+					   data-target="#tourAdmin" data-toggle="tab" role="tab">캐스트 관리</a>
 				</li>
 			</ul>
 		</div>
@@ -59,6 +60,6 @@
 		<div class="tab-pane fade" role="tabpanel" id="hostAdmin" aria-labelledby="hostTab"></div>
 		<div class="tab-pane fade" role="tabpanel" id="lodgmentAdmin" aria-labelledby="lodgmentTab"></div>
 		<div class="tab-pane fade" role="tabpanel" id="reservationAdmin" aria-labelledby="reservationTab"></div>
-		<div class="tab-pane fade" role="tabpanel" id="castAdmin" aria-labelledby="castTab"></div>
+		<div class="tab-pane fade" role="tabpanel" id="tourAdmin" aria-labelledby="tourTab"></div>
 	</div>
 </div>

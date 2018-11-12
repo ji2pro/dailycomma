@@ -21,6 +21,8 @@ import com.yedam.dailycomma.room.RoomDAOMybatis;
 import com.yedam.dailycomma.room.RoomDTO;
 import com.yedam.dailycomma.room.RoomSearchDTO;
 import com.yedam.dailycomma.tour.TourDAO;
+import com.yedam.dailycomma.tour.TourDTO;
+import com.yedam.dailycomma.tour.TourSearchDTO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -77,10 +79,10 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	//캐스트(투어)
-	/*public List<ReservationDTO> getCasts(TourSearchDTO tourSearchDTO) {
-		return tourDAO.getCasts(tourSearchDTO);
+	public List<TourDTO> getTours(TourSearchDTO tourSearchDTO) {
+		return tourDAO.getTours(tourSearchDTO);
 	}
-	public int getCastCnt(TourSearchDTO tourSearchDTO) {
+	public int getTourCnt(TourSearchDTO tourSearchDTO) {
 		return tourDAO.getCnt(tourSearchDTO);
-	}*/
+	}
 }
