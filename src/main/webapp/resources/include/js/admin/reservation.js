@@ -1,5 +1,5 @@
 /*
- * member.js
+ * reservation.js
  */
 
 $(function() {
@@ -10,28 +10,28 @@ $(function() {
 function go_page(p) {
 	console.log("p====="+p);
 	var param;
-	if(document.memberPagingForm) {
-		document.memberPagingForm.page.value = p;
-		param = $('#memberPagingForm').serialize();
+	if(document.reservationPagingForm) {
+		document.reservationPagingForm.page.value = p;
+		param = $('#reservationPagingForm').serialize();
 	} else {
-		param = {page: 1, sort: 'member_no'}
+		param = {page: 1, sort: 'reserve_no'}
 	}
 	
     $.ajax({
-        url:"./member.ajax",
-        data :$('#memberPagingForm').serialize(),
+        url:"./reservation.ajax",
+        data :$('#reservationPagingForm').serialize(),
         type: "GET",
         dataType: "json",
-        success: callbackMember
-    });
+        success: callbackReservation
+   });
 }
 	
 function sort(s) {
-	document.memberPagingForm.sort.value = s;
-	document.memberPagingForm.submit();
+	document.reservationPagingForm.sort.value = s;
+	document.reservationPagingForm.submit();
 }
 
-function callbackMember(datas){
+function callbackReservation(datas){
 	console.log(datas);
 	var list = datas.list;
 	var paging = datas.paging;
@@ -41,17 +41,22 @@ function callbackMember(datas){
 		html += ('<tr class="text-center">'+
 				 '<td scope="row">'+
 				 '<label class="custom-control custom-checkbox">'+
-				 '<input type="checkbox" name="_selected_" value="'+data.memberNo+'" class="custom-control-input">'+
+				 '<input type="checkbox" name="_selected_" value="'+data.reserveNo+'" class="custom-control-input">'+
 				 '<span class="custom-control-indicator"></span>'+
 				 '</label>'+
 				 '</td>'+
-				 '<td>'+data.memberNo+'</td>'+
+				 '<td>'+data.reserveNo+'</td>'+
 				 '<td>'+data.memberName+'</td>'+
-				 '<td>'+data.memberNick+'</td>'+
 				 '<td>'+data.memberEmail+'</td>'+
-				 '<td>'+data.memberPoint+'</td>'+
-				 '<td>'+data.signupDate+
-				 '</td>'+
+				 '<td>'+''+'</td>'+
+				 '<td>'+data.reserveDate+'</td>'+
+				 '<td>'+data.reservePeople+'</td>'+
+				 '<td>'+data.reservePrice+'원</td>'+
+				 '<td>'+data.reserveState+'</td>'+
+				 '<td>'+data.checkin+'</td>'+
+				 '<td>'+data.checkout+'</td>'+
+				 '<td>'+''+'</td>'+
+				 '<td>'+''+'</td>'+
 				 '<td>'+
 				 '<div class="btn-group">'+
 				 '<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>'+
@@ -79,23 +84,22 @@ function callbackMember(datas){
 	page += "<li class='page-item'>다음";
 	page += "</ul>";
 	
-	$('#memberTbody').empty();
-	$('#memberPaging').empty();
+	$('#reservationTbody').empty();
+	$('#reservationPaging').empty();
 	
-	$('#memberTbody').append(html);
-	$('#memberPaging').append(page);
-	
+	$('#reservationTbody').append(html);
+	$('#reservationPaging').append(page);
 }
 
 /*
- * 멤버 삭제 이벤트
+ * 예약 내역 삭제 이벤트
  */
 $('body').off().on('click', '#btnDelete', function() {
-	var memberNo = $(this).closest('tr').find($('input[type=checkbox]')).val();
-	var confirmMember = confirm(memberNo + ' 사용자를 정말 삭제하겠습니까?');
-	if(confirmMember) {
+	var reserveNo = $(this).closest('tr').find($('input[type=checkbox]')).val();
+	var confirmReservation = confirm(reserveNo + ' 예약 내역을 정말 삭제하겠습니까?');
+	if(confirmReservation) {
 		$.ajax({
-			url: 'member/' + memberNo,
+			url: 'reservation/' + reserveNo,
 			type: 'DELETE',
 			contentType: 'application/json; charset=utf-8',
 			dataType: 'json',
@@ -104,7 +108,7 @@ $('body').off().on('click', '#btnDelete', function() {
 			},
 			success: function(xhr) {
 				console.log(xhr.result);
-				alert(memberNo + ' 회원이 삭제되었습니다.');
+				alert(reserveNo + ' 예약 내역이 삭제되었습니다.');
 				go_page(1);
 			}
 		})

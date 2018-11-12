@@ -23,6 +23,7 @@
 	
 	<resultMap id="eachRooms" type="detailRoom">
 		<id property="roomNo" column="ROOM_NO" />
+		<result property="lodgmentNo" column="LODGMENT_NO" />
 		<result property="company" column="COMPANY" />
 		<result property="roomName" column="ROOM_NAME" />
 		<result property="roomQuantity" column="ROOM_QUANTITY" />
@@ -33,9 +34,16 @@
 	<!-- 숙소별 객실 조회 -->
 	<select id="getEachRooms" parameterType="roomSearch" resultMap="eachRooms">
 		SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
-			SELECT R.LODGMENT_NO, L.COMPANY AS "company", R.ROOM_NO, R.ROOM_NAME, R.ROOM_QUANTITY, R.ROOM_PRICE, R.ROOM_CAPA
-			FROM ROOM R JOIN LODGMENT L
-			ON L.LODGMENT_NO = R.LODGMENT_NO
+			SELECT R.LODGMENT_NO
+				   ,L.COMPANY AS "company"
+				   ,R.ROOM_NO
+				   ,R.ROOM_NAME
+				   ,R.ROOM_QUANTITY
+				   ,R.ROOM_PRICE
+				   ,R.ROOM_CAPA
+			FROM ROOM R
+				JOIN LODGMENT L
+				ON R.LODGMENT_NO = L.LODGMENT_NO
 		<where>
 			R.LODGMENT_NO = #{lodgmentNo}
 			<if test="ids != null">
@@ -44,10 +52,10 @@
 					#{item}
 				</foreach>
 			</if>
-			<if test="searchCondition == 'room_no'">
+			<if test="searchCondition == 'roomNo'">
 				AND ROOM_NO LIKE '%' || #{searchKeyword} || '%'
 			</if>
-			<if test="searchCondition == 'room_name'">
+			<if test="searchCondition == 'roomName'">
 				AND ROOM_NAME LIKE '%' || #{searchKeyword} || '%'		
 			</if>
 		</where>
@@ -66,8 +74,12 @@
 	<!-- 전체 조회 -->
 	<select id="getRooms" resultType="detailRoom" parameterType="roomSearch">
 		SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
-			SELECT ROOM_NO, ROOM_NAME, ROOM_QUANTITY, ROOM_PRICE, ROOM_CAPA
-			FROM ROOM
+			SELECT ROOM_NO
+				   ,ROOM_NAME
+				   ,ROOM_QUANTITY
+				   ,ROOM_PRICE
+				   ,ROOM_CAPA
+				FROM ROOM
 		<where>
 			<if test="ids != null">
 				ROOM_NO IN
@@ -75,15 +87,12 @@
 					#{item}
 				</foreach>
 			</if>
-			<if test="searchCondition == 'room_no'">
+			<if test="searchCondition == 'roomNo'">
 				AND ROOM_NO LIKE '%' || #{searchKeyword} || '%'
 			</if>
-			<if test="searchCondition == 'room_name'">
+			<if test="searchCondition == 'roomName'">
 				AND ROOM_NAME LIKE '%' || #{searchKeyword} || '%'		
 			</if>
-<!-- 			<if test="role != null and role != ''">
-				AND ROLE = #{role}
-			</if> -->
 		</where>
 		ORDER BY
 		<choose>
@@ -108,12 +117,17 @@
 					#{item}
 				</foreach>
 			</if>
-			<if test="searchCondition == 'room_no'">
+			<if test="searchCondition == 'roomNo'">
 				AND ROOM_NO LIKE '%' || #{searchKeyword} || '%'
 			</if>
-			<if test="searchCondition == 'room_name'">
+			<if test="searchCondition == 'roomName'">
 				AND ROOM_NAME LIKE '%' || #{searchKeyword} || '%'		
 			</if>
 		</where>
 	</select>
+	
+	<!-- 삭제 -->
+	<delete id="deleteRoom" parameterType="detailRoom">
+		DELETE FROM ROOM WHERE ROOM_NO = #{roomNo}
+	</delete>
 </mapper> 

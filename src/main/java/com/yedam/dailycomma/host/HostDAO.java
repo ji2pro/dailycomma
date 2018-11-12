@@ -38,14 +38,14 @@ public class HostDAO {
 		System.out.println("host mybatis 등록========");
 		return mybatis.insert("host.insertHost", dto);
 	}
-/*	//수정
-	public int updateUser(LodgmentDTO dto) {
+	//수정
+	/*public int updateHost(HostDTO dto) {
 		System.out.println("host mybatis 수정========");
 		return mybatis.update("host.updateHost", dto);
-	}
-	//삭제
-	public int deleteUser(LodgmentDTO dto) {
-		System.out.println("host mybatis 삭제========");
-		return mybatis.delete("user.deleteHost", dto);
 	}*/
+	//삭제
+	public int deleteHost(HostDTO dto) {
+		System.out.println("host mybatis 삭제========");
+		return mybatis.delete("host.deleteHost", dto);
+	}
 }
