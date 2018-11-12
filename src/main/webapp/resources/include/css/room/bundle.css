@@ -601,3 +601,7 @@ img, fieldset, iframe {
 textarea{
     width: 80%;
 }
+.place-room__reserve-btn.btn-reserve_off {
+    background-color: #ccc;
+    pointer-events: none
+}

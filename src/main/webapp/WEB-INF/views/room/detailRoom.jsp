@@ -184,8 +184,15 @@
                                     <div class="place-room__tip" data-reactid="184"><span data-reactid="185">기준2명 (최대인원${list.roomQuantity}명</span></div>
                                     <%--<div class="roomtip">기준2명 (최대인원${list.roomQuantity}명)</div>--%>
                                     <div class="py-3"><span class="room-label f-right">숙박${list.roomPrice}원</span></div>
-                                    <button class="place-room__reserve-btn btn-reserve_on"> 예약하기</button>
+                                    
+                                    <c:if test="${list.enable == '1'}">
+                                    	<button class="place-room__reserve-btn btn-reserve_on"> 예약하기</button>
                                         <%--<a class="place-room__reserve-btn btn-reserve_on" href=""><button>예약 하기</button></a>--%>
+                                	</c:if>
+                                	<c:if test="${list.enable == '0'}">
+                                		<button class="place-room__reserve-btn btn-reserve_off"> 예약마감</button>
+                                	</c:if>
+                                	
                                 </div>
 
                                 <div class="col">

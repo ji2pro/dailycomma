@@ -1,6 +1,8 @@
 package com.yedam.dailycomma.room;
 
 import com.yedam.dailycomma.lodgment.LodgmentDTO;
+import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +23,7 @@ public class RoomServiceImpl implements RoomService {
 
 	/* 숙박 업체에 대한 전체 객실 리스트*/
 	@Override
-	public List<RoomDTO> getDetailRooms(LodgmentDTO dto) {
+	public List<RoomDTO> getDetailRooms(LodgmentSearchDTO dto) {
 		return dao.getDetailRooms(dto);
 	}
 

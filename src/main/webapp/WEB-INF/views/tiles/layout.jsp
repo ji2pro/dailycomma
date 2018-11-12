@@ -54,7 +54,6 @@
 	        </ul> -->
 	        <ul class="navbar-nav ml-auto">
 	            <!-- <li class="nav-item"><a class="nav-link" href="#">예약 내역</a></li> -->
-	            
             	<c:if test="${sessionScope.login eq null }">
             		<li class="nav-item"><a class="nav-link" href="<c:url value="/signupChoice.do"/>">회원 가입</a></li>
             	</c:if>
