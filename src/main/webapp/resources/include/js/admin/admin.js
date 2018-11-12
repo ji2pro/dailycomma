@@ -76,9 +76,3 @@ $(function() {
 
 });
 
-
-function sort(s) {
-	document.frm.sort.value = s;
-	document.frm.submit();
-}
-

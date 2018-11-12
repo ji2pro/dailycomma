@@ -49,6 +49,7 @@ function callbackReservation(datas){
 				 '<td>'+data.memberName+'</td>'+
 				 '<td>'+data.memberEmail+'</td>'+
 				 '<td>'+''+'</td>'+
+				 '<td>'+data.reserveDate+'</td>'+
 				 '<td>'+data.reservePeople+'</td>'+
 				 '<td>'+data.reservePrice+'원</td>'+
 				 '<td>'+data.reserveState+'</td>'+

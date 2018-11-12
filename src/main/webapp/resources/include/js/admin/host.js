@@ -50,8 +50,8 @@ function callbackHost(datas){
 				 '<td>'+data.hostEmail+'</td>'+
 				 '<td>'+data.hostPhone+'</td>'+
 				 '<td>'+data.businessNo+'</td>'+
-				 '<td>'+data.signupDate+
-				 '</td>'+
+				 '<td>'+data.signupDate+'</td>'+
+				 '<td>'+''+'</td>'+
 				 '<td>'+
 				 '<div class="btn-group">'+
 				 '<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>'+
