@@ -50,8 +50,5 @@ $(function() {
 	var arr = $('input[name=_selected_]:checked').serializeArray().map(function(item) {
 		return item.value
 	});
-	
-	
-
 });
 

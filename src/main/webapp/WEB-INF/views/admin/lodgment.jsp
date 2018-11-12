@@ -40,7 +40,7 @@
 						</label>
 					</td>
 					<td>${lodgment.lodgmentNo}</td>
-					<td><a id="selectedTr" href="lodgment/${lodgment.lodgmentNo}" data-target="#lodgmentAdmin">${lodgment.company}</a></td>
+					<td><a id="selectedTr" href="rooms/${lodgment.lodgmentNo}" data-target="#lodgmentAdmin">${lodgment.company}</a></td>
 					<td>${lodgment.lodgmentType}</td>
 					<td>${lodgment.roomCnt}</td>
 					<td>${lodgment.lodgmentInfo}</td>

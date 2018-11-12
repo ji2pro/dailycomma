@@ -79,11 +79,11 @@
 		</table>
 	</div>
 </div>
-<!-- <div class="row">
+<div class="row">
 	<div class="col-md-12 d-flex flex-row justify-content-end mb-4">
 		<button id="btnDeleteSelected" class="btn btn-outline-danger">선택 삭제</button>
 	</div>
-</div> -->
+</div>
 <div id="reservationPaging">
 	<my:paging paging="${paging}" jsFunc="go_page"/> 
 </div>

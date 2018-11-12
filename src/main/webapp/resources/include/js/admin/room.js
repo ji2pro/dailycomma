@@ -18,7 +18,7 @@ function go_page(p) {
 	}
 	
     $.ajax({
-        url:"./room.ajax",
+        url: 'rooms/' +lodgmentNo,
         data :$('#roomPagingForm').serialize(),
         type: "GET",
         dataType: "json",

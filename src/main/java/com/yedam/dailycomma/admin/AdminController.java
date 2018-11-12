@@ -66,7 +66,7 @@ public class AdminController {
 	public Map getMembers(MemberSearchDTO memberSearchDTO,
 						  Paging paging) {
 		
-		Map map = new HashMap<String,Object>();
+		Map map = new HashMap<String, Object>();
 		// 조회할 레코드 건수
 		paging.setPageUnit(5);
 
@@ -129,7 +129,7 @@ public class AdminController {
 	public Map getHosts(HostSearchDTO hostSearchDTO,
 			 			Paging paging) {
 		
-		Map map = new HashMap<String,Object>();
+		Map map = new HashMap<String, Object>();
 		// 조회할 레코드 건수
 		paging.setPageUnit(5);
 
@@ -192,7 +192,7 @@ public class AdminController {
 	public Map getLodgments(LodgmentSearchDTO lodgmentSearchDTO,
 			  				Paging paging) {
 		
-		Map map = new HashMap<String,Object>();
+		Map map = new HashMap<String, Object>();
 		// 조회할 레코드 건수
 		paging.setPageUnit(5);
 
@@ -224,8 +224,8 @@ public class AdminController {
 	}
 	
 	//숙소별 개별 객실(rooms) 정보
-	@RequestMapping(value="/lodgment/{lodgmentNo}",method=RequestMethod.GET)
-//	@ResponseBody
+	@RequestMapping(value="/rooms/{lodgmentNo}",method=RequestMethod.GET)
+	@ResponseBody
 	public ModelAndView getEachRooms(@PathVariable String lodgmentNo,
 									 ModelAndView mv,
 									 RoomSearchDTO roomSearchDto,
@@ -257,7 +257,7 @@ public class AdminController {
 	public Map getEachRooms(RoomSearchDTO roomSearchDto,
 			  				Paging paging) {
 		
-		Map map = new HashMap<String,Object>();
+		Map map = new HashMap<String, Object>();
 		// 조회할 레코드 건수
 		paging.setPageUnit(5);
 

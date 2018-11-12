@@ -46,7 +46,7 @@ function callbackLodgment(datas){
 				 '</label>'+
 				 '</td>'+
 				 '<td>'+data.lodgmentNo+'</td>'+
-				 '<td><a id="selectedTr" href="lodgment/'+data.lodgmentNo+'" data-target="#lodgmentAdmin">'+data.company+'</a></td>'+
+				 '<td><a id="selectedTr" href="rooms/'+data.lodgmentNo+'" data-target="#lodgmentAdmin">'+data.company+'</a></td>'+
 				 '<td>'+data.lodgmentType+'</td>'+
 				 '<td>'+data.roomCnt+'</td>'+
 				 '<td>'+data.lodgmentInfo+'</td>'+
