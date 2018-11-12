@@ -2,9 +2,7 @@ package com.yedam.dailycomma.management;
 
 public class ManagementDTO {
 	 
-    private String id;
-    private String pw;
-    private String name;
+
     private String memberName;		//회원 이름
 	private String memberEmail;		//회원 이메일
 	private String reserveState;	//예약상태
@@ -15,9 +13,28 @@ public class ManagementDTO {
 	private String checkin;			//체크인날짜
 	private String checkout;		//체크아웃날짜
 	private String reserveDays;		//예약일수
+	private String totalPrice;		//총판매금액
+	private String reservationNum;	//예약수
     
  
-    public String getMemberName() {
+	
+    public String getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(String totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public String getReservationNum() {
+		return reservationNum;
+	}
+
+	public void setReservationNum(String reservationNum) {
+		this.reservationNum = reservationNum;
+	}
+
+	public String getMemberName() {
 		return memberName;
 	}
 
@@ -89,29 +106,6 @@ public class ManagementDTO {
 		this.checkout = checkout;
 	}
 
-	public String getId() {
-        return id;
-    }
- 
-    public void setId(String id) {
-        this.id = id;
-    }
- 
-    public String getPw() {
-        return pw;
-    }
- 
-    public void setPw(String pw) {
-        this.pw = pw;
-    }
- 
-    public String getName() {
-        return name;
-    }
- 
-    public void setName(String name) {
-        this.name = name;
-    }
 
 	public String getReserveDays() {
 		return reserveDays;
@@ -123,11 +117,16 @@ public class ManagementDTO {
 
 	@Override
 	public String toString() {
-		return "MemDTO [id=" + id + ", pw=" + pw + ", name=" + name + ", memberName=" + memberName + ", memberEmail="
-				+ memberEmail + ", reserveState=" + reserveState + ", reserveDate=" + reserveDate + ", reservePeople="
-				+ reservePeople + ", roomName=" + roomName + ", reservePrice=" + reservePrice + ", checkin=" + checkin
-				+ ", checkout=" + checkout + ", reserveDays=" + reserveDays + "]";
+		return "ManagementDTO [memberName=" + memberName + ", memberEmail=" + memberEmail + ", reserveState="
+				+ reserveState + ", reserveDate=" + reserveDate + ", reservePeople=" + reservePeople + ", roomName="
+				+ roomName + ", reservePrice=" + reservePrice + ", checkin=" + checkin + ", checkout=" + checkout
+				+ ", reserveDays=" + reserveDays + ", totalPrice=" + totalPrice + ", reservationNum=" + reservationNum
+				+ "]";
 	}
+
+	
+
+	
 
 	
  

@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.yedam.dailycomma.member.MemberDTO;
 import com.yedam.dailycomma.reservation.ReservationDTO;
 
 @Repository
@@ -21,4 +22,8 @@ public class ManagementDAO {
 		return mybatis.selectList("management.selectReservation");
 	}
 
+	public int deleteReserve(ManagementDTO dto) {
+		return mybatis.delete("management.deleteReserve", dto);
+	}
+	
 }

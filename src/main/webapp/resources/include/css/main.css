@@ -1,12 +1,16 @@
-@charset "UTF-8";
-
 section {margin-top: 50px;}
 
 .search-area {
 	margin-top: 0;
-    background: #e2a4ff;
     height: 500px;
     width: 100%;
+    /* background: #e2a4ff; */
+    background-image: url("../../images/home/sunrise-1014712_1920.jpg");
+    z-index: 1;
+    position: relative;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .search-panel {
     position: relative;
