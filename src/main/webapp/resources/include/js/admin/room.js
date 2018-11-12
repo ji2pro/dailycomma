@@ -1,5 +1,5 @@
 /*
- * member.js
+ * room.js
  */
 
 $(function() {
@@ -10,28 +10,28 @@ $(function() {
 function go_page(p) {
 	console.log("p====="+p);
 	var param;
-	if(document.memberPagingForm) {
-		document.memberPagingForm.page.value = p;
-		param = $('#memberPagingForm').serialize();
+	if(document.roomPagingForm) {
+		document.roomPagingForm.page.value = p;
+		param = $('#roomPagingForm').serialize();
 	} else {
-		param = {page: 1, sort: 'member_no'}
+		param = {page: 1, sort: 'room_no'}
 	}
 	
     $.ajax({
-        url:"./member.ajax",
-        data :$('#memberPagingForm').serialize(),
+        url:"./room.ajax",
+        data :$('#roomPagingForm').serialize(),
         type: "GET",
         dataType: "json",
-        success: callbackMember
+        success: callbackRoom
    });
 }
 	
 function sort(s) {
-	document.memberPagingForm.sort.value = s;
-	document.memberPagingForm.submit();
+	document.roomPagingForm.sort.value = s;
+	document.roomPagingForm.submit();
 }
 
-function callbackMember(datas){
+function callbackRoom(datas){
 	console.log(datas);
 	var list = datas.list;
 	var paging = datas.paging;
@@ -41,17 +41,15 @@ function callbackMember(datas){
 		html += ('<tr class="text-center">'+
 				 '<td scope="row">'+
 				 '<label class="custom-control custom-checkbox">'+
-				 '<input type="checkbox" name="_selected_" value="'+data.memberNo+'" class="custom-control-input">'+
+				 '<input type="checkbox" name="_selected_" value="'+data.roomNo+'" class="custom-control-input">'+
 				 '<span class="custom-control-indicator"></span>'+
 				 '</label>'+
 				 '</td>'+
-				 '<td>'+data.memberNo+'</td>'+
-				 '<td>'+data.memberName+'</td>'+
-				 '<td>'+data.memberNick+'</td>'+
-				 '<td>'+data.memberEmail+'</td>'+
-				 '<td>'+data.memberPoint+'</td>'+
-				 '<td>'+data.signupDate+
-				 '</td>'+
+				 '<td>'+data.roomNo+'</td>'+
+				 '<td>'+data.roomName+'</td>'+
+				 '<td>'+data.roomQuantity+'</td>'+
+				 '<td>'+data.roomPrice+'</td>'+
+				 '<td>'+data.roomCapa+'</td>'+
 				 '<td>'+
 				 '<div class="btn-group">'+
 				 '<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>'+
@@ -79,13 +77,10 @@ function callbackMember(datas){
 	page += "<li class='page-item'>다음";
 	page += "</ul>";
 	
-	//$('#membertbody').html("");
-	//$('#memberPaging').html("");
-
-	$('#memberTbody').empty();
-	$('#memberPaging').empty();
+	$('#roomTbody').empty();
+	$('#roomPaging').empty();
 	
-	$('#memberTbody').append(html);
-	$('#memberPaging').append(page);
+	$('#roomTbody').append(html);
+	$('#roomPaging').append(page);
 	
 }

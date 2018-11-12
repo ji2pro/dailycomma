@@ -4,6 +4,11 @@
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 <script src="<%=request.getContextPath()%>/resources/include/js/admin/admin.js"></script>
 <script src="<%=request.getContextPath()%>/resources/include/js/admin/member.js"></script>
+<script src="<%=request.getContextPath()%>/resources/include/js/admin/host.js"></script>
+<script src="<%=request.getContextPath()%>/resources/include/js/admin/lodgment.js"></script>
+<script src="<%=request.getContextPath()%>/resources/include/js/admin/room.js"></script>
+<script src="<%=request.getContextPath()%>/resources/include/js/admin/reservation.js"></script>
+<script src="<%=request.getContextPath()%>/resources/include/js/admin/tour.js"></script>
 <link href="<%=request.getContextPath()%>/resources/include/css/admin.css" rel="stylesheet" type="text/css" />
 
 <div class="container-fluid">

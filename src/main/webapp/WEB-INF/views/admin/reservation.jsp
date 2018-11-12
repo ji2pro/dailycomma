@@ -3,7 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
+<script src="<%=request.getContextPath()%>/resources/include/js/admin/reservation.js"></script>
 
+<form name="reservationPagingForm" id="reservationPagingForm">
+	<input type="hidden" name="page" value="1">
+	<input type="hidden" name="sort" value="reserve_no">
+</form>
 <!-- 예약 내역 -->
 <div class="row">
 	<div class="col-md-12">
@@ -24,8 +29,7 @@
 					<th scope="col">상태변경일</th>
 				</tr>
 			</thead>
-			<tbody>
-				
+			<tbody id="reservationTbody">
 				<c:forEach items="${list}" var="reservation">
 					<!-- checkin 날짜 포맷 변환 -->
 					<fmt:parseDate value="${reservation.checkin}" var="checkin_D" pattern="yyyy-MM-dd HH:mm:ss"/>
@@ -67,5 +71,8 @@
 		<button id="btnDeleteSelected" class="btn btn-outline-danger">선택 삭제</button>
 	</div>
 </div> -->
+<div id="reservationPaging">
+	<my:paging paging="${paging}" jsFunc="go_page"/> 
+</div>
 <!-- 페이징 버튼 -->
-<my:paging paging="${paging}" />
+<%-- <my:paging paging="${paging}" /> --%>

@@ -1,5 +1,5 @@
 /*
- * member.js
+ * lodgment.js
  */
 
 $(function() {
@@ -10,28 +10,28 @@ $(function() {
 function go_page(p) {
 	console.log("p====="+p);
 	var param;
-	if(document.memberPagingForm) {
-		document.memberPagingForm.page.value = p;
-		param = $('#memberPagingForm').serialize();
+	if(document.lodgmentPagingForm) {
+		document.lodgmentPagingForm.page.value = p;
+		param = $('#lodgmentPagingForm').serialize();
 	} else {
-		param = {page: 1, sort: 'member_no'}
+		param = {page: 1, sort: 'lodgment_no'}
 	}
 	
     $.ajax({
-        url:"./member.ajax",
-        data :$('#memberPagingForm').serialize(),
+        url:"./lodgment.ajax",
+        data :$('#lodgmentPagingForm').serialize(),
         type: "GET",
         dataType: "json",
-        success: callbackMember
+        success: callbackLodgment
    });
 }
 	
 function sort(s) {
-	document.memberPagingForm.sort.value = s;
-	document.memberPagingForm.submit();
+	document.lodgmentPagingForm.sort.value = s;
+	document.lodgmentPagingForm.submit();
 }
 
-function callbackMember(datas){
+function callbackLodgment(datas){
 	console.log(datas);
 	var list = datas.list;
 	var paging = datas.paging;
@@ -41,17 +41,17 @@ function callbackMember(datas){
 		html += ('<tr class="text-center">'+
 				 '<td scope="row">'+
 				 '<label class="custom-control custom-checkbox">'+
-				 '<input type="checkbox" name="_selected_" value="'+data.memberNo+'" class="custom-control-input">'+
+				 '<input type="checkbox" name="_selected_" value="'+data.lodgmentNo+'" class="custom-control-input">'+
 				 '<span class="custom-control-indicator"></span>'+
 				 '</label>'+
 				 '</td>'+
-				 '<td>'+data.memberNo+'</td>'+
-				 '<td>'+data.memberName+'</td>'+
-				 '<td>'+data.memberNick+'</td>'+
-				 '<td>'+data.memberEmail+'</td>'+
-				 '<td>'+data.memberPoint+'</td>'+
-				 '<td>'+data.signupDate+
-				 '</td>'+
+				 '<td>'+data.lodgmentNo+'</td>'+
+				 '<td><a id="selectedTr" href="lodgment/'+data.lodgmentNo+'" data-target="#lodgmentAdmin">'+data.company+'</a></td>'+
+				 '<td>'+data.lodgmentType+'</td>'+
+				 '<td>'+data.roomCnt+'</td>'+
+				 '<td>'+data.lodgmentInfo+'</td>'+
+				 '<td>'+data.hostName+'</td>'+
+				 '<td>'+data.location+'</td>'+
 				 '<td>'+
 				 '<div class="btn-group">'+
 				 '<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>'+
@@ -79,13 +79,10 @@ function callbackMember(datas){
 	page += "<li class='page-item'>다음";
 	page += "</ul>";
 	
-	//$('#membertbody').html("");
-	//$('#memberPaging').html("");
-
-	$('#memberTbody').empty();
-	$('#memberPaging').empty();
+	$('#lodgmentTbody').empty();
+	$('#lodgmentPaging').empty();
 	
-	$('#memberTbody').append(html);
-	$('#memberPaging').append(page);
+	$('#lodgmentTbody').append(html);
+	$('#lodgmentPaging').append(page);
 	
 }

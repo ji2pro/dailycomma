@@ -1,5 +1,5 @@
 /*
- * member.js
+ * host.js
  */
 
 $(function() {
@@ -10,28 +10,28 @@ $(function() {
 function go_page(p) {
 	console.log("p====="+p);
 	var param;
-	if(document.memberPagingForm) {
-		document.memberPagingForm.page.value = p;
-		param = $('#memberPagingForm').serialize();
+	if(document.hostPagingForm) {
+		document.hostPagingForm.page.value = p;
+		param = $('#hostPagingForm').serialize();
 	} else {
-		param = {page: 1, sort: 'member_no'}
+		param = {page: 1, sort: 'host_id'}
 	}
 	
     $.ajax({
-        url:"./member.ajax",
-        data :$('#memberPagingForm').serialize(),
+        url:"./host.ajax",
+        data :$('#hostPagingForm').serialize(),
         type: "GET",
         dataType: "json",
-        success: callbackMember
+        success: callbackHost
    });
 }
 	
 function sort(s) {
-	document.memberPagingForm.sort.value = s;
-	document.memberPagingForm.submit();
+	document.hostPagingForm.sort.value = s;
+	document.hostPagingForm.submit();
 }
 
-function callbackMember(datas){
+function callbackHost(datas){
 	console.log(datas);
 	var list = datas.list;
 	var paging = datas.paging;
@@ -41,15 +41,15 @@ function callbackMember(datas){
 		html += ('<tr class="text-center">'+
 				 '<td scope="row">'+
 				 '<label class="custom-control custom-checkbox">'+
-				 '<input type="checkbox" name="_selected_" value="'+data.memberNo+'" class="custom-control-input">'+
+				 '<input type="checkbox" name="_selected_" value="'+data.hostId+'" class="custom-control-input">'+
 				 '<span class="custom-control-indicator"></span>'+
 				 '</label>'+
 				 '</td>'+
-				 '<td>'+data.memberNo+'</td>'+
-				 '<td>'+data.memberName+'</td>'+
-				 '<td>'+data.memberNick+'</td>'+
-				 '<td>'+data.memberEmail+'</td>'+
-				 '<td>'+data.memberPoint+'</td>'+
+				 '<td>'+data.hostName+'</td>'+
+				 '<td>'+data.hostId+'</td>'+
+				 '<td>'+data.hostEmail+'</td>'+
+				 '<td>'+data.hostPhone+'</td>'+
+				 '<td>'+data.businessNo+'</td>'+
 				 '<td>'+data.signupDate+
 				 '</td>'+
 				 '<td>'+
@@ -79,13 +79,10 @@ function callbackMember(datas){
 	page += "<li class='page-item'>다음";
 	page += "</ul>";
 	
-	//$('#membertbody').html("");
-	//$('#memberPaging').html("");
-
-	$('#memberTbody').empty();
-	$('#memberPaging').empty();
+	$('#hostTbody').empty();
+	$('#hostPaging').empty();
 	
-	$('#memberTbody').append(html);
-	$('#memberPaging').append(page);
+	$('#hostTbody').append(html);
+	$('#hostPaging').append(page);
 	
 }

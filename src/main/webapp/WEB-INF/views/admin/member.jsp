@@ -5,7 +5,7 @@
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 <script src="<%=request.getContextPath()%>/resources/include/js/admin/member.js"></script>
 
-<form name="frm" id="frm">
+<form name="memberPagingForm" id="memberPagingForm">
 	<input type="hidden" name="page" value="1">
 	<input type="hidden" name="sort" value="member_no">
 </form>
@@ -30,7 +30,7 @@
 					<th scope="col">관리</th>
 				</tr>
 			</thead>
-			<tbody id="membertbody">
+			<tbody id="memberTbody">
 				<c:forEach items="${list}" var="member">
 				<tr class="text-center">
 					<td scope="row">

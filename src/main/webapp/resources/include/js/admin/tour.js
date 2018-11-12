@@ -1,5 +1,5 @@
 /*
- * member.js
+ * tour.js
  */
 
 $(function() {
@@ -10,28 +10,28 @@ $(function() {
 function go_page(p) {
 	console.log("p====="+p);
 	var param;
-	if(document.memberPagingForm) {
-		document.memberPagingForm.page.value = p;
-		param = $('#memberPagingForm').serialize();
+	if(document.tourPagingForm) {
+		document.tourPagingForm.page.value = p;
+		param = $('#tourPagingForm').serialize();
 	} else {
-		param = {page: 1, sort: 'member_no'}
+		param = {page: 1, sort: 'tour_id'}
 	}
 	
     $.ajax({
-        url:"./member.ajax",
-        data :$('#memberPagingForm').serialize(),
+        url:"./tour.ajax",
+        data :$('#tourPagingForm').serialize(),
         type: "GET",
         dataType: "json",
-        success: callbackMember
+        success: callbackTour
    });
 }
 	
 function sort(s) {
-	document.memberPagingForm.sort.value = s;
-	document.memberPagingForm.submit();
+	document.tourPagingForm.sort.value = s;
+	document.tourPagingForm.submit();
 }
 
-function callbackMember(datas){
+function callbackTour(datas){
 	console.log(datas);
 	var list = datas.list;
 	var paging = datas.paging;
@@ -41,17 +41,16 @@ function callbackMember(datas){
 		html += ('<tr class="text-center">'+
 				 '<td scope="row">'+
 				 '<label class="custom-control custom-checkbox">'+
-				 '<input type="checkbox" name="_selected_" value="'+data.memberNo+'" class="custom-control-input">'+
+				 '<input type="checkbox" name="_selected_" value="'+data.tourId+'" class="custom-control-input">'+
 				 '<span class="custom-control-indicator"></span>'+
 				 '</label>'+
 				 '</td>'+
-				 '<td>'+data.memberNo+'</td>'+
+				 '<td>'+data.tourId+'</td>'+
+				 '<td>'+data.tourLocation+'</td>'+
+				 '<td>'+data.tourTitle+'</td>'+
 				 '<td>'+data.memberName+'</td>'+
-				 '<td>'+data.memberNick+'</td>'+
-				 '<td>'+data.memberEmail+'</td>'+
-				 '<td>'+data.memberPoint+'</td>'+
-				 '<td>'+data.signupDate+
-				 '</td>'+
+				 '<td>'+data.tourDate+'</td>'+
+				 '<td>'+data.tourState+'</td>'+
 				 '<td>'+
 				 '<div class="btn-group">'+
 				 '<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>'+
@@ -79,13 +78,10 @@ function callbackMember(datas){
 	page += "<li class='page-item'>다음";
 	page += "</ul>";
 	
-	//$('#membertbody').html("");
-	//$('#memberPaging').html("");
-
-	$('#memberTbody').empty();
-	$('#memberPaging').empty();
+	$('#tourTbody').empty();
+	$('#tourPaging').empty();
 	
-	$('#memberTbody').append(html);
-	$('#memberPaging').append(page);
+	$('#tourTbody').append(html);
+	$('#tourPaging').append(page);
 	
 }
