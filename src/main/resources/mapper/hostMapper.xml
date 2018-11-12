@@ -6,7 +6,14 @@
 	<!-- 전체 조회 -->
 	<select id="getHosts" resultType="host" parameterType="hostSearch">
 	SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
-		SELECT host_id, host_email, host_phone, host_name, address, business_no, signup_date FROM LODGMENT
+		SELECT HOST_ID
+			   ,HOST_EMAIL
+			   ,HOST_PHONE
+			   ,HOST_NAME
+			   ,ADDRESS
+			   ,BUSINESS_NO
+			   ,SIGNUP_DATE
+			FROM LODGMENT
 		<where>
 			<if test="ids != null">
 				HOST_ID IN
@@ -14,15 +21,12 @@
 					#{item}
 				</foreach>
 			</if>
-			<if test="searchCondition == 'id'">
+			<if test="searchCondition == 'hostId'">
 				AND HOST_ID LIKE '%' || #{searchKeyword} || '%'
 			</if>
-			<if test="searchCondition == 'name'">
+			<if test="searchCondition == 'company'">
 				AND COMPANY LIKE '%' || #{searchKeyword} || '%'		
 			</if>
-<!-- 			<if test="role != null and role != ''">
-				AND ROLE = #{role}
-			</if> -->
 		</where>
 		ORDER BY
 		<choose>
@@ -83,15 +87,15 @@
 		)
 	</insert> 
 	
-<select id="getMainSearch" parameterType="lodgment" resultType="lodgment">
-	  SELECT l.COMPANY, g.AVG_GRADE, g.people_cnt
-      FROM LODGMENT l  LEFT OUTER JOIN (SELECT ROUND(AVG(GRADE),-1) AS AVG_GRADE ,COUNT(*) AS people_cnt, LODGMENT_NO
-                                        FROM POSTSCRIPT
-                                        GROUP BY LODGMENT_NO) g
-      ON l.LODGMENT_NO = G.LODGMENT_NO 
-      AND l.LOCATION = #{location}
-      AND l.LODGMENT_TYPE = #{lodgmentType}
-</select>
+	<select id="getMainSearch" parameterType="lodgment" resultType="lodgment">
+		  SELECT l.COMPANY, g.AVG_GRADE, g.people_cnt
+	      FROM LODGMENT l  LEFT OUTER JOIN (SELECT ROUND(AVG(GRADE),-1) AS AVG_GRADE ,COUNT(*) AS people_cnt, LODGMENT_NO
+	                                        FROM POSTSCRIPT
+	                                        GROUP BY LODGMENT_NO) g
+	      ON l.LODGMENT_NO = G.LODGMENT_NO 
+	      AND l.LOCATION = #{location}
+	      AND l.LODGMENT_TYPE = #{lodgmentType}
+	</select>
 	
 	<!-- 수정 미완성-->
 <!-- 	<update id="updateHost" parameterType="host">
@@ -101,9 +105,8 @@
 			WHERE ID = #{id}
 	</update> -->
 	
-	<!-- 삭제 미완성 -->
+	<!-- 삭제 -->
 	<delete id="deleteHost" parameterType="host">
-		DELETE FROM LODGMENT WHERE ID = #{hostId}
+		DELETE FROM LODGMENT WHERE HOST_ID = #{hostId}
 	</delete>
-	
 </mapper> 

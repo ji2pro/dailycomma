@@ -5,6 +5,9 @@ import java.util.Arrays;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.yedam.dailycomma.lodgment.LodgmentDTO;
+import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
+
 
 
 @Repository
@@ -19,15 +22,23 @@ public class RoomDTO {
 	private String roomName;		//객실이름
 	private String roomQuantity;	//객실수
 	private String roomState;		//객실승인
+	private String enable;
 	private MultipartFile[] uploadFile; //다중 파일시 배열로
 
+	
     private String company;
     private String address;
     private String hostPhone;
     private String lodgmentType;
 
 
-    public String getCompany() {
+	public String getEnable() {
+		return enable;
+	}
+	public void setEnable(String enable) {
+		this.enable = enable;
+	}
+	    public String getCompany() {
         return company;
     }
 
@@ -120,23 +131,4 @@ public class RoomDTO {
 		this.roomState = roomState;
 	}
 
-    @Override
-    public String toString() {
-        return "RoomDTO{" +
-                "roomNo='" + roomNo + '\'' +
-                ", lodgmentNo='" + lodgmentNo + '\'' +
-                ", roomPrice='" + roomPrice + '\'' +
-                ", roomCapa='" + roomCapa + '\'' +
-                ", roomInfo='" + roomInfo + '\'' +
-                ", roomImg='" + roomImg + '\'' +
-                ", roomName='" + roomName + '\'' +
-                ", roomQuantity='" + roomQuantity + '\'' +
-                ", roomState='" + roomState + '\'' +
-                ", uploadFile=" + Arrays.toString(uploadFile) +
-                ", company='" + company + '\'' +
-                ", address='" + address + '\'' +
-                ", hostPhone='" + hostPhone + '\'' +
-                ", lodgmentType='" + lodgmentType + '\'' +
-                '}';
-    }
 }

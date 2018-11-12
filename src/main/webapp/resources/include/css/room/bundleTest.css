@@ -12580,10 +12580,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0dca9a", endColorstr="#22c4d1", GradientType=0)
 }
 
-.place-room__reserve-btn.btn-reserve_off {
-    background-color: #ccc;
-    pointer-events: none
-}
+
 
 table.tbl-charge {
     position: relative;

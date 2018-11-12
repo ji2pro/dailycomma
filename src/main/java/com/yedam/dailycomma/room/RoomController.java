@@ -3,16 +3,22 @@ package com.yedam.dailycomma.room;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.yedam.dailycomma.lodgment.LodgmentDTO;
+import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -21,11 +27,6 @@ public class RoomController {
 	@Autowired RoomService roomService;
 	@Autowired LodgmentDTO lodgmentDTO;
     @Autowired RoomPostDTO roomPostDTO;
-
-    @RequestMapping("/apiTest.do")
-	public String apiTest(){
-    	return "room/apiTest";
-	}
 
 	/*건수조회 추후 토탈 이미지로 들어갈 예정*/
 	@RequestMapping("/detailRoom.do/{roomNo}")
@@ -41,9 +42,13 @@ public class RoomController {
     @RequestMapping("/detailRooms.do/{lodgmentNo}")
     public String detailRooms(Model model,
                              @PathVariable String lodgmentNo,
-                             LodgmentDTO dto) {
-        dto.setLodgmentNo(lodgmentNo);
+                             @ModelAttribute("search") LodgmentSearchDTO dto,
+                             HttpSession session) {
+        
+    	dto = (LodgmentSearchDTO)session.getAttribute("search");
+    	dto.setLodgmentNo(lodgmentNo);
 
+        System.out.println();
         /*전체 이미지를 가져온다.*/
         StringBuffer str = new StringBuffer();
         List<RoomDTO> list = roomService.getAllimage(dto);

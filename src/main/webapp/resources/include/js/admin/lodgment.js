@@ -1,5 +1,5 @@
 /*
- * member.js
+ * lodgment.js
  */
 
 $(function() {
@@ -10,28 +10,28 @@ $(function() {
 function go_page(p) {
 	console.log("p====="+p);
 	var param;
-	if(document.memberPagingForm) {
-		document.memberPagingForm.page.value = p;
-		param = $('#memberPagingForm').serialize();
+	if(document.lodgmentPagingForm) {
+		document.lodgmentPagingForm.page.value = p;
+		param = $('#lodgmentPagingForm').serialize();
 	} else {
-		param = {page: 1, sort: 'member_no'}
+		param = {page: 1, sort: 'lodgment_no'}
 	}
 	
     $.ajax({
-        url:"./member.ajax",
-        data :$('#memberPagingForm').serialize(),
+        url:"./lodgment.ajax",
+        data :$('#lodgmentPagingForm').serialize(),
         type: "GET",
         dataType: "json",
-        success: callbackMember
-    });
+        success: callbackLodgment
+   });
 }
 	
 function sort(s) {
-	document.memberPagingForm.sort.value = s;
-	document.memberPagingForm.submit();
+	document.lodgmentPagingForm.sort.value = s;
+	document.lodgmentPagingForm.submit();
 }
 
-function callbackMember(datas){
+function callbackLodgment(datas){
 	console.log(datas);
 	var list = datas.list;
 	var paging = datas.paging;
@@ -41,17 +41,17 @@ function callbackMember(datas){
 		html += ('<tr class="text-center">'+
 				 '<td scope="row">'+
 				 '<label class="custom-control custom-checkbox">'+
-				 '<input type="checkbox" name="_selected_" value="'+data.memberNo+'" class="custom-control-input">'+
+				 '<input type="checkbox" name="_selected_" value="'+data.lodgmentNo+'" class="custom-control-input">'+
 				 '<span class="custom-control-indicator"></span>'+
 				 '</label>'+
 				 '</td>'+
-				 '<td>'+data.memberNo+'</td>'+
-				 '<td>'+data.memberName+'</td>'+
-				 '<td>'+data.memberNick+'</td>'+
-				 '<td>'+data.memberEmail+'</td>'+
-				 '<td>'+data.memberPoint+'</td>'+
-				 '<td>'+data.signupDate+
-				 '</td>'+
+				 '<td>'+data.lodgmentNo+'</td>'+
+				 '<td><a id="selectedTr" href="lodgment/'+data.lodgmentNo+'" data-target="#lodgmentAdmin">'+data.company+'</a></td>'+
+				 '<td>'+data.lodgmentType+'</td>'+
+				 '<td>'+data.roomCnt+'</td>'+
+				 '<td>'+data.lodgmentInfo+'</td>'+
+				 '<td>'+data.hostName+'</td>'+
+				 '<td>'+data.location+'</td>'+
 				 '<td>'+
 				 '<div class="btn-group">'+
 				 '<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>'+
@@ -79,23 +79,22 @@ function callbackMember(datas){
 	page += "<li class='page-item'>다음";
 	page += "</ul>";
 	
-	$('#memberTbody').empty();
-	$('#memberPaging').empty();
+	$('#lodgmentTbody').empty();
+	$('#lodgmentPaging').empty();
 	
-	$('#memberTbody').append(html);
-	$('#memberPaging').append(page);
-	
+	$('#lodgmentTbody').append(html);
+	$('#lodgmentPaging').append(page);
 }
 
 /*
- * 멤버 삭제 이벤트
+ * 숙소 삭제 이벤트
  */
 $('body').off().on('click', '#btnDelete', function() {
-	var memberNo = $(this).closest('tr').find($('input[type=checkbox]')).val();
-	var confirmMember = confirm(memberNo + ' 사용자를 정말 삭제하겠습니까?');
-	if(confirmMember) {
+	var lodgmentNo = $(this).closest('tr').find($('input[type=checkbox]')).val();
+	var confirmLodgment = confirm(lodgmentNo + ' 숙소를 정말 삭제하겠습니까?');
+	if(confirmLodgment) {
 		$.ajax({
-			url: 'member/' + memberNo,
+			url: 'lodgment/' + lodgmentNo,
 			type: 'DELETE',
 			contentType: 'application/json; charset=utf-8',
 			dataType: 'json',
@@ -104,7 +103,7 @@ $('body').off().on('click', '#btnDelete', function() {
 			},
 			success: function(xhr) {
 				console.log(xhr.result);
-				alert(memberNo + ' 회원이 삭제되었습니다.');
+				alert(lodgmentNo + ' 숙소가 삭제되었습니다.');
 				go_page(1);
 			}
 		})

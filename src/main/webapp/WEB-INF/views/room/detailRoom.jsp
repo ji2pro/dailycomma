@@ -15,10 +15,8 @@
           href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
           crossorigin="anonymous">
-
     <script>
     	var path = "<c:url value='/'/>"
-
     </script>
 
     <script src="<%=request.getContextPath()%>/resources/include/js/room/detailRooms.js"></script>
@@ -185,8 +183,15 @@
                                     <div class="place-room__tip" data-reactid="184"><span data-reactid="185">기준2명 (최대인원${list.roomQuantity}명</span></div>
                                     <%--<div class="roomtip">기준2명 (최대인원${list.roomQuantity}명)</div>--%>
                                     <div class="py-3"><span class="room-label f-right">숙박${list.roomPrice}원</span></div>
-                                    <button class="place-room__reserve-btn btn-reserve_on"> 예약하기</button>
+                                    
+                                    <c:if test="${list.enable == '1'}">
+                                    	<button class="place-room__reserve-btn btn-reserve_on"> 예약하기</button>
                                         <%--<a class="place-room__reserve-btn btn-reserve_on" href=""><button>예약 하기</button></a>--%>
+                                	</c:if>
+                                	<c:if test="${list.enable == '0'}">
+                                		<button class="place-room__reserve-btn btn-reserve_off"> 예약마감</button>
+                                	</c:if>
+                                	
                                 </div>
 
                                 <div class="col">
@@ -197,13 +202,13 @@
                                                 <c:if test="${status.first}">
                                                     <div class="carousel-item active">
                                                         <img class="d-block img-fluid w-100"
-                                                             src="/resources/images/room/${img}"/>
+                                                             src="<c:url value='/resources/images/room/${img}'/>"/>
                                                     </div>
                                                 </c:if>
                                                 <c:if test="${!status.first}">
                                                     <div class="carousel-item">
                                                         <img class="d-block img-fluid w-100"
-                                                             src="/resources/images/room/${img}"/>
+                                                             src="<c:url value='/resources/images/room/${img}'/>"/>
                                                     </div>
                                                 </c:if>
                                             </c:forTokens>
@@ -227,10 +232,10 @@
                     <div class="tab-pane fade" id="tabtwo" role="tabpanel">
                         <div class="place-room__message"><i class="badge-live">바른후기</i>는 숙소에 직접
                             방문한 회원만 작성할 수 있습니다.
-                            <c:if test="${memberLogin ne null}">
+                            <%--<c:if test="${memberLogin ne null}">--%>
                                <%-- ${membarLogin.memberNick}--%>
                                 <button type="button" class="review-post__insert-btn" style="float:right" id="${getDetailRooms[0].lodgmentNo}">후기등록</button>
-                            </c:if>
+                            <%--</c:if>--%>
                         </div>
                         <div class="review-box" id="postResult">
 

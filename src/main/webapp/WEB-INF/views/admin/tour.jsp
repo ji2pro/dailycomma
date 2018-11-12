@@ -3,7 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
+<script src="<%=request.getContextPath()%>/resources/include/js/admin/tour.js"></script>
 
+<form name="tourPagingForm" id="tourPagingForm">
+	<input type="hidden" name="page" value="1">
+	<input type="hidden" name="sort" value="tour_id">
+</form>
 <!-- 캐스트(관광포스트) 관리 -->
 <div class="row">
 	<div class="col-md-12">
@@ -16,6 +21,7 @@
 							<span class="custom-control-indicator"></span>
 						</label>
 					</th>
+					<th scope="col">관광 ID</th>
 					<th scope="col">관광 지역</th>
 					<th scope="col">제목</th>
 					<th scope="col">작성자</th>
@@ -24,7 +30,7 @@
 					<th scope="col">관리</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="tourTbody">
 				<c:forEach items="${list}" var="tour">
 				<tr class="text-center">
 					<td scope="row">
@@ -33,6 +39,7 @@
 							<span class="custom-control-indicator"></span>
 						</label>
 					</td>
+					<td>${tour.tourId}</td>
 					<td>${tour.tourLocation}</td>
 					<td>${tour.tourTitle}</td>
 					<td>${tour.memberName}</td>
@@ -55,5 +62,8 @@
 		<button id="btnDeleteSelected" class="btn btn-outline-danger">선택 삭제</button>
 	</div>
 </div>
+<div id="tourPaging">
+	<my:paging paging="${paging}" jsFunc="go_page"/> 
+</div>
 <!-- 페이징 버튼 -->
-<my:paging paging="${paging}" />
+<%-- <my:paging paging="${paging}" /> --%>

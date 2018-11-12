@@ -2,7 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
+<script src="<%=request.getContextPath()%>/resources/include/js/admin/room.js"></script>
 
+<form name="roomPagingForm" id="roomPagingForm">
+	<input type="hidden" name="page" value="1">
+	<input type="hidden" name="sort" value="room_no">
+</form>
 <!-- 숙소 관리 경로 표시 -->
 <div class="row">
 	<div class="col-md-12">
@@ -31,7 +36,7 @@
 					<th scope="col">관리</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="roomTbody">
 				<c:forEach items="${list}" var="room">
 				<tr class="text-center">
 					<td scope="row">
@@ -62,5 +67,8 @@
 		<button id="btnDeleteSelected" class="btn btn-outline-danger">선택 삭제</button>
 	</div>
 </div>
+<div id="roomPaging">
+	<my:paging paging="${paging}" jsFunc="go_page"/> 
+</div>
 <!-- 페이징 버튼 -->
-<my:paging paging="${paging}" />
+<%-- <my:paging paging="${paging}" /> --%>

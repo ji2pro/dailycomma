@@ -1,5 +1,5 @@
 /*
- * member.js
+ * host.js
  */
 
 $(function() {
@@ -10,28 +10,28 @@ $(function() {
 function go_page(p) {
 	console.log("p====="+p);
 	var param;
-	if(document.memberPagingForm) {
-		document.memberPagingForm.page.value = p;
-		param = $('#memberPagingForm').serialize();
+	if(document.hostPagingForm) {
+		document.hostPagingForm.page.value = p;
+		param = $('#hostPagingForm').serialize();
 	} else {
-		param = {page: 1, sort: 'member_no'}
+		param = {page: 1, sort: 'host_id'}
 	}
 	
     $.ajax({
-        url:"./member.ajax",
-        data :$('#memberPagingForm').serialize(),
+        url:"./host.ajax",
+        data :$('#hostPagingForm').serialize(),
         type: "GET",
         dataType: "json",
-        success: callbackMember
-    });
+        success: callbackHost
+   });
 }
 	
 function sort(s) {
-	document.memberPagingForm.sort.value = s;
-	document.memberPagingForm.submit();
+	document.hostPagingForm.sort.value = s;
+	document.hostPagingForm.submit();
 }
 
-function callbackMember(datas){
+function callbackHost(datas){
 	console.log(datas);
 	var list = datas.list;
 	var paging = datas.paging;
@@ -41,17 +41,17 @@ function callbackMember(datas){
 		html += ('<tr class="text-center">'+
 				 '<td scope="row">'+
 				 '<label class="custom-control custom-checkbox">'+
-				 '<input type="checkbox" name="_selected_" value="'+data.memberNo+'" class="custom-control-input">'+
+				 '<input type="checkbox" name="_selected_" value="'+data.hostId+'" class="custom-control-input">'+
 				 '<span class="custom-control-indicator"></span>'+
 				 '</label>'+
 				 '</td>'+
-				 '<td>'+data.memberNo+'</td>'+
-				 '<td>'+data.memberName+'</td>'+
-				 '<td>'+data.memberNick+'</td>'+
-				 '<td>'+data.memberEmail+'</td>'+
-				 '<td>'+data.memberPoint+'</td>'+
-				 '<td>'+data.signupDate+
-				 '</td>'+
+				 '<td>'+data.hostName+'</td>'+
+				 '<td>'+data.hostId+'</td>'+
+				 '<td>'+data.hostEmail+'</td>'+
+				 '<td>'+data.hostPhone+'</td>'+
+				 '<td>'+data.businessNo+'</td>'+
+				 '<td>'+data.signupDate+'</td>'+
+				 '<td>'+''+'</td>'+
 				 '<td>'+
 				 '<div class="btn-group">'+
 				 '<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>'+
@@ -79,23 +79,22 @@ function callbackMember(datas){
 	page += "<li class='page-item'>다음";
 	page += "</ul>";
 	
-	$('#memberTbody').empty();
-	$('#memberPaging').empty();
+	$('#hostTbody').empty();
+	$('#hostPaging').empty();
 	
-	$('#memberTbody').append(html);
-	$('#memberPaging').append(page);
-	
+	$('#hostTbody').append(html);
+	$('#hostPaging').append(page);
 }
 
 /*
- * 멤버 삭제 이벤트
+ * 업주 삭제 이벤트
  */
 $('body').off().on('click', '#btnDelete', function() {
-	var memberNo = $(this).closest('tr').find($('input[type=checkbox]')).val();
-	var confirmMember = confirm(memberNo + ' 사용자를 정말 삭제하겠습니까?');
-	if(confirmMember) {
+	var hostId = $(this).closest('tr').find($('input[type=checkbox]')).val();
+	var confirmHost = confirm(hostId + ' 업주를 정말 삭제하겠습니까?');
+	if(confirmHost) {
 		$.ajax({
-			url: 'member/' + memberNo,
+			url: 'host/' + hostId,
 			type: 'DELETE',
 			contentType: 'application/json; charset=utf-8',
 			dataType: 'json',
@@ -104,7 +103,7 @@ $('body').off().on('click', '#btnDelete', function() {
 			},
 			success: function(xhr) {
 				console.log(xhr.result);
-				alert(memberNo + ' 회원이 삭제되었습니다.');
+				alert(hostId + ' 업주가 삭제되었습니다.');
 				go_page(1);
 			}
 		})

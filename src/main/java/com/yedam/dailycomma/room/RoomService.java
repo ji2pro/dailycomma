@@ -1,6 +1,7 @@
 package com.yedam.dailycomma.room;
 
 import com.yedam.dailycomma.lodgment.LodgmentDTO;
+import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface RoomService {
 	public RoomDTO getDetailRoom(RoomDTO dto);
 
 	/* 숙박 업체에 대한 전체 객실 리스트*/
-	public List<RoomDTO> getDetailRooms(LodgmentDTO dto);
+	public List<RoomDTO> getDetailRooms(LodgmentSearchDTO dto);
 
 	/*숙박 업체에 대한 전체 후기 리스트*/
 	public List<RoomPostDTO> getDetailRoomPosts(LodgmentDTO dto);

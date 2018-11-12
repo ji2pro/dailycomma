@@ -16,8 +16,7 @@ public class LodgmentSearchDTO extends LodgmentDTO {
 	
 	private String checkin;
 	private String checkout;
-	
-	
+		
 	
 
 	public String getCheckin() {

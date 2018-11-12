@@ -33,7 +33,7 @@ public class ReservationController {
 		model.addAttribute("room", roomService.getDetailRoom(rDto));
 		return "reservation/insertReservation";
 	}
-	
+
 	//등록 처리
 	@RequestMapping("/insertReservation")
 	public String insertReservation(Model model, ReservationDTO dto) {		
