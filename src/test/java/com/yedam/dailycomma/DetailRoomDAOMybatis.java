@@ -45,7 +45,7 @@ public class DetailRoomDAOMybatis {
 
        System.out.println(dto2.getRoomNo() + " : "+ dto2.getRoomImg()+","+dto2.getRoomInfo());
     }
-    @Test
+/*    @Test
     public void getDetailRoomsTest() {
         ldto.setLodgmentNo("LOD1");
         List<RoomDTO> dto2 = dao.getDetailRooms(ldto);
@@ -53,7 +53,7 @@ public class DetailRoomDAOMybatis {
         for(RoomDTO list : dto2) {
             System.out.println(list.getRoomInfo());
         }
-    }
+    }*/
 
     @Test
     public void insertPostscriptForm() {

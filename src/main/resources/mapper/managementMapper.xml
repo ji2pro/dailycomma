@@ -16,7 +16,15 @@
 
     </select>
 
-
+<!-- 체크박스 선택 뒤 예약자 삭제 시험중 
+	<delete id="deleteReserve" parameterType="Management">
+		DELETE FROM RESERVATION
+		WHERE RESERVE_NO IN
+			<foreach item="item" index="index" collection="reserNo" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+	</delete>
+ -->
 </mapper>
 
 

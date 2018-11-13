@@ -15,10 +15,19 @@ public class ManagementDTO {
 	private String reserveDays;		//예약일수
 	private String totalPrice;		//총판매금액
 	private String reservationNum;	//예약수
-    
+    private String[] reserveNo;		//예약번호
  
+    
 	
-    public String getTotalPrice() {
+    public String[] getReserveNo() {
+		return reserveNo;
+	}
+
+	public void setReserveNo(String[] reserveNo) {
+		this.reserveNo = reserveNo;
+	}
+
+	public String getTotalPrice() {
 		return totalPrice;
 	}
 
