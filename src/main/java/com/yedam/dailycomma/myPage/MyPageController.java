@@ -1,11 +1,16 @@
 package com.yedam.dailycomma.myPage;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.yedam.dailycomma.member.MemberDTO;
 import com.yedam.dailycomma.member.MemberService;
@@ -43,9 +48,25 @@ public class MyPageController {
 		model.addAttribute("country", myPageService.getCountries(dto));
 		return "noTiles/myPage/country";
 	}
-	@RequestMapping("updateMember.do")
-	public String updateMember(Model model, MemberDTO dto, HttpSession session) {
+	@RequestMapping(value = "updateMember.do", method = RequestMethod.POST)
+	public String updateMember(Model model, MemberDTO dto, HttpSession session) throws IOException{
 		dto.setMemberEmail(((MemberDTO)(session.getAttribute("login"))).getMemberEmail());
+		MultipartFile uploadFile = dto.getUploadFile();
+		String filename = "";
+		
+		if(!uploadFile.isEmpty() && uploadFile.getSize() > 0 ) {
+			filename = uploadFile.getOriginalFilename();
+			try {
+				uploadFile.transferTo(new File("D:\\JSP\\dailycomma\\src\\main\\webapp\\resources\\images\\myPage", filename));
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			dto.setMemberImg(filename);
+		} 
 		memberService.updateMember(dto);
 		MemberDTO memberDTO = memberService.getMember(dto);	//새로 업데이트한 값을 memberDTO에 적용
 		session.setAttribute("login", memberDTO);	//세션에 새로 업데이트한 값을 memberDTO를 이용해 넣음.
