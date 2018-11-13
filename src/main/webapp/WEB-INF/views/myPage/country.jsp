@@ -2,6 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<!-- <script> 
+sessionStorage.getItem("myPageCountryList")  //getitem으로 불러와서 for문 어펜드로 추가하면됨
+
+function viewRender(){
+	$("")
+	for(i in )
+}
+
+
+</script> -->
+
 <div class="reta">
 	최근 본 숙소
 	<table class="table mt-3">
@@ -12,13 +23,6 @@
 				<th>가격</th>
 			</tr>
 
-			<c:forEach items="${country}" var="co">
-				<tr>
-					<td>${co.company}</td>
-					<td>${co.roomName}</td>
-					<td>${co.roomPrice}원</td>
-				</tr>
-			</c:forEach>
 		</tbody>
 	</table>
 </div>
