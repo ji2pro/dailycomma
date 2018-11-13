@@ -10,6 +10,8 @@
           type="text/css">
     <link rel="stylesheet" type="text/css"
           href="<%=request.getContextPath()%>/resources/include/css/room/apiTest.css">
+    <link rel="stylesheet" type="text/css"
+          href="<%=request.getContextPath()%>/resources/include/css/room/bundle.css">
     <link rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
@@ -21,7 +23,6 @@
 </head>
 <body>
 <div class="sub-container" id="sub-container-type1">
-
     <div class="container-inner">
         <p class="location-lst">
             <span>하이라이트</span>
@@ -30,6 +31,7 @@
         </p>
         <ul class="lst-type-card  active">
         </ul>
+
 
         <!-- paging -->
         <div class="paging-lst"><a href="#" onclick="return false;" class="icon prev"><i class="ion-chevron-left"></i><i
@@ -45,7 +47,10 @@
                 class="hd-element">마지막 페이지</span></a>
         </div>
         <!-- //paging -->
-
+    </div>
+</div>
+<div class="sub-detail-contents" id="sub-container">
+    <div class="sub-detail-inner" >
     </div>
 </div>
 </body>

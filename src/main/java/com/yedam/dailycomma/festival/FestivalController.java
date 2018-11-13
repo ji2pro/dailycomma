@@ -23,7 +23,8 @@ public class FestivalController {
         return "room/detailFestival";
     }
 
-    @RequestMapping(value="/restAPI/{contentId}")
+    @RequestMapping(value="/detailAPI/{contentId}")
+    @ResponseBody
     public Map restAPI(@PathVariable String contentId){
 
         URI uri1 = URI.create("http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro?" +

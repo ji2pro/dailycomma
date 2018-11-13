@@ -1,5 +1,7 @@
 package com.yedam.dailycomma.tour;
 
+import com.yedam.dailycomma.cast.CastDTO;
+
 import java.util.List;
 
 public interface TourService {
@@ -11,5 +13,6 @@ public interface TourService {
 	//수정
 	
 	//삭제
+
 	
 }
