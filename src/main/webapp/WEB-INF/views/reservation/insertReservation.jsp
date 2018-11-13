@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+<script src="<c:url value="/resources/include/js/reservation/reservation.js"/>"></script>
+
 <script>
 	$(document).ready(
 			function() {
@@ -86,19 +88,6 @@
 	console.log(countryList);
 </script>
 
-<form action="insertReservation.do">
-	<input type="hidden" name="lodgmentNo"
-		value="${reserveInfo.lodgmentNo}"> <input type="hidden"
-		name="memberNo" value="${login.memberNo}"> <input
-		type="hidden" name="roomNo" value="${reserveInfo.roomNo}"> <input
-		type="hidden" name="reservePrice" value=""> <input
-		type="hidden" name="reservePeople" value=""> <input
-		type="hidden" name="checkin" value="${search.checkin}"> <input
-		type="hidden" name="checkout" value="${search.checkout}"> <input
-		type="hidden" name="reservePoints" value="">
-	<!-- 적립포인트 -->
-	<input type="hidden" name="deductionPoint" value="">
-</form>
 
 <div class="container">
 	<div class="row">
@@ -225,7 +214,18 @@
 							</span>
 						</div>
 					</div>
-					<button type="button" class="btn-payment">결제하기</button>
+					<form action=<c:url value="/insertReservation"/>>
+						<input type="hidden" name="lodgmentNo" value="${reserveInfo.lodgmentNo}">
+						<input type="hidden" name="memberNo" value="${login.memberNo}">
+						<input type="hidden" name="roomNo" value="${reserveInfo.roomNo}">
+						<input type="hidden" name="reservePrice" value="${reserveInfo.roomPrice * search.differ }">	<!-- 결제금액 -->
+						<input type="hidden" name="reservePeople" value="1">
+						<input type="hidden" name="checkin" value="${search.checkin}">
+						<input type="hidden" name="checkout" value="${search.checkout}">
+						<input type="hidden" name="reservePoints" value="${reserveInfo.roomPrice * search.differ * 0.005}">	<!-- 적립포인트 -->
+						<input type="hidden" name="deductionPoint" value="0">	
+						<button type="button" class="btn-payment">결제하기</button>
+					</form>
 				</div>
 			</div>
 		</nav>

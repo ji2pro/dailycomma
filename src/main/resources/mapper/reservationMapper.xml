@@ -17,11 +17,11 @@
 			, ROOM_NO
 			, MEMBER_NO
 			, RESERVE_POINTS
-			, RESERVE_STATE
+			, DEDUCTION_POINT
 		)
 		VALUES (
 			TO_CHAR(RESV_SEQ.NEXTVAL)
-			, #{reserveDate}
+			, SYSDATE
 			, #{reservePrice}
 			, #{reservePeople}
 			, #{checkin}
@@ -30,7 +30,7 @@
 			, #{roomNo}
 			, #{memberNo}
 			, #{reservePoints}
- 			, #{reserveState}
+ 			, #{deductionPoint}
 		)
 	</insert>
 	
