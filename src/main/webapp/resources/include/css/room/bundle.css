@@ -76,9 +76,6 @@
     background: url(https://yaimg.yanolja.com/joy/pw/search/icon-staylist.svg) no-repeat
 }
 
-i.icon-staylist.icon-staylist-score.score10 {
-}
-
 .icon-staylist-hot {
     width: 34px;
     height: 14px;
@@ -504,12 +501,6 @@ a {
 .pc-wrapper .column1, .pc-wrapper .column2 {
     width: 1180px;
     margin: 0 auto;
-}
-.pc-wrapper .column2 {
-    position: relative;
-}
-.place-detail {
-    padding-top: 38px;
 }
 
 .review-detail {

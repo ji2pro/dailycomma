@@ -1,3 +1,5 @@
+body {user-select: none;}
+
 section {margin-top: 50px;}
 
 .search-area {
@@ -37,15 +39,36 @@ section {margin-top: 50px;}
     width: 300px;
     text-align: center;
 }
-.search-panel .option-title {display: inline-block;}
+.search-panel .option-title {
+	display: inline-block;
+	color: #484848;
+}
 .search-panel .option-item.item-option-calendar {width: 360px;}
 .search-panel .option-item.item-option-calendar .option-title {width: 50%;}
 .search-panel .option-btn {
     color: #222;
     position: relative;
     width: 100%;
-    padding: 24px 0 30px;
+    padding: 14px 0 40px;
     min-height: 84px;
+    line-height: 26px;
+}
+.search-panel .option-btn em {
+	font-size: 26px;
+	vertical-align: middle;
+}
+.search-panel .option-btn .fa-chevron-down {
+	z-index: -1;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    margin-left: -12px;
+    width: 25px;
+    height: 25px;
+    color: #ccc;
+}
+.search-panel .option-btn:focus .fa-chevron-down {
+	color: #d338ff;
 }
 .search-panel .btn-search-stay {
     color: #fff;
@@ -65,6 +88,41 @@ section {margin-top: 50px;}
 }
 .option-title-wrap {padding-top: 17px;}
 
+.popover-container {position: relative;}
+.popover-content {position: absolute; display: block;}
+.popover-search-option {
+	box-sizing: border-box;
+	box-shadow: 0 3px 7px rgba(0,0,0,.2);
+	border-top: 1px solid #e2a4ff;
+	background-color: #fff;
+	padding: 20px;
+	margin-top: 2px;
+}
+.popover-search-option .radio-list,
+.popover-search-option .area-list {
+	width: 260px;
+    padding: 10px 0;
+}
+.popover-search-option .radio-list label,
+.popover-search-option .area-list label {
+    display: inline-block;
+    padding: 8px 0;
+    font-size: 16px;
+}
+.popover-search-option .radio-list input,
+.popover-search-option .area-list input {display: none;}
+
+.animate-bounce-down {
+	animation-name: fadeIn;
+    animation-iteration-count: 1;
+    animation-duration: .6s;
+    animation-delay: 0s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: none;
+}
 .f-left {float: left;}
 .f-right {float: right;}
 
@@ -98,3 +156,4 @@ section {margin-top: 50px;}
 }
 .left-item-bar {left: 0;}
 .right-item-bar {right: 0;}
+

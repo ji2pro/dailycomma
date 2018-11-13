@@ -1,15 +1,35 @@
-//캘린더 
 $(function() {
-	$('#lodgType').on("click", "li", function() {
-		var temp = $(this).attr("value");
-		$('input:hidden[name="lodgmentType"]').val(temp);
+	//숙소 유형 선택
+	$("input:radio[name=lodgType]").click(function() {
+		var lodgType = $(this).attr('title');
+		$('.item-option-roomtype .popover-container > .option-btn > em').html(lodgType);
+
+		var lodgTypeVal = $(this).attr('value');
+		$('input:hidden[name="lodgmentType"]').val(lodgTypeVal);
 	});
 
-	$('#loc').on("click", "li", function() {
-		var temp = $(this).attr("value");
-		$('input:hidden[name="location"]').val(temp);
+	//지역 선택
+	$("input:radio[name=loc]").click(function() {
+		var loc = $(this).attr('title');
+		$('.item-option-area .popover-container > .option-btn > em').html(loc);
+
+		var locVal = $(this).attr('value');
+		$('input:hidden[name="location"]').val(locVal);
 	});
 	
+	//선택버튼 클릭 시 드롭다운 메뉴 펼치기
+//	$('.popover-wrapper.popover-container').on('click', '.option-btn', function() {
+	$('.option-btn').on('click', function() {
+		var div = $(this).closest($('.animate-bounce-down'));
+		var state = div.css('display'); 
+		if(state != 'none') {
+			div.hide();
+		} else {
+			div.show();
+		}
+	});
+	
+	//달력
    	$.datepicker.setDefaults({
    		dateFormat: 'yy-mm-dd' //Input Display Format 변경
    			,showOtherMonths: true //빈 공간에 현재 월의 앞뒤 월의 날짜를 표시
@@ -37,16 +57,4 @@ $(function() {
      //To의 초기값을 내일로 설정
      $('#datepicker2').datepicker('setDate', '+1D'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
 
-	$("#lodgType li a").click(function() {
-		$("#dropdownMenu1:first-child").html(
-			$(this).text() + ' <span class="caret"></span>');
-		}
-	);
-	$("#loc li a").click(function() {
-		$("#dropdownMenu2:first-child").html(
-			$(this).text() + ' <span class="caret"></span>');
-		}
-	);
 });
-
-

@@ -1,9 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500&subset=korean');
 * {font-family: 'Noto Sans KR', sans-serif;}
+body {word-break: break-all;}
 a, a:hover {text-decoration: none;}
 ::selection {background: #ff80c0; color: white;}
 #wrapper {margin-top: 60px;}
 .btn {border-radius: 0;}
+button {
+	outline: none;
+    border: 0 none;
+    background-color: transparent;
+    cursor: pointer;
+}
+button:focus {
+	outline: none;
+}
+button:active {
+	transform: translateY(1px);
+    opacity: 0.8;
+}
+label {
+	margin: 0;
+	cursor: pointer;
+	text-decoration: none;
+}
+em {font-style: normal;}
 .navbar {height: 60px;	background-color: #fcedff; box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.2);}
 .footer {
 /* 	position: absolute; bottom: 0; width: 100%; */
