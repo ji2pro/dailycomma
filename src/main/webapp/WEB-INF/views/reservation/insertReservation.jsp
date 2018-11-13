@@ -78,11 +78,7 @@
 		countryList.pop();
 	}
 
-	countryList.unshift({  //if문으로 중복체크 해야함.
-		roomNo : '${reserveInfo.roomNo}',
-		company : '${reserveInfo.company}',
-		roomName : '${reserveInfo.roomName}',
-		roomPrice : '${reserveInfo.roomPrice * search.differ }'
+	countryList.unshift({  roomNo : '${reserveInfo.roomNo}', company : '${reserveInfo.company}', roomName : '${reserveInfo.roomName}', roomPrice : '${reserveInfo.roomPrice * search.differ }'
 	});
 	sessionStorage.setItem("myPageCountryList", JSON.stringify(countryList));
 	console.log(countryList);
@@ -113,24 +109,18 @@
 				<div class="col-md-12">
 					<h4 class="font-weight-bold mb-3">할인</h4>
 					<div class="form-group row">
-						<label for="inputReserveName" class="col-2 col-form-label">포인트
-							할인</label>
+						<label for="inputReserveName" class="col-2 col-form-label">포인트할인</label>
 						<!-- <div class="col-10 col-md-4">
 								<input type="text" class="form-control" id="inputReserveName" placeholder="예약자명을 입력하세요.">
 							</div> -->
 						<div class="col-md-10">
 							<c:if test="${login eq null }">
-								<span><a href="#" onclick="setCookie(30)">로그인</a>하면 적립한
-									포인트를 사용할 수 있어요.</span>
+								<span><a href="#" onclick="setCookie(30)">로그인</a>하면 적립한 포인트를 사용할 수 있어요.</span>
 							</c:if>
 
 							<c:if test="${login ne null }">
-								<span> <input type="text" id="point" value="0">
-									&nbsp;&nbsp;
-									<button type="button" class="btn btn-secondary" id="pointBtn">포인트
-										적용</button> &nbsp; 사용( <em class="my-point"
-									data-sum="${login.memberPoint}"> <fmt:formatNumber
-											value="${login.memberPoint}" pattern="###,###" />
+								<span> <input type="text" id="point" value="0">&nbsp;&nbsp;
+									<button type="button" class="btn btn-secondary" id="pointBtn">포인트적용</button> &nbsp; 사용( <em class="my-point" data-sum="${login.memberPoint}"> <fmt:formatNumber value="${login.memberPoint}" pattern="###,###" />
 								</em> 보유)
 								</span>
 
@@ -146,22 +136,24 @@
 			<div class="row mb-4">
 				<div class="col-md-12">
 					<h4 class="font-weight-bold mb-3">필수 입력 사항</h4>
+					
 					<div class="form-group row">
 						<label for="inputReserveName" class="col-2 col-form-label">예약자명</label>
 						<div class="col-10 col-md-4">
-							<input type="text" class="form-control" id="inputReserveName"
-								placeholder="예약자명을 입력하세요.">
+							<input type="text" class="form-control" id="inputReserveName" placeholder="예약자명을 입력하세요.">
 						</div>
 						<div class="col-md-5">
 							<span>실명을 입력해 주세요.</span>
 						</div>
 					</div>
+					
 					<div class="form-group row">
 						<label for="inputReservePhone" class="col-2 col-form-label">휴대전화</label>
+						
 						<div class="col-10 col-md-4">
-							<input type="text" class="form-control" id="inputReservePhone"
-								placeholder="휴대전화 번호를 입력하세요.">
+							<input type="text" class="form-control" id="inputReservePhone" placeholder="휴대전화 번호를 입력하세요.">
 						</div>
+						
 						<div class="col-md-5">
 							<span>올바른 연락처를 입력해 주세요.</span>
 						</div>
@@ -175,41 +167,36 @@
 				<div class="sidebar-top">
 					<div class="info-box">
 						<div class="dateRangePicker-top row">
-							<span class="col-6 mr-auto">체크인</span> <span
-								class="col-6 ml-auto">체크아웃</span>
+							<span class="col-6 mr-auto">체크인</span> <span class="col-6 ml-auto">체크아웃</span>
 						</div>
+						
 						<div class="dateRangePicker row">
 							<span class="col-6 mr-auto" id="startDate">${search.checkin }</span>
 							<span class="col-6 ml-auto" id="EndDate">${search.checkout }</span>
 						</div>
+						
 						<div class="dateRangePicker-bottom row">
-							<span class="col-6 mr-auto">이용 기간</span> <span
-								class="col-6 ml-auto">${search.differ }박 ${search.differ + 1 }일</span>
+							<span class="col-6 mr-auto">이용 기간</span> <span class="col-6 ml-auto">${search.differ }박 ${search.differ + 1 }일</span>
 						</div>
 					</div>
 				</div>
 				<div class="sidebar-bottom">
 					<div class="info-box">
 						<div class="point-discount row">
-							<span class="col-6 mr-auto">포인트 할인</span> <em
-								class="col-6 ml-auto" id="discount-point"><i> 0</i>P</em>
+							<span class="col-6 mr-auto">포인트 할인</span> <em class="col-6 ml-auto" id="discount-point"><i> 0</i>P</em>
 						</div>
+						
 						<div class="point-benefit row">
-							<span class="col-6 mr-auto">적립 포인트</span> <span> <em
-								class="col-6 ml-auto" id="saving-point"> <i> <fmt:formatNumber
-											value="${reserveInfo.roomPrice * search.differ * 0.005}"
-											pattern="###,###" />
+							<span class="col-6 mr-auto">적립 포인트</span> <span> <em class="col-6 ml-auto" id="saving-point"> <i> <fmt:formatNumber value="${reserveInfo.roomPrice * search.differ * 0.005}" pattern="###,###" />
 								</i> P
 							</em>
 							</span>
 						</div>
+						
 						<div class="txt-tip">※ 포인트는 숙박 이용이 완료된 후 적립됩니다.</div>
 						<div class="total-payment row">
-							<span class="col-6 mr-auto">결제 금액</span> <span
-								class="col-6 ml-auto" id="payment-sum"> <i
-								data-sum="${reserveInfo.roomPrice * search.differ}"> <fmt:formatNumber
-										value="${reserveInfo.roomPrice * search.differ }"
-										pattern="###,###" />원
+							<span class="col-6 mr-auto">결제 금액</span> 
+							<span class="col-6 ml-auto" id="payment-sum"> <i data-sum="${reserveInfo.roomPrice * search.differ}"> <fmt:formatNumber value="${reserveInfo.roomPrice * search.differ }" pattern="###,###" />원
 							</i>
 							</span>
 						</div>
