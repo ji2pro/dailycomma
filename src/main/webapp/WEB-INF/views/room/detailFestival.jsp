@@ -14,6 +14,10 @@
           href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
           crossorigin="anonymous">
+    <script>
+        var path = "<c:url value='/'/>"
+    </script>
+    <script src="<%=request.getContextPath()%>/resources/include/js/room/festivalList.js"></script>
 </head>
 <body>
 <div class="sub-detail-contents" id="sub-container">
@@ -42,7 +46,8 @@
             <!-- sub-detail-slide -->
             <div class="sub-detail-slide-wrap">
                 <p class="sub-detail-slide-btn prev"><a href="#"><span></span></a></p>
-                <div class="bx-wrapper" style="max-width: 100%;"><div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 481px;"><div class="sub-detail-slide bxslider" style="width: 1215%; position: relative; transition-duration: 0s; transform: translate3d(-1005px, 0px, 0px);"><div class="item bx-clone" style="float: left; list-style: none; position: relative; width: 1005px;" aria-hidden="true">
+                <div class="bx-wrapper" style="max-width: 100%;"><div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 481px;"><div class="sub-detail-slide bxslider" style="width: 1215%; position: relative; transition-duration: 0s; transform: translate3d(-1005px, 0px, 0px);">
+                    <div class="item bx-clone" style="float: left; list-style: none; position: relative; width: 1005px;" aria-hidden="true">
                     <img src="/comm/getImage?srvcId=MEDIA&amp;parentSn=351&amp;fileTy=MEDIA&amp;fileNo=1&amp;thumbTy=L" alt="DDP LED 장미정원">
                 </div>
                     <div class="item" style="float: left; list-style: none; position: relative; width: 1005px;" aria-hidden="false">

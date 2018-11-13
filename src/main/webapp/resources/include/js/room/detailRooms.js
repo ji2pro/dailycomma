@@ -79,11 +79,10 @@ function insertPostFormSubmit(){
 }
 
 function reserve_click(room_no,lodgment_no){
-	let url = path + "/reserveRoom/"+room_no+"/"+lodgment_no
+	var url = path + "/reserveRoom/"+room_no+"/"+lodgment_no
 	console.log(path);
 	//location.href = url;
 }
-
 
 $(function () {
 
@@ -213,7 +212,6 @@ $(function () {
         console.log("test");
         $("#postResult").hide();
         $(".review-list").show();
-    });   
-   
+    });
 });
 

@@ -1,50 +1,32 @@
 package com.yedam.dailycomma.cast;
 
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-
-import javax.inject.Inject;
-
+import com.yedam.dailycomma.management.ManagementService;
+import com.yedam.dailycomma.member.MemberDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-//import com.yedam.dailycomma.management.EmpService;
-import com.yedam.dailycomma.management.ManagementDTO;
-import com.yedam.dailycomma.management.ManagementService;
-import com.yedam.dailycomma.reservation.ReservationDTO;
-import com.yedam.dailycomma.reservation.ReservationSearchDTO;
-import com.yedam.dailycomma.room.RoomDTO;
+import javax.servlet.http.HttpSession;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class CastController {
 
-		
-		@Autowired
-		private ManagementService service;
-	
-		@RequestMapping("/detailCast.do")
-		public String cast(Locale locale, Model model) throws Exception{
+    @Autowired
+    CastService castService;
 
-			//logger.info("home");
-			
-			/*List<ManagementDTO> memberList = service.selectReservation(dto);
-			
-			model.addAttribute("memberList", memberList);*/
+    @RequestMapping(value = "/detailCast/{tourId}")
+    public String detailCast(@PathVariable String tourId, HttpSession session, Model model) {
+        MemberDTO memberDTO = (MemberDTO) session.getAttribute("login");
+        CastDTO castDTO = new CastDTO();
+        //memberDTO.getMemberNo();
+        castDTO.setMemberNo("MEM1");
+        castDTO.setTourId(tourId);
+        System.out.println(castDTO.getMemberNo());
 
-			return "cast/detailCast";
-		}
-		
+        model.addAttribute("getDetailCast",castService.getDetailCast(castDTO));
 
-	
-
-
+        return "cast/detailCast";
+    }
 }

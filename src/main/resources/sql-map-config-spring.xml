@@ -56,5 +56,8 @@
         <!-- 관리자 -->
 <!--         <typeAlias alias="admin" type="com.yedam.dailycomma.admin.AdminDTO"/> -->
 		<typeAlias alias="adminSearch" type="com.yedam.dailycomma.admin.AdminSearchDTO"/>
+
+        <!--캐스트 상세-->
+        <typeAlias alias="cast" type="com.yedam.dailycomma.cast.CastDTO"/>
 	</typeAliases>	
 </configuration>

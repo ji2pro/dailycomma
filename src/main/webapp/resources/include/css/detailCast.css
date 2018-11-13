@@ -595,7 +595,7 @@ a span.ico_report {
 	.re_comment .ico_reply, span.ico_like, span.ico_read, .ico_play,
 	.caster_c span.ico_caster, .con_detail .side_menu li span, .con_detail .side_menu li.on span,
 	.ico_new, .bl_arrow01, .list_del a .ico_del, .flex-control-paging li a,
-	.flex-control-paging li a.flex-active, .inp_form .notifile div:first-child button
+	.flex-control-paging li a.flex-active, .inp_form .notifile div:first-child button, .heart
 	{
 	background: url(http://image2.yanolja.com/100/pc/cast/icon_img1.png)
 		no-repeat;
@@ -688,6 +688,10 @@ span.ico_read {
 
 .con_detail .side_menu li.on span.bl_like {
 	background-position: -180px -91px
+}
+
+.heart{
+    background-position: -180px -91px;
 }
 
 .con_detail .side_menu li.on span.bl_bookmark {
@@ -793,3 +797,4 @@ dl, ul, ol, menu, li {
 	list-style: none;
 	outline: none;
 }
+
