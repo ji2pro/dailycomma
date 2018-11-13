@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.Locale;
 import java.util.Map;
@@ -76,7 +79,8 @@ public class LodgmentController {
 		//dto.setLodgmentType("A4");*/
 		
 		System.out.println("checkIn =========== : " + dto.getCheckin() + " checkOut ============ : " + dto.getCheckout());		
-		model.addAttribute("search", dto);
+		dto.setDiffer(differenceDate(dto.getCheckin(), dto.getCheckout()));
+		model.addAttribute("search", dto);			//session 저장
 		model.addAttribute("lod",lodgmentService.getMainSearch(dto));
 		return "lodgment/lodgmentSearch";		
 	}
@@ -84,8 +88,32 @@ public class LodgmentController {
 	@RequestMapping("/updateSearch.do")
 	public String updateSearch(@ModelAttribute("search") LodgmentSearchDTO dto,
 							   Model model) {
+		dto.setDiffer(differenceDate(dto.getCheckin(), dto.getCheckout()));
 		model.addAttribute("lod",lodgmentService.getMainSearch(dto));
 		return "lodgment/lodgmentSearch";
+	}
+	
+	private long differenceDate(String checkin, String checkout) {
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+		long calDateDays = 0;
+        
+		try {
+			Date FirstDate = format.parse(checkin);
+			Date SecondDate = format.parse(checkout);
+		    long calDate = FirstDate.getTime() - SecondDate.getTime(); 
+		        
+		    calDateDays = calDate / ( 24*60*60*1000); 
+		        
+		    calDateDays = Math.abs(calDateDays);
+		        
+		    System.out.println("두 날짜의 날짜 차이: "+calDateDays);
+
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}        
+		return calDateDays;
 	}
 	
 }
