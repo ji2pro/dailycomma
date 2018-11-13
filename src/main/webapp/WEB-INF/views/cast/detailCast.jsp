@@ -10,16 +10,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Bootstrap 4.1.3 -->
-<link rel="stylesheet" type="text/css" href="bootstrap-4.1.3/css/bootstrap.min.css"/>
+<%--<link rel="stylesheet" type="text/css" href="bootstrap-4.1.3/css/bootstrap.min.css"/>
 <script src="bootstrap-4.1.3/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 
 <!-- Custom Stylesheets -->
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>--%>
 <link href="<%=request.getContextPath()%>/resources/include/css/detailCast.css" rel="stylesheet" type="text/css">
-
+<script src="<%=request.getContextPath()%>/resources/include/js/cast/detailCast.js"></script>
+<script>
+    var path = "<c:url value='/'/>"
+</script>
 <body>
 <div class="container-fluid" id="wrapper">
 
@@ -29,8 +32,15 @@
             <div class="con_detail bord_b">
                 <div id="side_menu" class="side_menu">
                     <%--오른쪽 버튼--%>
-                    <ul>
-                        <li name="btnLike" class=""><a href="#none"><span class="bl_like heart"></span></a></li>
+                    <ul class="right">
+                        <c:choose>
+                            <c:when test="${getDetailCast.likeyn eq '1'}">
+                                <li name="btnLike" class="" id="likey"><a href="#none" class="likey" id="${getDetailCast.tourId}"><span class="bl_like"></span></a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li name="btnLike" class="on"><a href="#none" class="liken" id="${getDetailCast.tourId}"><span class="bl_like"></span></a></li>
+                            </c:otherwise>
+                        </c:choose>
                         <li class="mg_top"><a href="#"><span class="bl_top"></span></a></li>
                     </ul>
                 </div>
@@ -78,11 +88,19 @@
                             <div class="bt_detail">
                                 <ul>
                                     <li>
-                                        <button type="button" name="btnLike">
-                                            <span class="ico_detaillike heart"></span>
-                                        </button>
-                                        <span class="bt_txt">좋아요${getDetailCast.likeyn}</span><b
-                                            name="jsonLikeCount">5</b>
+                                        <c:choose>
+                                            <c:when test="${getDetailCast.likeyn eq '0'}">
+                                                <button type="button" name="btnLike">
+                                                    <span class="ico_detaillike"></span>
+                                                </button>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <button type="button" name="btnLike" class="on">
+                                                    <span class="ico_detaillike"></span>
+                                                </button>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <span class="bt_txt">좋아요</span><b name="jsonLikeCount">5</b>
                                     </li>
                                 </ul>
                             </div>
@@ -93,12 +111,5 @@
         </div>
     </div>
 </div>
-<ul>
-<li class="heart">
-<div class="heart">
-    aaaaa
-</div>
-</li>
-</ul>
 </body>
 </html>

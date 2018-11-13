@@ -6,4 +6,9 @@
         select tour.*,(select count(*) from TOUR_LIKE
         where MEMBER_NO = #{memberNo} and  TOUR_ID = #{tourId}) likeYN from TOUR where TOUR_ID = #{tourId}
     </select>
+
+    <insert id="detailCastInsert" parameterType="cast">
+        insert into TOUR_LIKE
+        values (sysdate, 'MEM1',#{tourId}, 1);
+    </insert>
 </mapper> 

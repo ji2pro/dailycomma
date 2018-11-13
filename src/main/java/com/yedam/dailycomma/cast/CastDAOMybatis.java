@@ -12,4 +12,7 @@ public class CastDAOMybatis {
     public CastDTO getDetailCast(CastDTO dto) {
         return mybatis.selectOne("detailCast.getDetailCast",dto);
     }
+
+    public int detailCastInsert(CastDTO dto){return mybatis.insert("detailCast.detailCastInsert",dto);}
+
 }
