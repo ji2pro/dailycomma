@@ -29,4 +29,16 @@ public class CastController {
 
         return "cast/detailCast";
     }
+
+    @RequestMapping(value = "/detailCastInsert/{tourId}")
+    public int detailCastInsert(@PathVariable String tourId, HttpSession session, Model model) {
+        MemberDTO memberDTO = (MemberDTO) session.getAttribute("login");
+        CastDTO castDTO = new CastDTO();
+        //memberDTO.getMemberNo();
+        castDTO.setMemberNo("MEM1");
+        castDTO.setTourId(tourId);
+
+        return castService.detailCastInsert(castDTO);
+    }
+
 }

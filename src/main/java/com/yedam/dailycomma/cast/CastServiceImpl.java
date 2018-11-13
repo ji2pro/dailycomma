@@ -13,4 +13,9 @@ public class CastServiceImpl implements CastService {
     public CastDTO getDetailCast(CastDTO dto) {
         return dao.getDetailCast(dto);
     }
+
+    @Override
+    public int detailCastInsert(CastDTO dto) {
+        return dao.detailCastInsert(dto);
+    }
 }
