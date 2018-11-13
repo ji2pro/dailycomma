@@ -40,7 +40,8 @@
 						</label>
 					</td>
 					<td>${lodgment.lodgmentNo}</td>
-					<td><a id="selectedTr" href="rooms/${lodgment.lodgmentNo}" data-target="#lodgmentAdmin">${lodgment.company}</a></td>
+<%-- 					<td><a id="selectedTr" href="rooms/${lodgment.lodgmentNo}" data-target="#lodgmentAdmin">${lodgment.company}</a></td> --%>
+					<td><a id="selectedTr" href="#" onclick="window.open('rooms/${lodgment.lodgmentNo}','lodgment','width=1200, height=500')">${lodgment.company}</a></td>
 					<td>${lodgment.lodgmentType}</td>
 					<td>${lodgment.roomCnt}</td>
 					<td>${lodgment.lodgmentInfo}</td>

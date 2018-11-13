@@ -15,9 +15,18 @@ public class ReservationDTO {
 	private String reservePeople;	//예약인원
 	private String checkin;			//체크인날짜
 	private String checkout;		//체크아웃날짜
+	private String deductionPoint;	//차감포인트
 	private String reservePoints;	//예약포인트
 	private String reserveState;	//예약상태
 	
+	
+	
+	public String getDeductionPoint() {
+		return deductionPoint;
+	}
+	public void setDeductionPoint(String deductionPoint) {
+		this.deductionPoint = deductionPoint;
+	}
 	public String getReserveNo() {
 		return reserveNo;
 	}

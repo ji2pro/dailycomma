@@ -144,7 +144,7 @@ $.ajax({
 
 <!-- 이달 객실별 예약 건수 및 판매금액 -->
 <div align="center"><h1>이달 객실별 예약 건수 및 판매금액</h1></div>
-<table id="statsRoomSell" style="font-size: 15px;" class="table table-striped table-bordered table-hover tableAlign wrap " >
+<table id="statsRoomSell" style="font-size: 15px;" class="table table-striped table-bordered table-hover tableAlign" >
 	<thead>
 		<tr style="background:#ffaabb; text-align:center;">
 			<th>객실명</th>
@@ -167,7 +167,7 @@ $.ajax({
 
 <!-- 이달 총 예약건수 및 판매금액 -->
 <div align="center"><h1>이달 총 예약건수 및 판매금액</h1></div>
-<table id="statsTotalSell" class="table table-striped table-bordered table-hover tableAlign wrap ">
+<table id="statsTotalSell" class="table table-striped table-bordered table-hover tableAlign">
 	<thead>
 			<tr>
 				<th>총 예약건수</th>

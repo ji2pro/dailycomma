@@ -14,24 +14,15 @@ import com.yedam.dailycomma.room.RoomService;
 
 @Controller
 public class ReservationController {
-	@Autowired LodgmentService lodgmentService; 
-	@Autowired RoomService roomService;
 	@Autowired ReservationService reservationService;
 	
 	//등록 폼
-	@RequestMapping(value="/reserveRoom/{roomNo}/{lodgmentNo}", method=RequestMethod.GET)
+	@RequestMapping(value="/reserveRoom/{roomNo}", method=RequestMethod.GET)
 	public String insertReservationForm(Model model,
-										//@PathVariable String lodgmentNo,							
-										@PathVariable String roomNo,
-										@PathVariable String lodgmentNo,
-										LodgmentDTO lDto,
-										RoomDTO rDto) {
-		lDto.setLodgmentNo(lodgmentNo);
-//		rDto.setRoomNo("RO181818");
-//		lDto.setLodgmentNo(lodgmentNo);
-		rDto.setRoomNo(roomNo);
-		model.addAttribute("lodgment", lodgmentService.getLodgment(lDto));
-		model.addAttribute("room", roomService.getDetailRoom(rDto));
+										@PathVariable String roomNo
+										) {
+		
+		model.addAttribute("reserveInfo", reservationService.getReserveInfo(roomNo));
 		return "reservation/insertReservation";
 	}
 
@@ -47,5 +38,6 @@ public class ReservationController {
 //		model.addAttribute("reservation", reservationService.insertReservation(dto));
 		return "reservation/insertReservation";
 	}
+	
 	
 }

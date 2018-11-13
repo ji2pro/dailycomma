@@ -36,6 +36,7 @@
 	<link rel="stylesheet" href="<c:url value="/webjars/jquery-ui/1.12.1/jquery-ui.min.css"/>">
 	
 	<!-- 쿠키 -->
+	<script> var absolutePath = "<c:url value='/'/>"</script>
 	<script src="<c:url value="/resources/include/js/common/Cookie.js"/>"></script>
 </head>
 <body>

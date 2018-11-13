@@ -3,8 +3,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-
 
 
 <html>
@@ -14,88 +12,27 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <link href="./resources/include/css/management.css" rel="stylesheet" type="text/css"> 
-
+<script src="<%=request.getContextPath()%>/resources/include/js/management/management.js"></script>
+<%-- <link href="<%=request.getContextPath()%>/resources/include/css/admin.css" rel="stylesheet" type="text/css" /> --%>
 
   	 
- <style>
-  	 	/* .wrap {
-  	 	width: 940px;
-        margin: 10px auto;
-        padding: 20px;
-        border: 1px solid #bcbcbc;
-  	 	} */
-</style>
 
-<script>
-
-      $(document).ready(function(){
-            $('#empList').DataTable({
-                 pageLength: 10,
-                bPaginate: true, /* 페이징 처리 할것인가 */
-                bLengthChange: true, /* true 하면 리스트 박스 추가 */
-                lengthMenu : [ [ 5, 10, 30, -1 ], [ 5, 10, 30, "All" ] ],
-                bAutoWidth: true,
-                processing: true, /* 값을 가져올때 로딩 processing ui보여줌 */
-                ordering: true, /* 항목 정렬 사용 */
-                serverSide: false,
-                searching: true  
-                /*  ajax : {
-                    "url":"/managementList.do",
-                    "type":"POST",
-                    "data": function (d) {
-                        d.userStatCd = "NR";
-                    }
-                },
-                 columns : [
-                    {data: "member.memberName"}
-                     {data: "member_email"},
-                    {data: "reserve_state"},
-                    {data: "reserve_date"} 
-                ]  */
-  
-            });
- 
-    });  
-      
-      
-      
-      /*
-       * 멤버 삭제 이벤트
-       */
-      $('body').off().on('click', '#btnDelete', function() {
-      	var memberNo = $(this).closest('tr').find($('input[type=checkbox]')).val();
-      	var confirmMember = confirm(memberNo + ' 사용자를 정말 삭제하겠습니까?');
-      	if(confirmMember) {
-      		$.ajax({
-      			url: 'member/' + memberNo,
-      			type: 'DELETE',
-      			contentType: 'application/json; charset=utf-8',
-      			dataType: 'json',
-      			error: function(xhr, status, msg) {
-      				console.log('상태값 : ' + status + ', Http에러메시지 : ' + msg);
-      			},
-      			success: function(xhr) {
-      				console.log(xhr.result);
-      				alert(memberNo + ' 회원이 삭제되었습니다.');
-      				go_page(1);
-      			}
-      		})
-      	}
-      })
-      
-      
-    </script>
-    
-
-    
 <title>예약관리 managementList.do</title>
 
 </head>
 <body>
 <div class="contentMargin">
-<table id="empList" style="font-size: 15px; "class="table table-striped table-bordered table-hover tableAlign wrap " >
+	<div class="titleAlign">
+		<h1><b>예약관리</b></h1>
+	</div>
+	<br>
+
+<form>
+<p align="right"><button id="btnDelete" type="button" class="btn btn-primary">예약취소</button></p>
+<table id="empList" style="font-size: 15px; "class="table table-striped table-bordered table-hover tableAlign" >
+	
 	<thead>
-		<tr style="background:#ffaabb;">
+		<tr style="background : #ffaabb;">
 			<th>선택</th>
 			<th>이름</th>
 			<th>이메일</th>
@@ -111,18 +48,12 @@
 			<th>상태변경일</th>
 		</tr>
 	</thead>
-	
-	<div class="titleAlign">
-		<h1><b>예약관리</b></h1>
-	</div>
-	<br>
-	
-	<p align="right"><button id="btnDelete" type="button" class="btn btn-primary">예약취소</button></p>
 
 	<tbody>
+	
 		<c:forEach items="${memberList}" var="member">
 			<tr>
-			<td><input type="checkbox"></td>
+			<td><input type="checkbox" <%-- name="reserveNo" value="${member.memberEmail}" --%>></td>
 			<td>${member.memberName}</td>
 			<td>${member.memberEmail}</td>
 			<td>(연락처)</td>
@@ -138,9 +69,10 @@
 			
 			</tr>
 		</c:forEach>
+		
 	</tbody>
 </table>
-
+</form>
 
 </div>
 </body>

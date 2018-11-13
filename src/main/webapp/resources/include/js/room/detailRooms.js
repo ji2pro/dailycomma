@@ -19,13 +19,13 @@ function PostListResult(data) {
         "<span class=\"date\">"+item.postscriptDate+"</span>" +
         "</div>"+
         "<div class=\"place-review__score\">"+
-        "<span class=\"score-rap\">";
+        "<span class=\"score-rap text-warning\">";
         for(var i=0 ; i < 5 ; i++){
             if(item.grade > i){
-                postList += "<i class='fas fa-star starColor' style=\"color:#ffeb00\"></i>";
+                postList += "<i class='fa fa-star starColor'></i>";
             }
             else{
-                postList += "<i class='far fa-star starColor' style=\"color:#ffeb00\"></i>";
+                postList += "<i class='fa fa-star-o starColor'></i>";
             }
         }
         postList +=
@@ -78,27 +78,27 @@ function insertPostFormSubmit(){
     })
 }
 
-function reserve_click(room_no,lodgment_no){
-	var url = path + "/reserveRoom/"+room_no+"/"+lodgment_no
-	console.log(path);
-	//location.href = url;
+function reserve_click(room_no){
+	var url = path + "reserveRoom/"+room_no
+	console.log(url);
+	location.href = url;
 }
 
-$(function () {
 
-    $(document).on('click','#insertStar',function () {
+$(function() {
 
+    $(document).on('click', '#insertStar', function() {
         var star = $(this).attr("class");
         console.log(star);
-        if(star.substr(0,3)=="far"){//클릭한 i태그가 빈 별 이라면
-            $(this).attr("class","fas fa-star");//선택한 부분을 별로 찍고
-            console.log($(this).attr("class","fas fa-star"));
-            $(this).prevAll().attr("class","fas fa-star");//선택한 부분 이전의 값을 내용이 찬 별로 찍어준다.
-            console.log( $(this).prevAll().attr("class","fas fa-star"));
+        if(star == "fa fa-star-o"){//클릭한 i태그가 빈 별 이라면
+            $(this).attr("class","fa fa-star");//선택한 부분을 별로 찍고
+            console.log($(this).attr("class","fa fa-star"));
+            $(this).prevAll().attr("class","fa fa-star");//선택한 부분 이전의 값을 내용이 찬 별로 찍어준다.
+            console.log( $(this).prevAll().attr("class","fa fa-star"));
         }
         else{//클릭한 i태그가 빈 별이 아니라면
-            $(this).nextAll().attr("class","far fa-star");//이후의 값을 빈별로 찍어준다.
-            console.log($(this).nextAll().attr("class","far fa-star"));
+            $(this).nextAll().attr("class","fa fa-star-o");//이후의 값을 빈별로 찍어준다.
+            console.log($(this).nextAll().attr("class","fa fa-star-o"));
         }
 
         var par = $(this).parent().children("i").index(this)+1;
@@ -121,7 +121,7 @@ $(function () {
     });
 
     /*후기 목록*/
-    $(".postScript").on('click',function () {
+    $(".postScript").on('click', function() {
         console.log($(this).attr('id'));
         var lodgmentNo = $(this).attr('id');
 
@@ -140,7 +140,7 @@ $(function () {
     });
 
     /*후기 등록 폼*/
-    $(".review-post__insert-btn").on('click',function () {
+    $(".review-post__insert-btn").on('click', function() {
         console.log($(this).attr('id'));
         var lodgmentNo = $(this).attr('id');
 
@@ -175,11 +175,11 @@ $(function () {
             "<div class=\"inp-txt-member\">" +
             "<textarea rows=\"4\" name=\"postscriptContent\" id=\"postscriptContent\" cols=\"100\" placeholder=\"내용을 입력 해주세요.\"style=\"resize: none;\"/>" +
             "<div style=\"width: 130px; height: 30px; display: inline-block; float:left\" id=\"to\">"+
-            "<i class=\"far fa-star\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
-            "<i class=\"far fa-star\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
-            "<i class=\"far fa-star\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
-            "<i class=\"far fa-star\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
-            "<i class=\"far fa-star\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
+            "<i class=\"fa fa-star-o\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
+            "<i class=\"fa fa-star-o\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
+            "<i class=\"fa fa-star-o\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
+            "<i class=\"fa fa-star-o\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
+            "<i class=\"fa fa-star-o\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
             "</div>"+
             "</div>" +
             "<button type=\"button\" onclick=\"insertPostFormSubmit()\" name=\"button\" class=\"btn-gradation\" id=\"btnToJoinEnd\">등록" +
@@ -208,10 +208,11 @@ $(function () {
     });
 
     /*후기 상세에서 목록가기*/
-    $(document).on('click', ".review-detail__list-btn" ,function () {
+    $(document).on('click', ".review-detail__list-btn", function () {
         console.log("test");
         $("#postResult").hide();
         $(".review-list").show();
-    });
+    });   
+   
 });
 

@@ -1,6 +1,7 @@
 package com.yedam.dailycomma.reservation;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,12 @@ public class ReservationServiceImpl implements ReservationService {
 
 	public int getCnt(ReservationSearchDTO searchDto) {
 		return dao.getCnt(searchDto);
+	}
+
+	@Override
+	public Map<String,Object> getReserveInfo(String roomNo) {
+		// TODO Auto-generated method stub
+		return dao.getReserveInfo(roomNo);
 	}
 
 }

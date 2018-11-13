@@ -17,7 +17,17 @@ public class LodgmentSearchDTO extends LodgmentDTO {
 	private String checkin;
 	private String checkout;
 		
+	private long differ;
 	
+	
+	
+	public long getDiffer() {
+		return differ;
+	}
+
+	public void setDiffer(long differ) {
+		this.differ = differ;
+	}
 
 	public String getCheckin() {
 		return checkin;
@@ -83,6 +93,7 @@ public class LodgmentSearchDTO extends LodgmentDTO {
 		this.ids = ids;
 	}
 
+	
 	@Override
 	public String toString() {
 		return "UserSearchDTO [searchCondition=" + searchCondition + ", searchKeyword=" + searchKeyword + ", start="

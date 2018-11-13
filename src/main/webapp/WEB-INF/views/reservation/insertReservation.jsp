@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <script>
 $(document).ready(function(){
 	$('#pointBtn').click(function(){
-		var my_point = parseInt($('.my-point').text());		//보유한 포인트
+		var my_point = parseInt($('.my-point').attr("data-sum"));		//보유한 포인트
 		var use_point =  parseInt($('#point').val());		//사용할 포인트
 		var payment_sum = parseInt($('#payment-sum').children("i").attr("data-sum"));	//결제금액
 		
@@ -18,16 +19,50 @@ $(document).ready(function(){
 			return;
 		}		
 		
-		if(use_point > payment_sum ){								//사용할 포인트가 결제금액보다 많을경우
-			$('#payment-sum').children("i").text("0");		   
-			$('#discount-point').children("i").text(use_point);		//차감될 포인트
+		if(use_point >= payment_sum ){								//사용할 포인트가 결제금액보다 많을경우
+			alert("결제금액보다 많이 입력하셨습니다.");
+			
+			/* 		$('#payment-sum').children("i").text("0");		   
+			$('#discount-point').children("i").text(payment_sum);		//차감될 포인트
+			$('#saving-point').children("i").text("0");
+			$('input:hidden[name="deductionPoint"]').val(payment_sum);	
+			$('input:hidden[name="reservePoints"]').val(0);
+			 */
 		}else{
-			$('#payment-sum').children("i").text(payment_sum - use_point);
+			my_point = my_point - use_point;
+			my_point = my_point.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			var sum = payment_sum - use_point; 	//결제금액 - 사용할 포인트
+			var round = Math.round(sum * 0.05);
+			console.log(round);
+			
+			var str = round.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			sum = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			use_point = use_point.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			
+			//round = round.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			$('#payment-sum').children("i").text(sum);
 			$('#discount-point').children("i").text(use_point);
+			$('#saving-point').children("i").text(str);
+			$('input:hidden[name="deductionPoint"]').val(use_point);
+			$('input:hidden[name="reservePoints"]').val(round);
+		
+			$('.my-point').text(my_point);
 		}
 	});
 });
 </script>
+
+<form action="insertReservation.do">
+	<input type="hidden" name="lodgmentNo" value="${reserveInfo.lodgmentNo}">
+	<input type="hidden" name="memberNo" value="${login.memberNo}">
+	<input type="hidden" name="roomNo" value="${reserveInfo.roomNo}">
+	<input type="hidden" name="reservePrice" value="">
+	<input type="hidden" name="reservePeople" value="">
+	<input type="hidden" name="checkin" value="${search.checkin}">
+	<input type="hidden" name="checkout" value="${search.checkout}">
+	<input type="hidden" name="reservePoints" value="">				<!-- 적립포인트 -->
+	<input type="hidden" name="deductionPoint" value="">	
+</form>
 
 <div class="container">
 	<div class="row">
@@ -38,18 +73,18 @@ $(document).ready(function(){
 						src="https://static.pingendo.com/cover-moon.svg">
 				</div>
 				<div class="col-md-7 pl-3">
-					<h2 class="font-weight-bold">${room.roomName}</h2>
+					<h2 class="font-weight-bold">${reserveInfo.roomName}</h2>
 					<h5>
-						${lodgment.company}<br>
-                           <small class="text-muted">${lodgment.address}</small>
+						${reserveInfo.company}<br>
+                           <small class="text-muted">${reserveInfo.address}</small>
 					</h5>
-					<p>기준 2명 / 최대 ${room.roomCapa}명</p>
+					<p>기준 2명 / 최대 ${reserveInfo.roomCapa}명</p>
 				</div>
 			</div>
 			
 	<hr class="py-2">
 			
-			<form action="insertReservation.do">
+			
 				<div class="row mb-4">
 					<div class="col-md-12">
 						<h4 class="font-weight-bold mb-3">할인</h4>
@@ -67,8 +102,9 @@ $(document).ready(function(){
 									<span>	
 										<input type="text" id="point" value="0"> &nbsp;&nbsp;
 										<button type="button" class="btn btn-secondary" id="pointBtn">포인트 적용</button> &nbsp;
-																		
-										사용( <em class="my-point">${login.memberPoint}</em> 보유)
+										사용( <em class="my-point" data-sum="${login.memberPoint}">
+											<fmt:formatNumber value="${login.memberPoint}" pattern="###,###"/>
+										</em> 보유)
 									</span>
 									
 								</c:if>
@@ -105,7 +141,7 @@ $(document).ready(function(){
 						</div>
 					</div>
 				</div>
-			</form>
+		
 		</div>
 		<nav class="col-md-3 d-none d-md-block bg-light sidebar">
 			<div class="sidebar-sticky">
@@ -116,12 +152,12 @@ $(document).ready(function(){
 							<span class="col-6 ml-auto">체크아웃</span>
 						</div>
 						<div class="dateRangePicker row">
-							<span class="col-6 mr-auto" id="startDate">2018-10-20</span>
-							<span class="col-6 ml-auto" id="EndDate">2018-10-24</span>
+							<span class="col-6 mr-auto" id="startDate">${search.checkin }</span>
+							<span class="col-6 ml-auto" id="EndDate">${search.checkout }</span>
 						</div>
 						<div class="dateRangePicker-bottom row">
 							<span class="col-6 mr-auto">이용 기간</span>
-							<span class="col-6 ml-auto">4박 5일</span>
+							<span class="col-6 ml-auto">${search.differ }박 ${search.differ + 1 }일</span>
 						</div>
 					</div>
 				</div>
@@ -133,14 +169,22 @@ $(document).ready(function(){
 						</div>
 						<div class="point-benefit row">
 							<span class="col-6 mr-auto">적립 포인트</span>
-							<span><em class="col-6 ml-auto"><i> 0</i>P</em></span>
+							<span>
+								<em class="col-6 ml-auto" id="saving-point">
+									<i> <fmt:formatNumber value="${reserveInfo.roomPrice * search.differ * 0.005}" pattern="###,###"/> </i>
+								 P</em>
+							 </span>
 						</div>
 						<div class="txt-tip">
 							※ 포인트는 숙박 이용이 완료된 후 적립됩니다.
 						</div>
 						<div class="total-payment row">
 							<span class="col-6 mr-auto">결제 금액</span>
-							<span class="col-6 ml-auto" id="payment-sum"><i data-sum="120000"> 120000</i>원</span>
+							<span class="col-6 ml-auto" id="payment-sum">
+								<i data-sum="${reserveInfo.roomPrice * search.differ}"> 
+									<fmt:formatNumber value="${reserveInfo.roomPrice * search.differ }" pattern="###,###"/>원
+								</i>
+							</span>
 						</div>
 					</div>
 					<button type="button" class="btn-payment">결제하기</button>

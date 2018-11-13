@@ -6,27 +6,25 @@
 <html>
 
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-          type="text/css">
-    <link rel="stylesheet" type="text/css"
-          href="<%=request.getContextPath()%>/resources/include/css/room/bundle.css">
-    <link rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-          crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/include/css/room/bundle.css">
+    <script src="<%=request.getContextPath()%>/resources/include/js/room/detailRooms.js"></script>
     <script>
     	var path = "<c:url value='/'/>"
     </script>
-
-    <script src="<%=request.getContextPath()%>/resources/include/js/room/detailRooms.js"></script>
 
     <%--<script> $(document).ready(funcion(){
         $('#carousel').carousel,'cycle');
     });
     </script>--%>
-    <link rel="stylesheet" href="theme.css">
     <style>
+    	.carousel-item {
+    		height: 520px;
+    	}
+    	.image-wrap {
+    		display: block;
+    		height: 520px;
+    	}
+    	
         textarea:focus {
             outline: none;
         }
@@ -60,40 +58,40 @@
 </head>
 
 <body>
-<%--전체 이미지--%>
-<div class="py-5">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="carousel slide" data-ride="carousel" id="carousel2">
-                        <div class="carousel-inner">
-                            <c:forTokens items="${getAllImg}" delims="||" var="img" varStatus="status">
-                                <c:if test="${status.first}">
-                                    <div class="carousel-item active">
-                                        <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/room/${img}'/>"/>
-                                    </div>
-                                </c:if>
-                                <c:if test="${!status.first}">
-                                    <div class="carousel-item">
-                                        <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/room/${img}'/>"/>
-                                    </div>
-                                </c:if>
-                            </c:forTokens>
-                    </div>
-                    <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span></a>
-                    <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next" style="">
-                        <span class="carousel-control-next-icon"></span> </a>
+<!-- 전체 이미지 -->
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="carousel slide" data-ride="carousel" id="carousel2">
+				<div class="carousel-inner">
+                    <c:forTokens items="${getAllImg}" delims="||" var="img" varStatus="status">
+                        <c:if test="${status.first}">
+                            <div class="carousel-item active">
+<%--                                 <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/room/${img}'/>"/> --%>
+								<span class="image-wrap" style="background: url('<c:url value="/resources/images/room/${img}"/>') center center / cover no-repeat"></span>
+                            </div>
+                        </c:if>
+                        <c:if test="${!status.first}">
+                            <div class="carousel-item">
+<%--                                 <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/room/${img}'/>"/> --%>
+								<span class="image-wrap" style="background: url('<c:url value="/resources/images/room/${img}"/>') center center / cover no-repeat"></span>
+                            </div>
+						</c:if>
+                	</c:forTokens>
                 </div>
+                <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span></a>
+                <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next" style="">
+                    <span class="carousel-control-next-icon"></span> </a>
             </div>
         </div>
     </div>
 </div>
 
-<%--호텔정보--%>
+<!--호텔정보-->
 <div class="container">
     <section>
-        <div class="place-detail column2"><h2 class="detail-info__title">${getDetailRooms[0].company}</h2>
+        <div class="place-detail"><h2 class="detail-info__title">${getDetailRooms[0].company}</h2>
             <div class="detail-info__address">
                 <div>상세 주소 : ${getDetailRooms[0].address}</div>
                 <div>연락처 : ${getDetailRooms[0].hostPhone}</div>
@@ -154,8 +152,9 @@
         </div>
     </section>
 </div>
-<%--객실정보 리스트--%>
-<div class="py-5">
+
+<!--객실정보 리스트-->
+<div class="py-1">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -185,7 +184,7 @@
                                     <div class="py-3"><span class="room-label f-right">숙박${list.roomPrice}원</span></div>
                                     
                                     <c:if test="${list.enable == '1'}">
-                                    	<button class="place-room__reserve-btn btn-reserve_on" onclick="reserve_click('${list.roomNo}','${list.lodgmentNo }')"> 예약하기</button>
+                                    	<button class="place-room__reserve-btn btn-reserve_on" onclick="reserve_click('${list.roomNo}')"> 예약하기</button>
                                 	</c:if>
                                 	<c:if test="${list.enable == '0'}">
                                 		<button class="place-room__reserve-btn btn-reserve_off"> 예약마감</button>
@@ -227,7 +226,7 @@
                         </c:forEach>
                     </div>
 
-                    <%--후기 리스트--%>
+                    <!-- 후기 리스트 -->
                     <div class="tab-pane fade" id="tabtwo" role="tabpanel">
                         <div class="place-room__message"><i class="badge-live">바른후기</i>는 숙소에 직접
                             방문한 회원만 작성할 수 있습니다.

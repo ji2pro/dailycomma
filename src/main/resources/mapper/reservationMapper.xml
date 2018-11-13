@@ -98,6 +98,19 @@
 		</where>
 	</select>
 	
+	<select id="getReserveInfo" parameterType="string" resultType="map">
+		SELECT R.ROOM_NAME AS "roomName",
+			   R.ROOM_CAPA AS "roomCapa",
+			   R.ROOM_PRICE AS "roomPrice",
+			   R.ROOM_NO AS "roomNo",
+			   L.COMPANY AS "company",
+			   L.ADDRESS AS "address",
+			   L.LODGMENT_NO AS "lodgmentNo"
+			   			   
+		FROM   ROOM R JOIN LODGMENT L
+		ON	   R.LODGMENT_NO = L.LODGMENT_NO
+		WHERE  R.ROOM_NO = #{value}			   
+	</select>
 	<!-- 수정 미완성-->
  	<!--<update id="updateHost" parameterType="host">
 		UPDATE LODGMENT SET PASSWORD = #{password},

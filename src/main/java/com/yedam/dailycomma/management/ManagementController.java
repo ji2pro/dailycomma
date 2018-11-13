@@ -33,6 +33,7 @@ public class ManagementController {
 		//사장님 예약자 리스트 managementList.do 관련 부분 컨트롤러!!
 		@Autowired
 		private ManagementService service;
+		private String[] reserveNo;
 
 		@RequestMapping("/managementList.do")
 		public String management(Locale locale, Model model, ManagementDTO dto) {
@@ -43,27 +44,18 @@ public class ManagementController {
 			return "management/managementList";
 		}
 		
-		//삭제 시험
-		@RequestMapping("/deleteReserve") 
+		
+/*		//체크박스 선택 뒤 취소버튼 예약자 삭제 시험중 
+		@RequestMapping("/deleteReserve.do") 
 		@ResponseBody
 		public HashMap<String, Object> deleteReserve(ManagementDTO dto){
+			dto.setReserveNo(reserveNo);
 			service.deleteReserve(dto);
 			HashMap<String, Object> map = new HashMap<String, Object>();
 			map.put("result", Boolean.TRUE);
 			return map;
-		}
-		
-		
-/*		//멤버 - 삭제
-		@RequestMapping(value="/member/{memberNo}", method=RequestMethod.DELETE)
-		@ResponseBody
-		public HashMap<String, Object> deleteMember(@PathVariable String memberNo, MemberDTO dto) {
-			dto.setMemberNo(memberNo);
-			adminService.deleteMember(dto);
-			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put("result", Boolean.TRUE);
-			return map;
 		}*/
+		
 	
 		//통계 뷰 페이지
 		@RequestMapping("/stats.do") 
@@ -77,6 +69,7 @@ public class ManagementController {
 		}
 		
 		//구글차트 stats.do 관련 부분 컨트롤러!!
+		//월별수익금액
 		@Autowired StatsService statsService;
 		@RequestMapping("/getStatsChart.do") //차트 데이터
 		@ResponseBody
@@ -84,6 +77,7 @@ public class ManagementController {
 			return statsService.getStatsChart();
 		}
 		
+		//월별객실예약건수
 		@RequestMapping("/getReserveChart.do")
 		@ResponseBody
 		public List<Map<String, Object>> getReserveChart() {
