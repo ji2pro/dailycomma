@@ -1,6 +1,7 @@
 package com.yedam.dailycomma.reservation;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,4 +42,8 @@ public class ReservationDAOMybatis {
 		System.out.println("reservation mybatis 삭제========");
 		return mybatis.delete("reservation.deleteReservation", dto);
 	}
+	
+  	public Map<String,Object> getReserveInfo(String roomNo) {
+  		return mybatis.selectOne("reservation.getReserveInfo", roomNo);
+  	}
 }

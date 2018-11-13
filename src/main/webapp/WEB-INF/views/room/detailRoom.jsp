@@ -185,7 +185,7 @@
                                     <div class="py-3"><span class="room-label f-right">숙박${list.roomPrice}원</span></div>
                                     
                                     <c:if test="${list.enable == '1'}">
-                                    	<button class="place-room__reserve-btn btn-reserve_on" onclick="reserve_click('${list.roomNo}','${list.lodgmentNo }')"> 예약하기</button>
+                                    	<button class="place-room__reserve-btn btn-reserve_on" onclick="reserve_click('${list.roomNo}')"> 예약하기</button>
                                 	</c:if>
                                 	<c:if test="${list.enable == '0'}">
                                 		<button class="place-room__reserve-btn btn-reserve_off"> 예약마감</button>

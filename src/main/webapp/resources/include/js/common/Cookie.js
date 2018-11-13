@@ -16,9 +16,10 @@ function setCookie(exdays) {
     
     url = url.substring(idx);
     
-    //console.log(url);
-    
+    console.log(url);
+    console.log(absolutePath);
     document.cookie = "url" + "=" +url+ ";" + expires + ";path=/";
 
-    location.href = "loginChoice.do";
+    
+    location.href = absolutePath+"loginChoice.do";
 }

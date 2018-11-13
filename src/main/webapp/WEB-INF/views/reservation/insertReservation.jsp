@@ -38,12 +38,12 @@ $(document).ready(function(){
 						src="https://static.pingendo.com/cover-moon.svg">
 				</div>
 				<div class="col-md-7 pl-3">
-					<h2 class="font-weight-bold">${room.roomName}</h2>
+					<h2 class="font-weight-bold">${reserveInfo.roomName}</h2>
 					<h5>
-						${lodgment.company}<br>
-                           <small class="text-muted">${lodgment.address}</small>
+						${reserveInfo.company}<br>
+                           <small class="text-muted">${reserveInfo.address}</small>
 					</h5>
-					<p>기준 2명 / 최대 ${room.roomCapa}명</p>
+					<p>기준 2명 / 최대 ${reserveInfo.roomCapa}명</p>
 				</div>
 			</div>
 			
