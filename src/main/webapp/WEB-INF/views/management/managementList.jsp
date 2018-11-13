@@ -27,8 +27,10 @@
 	</div>
 	<br>
 
-<form>
-<p align="right"><button id="btnDelete" type="button" class="btn btn-primary">예약취소</button></p>
+<form action="">
+<p align="right">
+	<button id="btnDelete" type="button" class="btn btn-primary">예약취소</button>
+</p>
 <table id="empList" style="font-size: 15px; "class="table table-striped table-bordered table-hover tableAlign" >
 	
 	<thead>
@@ -49,28 +51,29 @@
 		</tr>
 	</thead>
 
-	<tbody>
 	
-		<c:forEach items="${memberList}" var="member">
-			<tr>
-			<td><input type="checkbox" <%-- name="reserveNo" value="${member.memberEmail}" --%>></td>
-			<td>${member.memberName}</td>
-			<td>${member.memberEmail}</td>
-			<td>(연락처)</td>
-			<td>${member.reserveState}</td>
-			<td>${member.reserveDate}</td>
-			<td>${member.reservePeople}</td>
-			<td>${member.roomName}</td>
-			<td>${member.reservePrice}</td>
-			<td>${member.checkin}</td>
-			<td>${member.checkout}</td>
-	 		<td>(일수)<%-- ${member.reserveDays} --%></td>  
-			<td>(상태변경일)</td>
-			
-			</tr>
-		</c:forEach>
+		<tbody>
 		
-	</tbody>
+			<c:forEach items="${memberList}" var="member">
+				<tr>
+					<td><input type="radio" name="reserveNo" value="${member.reserveNo}"></td>
+					<td>${member.memberName}</td>
+					<td>${member.memberEmail}</td>
+					<td>(연락처)</td>
+					<td>${member.reserveState}</td>
+					<td>${member.reserveDate}</td>
+					<td>${member.reservePeople}</td>
+					<td>${member.roomName}</td>
+					<td>${member.reservePrice}</td>
+					<td>${member.checkin}</td>
+					<td>${member.checkout}</td>
+			 		<td>(일수)<%-- ${member.reserveDays} --%></td>  
+					<td>(상태변경일)</td>				
+				</tr>
+			</c:forEach>
+		
+		</tbody>
+	
 </table>
 </form>
 

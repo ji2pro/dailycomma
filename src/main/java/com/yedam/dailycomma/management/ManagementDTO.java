@@ -5,6 +5,7 @@ public class ManagementDTO {
 
     private String memberName;		//회원 이름
 	private String memberEmail;		//회원 이메일
+	private String reserveNo;		//예약 번호
 	private String reserveState;	//예약상태
 	private String reserveDate;		//예약날짜
 	private String reservePeople;	//예약인원
@@ -15,15 +16,14 @@ public class ManagementDTO {
 	private String reserveDays;		//예약일수
 	private String totalPrice;		//총판매금액
 	private String reservationNum;	//예약수
-    private String[] reserveNo;		//예약번호
  
     
 	
-    public String[] getReserveNo() {
+    public String getReserveNo() {
 		return reserveNo;
 	}
 
-	public void setReserveNo(String[] reserveNo) {
+	public void setReserveNo(String reserveNo) {
 		this.reserveNo = reserveNo;
 	}
 

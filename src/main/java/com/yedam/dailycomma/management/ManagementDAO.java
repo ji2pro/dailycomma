@@ -17,13 +17,13 @@ public class ManagementDAO {
 	//empMapper.xml의 아이디 명과 EmpDAO 메서드 명을 같이 해주면 보기 쉽다.
 	
 
-	public List<ManagementDTO> selectReservation(){
-		return mybatis.selectList("management.selectReservation");
+	public List<ManagementDTO> selectReservation(String lodgmentNo){
+		return mybatis.selectList("management.selectReservation",lodgmentNo);
 	}
 
 	
-/*	public int deleteReserve(ManagementDTO dto) {
+	public int deletefReserve(ManagementDTO dto) {
 		return mybatis.delete("management.deleteReserve", dto);
-	}*/
+	}
 	
 }

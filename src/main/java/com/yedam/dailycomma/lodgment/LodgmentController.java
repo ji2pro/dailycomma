@@ -73,9 +73,7 @@ public class LodgmentController {
 	}	
 	
 	@RequestMapping("/getMainSearch.do")
-	public String getMainSearch(Model model, 
-								LodgmentSearchDTO dto
-								) {
+	public String getMainSearch(Model model,LodgmentSearchDTO dto) {
 		//dto.setLodgmentType("A4");*/
 		
 		System.out.println("checkIn =========== : " + dto.getCheckin() + " checkOut ============ : " + dto.getCheckout());		

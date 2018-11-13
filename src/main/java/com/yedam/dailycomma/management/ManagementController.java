@@ -36,10 +36,11 @@ public class ManagementController {
 		private String[] reserveNo;
 
 		@RequestMapping("/managementList.do")
-		public String management(Locale locale, Model model, ManagementDTO dto) {
+		public String management(Locale locale, Model model, String lodgmentNo) {
 
 			//logger.info("home");
-			List<ManagementDTO> memberList = service.selectReservation(dto);
+			lodgmentNo = "LOD1";
+			List<ManagementDTO> memberList = service.selectReservation(lodgmentNo);
 			model.addAttribute("memberList", memberList);
 			return "management/managementList";
 		}

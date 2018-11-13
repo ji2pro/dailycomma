@@ -15,11 +15,10 @@ public class ManagementServiceImpl implements ManagementService {
 	ManagementDAO dao;
 	
 	    
-	    @Override
-	    public List<ManagementDTO> selectReservation(ManagementDTO dto){
-	    	
-	        return dao.selectReservation();
-	    }
+    @Override
+    public List<ManagementDTO> selectReservation(String lodgmentNo){
+        return dao.selectReservation(lodgmentNo);
+    }
 	
 	   /* public int deleteReserve(ManagementDTO dto) {
 			return dao.deleteReserve(dto);
