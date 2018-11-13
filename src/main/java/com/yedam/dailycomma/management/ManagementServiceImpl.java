@@ -21,9 +21,9 @@ public class ManagementServiceImpl implements ManagementService {
 	        return dao.selectReservation();
 	    }
 	
-	    public int deleteReserve(ManagementDTO dto) {
+	   /* public int deleteReserve(ManagementDTO dto) {
 			return dao.deleteReserve(dto);
-		}
+		}*/
 		
 
 }

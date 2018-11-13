@@ -78,10 +78,10 @@ function insertPostFormSubmit(){
     })
 }
 
-function reserve_click(room_no,lodgment_no){
-	let url = path + "/reserveRoom/"+room_no+"/"+lodgment_no
-	console.log(path);
-	//location.href = url;
+function reserve_click(room_no){
+	var url = path + "reserveRoom/"+room_no
+	console.log(url);
+	location.href = url;
 }
 
 

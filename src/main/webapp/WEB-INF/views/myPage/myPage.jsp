@@ -20,7 +20,7 @@
 	<!--개인정보 수정  / 비밀번호, 한줄소개 -->
 	<div class="py-5">
 		<div class="container">
-			<form action="updateMember.do">
+			<form action="updateMember.do" method="post" enctype="multipart/form-data">
 				<div class="row">
 					<div class="col-md-4" id="photo" style="margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto; width:100%;" align="center" >
 							<c:choose>
@@ -28,7 +28,7 @@
 								<i class="fas fa-user fa-8x"></i>
 							</c:when>
 							<c:otherwise>
-       						<img src="resources/images/cast/${login.memberImg}" class="rounded-circle">
+       						<img src="resources/images/cast/${login.memberImg}" class="rounded-circle img-fluid">
         				 </c:otherwise>
 						</c:choose>
 					</div>
@@ -46,8 +46,9 @@
 							<li>한줄소개 :<input type="text" size="40" name="memberIntro"
 								placeholder="자신을 소개하세요" value="${login.memberIntro}"
 								style="border:none" class="ml-3 my-3"></li>
+							<li>프로필 사진 : <input type="file" name="uploadFile" class="ml-3 my-3"></li>
 						</ul>
-						<button class="btn btn-primary btn-lg mt-3 ml-3" type="submit">정보수정</button>
+						<button class="btn btn-primary btn-lg mt-3 ml-3" type="submit" id="up">정보수정</button>
 					</div>
 				</div>
 			</form>
@@ -126,8 +127,10 @@
 	
 	<script>
 	$(function(){
-		
-	})
+		$("#up").on("click",function(){
+		alert('정보가 수정 되었습니다.')	
+		})
+	});
 	
 	</script>
 	
