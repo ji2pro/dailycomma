@@ -15,9 +15,8 @@
 	if (countryList.length >= 5) {
 		countryList.pop();
 	}
-
-	countryList.unshift({  roomNo : '${reserveInfo.roomNo}', company : '${reserveInfo.company}', roomName : '${reserveInfo.roomName}', roomPrice : '${reserveInfo.roomPrice * search.differ }'
-	});
+	
+	countryList.unshift({  roomNo : '${reserveInfo.roomNo}', company : '${reserveInfo.company}', roomName : '${reserveInfo.roomName}', roomPrice : '${reserveInfo.roomPrice * search.differ }' });
 	sessionStorage.setItem("myPageCountryList", JSON.stringify(countryList));
 	console.log(countryList);
 </script>
@@ -121,12 +120,16 @@
 				<div class="sidebar-bottom">
 					<div class="info-box">
 						<div class="point-discount row">
-							<span class="col-6 mr-auto">포인트 할인</span> <em class="col-6 ml-auto" id="discount-point"><i> 0</i>P</em>
+							<span class="col-6 mr-auto">포인트 할인</span> 
+							<em class="col-6 ml-auto" id="discount-point"> <i> 0</i>P</em>
 						</div>
 						
 						<div class="point-benefit row">
-							<span class="col-6 mr-auto">적립 포인트</span> <span> <em class="col-6 ml-auto" id="saving-point"> <i> <fmt:formatNumber value="${reserveInfo.roomPrice * search.differ * 0.005}" pattern="###,###" />
-								</i> P
+							<span class="col-6 mr-auto">적립 포인트</span> 
+							<span> <em class="col-6 ml-auto" id="saving-point"> 
+							<i> 
+							<fmt:formatNumber value="${reserveInfo.roomPrice * search.differ * 0.005}" pattern="###,###" />
+							</i> P
 							</em>
 							</span>
 						</div>

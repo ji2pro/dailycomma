@@ -40,7 +40,7 @@
 							<li>닉네임 :<input type="text" name="memberNick"
 								value="${login.memberNick}"
 								style="border:none" class="ml-3 my-3"></li>
-							<li>현재 비밀번호 : <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#exampleModal">변경</button>
+							<li>현재 비밀번호 : <button type="button" class="btn btn-danger" data-toggle="modal"data-target="#exampleModal">변경</button>
 							<li>비밀번호 변경 :<input type="password" name="memberPw"  class="unRead ml-3 my-3" readonly="readonly" ></li>
 							<li>비밀번호 변경 확인:<input type="password" name="pwcheck"  class="unRead ml-3 my-3" readonly="readonly" ></li>
 							<li>한줄소개 :<input type="text" size="40" name="memberIntro"
