@@ -1,33 +1,55 @@
 $(function() {
-	//숙소 유형 선택
-	$("input:radio[name=lodgType]").click(function() {
+	/*
+	 * 선택버튼 클릭 시, 드롭다운 메뉴 펼치기 
+	 */
+	//숙소 버튼
+	$('.item-option-roomtype .option-btn').on('click', function() {
+		var dropRoomMenu = $('.item-option-roomtype .animate-bounce-down');
+		dropRoomMenu.show();  //숙소 유형 리스트 보여주기
+	});
+	
+	//지역 버튼
+	$('.item-option-area .option-btn').on('click', function() {
+		var dropAreaMenu = $('.item-option-area .animate-bounce-down');
+		dropAreaMenu.show();  //지역 리스트 보여주기
+	});
+	
+	/*
+	 * 유형 선택하기
+	 */
+	//숙소 선택(라디오 버튼)
+	$('input:radio[name="lodgType"]').click(function() {
 		var lodgType = $(this).attr('title');
 		$('.item-option-roomtype .popover-container > .option-btn > em').html(lodgType);
 
 		var lodgTypeVal = $(this).attr('value');
 		$('input:hidden[name="lodgmentType"]').val(lodgTypeVal);
+		$('.item-option-roomtype .animate-bounce-down').hide();
 	});
 
-	//지역 선택
-	$("input:radio[name=loc]").click(function() {
+	//지역 선택(라디오 버튼)
+	$('input:radio[name="loc"]').click(function() {
 		var loc = $(this).attr('title');
 		$('.item-option-area .popover-container > .option-btn > em').html(loc);
 
 		var locVal = $(this).attr('value');
 		$('input:hidden[name="location"]').val(locVal);
+		$('.item-option-area .animate-bounce-down').hide();
 	});
 	
-	//선택버튼 클릭 시 드롭다운 메뉴 펼치기
-//	$('.popover-wrapper.popover-container').on('click', '.option-btn', function() {
-	$('.option-btn').on('click', function() {
-		var div = $(this).closest($('.animate-bounce-down'));
-		var state = div.css('display'); 
-		if(state != 'none') {
-			div.hide();
-		} else {
-			div.show();
-		}
+	/*
+	 * 드롭다운 감추기
+	 */
+	$('body').on('click', function(e) {
+		var container = $('.popover-wrapper'); // 메뉴 버튼의 부모
+
+	    if (!container.is(e.target) &&            // 클릭한 대상이 선택한(의도한) div가 아니라면
+	        container.has(e.target).length === 0) // 또는 컨테이너의 자식도 아니라면
+	    {
+	        $('.animate-bounce-down').hide();
+	    }
 	});
+	
 	
 	//달력
    	$.datepicker.setDefaults({

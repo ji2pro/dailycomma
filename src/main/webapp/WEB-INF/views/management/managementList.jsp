@@ -27,7 +27,7 @@
 	</div>
 	<br>
 
-<form action="">
+<form action="<c:url value="/deleteReserve.do"/>">
 <p align="right">
 	<button id="btnDelete" type="button" class="btn btn-primary">예약취소</button>
 </p>
@@ -56,7 +56,7 @@
 		
 			<c:forEach items="${memberList}" var="member">
 				<tr>
-					<td><input type="radio" name="reserveNo" value="${member.reserveNo}"></td>
+					<td><input type="checkbox" name="reserveNo" value="${member.reserveNo}"></td>
 					<td>${member.memberName}</td>
 					<td>${member.memberEmail}</td>
 					<td>(연락처)</td>
