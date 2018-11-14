@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,9 +15,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
+import com.yedam.dailycomma.lodgment.LodgmentDTO;
 import com.yedam.dailycomma.management.StatsService;
 import com.yedam.dailycomma.member.MemberDTO;
 import com.yedam.dailycomma.reservation.ReservationDTO;
@@ -36,26 +38,26 @@ public class ManagementController {
 		private String[] reserveNo;
 
 		@RequestMapping("/managementList.do")
-		public String management(Locale locale, Model model, String lodgmentNo) {
+		public String management(Model model) {
 
 			//logger.info("home");
-			lodgmentNo = "LOD1";
+			String lodgmentNo = "LOD1";
 			List<ManagementDTO> memberList = service.selectReservation(lodgmentNo);
 			model.addAttribute("memberList", memberList);
 			return "management/managementList";
 		}
 		
 		
-/*		//체크박스 선택 뒤 취소버튼 예약자 삭제 시험중 
+		//체크박스 선택 뒤 취소버튼 예약자 삭제 시험중 
 		@RequestMapping("/deleteReserve.do") 
-		@ResponseBody
-		public HashMap<String, Object> deleteReserve(ManagementDTO dto){
-			dto.setReserveNo(reserveNo);
-			service.deleteReserve(dto);
-			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put("result", Boolean.TRUE);
-			return map;
-		}*/
+		public String deleteReserve(@RequestParam(value="reserveNo", defaultValue="empty") String[] reserveNo, 
+									HttpSession session){
+			
+			if(!reserveNo[0].equals("empty")) {
+				service.deleteReserve(reserveNo);
+			}		
+			return "redirect:/managementList.do";
+		}
 		
 	
 		//통계 뷰 페이지

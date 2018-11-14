@@ -20,9 +20,10 @@ public class ManagementServiceImpl implements ManagementService {
         return dao.selectReservation(lodgmentNo);
     }
 	
-	   /* public int deleteReserve(ManagementDTO dto) {
-			return dao.deleteReserve(dto);
-		}*/
+    @Override
+    public int deleteReserve(String[] reserveNo) {
+		return dao.deleteReserve(reserveNo);
+	}
 		
 
 }

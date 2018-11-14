@@ -1,31 +1,40 @@
 // 예약자 리스트 
-      $(document).ready(function(){
-            $('#empList').DataTable({
-                 pageLength: 10,
-                bPaginate: true, /* 페이징 처리 할것인가 */
-                bLengthChange: true, /* true 하면 리스트 박스 추가 */
-                lengthMenu : [ [ 5, 10, 30, -1 ], [ 5, 10, 30, "All" ] ],
-                bAutoWidth: true,
-                processing: true, /* 값을 가져올때 로딩 processing ui보여줌 */
-                ordering: true, /* 항목 정렬 사용 */
-                serverSide: false,
-                searching: true
-                /*  ajax : {
-                    "url":"/managementList.do",
-                    "type":"POST",
-                    "data": function (d) {
-                        d.userStatCd = "NR";
-                    }
-                },
-                 columns : [
-                    {data: "member.memberName"}
-                     {data: "member_email"},
-                    {data: "reserve_state"},
-                    {data: "reserve_date"} 
-                ]  */
-            });
-    });  
-      
+$(document).ready(function(){
+    $('#empList').DataTable({
+        pageLength: 10,
+        bPaginate: true, /* 페이징 처리 할것인가 */
+        bLengthChange: true, /* true 하면 리스트 박스 추가 */
+        lengthMenu : [ [ 5, 10, 30, -1 ], [ 5, 10, 30, "All" ] ],
+        bAutoWidth: true,
+        processing: true, /* 값을 가져올때 로딩 processing ui보여줌 */
+        ordering: true, /* 항목 정렬 사용 */
+        serverSide: false,
+        searching: true
+    });   
+
+    $('#btnDelete').click(function(){
+    	if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+    		var length =  $('input[name="reserveNo"]:checked').length;
+    		if( length == 0){
+    			alert("삭제할 데이터가 없습니다.")
+    			return;
+    		}    		
+    		alert(length + "건이 삭제되었습니다.");
+    		$('form').submit();  
+    	}
+     });
+    
+ });    
+
+    
+
+/*function callbackDelete(datas){
+	
+	$.each(data, function(idx, m){
+				
+	})
+}
+*/
       
       
       
