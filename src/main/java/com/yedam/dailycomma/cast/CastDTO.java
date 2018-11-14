@@ -12,7 +12,14 @@ public class CastDTO {
     private String tourLocation;
     private String tourState;
     private String likeyn;
+    private String totalLike;
 
+    public String getTotalLike() {
+        return totalLike;
+    }
+    public void setTotalLike(String totalLike) {
+        this.totalLike = totalLike;
+    }
     public String getTourId() {
         return tourId;
     }
