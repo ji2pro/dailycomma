@@ -121,7 +121,7 @@ section {margin-top: 50px;}
     animation-fill-mode: both;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    display: none;
+/*     display: none; */
 }
 .f-left {float: left;}
 .f-right {float: right;}
