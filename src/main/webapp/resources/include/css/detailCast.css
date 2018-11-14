@@ -234,6 +234,7 @@ button {
 	background: #fff;
 }
 
+
 .con_detail .detail_user {
 	position: relative;
 	width: 100%;
@@ -282,7 +283,8 @@ button {
 	vertical-align: middle
 } /*날짜*/
 .count span:first-child {
-	margin-left: 0
+	margin-left: 0;
+	padding: 10px;
 }
 
 .count b {
@@ -297,6 +299,12 @@ button {
 .con_detail {
 	position: relative; /*overflow:hidden;*/
 	width: 896px;
+	margin: 0 auto;
+	border: solid 1px #eaeaea;
+	text-align: left
+}
+.con_post {
+	position: relative; /*overflow:hidden;*/
 	margin: 0 auto;
 	border: solid 1px #eaeaea;
 	text-align: left
@@ -545,7 +553,9 @@ button {
 .bt_detail button .ico_detailbook {
 	background-position: -68px -62px
 }
-
+.content_post{
+	padding:10px;
+}
 .bt_detail button.on .ico_detailbook {
 	background-position: -68px -120px
 }

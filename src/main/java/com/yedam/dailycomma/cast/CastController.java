@@ -28,6 +28,8 @@ public class CastController {
 
             model.addAttribute("getDetailCast",castService.getDetailCast(castDTO));
 
+
+
             return "cast/detailCast";
     }
 
