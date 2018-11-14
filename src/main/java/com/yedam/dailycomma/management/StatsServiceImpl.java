@@ -13,15 +13,15 @@ public class StatsServiceImpl implements StatsService {
 	StatsDAO dao;
 	
 	@Override
-	public List<Map<String, Object>> getStatsChart() {
+	public List<Map<String, Object>> getStatsChart(String year) {
 		
-		return dao.getStatsChart();
+		return dao.getStatsChart(year);
 	}
 	
 	@Override
-	public List<Map<String, Object>> getReserveChart() {
+	public List<Map<String, Object>> getReserveChart(String year) {
 		
-		return dao.getReserveChart();
+		return dao.getReserveChart(year);
 	}
 	
 	@Override

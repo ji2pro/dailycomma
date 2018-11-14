@@ -9,6 +9,6 @@ public interface ManagementService {
 
 	public List<ManagementDTO> selectReservation(String lodgmentNo);
 	
-	/*public int deleteReserve(ManagementDTO dto);*/
+	public int deleteReserve(String[] reserveNo);
 
 }

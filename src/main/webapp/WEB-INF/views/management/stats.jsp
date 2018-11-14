@@ -3,6 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
 <html>
@@ -13,6 +14,10 @@
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <link href="./resources/include/css/management.css" rel="stylesheet" type="text/css"> 
 <script src="//www.google.com/jsapi"></script>
+
+<c:set var="now" value="<%=new java.util.Date()%>" />
+<c:set var="sysYear"><fmt:formatDate value="${now}" pattern="yyyy" /></c:set> 
+
 
 <script>
 /* jQuery 테이블 */
@@ -41,7 +46,7 @@
 	 
 	 
 	 /* 이달 총 예약건수 및 판매금액 */
-	 $(document).ready(function(){
+$(document).ready(function(){
          $('#statsTotalSell').DataTable({
              pageLength: 10,
              bPaginate: true, /* 페이징 처리 할것인가 */
@@ -54,7 +59,25 @@
              searching: true  
 
          });
- }); 
+ });
+	 
+$(document).ready(function(){	 
+	createDropDown();
+	
+	$('#btn-div').click(function(){
+		var btn = $('.dropdown').eq(0).find('.dropdown-toggle');
+		console.log("======btn-div=======" + btn.text());
+		callbackDiv(btn.text());
+	});
+	
+	
+	$('#btn-reserve').click(function(){
+		var btn = $('.dropdown').eq(1).find('.dropdown-toggle');
+		console.log("======btn-reserve=======" + btn.text());
+		callbackReserve(btn.text());
+	});
+	
+});
 	
 	
 
@@ -92,56 +115,109 @@
 	
 google.setOnLoadCallback(function() {
 //차트에 넣을 data를 ajax 요청해서 가져옴
-$.ajax({
-			url : "./getStatsChart.do", 
-			method : "post",
-			type : "json",
-			success : function(data) {
-				//ajax결과를 chart에 맞는 data 형태로 가공
-				var chartData = []; //배열 생성
-				chartData.push([ '월', '수익'  ])
-				for (i = 0; i < data.length; i++) {
-					var subarr = [ data[i].CHECKIN + '월',  data[i].PRICE /* , 'color:'+ colors[i] */   ];
-					chartData.push(subarr); 
-				}
-				
-				//차트 그리기
-				var chart = new google.visualization.AreaChart(document
-						.querySelector('#chart_div')); /* ColumnChart 부분 명칭 변경하면 여러차트 모양 사용가능 ex)BarChart*/
-				chart.draw(google.visualization.arrayToDataTable(chartData), options1);
-			}
-		});
-		
-		
-$.ajax({
-			url : "./getReserveChart.do", 
-			method : "post",
-			type : "json",
-			success : function(data) {
-				//ajax결과를 chart에 맞는 data 형태로 가공
-				var chartData = []; //배열 생성
-				chartData.push([ '월', '예약건수'  ])
-				for (i = 0; i < data.length; i++) {
-					var subarr = [ data[i].CHECKIN + '월',  data[i].RESERVENUM /* , 'color:'+ colors[i] */   ];
-					chartData.push(subarr); 
-				}
-		
-				//차트 그리기
-				var chart = new google.visualization.ColumnChart(document
-						.querySelector('#chart_reserve')); /* ColumnChart 부분 명칭 변경하면 여러차트 모양 사용가능 ex)BarChart*/
-				chart.draw(google.visualization.arrayToDataTable(chartData), options2);
-			}
-		});
-	});
+callbackDiv();
+
+callbackReserve();
+	
+});
 	//window.onresize 
 
+function callbackDiv(year){
+			
+	var check = checkException(year);
+	
+	if(check == true){
+		var date = new Date();
+		year = date.getFullYear();	
+	}
+
+	$.ajax({
+		url : "./getStatsChart.do", 
+		data : { year : year },
+		method : "post",
+		type : "json",
+		success : function(data) {
+			//ajax결과를 chart에 맞는 data 형태로 가공
+			var chartData = []; //배열 생성
+			chartData.push([ '월', '수익'  ])
+			for (i = 0; i < data.length; i++) {
+				var subarr = [ data[i].CHECKIN + '월',  data[i].PRICE /* , 'color:'+ colors[i] */   ];
+				chartData.push(subarr); 
+			}
+			
+			//차트 그리기
+			var chart = new google.visualization.AreaChart(document
+					.querySelector('#chart_div')); /* ColumnChart 부분 명칭 변경하면 여러차트 모양 사용가능 ex)BarChart*/
+			chart.draw(google.visualization.arrayToDataTable(chartData), options1);
+		}
+	});
+}
+	
+	
+function callbackReserve(year){
+
+	var check = checkException(year);
+	
+	if(check == true){
+		var date = new Date();
+		year = date.getFullYear();	
+	}
+	
+	$.ajax({
+		url : "./getReserveChart.do", 		
+		data :  { year : year },		
+		method : "post",
+		type : "json",
+		success : function(data) {
+			//ajax결과를 chart에 맞는 data 형태로 가공
+			var chartData = []; //배열 생성
+			chartData.push([ '월', '예약건수'  ])
+			for (i = 0; i < data.length; i++) {
+				var subarr = [ data[i].CHECKIN + '월',  data[i].RESERVENUM /* , 'color:'+ colors[i] */   ];
+				chartData.push(subarr); 
+			}
+	
+			//차트 그리기
+			var chart = new google.visualization.ColumnChart(document
+					.querySelector('#chart_reserve')); /* ColumnChart 부분 명칭 변경하면 여러차트 모양 사용가능 ex)BarChart*/
+			chart.draw(google.visualization.arrayToDataTable(chartData), options2);
+		}
+	});	
+	
+}
+
+function createDropDown(){
+	var date = new Date();
+	var year = date.getFullYear();	
+	console.log(year);
+
+	for(var i=0; i<2; i++){
+		var dropdown = $('.dropdown').eq(i).find('.dropdown-menu');
+				
+		for(var j=0;j<10;j++){
+			var btn = "<button type='button' class='dropdown-item' data-target='"+(year-j)+
+						"' onclick='setYearDropdown("+(year-j)+","+i+")'>"+(year-j)+"</button>";
+			dropdown.append(btn);
+		}			
+	}		
+}
+
+function setYearDropdown(year, idx){
+	var btn = $('.dropdown').eq(idx).find('.dropdown-toggle');
+	btn.text(year);
+}
+
+function checkException(x){
+	if(x == undefined || x==null || x=='') return true;
+	return false;	
+}
 </script>
 
 <title>stats.do</title>
 
 </head>
 <body>
-
+<div class="container">
 <!-- 이달 객실별 예약 건수 및 판매금액 -->
 <div align="center"><h1>이달 객실별 예약 건수 및 판매금액</h1></div>
 <table id="statsRoomSell" style="font-size: 15px;" class="table table-striped table-bordered table-hover tableAlign" >
@@ -186,85 +262,41 @@ $.ajax({
 </table>
 
 
-<!-- chart_div 차트 부분 -->
-<div id="chart_div"></div>
-<div id="chart_reserve"></div>
+<!-- 화면에 뿌릴때 -->
 
+<%-- <c:out value="${sysYear}" /> --%>
+
+
+
+<!-- chart_div 차트 부분 -->
+
+<div class="row">
+	<div class="dropdown">
+		  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    ${sysYear}
+		  </button>
+		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> </div>
+	</div>
+
+	<button type="button" class="btn btn-secondary" id="btn-div">검색</button>
+</div>
+
+<div id="chart_div"></div>
+
+<div class="row">
+	<div class="dropdown">
+	  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	   ${sysYear}
+	  </button>
+	  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> </div>
+	  
+	  <button type="button" class="btn btn-secondary" id="btn-reserve">검색</button>
+	</div>
+</div>
+
+
+<div id="chart_reserve"></div>
+</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <section class="search-area">
-    <div class="search-panel">
-        <p class="search-paragraph">
-            데일리 콤마와 함께<br>
-            삶의 <span>휴식</span>을 가져보세요.
-        </p>
-
-        <div class="search-option">
-            <div class="option-list">
-                <div class="option-item item-option-roomtype">
-                    <div class="option-title-wrap">
-                        <span class="option-title">숙소 유형</span>
-                    </div>
-                </div>
-
-                <div class="option-item item-option-area">
-                    <div class="option-title-wrap">
-                        <span class="option-title">지역</span>
-                    </div>
-                    <i class="left-item-bar"></i>
-                    <i class="right-item-bar"></i>
-                </div>
-
-                <div class="option-item item-option-calendar">
-                    <div class="option-title-wrap">
-                        <span class="option-title f-left">체크인</span>
-                        <span class="option-title f-right">체크아웃</span>
-                    </div>
-                    <div class="option-btn"></div>
-                </div>
-                
-            </div>
-				<button type="button" class="btn btn-search-stay color-gradation">숙소 검색</button>
-        </div>
-    </div>
-</section>
-<section class="myposition-area">
-    <div class="myposition-cnt">
-        <i class="fa fa-location-arrow"></i><strong>대구광역시 중구 태평로 18</strong>
-    </div>
-</section>
-<section class="quicklink-area">
-    <div class="quicklink-list">
-        <a class="quicklink-item">
-            모텔
-        </a>
-        <a class="quicklink-item">
-            호텔
-        </a>
-        <a class="quicklink-item">
-            펜션
-        </a>
-        <a class="quicklink-item">
-            게스트하우스
-        </a>
-    </div>
-</section> -->
-
-
-
-
-
  

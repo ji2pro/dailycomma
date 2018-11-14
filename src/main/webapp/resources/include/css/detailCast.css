@@ -534,11 +534,11 @@ button {
 	background-size: 400px 350px;
 }
 
-.bt_detail button .ico_detaillike {
+.bt_detail span.a0 {
 	background-position: 0 -62px
 }
 
-.bt_detail button.on .ico_detaillike {
+.bt_detail span.a1 {
 	background-position: 0 -120px
 }
 
@@ -662,9 +662,9 @@ span.ico_read {
 	background-position: -76px -121px
 }
 
-.con_detail .side_menu li span.bl_like {
+/*.con_detail .side_menu li span.bl_like {
 	background-position: 0 -91px
-}
+}*/
 
 .con_detail .side_menu li span.bl_reply {
 	background-position: -30px -91px
@@ -686,8 +686,11 @@ span.ico_read {
 	background-position: -150px -91px
 }
 
-.con_detail .side_menu li.on span.bl_like {
-	background-position: -180px -91px
+.con_detail .side_menu span.a1 {
+    background-position: -180px -91px
+}
+.con_detail .side_menu span.a0 {
+    background-position: 0 -91px
 }
 
 

@@ -22,8 +22,8 @@ public class ManagementDAO {
 	}
 
 	
-	public int deletefReserve(ManagementDTO dto) {
-		return mybatis.delete("management.deleteReserve", dto);
+	public int deleteReserve(String []reserveNo) {
+		return mybatis.delete("management.deleteReserve", reserveNo);
 	}
 	
 }
