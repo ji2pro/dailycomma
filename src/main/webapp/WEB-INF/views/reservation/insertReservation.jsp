@@ -4,6 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <script src="<c:url value="/resources/include/js/reservation/reservation.js"/>"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script src="<%=request.getContextPath()%>/resources/include/js/reservation/Payment.js" type="text/javascript"></script>
 
 <script>
 	countryList = sessionStorage.getItem("myPageCountryList");

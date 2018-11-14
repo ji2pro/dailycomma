@@ -33,21 +33,18 @@
                 <div id="side_menu" class="side_menu">
                     <%--오른쪽 버튼--%>
                     <ul class="right">
-                        <c:choose>
-                            <c:when test="${getDetailCast.likeyn eq '1'}">
-                                <li name="btnLike" class="" id="likey"><a href="#none" class="likey" id="${getDetailCast.tourId}"><span class="bl_like"></span></a></li>
-                            </c:when>
-                            <c:otherwise>
-                                <li name="btnLike" class="on"><a href="#none" class="liken" id="${getDetailCast.tourId}"><span class="bl_like"></span></a></li>
-                            </c:otherwise>
-                        </c:choose>
-                        <li class="mg_top"><a href="#"><span class="bl_top"></span></a></li>
+                        <li name="btnLike">
+                            <a href="#none" class="likey" id="${getDetailCast.tourId}">
+                                <span class="a${getDetailCast.likeyn}"></span>
+                            </a>
+                        </li>
+                        <li class="mg_top" id="likey"><a href="#"><span class="bl_top"></span></a></li>
                     </ul>
                 </div>
                 <div class="inner_bg">
                     <div class="detail_title">
                         <h3 class="sc_out"></h3>
-                        <p id="jsonTitle">인생샷착즙기 반짝뽕쨕 빛축제7</p>
+                        <p id="jsonTitle">인생샷착즙기 반짝뽕쨕 빛축제7${getDetailCast.tourId}//${getDetailCast.likeyn}</p>
                         <div class="count">
                             <span class="day" id="jsonRegisterdDate">2018-09-27 18:15:24</span>
                             <span style="color:red; margin-left:20px;" class="fas fa-heart"></span><b
@@ -88,19 +85,11 @@
                             <div class="bt_detail">
                                 <ul>
                                     <li>
-                                        <c:choose>
-                                            <c:when test="${getDetailCast.likeyn eq '0'}">
-                                                <button type="button" name="btnLike">
-                                                    <span class="ico_detaillike"></span>
-                                                </button>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <button type="button" name="btnLike" class="on">
-                                                    <span class="ico_detaillike"></span>
-                                                </button>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        <span class="bt_txt">좋아요</span><b name="jsonLikeCount">5</b>
+                                        <button type="button" name="btnLike" class="likey" id="${getDetailCast.tourId}">
+                                            <span class="a${getDetailCast.likeyn}"></span>
+                                        </button>
+                                        <span class="bt_txt">좋아요</span>
+                                        <b name="jsonLikeCount">${getDetailCast.totalLike}</b>
                                     </li>
                                 </ul>
                             </div>

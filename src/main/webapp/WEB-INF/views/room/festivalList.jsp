@@ -50,7 +50,7 @@
     </div>
 </div>
 <div class="sub-detail-contents" id="sub-container">
-    <div class="sub-detail-inner" >
+    <div class="sub-detail-inner">
     </div>
 </div>
 </body>

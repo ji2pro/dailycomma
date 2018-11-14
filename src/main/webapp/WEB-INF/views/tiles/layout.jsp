@@ -79,11 +79,9 @@
 	
 	<footer class="footer">
 		FOOTER<br>
-		  손준우는 바보가 확실하다.<br> 
+		  <br>
 		  ${serverTime} <br>
 		  <h2 id="clock"></h2> <!-- 현재시간 clock.js 파일 -->
-
-		
 <%-- 			<tiles:insertAttribute name="footer" /> --%>
 	</footer>
 </body>
