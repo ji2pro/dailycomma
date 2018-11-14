@@ -98,38 +98,68 @@
 							<span class="option-title f-left">체크인</span>
 							<span class="option-title f-right">체크아웃</span>
 						</div>
-
-						<div class="option-btn">
-							<div class="container">
-								<div class="col">
-									<div class="input-group date" id="datetimepicker7"
-										data-target-input="nearest">
-										<input type="text" name="checkin" id="datepicker" autocomplete="off">
-										<div class="input-group-append" data-target="#datetimepicker7"
-											data-toggle="datetimepicker">
-<!-- 											<div class="input-group-text">
-												<i class="fa fa-calendar"></i>
-											</div> -->
+						
+						<div class="popover-wrapper">
+							<div class="popover-container">
+								<div class="option-btn">
+									<div class="datepicker-container">
+										<div class="datepicker-content">
+											<div class="dateRangePickerMain">
+												<div class="dateRangePickerInput">
+													<div class="dateInput">
+														<input type="text" class="dateInput-input" id="startDate" name="startDate" value="2018-11-14" placeholder="YYYY-MM-DD" autocomplete="off">
+														<div class="dateInput-text">2018-11-14</div>
+													</div>
+													
+													<div class="dateInput">
+														<input type="text" class="dateInput-input" id="endDate" name="endDate" value="2018-11-24" placeholder="YYYY-MM-DD" autocomplete="off">
+														<div class="dateInput-text">2018-11-24</div>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
+									<i class="fa fa-chevron-down" aria-hidden="true"></i>
 								</div>
-
-								<div class="col">
-									<div class="input-group date" id="datetimepicker8"
-										data-target-input="nearest">
-										<input type="text" name="checkout" id="datepicker2" autocomplete="off">
-										<div class="input-group-append" data-target="#datetimepicker8"
-											data-toggle="datetimepicker">
-<!-- 											<div class="input-group-text">
-												<i class="fa fa-calendar"></i>
-											</div> -->
+							</div>
+							
+							<div class="popover-content popover-search-option animate-bounce-down" data-popover-content="true">
+								<div class="layer-search-option layer-area-list">
+									<div class="area-list">
+									
+										<div class="col">
+											<div class="input-group date" id="datetimepicker7"
+												data-target-input="nearest">
+												<input type="text" name="checkin" id="datepicker" autocomplete="off">
+												<div class="input-group-append" data-target="#datetimepicker7"
+													data-toggle="datetimepicker">
+													<div class="input-group-text">
+														<i class="fa fa-calendar"></i>
+													</div>
+												</div>
+											</div>
 										</div>
+				
+										<div class="col">
+											<div class="input-group date" id="datetimepicker8"
+												data-target-input="nearest">
+												<input type="text" name="checkout" id="datepicker2" autocomplete="off">
+												<div class="input-group-append" data-target="#datetimepicker8"
+													data-toggle="datetimepicker">
+													<div class="input-group-text">
+														<i class="fa fa-calendar"></i>
+													</div>
+												</div>
+											</div>
+										</div>
+										
 									</div>
 								</div>
 							</div>
+
+							<input type="hidden" name="lodgmentType"> 
+							<input type="hidden" name="location">
 						</div>
-						<input type="hidden" name="lodgmentType"> 
-						<input type="hidden" name="location">
 					</div>
 				</div>
 				<button type="submit" class="btn-search-stay color-gradation">숙소 검색</button>

@@ -14,6 +14,12 @@ $(function() {
 		dropAreaMenu.show();  //지역 리스트 보여주기
 	});
 	
+	//날짜 버튼
+	$('.item-option-calendar .option-btn').on('click', function() {
+		var dropCalMenu = $('.item-option-calendar .animate-bounce-down');
+		dropCalMenu.show();  //지역 리스트 보여주기
+	});
+	
 	/*
 	 * 유형 선택하기
 	 */
@@ -38,15 +44,28 @@ $(function() {
 	});
 	
 	/*
+	 * 달력(체크인/아웃) 버튼 이벤트 
+	 */
+	$('.dateInput').on('click', function() {
+		var inputText = $(this).find('.dateInput-text');
+		inputText.addClass('dateInput-text-focused');
+	});
+	
+	$('.dateInput').focusout(function() {
+		var inputText = $(this).find('.dateInput-text');
+		inputText.removeClass('dateInput-text-focused');
+	});
+	
+	/*
 	 * 드롭다운 감추기
 	 */
 	$('body').on('click', function(e) {
-		var container = $('.popover-wrapper'); // 메뉴 버튼의 부모
+		var wrapper = $('.popover-wrapper'); // 메뉴 버튼의 부모
 
-	    if (!container.is(e.target) &&            // 클릭한 대상이 선택한(의도한) div가 아니라면
-	        container.has(e.target).length === 0) // 또는 컨테이너의 자식도 아니라면
+	    if (!wrapper.is(e.target) &&             // 클릭한 대상이 선택한(의도한) div가 아니라면
+    		wrapper.has(e.target).length === 0)  // 또는 컨테이너의 자식도 아니라면
 	    {
-	        $('.animate-bounce-down').hide();
+			$('.animate-bounce-down').hide();
 	    }
 	});
 	

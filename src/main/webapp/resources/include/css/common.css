@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500&subset=korean');
 * {font-family: 'Noto Sans KR', sans-serif;}
-body {word-break: break-all;}
+body {word-break: break-all; font-size: 16px; line-height: 1.5;}
+div {margin: 0; padding: 0;}
 a, a:hover {text-decoration: none;}
 ::selection {background: #ff80c0; color: white;}
 #wrapper {margin-top: 60px;}
