@@ -14,7 +14,7 @@ $(document).ready(function(){
 			return;
 		}		
 		
-		if(use_point >= payment_sum ){								//사용할 포인트가 결제금액보다 많을경우
+		if(use_point > payment_sum ){								//사용할 포인트가 결제금액보다 많을경우
 			alert("결제금액보다 많이 입력하셨습니다.");
 		
 		}else{
