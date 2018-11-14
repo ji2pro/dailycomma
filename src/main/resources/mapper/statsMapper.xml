@@ -4,12 +4,12 @@
  
 <mapper namespace="stats">
 
-<select id="getStatsChart" resultType="map">
+<select id="getStatsChart" resultType="map" parameterType="string">
 	<!-- 년간 월별 판매수익 통계 그래프 -->
 	select to_char(checkin, 'MM') as CHECKIN, sum(reservation.reserve_price) as PRICE
 	from reservation, lodgment, member
 	where reservation.lodgment_no = 'LOD1'  <!-- 숙박업체번호 동적으로 들어가야되는 자리 '1'로 일단 지정해놈 lodgment.lodgment_no -->
-	and TO_CHAR(CHECKIN, 'YYYY') ='2018' <!-- 년도 버튼으로 선택 뒤 받아와서 동적처리 -->
+	and TO_CHAR(CHECKIN, 'YYYY') = #{value} <!-- 년도 버튼으로 선택 뒤 받아와서 동적처리 -->
 	and lodgment.lodgment_no = reservation.lodgment_no
 	and member.member_no = reservation.member_no
 	group by to_char(checkin, 'MM')
@@ -18,12 +18,12 @@
 </select>
 
 
-<select id="getReserveChart" resultType="map">
+<select id="getReserveChart" resultType="map" parameterType="string">
 	<!-- 년간 월별 객실예약건수 -->
 	select to_char(checkin, 'MM') as CHECKIN, count(*) as RESERVENUM
 	from reservation, lodgment, member
 	where reservation.lodgment_no = 'LOD1'  
-	and TO_CHAR(CHECKIN, 'YYYY') ='2018'
+	and TO_CHAR(CHECKIN, 'YYYY') = #{value}
 	and lodgment.lodgment_no = reservation.lodgment_no
 	and member.member_no = reservation.member_no
 	group by to_char(checkin, 'MM')

@@ -33,8 +33,9 @@ public class ManagementController {
 
 		
 		//사장님 예약자 리스트 managementList.do 관련 부분 컨트롤러!!
-		@Autowired
-		private ManagementService service;
+		@Autowired ManagementService service;
+		
+		@Autowired StatsService statsService;
 		private String[] reserveNo;
 
 		@RequestMapping("/managementList.do")
@@ -62,7 +63,7 @@ public class ManagementController {
 	
 		//통계 뷰 페이지
 		@RequestMapping("/stats.do") 
-		public String stats(Locale locale, Model model, ManagementDTO dto) {
+		public String stats(Model model, ManagementDTO dto) {
 			List<ManagementDTO> statsList = statsService.selectRoomList(dto);
 			List<ManagementDTO> totalList = statsService.selectTotalList(dto);
 			model.addAttribute("statsList", statsList);
@@ -73,18 +74,21 @@ public class ManagementController {
 		
 		//구글차트 stats.do 관련 부분 컨트롤러!!
 		//월별수익금액
-		@Autowired StatsService statsService;
+		
 		@RequestMapping("/getStatsChart.do") //차트 데이터
 		@ResponseBody
-		public List<Map<String, Object>> getStatsChart() {
-			return statsService.getStatsChart();
+		public List<Map<String, Object>> getStatsChart(@RequestParam String year) {
+			System.out.println("stats=================="+ year);
+			
+			return statsService.getStatsChart(year);
 		}
 		
 		//월별객실예약건수
 		@RequestMapping("/getReserveChart.do")
 		@ResponseBody
-		public List<Map<String, Object>> getReserveChart() {
-			return statsService.getReserveChart(); 
+		public List<Map<String, Object>> getReserveChart(@RequestParam String year) {
+			System.out.println("reserve=================="+ year);
+			return statsService.getReserveChart(year); 
 		}
 
 }
