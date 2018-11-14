@@ -63,10 +63,10 @@ public class AdminController {
 	//관리자 멤버 아작스 호출 페이지
 	@RequestMapping(value={"/member.ajax"}, method=RequestMethod.GET)
 	@ResponseBody
-	public Map getMembers(MemberSearchDTO memberSearchDTO,
+	public Map<String,Object> getMembers(MemberSearchDTO memberSearchDTO,
 						  Paging paging) {
 		
-		Map map = new HashMap<String, Object>();
+		Map<String,Object> map = new HashMap<String, Object>();
 		// 조회할 레코드 건수
 		paging.setPageUnit(5);
 

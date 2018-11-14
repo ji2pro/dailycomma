@@ -8,15 +8,15 @@ $(function() {
 
 //페이징 처리
 function go_page(p) {
-	console.log("p====="+p);
+/*	console.log("p====="+p);
 	var param;
 	if(document.hostPagingForm) {
 		document.hostPagingForm.page.value = p;
 		param = $('#hostPagingForm').serialize();
 	} else {
 		param = {page: 1, sort: 'host_id'}
-	}
-	
+	}*/
+	$('input[name="page"]:hidden').val(p);
     $.ajax({
         url:"./host.ajax",
         data :$('#hostPagingForm').serialize(),
@@ -92,6 +92,9 @@ function callbackHost(datas){
 $('body').off().on('click', '#btnDelete', function() {
 	var hostId = $(this).closest('tr').find($('input[type=checkbox]')).val();
 	var confirmHost = confirm(hostId + ' 업주를 정말 삭제하겠습니까?');
+	var p =$('input[name="page"]:hidden').val();
+	
+	
 	if(confirmHost) {
 		$.ajax({
 			url: 'host/' + hostId,
@@ -104,7 +107,8 @@ $('body').off().on('click', '#btnDelete', function() {
 			success: function(xhr) {
 				console.log(xhr.result);
 				alert(hostId + ' 업주가 삭제되었습니다.');
-				go_page(1);
+				
+				go_page(p);
 			}
 		})
 	}

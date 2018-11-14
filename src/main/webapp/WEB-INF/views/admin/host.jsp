@@ -68,6 +68,7 @@
 		<button id="btnDeleteSelected" class="btn btn-outline-danger">선택 삭제</button>
 	</div>
 </div>
+
 <div id="hostPaging">
 	<my:paging paging="${paging}" jsFunc="go_page"/> 
 </div>

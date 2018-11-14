@@ -1,4 +1,4 @@
-/*var amount;
+/*var amoun;
 function value(param1,param2,param3,param4,param5) {
     amount = 3333333;
     amount = amount.replace(/,/g,'');
@@ -16,7 +16,7 @@ function value(param1,param2,param3,param4,param5) {
     buyer_addr = "개부자";
 }*/
 
-
+/*결제 API*/
 $(document).ready(function() {
     IMP.init('imp92483158');
     $(".btn-payment").click(function() {

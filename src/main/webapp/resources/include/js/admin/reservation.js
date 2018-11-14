@@ -8,14 +8,16 @@ $(function() {
 
 //페이징 처리
 function go_page(p) {
-	console.log("p====="+p);
+/*	console.log("p====="+p);
 	var param;
 	if(document.reservationPagingForm) {
 		document.reservationPagingForm.page.value = p;
 		param = $('#reservationPagingForm').serialize();
 	} else {
 		param = {page: 1, sort: 'reserve_no'}
-	}
+	}*/
+	
+	$('input[name="page"]:hidden').val(p);
 	
     $.ajax({
         url:"./reservation.ajax",
@@ -97,6 +99,7 @@ function callbackReservation(datas){
 $('body').off().on('click', '#btnDelete', function() {
 	var reserveNo = $(this).closest('tr').find($('input[type=checkbox]')).val();
 	var confirmReservation = confirm(reserveNo + ' 예약 내역을 정말 삭제하겠습니까?');
+	var p = $('input[name="page"]:hidden').val();
 	if(confirmReservation) {
 		$.ajax({
 			url: 'reservation/' + reserveNo,
@@ -109,7 +112,7 @@ $('body').off().on('click', '#btnDelete', function() {
 			success: function(xhr) {
 				console.log(xhr.result);
 				alert(reserveNo + ' 예약 내역이 삭제되었습니다.');
-				go_page(1);
+				go_page(p);
 			}
 		})
 	}

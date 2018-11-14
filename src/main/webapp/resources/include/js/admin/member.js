@@ -8,14 +8,15 @@ $(function() {
 
 //페이징 처리
 function go_page(p) {
-	console.log("p====="+p);
+/*	console.log("p====="+p);
 	var param;
 	if(document.memberPagingForm) {
 		document.memberPagingForm.page.value = p;
 		param = $('#memberPagingForm').serialize();
 	} else {
 		param = {page: 1, sort: 'member_no'}
-	}
+	}*/
+	$('input[name="page"]:hidden').val(p);
 	
     $.ajax({
         url:"./member.ajax",
@@ -93,6 +94,8 @@ function callbackMember(datas){
 $('body').off().on('click', '#btnDelete', function() {
 	var memberNo = $(this).closest('tr').find($('input[type=checkbox]')).val();
 	var confirmMember = confirm(memberNo + ' 사용자를 정말 삭제하겠습니까?');
+	var p = $('input[name="page"]:hidden').val();
+	
 	if(confirmMember) {
 		$.ajax({
 			url: 'member/' + memberNo,
@@ -105,7 +108,7 @@ $('body').off().on('click', '#btnDelete', function() {
 			success: function(xhr) {
 				console.log(xhr.result);
 				alert(memberNo + ' 회원이 삭제되었습니다.');
-				go_page(1);
+				go_page(p);
 			}
 		})
 	}

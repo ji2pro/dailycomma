@@ -8,14 +8,8 @@ $(function() {
 
 //페이징 처리
 function go_page(p) {
-	console.log("p====="+p);
-	var param;
-	if(document.tourPagingForm) {
-		document.tourPagingForm.page.value = p;
-		param = $('#tourPagingForm').serialize();
-	} else {
-		param = {page: 1, sort: 'tour_id'}
-	}
+
+	$('input[name="page"]:hidden').val(p);	
 	
     $.ajax({
         url:"./tour.ajax",
@@ -91,6 +85,7 @@ function callbackTour(datas){
 $('body').off().on('click', '#btnDelete', function() {
 	var tourId = $(this).closest('tr').find($('input[type=checkbox]')).val();
 	var confirmTour = confirm(tourId + ' 캐스트를 정말 삭제하겠습니까?');
+	var p = $('input[name="page"]:hidden').val();
 	if(confirmTour) {
 		$.ajax({
 			url: 'tour/' + tourId,
@@ -103,7 +98,7 @@ $('body').off().on('click', '#btnDelete', function() {
 			success: function(xhr) {
 				console.log(xhr.result);
 				alert(tourId + ' 캐스트가 삭제되었습니다.');
-				go_page(1);
+				go_page(p);
 			}
 		})
 	}

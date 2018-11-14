@@ -8,15 +8,15 @@ $(function() {
 
 //페이징 처리
 function go_page(p) {
-	console.log("p====="+p);
+/*	console.log("p====="+p);
 	var param;
 	if(document.lodgmentPagingForm) {
 		document.lodgmentPagingForm.page.value = p;
 		param = $('#lodgmentPagingForm').serialize();
 	} else {
 		param = {page: 1, sort: 'lodgment_no'}
-	}
-	
+	}*/
+	$('input[name="page"]:hidden').val(p);
     $.ajax({
         url:"./lodgment.ajax",
         data :$('#lodgmentPagingForm').serialize(),
@@ -93,6 +93,7 @@ function callbackLodgment(datas){
 $('body').off().on('click', '#btnDelete', function() {
 	var lodgmentNo = $(this).closest('tr').find($('input[type=checkbox]')).val();
 	var confirmLodgment = confirm(lodgmentNo + ' 숙소를 정말 삭제하겠습니까?');
+	var p = $('input[name="page"]:hidden').val();
 	if(confirmLodgment) {
 		$.ajax({
 			url: 'lodgment/' + lodgmentNo,
@@ -105,7 +106,7 @@ $('body').off().on('click', '#btnDelete', function() {
 			success: function(xhr) {
 				console.log(xhr.result);
 				alert(lodgmentNo + ' 숙소가 삭제되었습니다.');
-				go_page(1);
+				go_page(p);
 			}
 		})
 	}
