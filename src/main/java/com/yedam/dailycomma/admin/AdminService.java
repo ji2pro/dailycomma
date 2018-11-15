@@ -41,4 +41,10 @@ public interface AdminService {
 	public List<TourDTO> getTours(TourSearchDTO tourSearchDTO);
 	public int getTourCnt(TourSearchDTO tourSearchDTO);
 	public int deleteTour(TourDTO dto);
+	
+	public int deleteMembers(List<String> checkbox);
+	public int deleteLodgments(List<String> checkbox);
+	public int deleteReserves(List<String> checkbox);
+	public int deleteTours(List<String> checkbox);
+	
 }

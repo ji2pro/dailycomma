@@ -4,4 +4,36 @@
 <mapper namespace="admin">
 	<!-- 멤버 삭제 -->
 	
+	<delete id="deleteMembers">
+	DELETE FROM MEMBER
+	WHERE MEMBER_NO IN 
+		<foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+	<delete id="deleteLodgments">
+	DELETE FROM LODGMENT
+	WHERE LODGMENT_NO IN 
+	<foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+		#{item}
+	</foreach>
+	</delete>
+	
+	<delete id="deleteReserves">
+		DELETE FROM RESERVATION
+		WHERE RESERVE_NO IN 
+		<foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+	<delete id="deleteTours">
+		DELETE FROM TOUR
+		WHERE TOUR_ID IN
+		<foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+			#{item}
+		</foreach>	
+	</delete>
+	
 </mapper> 

@@ -32,6 +32,8 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired RoomDAOMybatis roomDAO;
 	@Autowired ReservationDAOMybatis reservationDAO;
 	@Autowired TourDAO tourDAO;
+	@Autowired AdminDAO adminDAO;
+	
 	
 	//회원
 	public List<MemberDTO> getMembers(MemberSearchDTO memberSearchDTO) {
@@ -100,5 +102,27 @@ public class AdminServiceImpl implements AdminService {
 	}
 	public int deleteTour(TourDTO dto) {
 		return tourDAO.deleteTour(dto);
+	}
+	
+	@Override
+	public int deleteMembers(List<String> checkbox) {
+		// TODO Auto-generated method stub
+		return adminDAO.deleteMembers(checkbox);
+	}
+	
+	@Override
+	public int deleteLodgments(List<String> checkbox) {
+		// TODO Auto-generated method stub
+		return adminDAO.deleteLodgments(checkbox);
+	}
+	@Override
+	public int deleteReserves(List<String> checkbox) {
+		// TODO Auto-generated method stub
+		return adminDAO.deleteReserves(checkbox);
+	}
+	@Override
+	public int deleteTours(List<String> checkbox) {
+		// TODO Auto-generated method stub
+		return adminDAO.deleteTours(checkbox);
 	}
 }

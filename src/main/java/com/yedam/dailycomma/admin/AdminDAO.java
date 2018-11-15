@@ -1,5 +1,8 @@
 package com.yedam.dailycomma.admin;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -8,11 +11,19 @@ import org.springframework.stereotype.Repository;
 public class AdminDAO {
 	@Autowired SqlSessionTemplate mybatis;
 	
-/*	public List<MemberDTO> getMembers(MemberDTO dto) {
-		return mybatis.selectList("member.getMembers", dto);
+	public int deleteMembers(List<String> checkbox) {
+		return mybatis.delete("admin.deleteMembers", checkbox);
 	}
-	public int getCnt(MemberSearchDTO searchDTO) {
-		return mybatis.selectOne("member.getCnt", searchDTO);
-	}*/
+	
+	public int deleteLodgments(List<String> checkbox) {
+		return mybatis.delete("admin.deleteLodgments", checkbox);
+	}
+	
+	public int deleteReserves(List<String> checkbox) {
+		return mybatis.delete("admin.deleteReserves", checkbox);
+	}
+	public int deleteTours(List<String> checkbox) {
+		return mybatis.delete("admin.deleteTours", checkbox);
+	}
 }
 
