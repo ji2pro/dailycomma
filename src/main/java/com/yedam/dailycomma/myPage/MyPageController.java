@@ -57,14 +57,14 @@ public class MyPageController {
 		MultipartFile uploadFile = dto.getUploadFile();
 		String filename = uploadFile.getOriginalFilename();
 		String folder = session.getServletContext().getRealPath("/resources/images/myPage");
-		System.out.println(folder);
-		System.out.println(filename);
+		System.out.println(folder); //경로 확인.
+		System.out.println(filename); //파일 확인.
 		if(!uploadFile.isEmpty() && uploadFile.getSize() > 0 ) {
 			try {
 				/*uploadFile.transferTo(new File ("D:\\JSP\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\dailycomma\\resources\\images\\myPage",filename));*/
 				/*uploadFile.transferTo(new File ("D:/JSP/dailycomma/src/main/webapp/resources/images/myPage",filename));*/
-				uploadFile.transferTo(new File (folder,filename));
-				uploadFile.transferTo(new File ("D:/JSP/dailycomma/src/main/webapp/resources/images/myPage",filename));
+				uploadFile.transferTo(new File (folder,filename)); // 톰켓 서버에 파일을 업로드함
+				uploadFile.transferTo(new File ("D:/JSP/dailycomma/src/main/webapp/resources/images/myPage",filename)); //워크스페이스에 파일을 업로드함.
 			} catch (IllegalStateException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

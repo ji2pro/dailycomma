@@ -29,9 +29,7 @@
 	  }
 	if(flag == false ){ // 중복이 되지 않을 경우 새값을 countryList에 json형태로 삽입한다.
 		countryList.unshift({  roomNo : '${reserveInfo.roomNo}', company : '${reserveInfo.company}', roomName : '${reserveInfo.roomName}', roomPrice : '${reserveInfo.roomPrice * search.differ }' });
-	} else {
-		countryList[0] = countryList[i]
-	}
+	} 
 	sessionStorage.setItem("myPageCountryList", JSON.stringify(countryList)); // 새값이 들어있는 countryList에 있는 값들을 sessionStorage에 저장 한다.
 	console.log(countryList);
 </script>

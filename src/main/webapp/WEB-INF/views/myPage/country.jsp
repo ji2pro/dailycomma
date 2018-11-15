@@ -8,10 +8,16 @@ console.log(countryList)
 $(function(){
 	for(i in countryList){ 
 		if(!isNull(countryList[i])){
-			$(".reta tr:last").after("<tr><td>"+countryList[i].company+"</td><td>"+countryList[i].roomNo+"</td><td>"+countryList[i].roomName+"</td><td>"+countryList[i].roomPrice+"</td></tr>")
+			$(".reta tr:last").after("<tr><td>"+countryList[i].company+"</td><td><a href='<c:url value='reserveRoom/"+countryList[i].roomNo+"'/>'>"+countryList[i].roomNo+"</a></td><td>"+countryList[i].roomName+"</td><td>"+countryList[i].roomPrice+"</td></tr>")
 		}	
 	}
 });
+
+function reserve_click(room_no){
+	var url = path + "reserveRoom/"+room_no
+	console.log(url);
+	location.href = url;
+}
 
 function isNull(obj){
 	 if(obj == '' || obj == null || obj == undefined || obj == NaN){ 
