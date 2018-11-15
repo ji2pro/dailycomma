@@ -8,6 +8,7 @@ a, a:hover {text-decoration: none;}
 .btn {border-radius: 0;}
 .btn-primary {background: #d338ff; border-color: #d338ff;}
 .btn-primary:hover {background: #9100bb; border-color: #9100bb;}
+.btn-primary:not(:disabled):not(.disabled):active {background: #700091; border-color: #700091;}
 button {
 	outline: none;
     border: 0 none;
