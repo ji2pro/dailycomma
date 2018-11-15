@@ -56,13 +56,15 @@ public class MyPageController {
 		dto.setMemberEmail(((MemberDTO)(session.getAttribute("login"))).getMemberEmail());
 		MultipartFile uploadFile = dto.getUploadFile();
 		String filename = uploadFile.getOriginalFilename();
-		String folder = session.getServletContext().getRealPath("/images/myPage");
-		
+		String folder = session.getServletContext().getRealPath("/resources/images/myPage");
+		System.out.println(folder);
+		System.out.println(filename);
 		if(!uploadFile.isEmpty() && uploadFile.getSize() > 0 ) {
 			try {
 				/*uploadFile.transferTo(new File ("D:\\JSP\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\dailycomma\\resources\\images\\myPage",filename));*/
 				/*uploadFile.transferTo(new File ("D:/JSP/dailycomma/src/main/webapp/resources/images/myPage",filename));*/
 				uploadFile.transferTo(new File (folder,filename));
+				uploadFile.transferTo(new File ("D:/JSP/dailycomma/src/main/webapp/resources/images/myPage",filename));
 			} catch (IllegalStateException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
