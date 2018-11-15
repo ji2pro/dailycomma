@@ -4,6 +4,7 @@
 
 $(function() {
 	go_page(1);
+	$("input[type=checkbox]").prop("checked",false);
 });
 
 //체크박스 삭제
@@ -22,6 +23,10 @@ $(document).ready(function(){
 			return;
 		}
 		
+		if (confirm(checkbox.length +"건을 삭제하시겠습니까??") == false){
+			return;
+		}
+		
 	    $.ajax({
 	        url:"./deleteTours.ajax",
 	        data : JSON.stringify(checkbox),
@@ -32,8 +37,8 @@ $(document).ready(function(){
 				console.log('상태값 : ' + status + ', Http에러메시지 : ' + msg);
 			},
 			success: function(xhr) {
-				if(xhr.result == true)	alert('회원이 삭제되었습니다.');
-				else alert("해당 회원이 없습니다.");
+				if(xhr.result == true)	alert(checkbox.length+ '건이 삭제되었습니다.');
+				else alert("해당 건수가 없습니다.");
 				
 				var p = $('input[name="page"]:hidden').val();
 				go_page(p);
