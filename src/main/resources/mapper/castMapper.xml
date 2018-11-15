@@ -17,4 +17,31 @@
     <delete id="detailCastDelete" parameterType="cast">
         delete from TOUR_LIKE where MEMBER_NO='MEM1' and TOUR_ID=#{tourId}
     </delete>
-</mapper> 
+
+    <select id="detailCastPostList" resultType="cast" parameterType="cast">
+        <![CDATA[
+        select X.rnum, X.COMMENT_CONTENT, X.COMMENT_DATE,
+            (select MEMBER_NICK from MEMBER where X.MEMBER_NO = MEMBER_NO) CMEMBER_NICK
+        from
+            (select rownum as rnum, A.COMMENT_NO, A.MEMBER_NO, A.TOUR_ID, A.COMMENT_CONTENT, A.COMMENT_DATE
+             from (select COMMENT_NO,MEMBER_NO, TOUR_ID, COMMENT_CONTENT, COMMENT_DATE
+                   from COMMENTS
+                   order by COMMENT_NO desc) A
+             where rownum <= ${end}) X join MEMBER M
+                on X.MEMBER_NO = M.MEMBER_NO
+        where X.rnum >= ${start} and X.TOUR_ID=#{tourId}
+        ]]>
+    </select>
+
+    <select id="detailCastPostPage" resultType="cast">
+        select count(*) total_count from COMMENTS
+    </select>
+</mapper>
+
+<!--
+        SELECT 1 rnum, c.COMMENT_CONTENT, c.COMMENT_DATE,
+        (select MEMBER_NICK from MEMBER where c.MEMBER_NO = MEMBER_NO) CMEMBER_NICK
+        FROM COMMENTS c JOIN MEMBER m
+        on c.MEMBER_NO = m.MEMBER_NO
+        where c.TOUR_ID = #{tourId}
+        order by c.COMMENT_NO desc-->
