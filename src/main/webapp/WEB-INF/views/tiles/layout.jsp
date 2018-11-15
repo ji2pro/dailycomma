@@ -21,6 +21,7 @@
     <!-- Font Awesome 4.7.0 -->
     <link href="<c:url value="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css" />
     <!-- Custom Style -->
+    <link href="<c:url value="/resources/include/css/jquery-ui.theme.css"/>" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/include/css/common.css"/>" rel="stylesheet" type="text/css" /> 
     <link href="<c:url value="/resources/include/css/main.css"/>" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/include/css/reservation.css"/>" rel="stylesheet" type="text/css" />
