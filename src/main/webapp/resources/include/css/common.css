@@ -6,6 +6,8 @@ a, a:hover {text-decoration: none;}
 ::selection {background: #ff80c0; color: white;}
 #wrapper {margin-top: 60px;}
 .btn {border-radius: 0;}
+.btn-primary {background: #d338ff; border-color: #d338ff;}
+.btn-primary:hover {background: #9100bb; border-color: #9100bb;}
 button {
 	outline: none;
     border: 0 none;
