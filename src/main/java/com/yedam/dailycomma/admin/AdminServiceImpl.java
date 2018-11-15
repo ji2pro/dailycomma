@@ -72,8 +72,8 @@ public class AdminServiceImpl implements AdminService {
 	public List<RoomDTO> getRooms(RoomSearchDTO roomSearchDTO) {
 		return roomDAO.getRooms(roomSearchDTO);
 	}
-	public int getRoomCnt(RoomSearchDTO roomSearchDTO) {
-		return roomDAO.getCnt(roomSearchDTO);
+	public int getRoomCnt(String lodgmentNo) {
+		return roomDAO.getTotal(lodgmentNo);
 	}
 	public List<RoomDTO> getEachRooms(RoomSearchDTO roomSearchDTO) {
 		return roomDAO.getEachRooms(roomSearchDTO);
@@ -124,5 +124,10 @@ public class AdminServiceImpl implements AdminService {
 	public int deleteTours(List<String> checkbox) {
 		// TODO Auto-generated method stub
 		return adminDAO.deleteTours(checkbox);
+	}
+	@Override
+	public int deleteRooms(List<String> checkbox) {
+		// TODO Auto-generated method stub
+		return adminDAO.deleteRooms(checkbox);
 	}
 }

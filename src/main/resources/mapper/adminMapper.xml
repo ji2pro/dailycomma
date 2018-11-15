@@ -36,4 +36,12 @@
 		</foreach>	
 	</delete>
 	
+	<delete id="deleteRooms">
+		DELETE FROM ROOM
+		WHERE ROOM_NO IN
+		<foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+			#{item}
+		</foreach>	
+	</delete>
+	
 </mapper> 

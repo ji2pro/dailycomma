@@ -25,5 +25,9 @@ public class AdminDAO {
 	public int deleteTours(List<String> checkbox) {
 		return mybatis.delete("admin.deleteTours", checkbox);
 	}
+	
+	public int deleteRooms(List<String> checkbox) {
+		return mybatis.delete("admin.deleteRooms", checkbox);
+	}
 }
 

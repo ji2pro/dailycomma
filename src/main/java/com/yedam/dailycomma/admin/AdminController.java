@@ -238,13 +238,16 @@ public class AdminController {
 			paging.setPage(1);
 		}
 		// 전체 건수
-		int total = adminService.getRoomCnt(roomSearchDto);
+		int total = adminService.getRoomCnt(lodgmentNo);
+		
+		System.out.println("total======================="+total);
 		paging.setTotalRecord(total);
 		mv.addObject("paging", paging);
 
 		// 시작/마지막 레코드 번호
 		roomSearchDto.setStart(paging.getFirst());
 		roomSearchDto.setEnd(paging.getLast());
+		roomSearchDto.setLodgmentNo(lodgmentNo);
 		mv.addObject("list", adminService.getEachRooms(roomSearchDto));
 
 		mv.setViewName("noTiles/admin/room");
@@ -254,10 +257,10 @@ public class AdminController {
 	// 숙소별 객실 목록(rooms) 아작스 호출 페이지
 	@RequestMapping(value={"/room.ajax"}, method=RequestMethod.GET)
 	@ResponseBody
-	public Map getEachRooms(RoomSearchDTO roomSearchDto,
+	public Map<String,Object> getEachRooms(RoomSearchDTO roomSearchDto,
 			  				Paging paging) {
 		
-		Map map = new HashMap<String, Object>();
+		Map<String,Object> map = new HashMap<String, Object>();
 		// 조회할 레코드 건수
 		paging.setPageUnit(5);
 
@@ -266,7 +269,9 @@ public class AdminController {
 			paging.setPage(1);
 		}
 		// 전체 건수
-		int total = adminService.getRoomCnt(roomSearchDto);
+		
+		System.out.println("lodgmentNo============================" + roomSearchDto.getLodgmentNo());
+		int total = adminService.getRoomCnt(roomSearchDto.getLodgmentNo());
 		paging.setTotalRecord(total);
 		map.put("paging", paging);
 

@@ -89,5 +89,20 @@ public class RestAdminController {
 		return map;
 	}
 	
-	
+	@RequestMapping(value="/deleteRooms.ajax", method=RequestMethod.DELETE)
+	public HashMap<String,Object> deleteRooms(@RequestBody List<String> checkbox){
+		HashMap<String,Object> map = new HashMap<String,Object>();
+		
+		for(String str : checkbox)			
+			System.out.println("checkbox==========================="+str);
+		
+		int check = adminService.deleteRooms(checkbox);
+		if(check > 0 ) {
+			map.put("result", Boolean.TRUE);
+		}
+		else {
+			map.put("result", Boolean.FALSE);
+		}
+		return map;
+	}
 }

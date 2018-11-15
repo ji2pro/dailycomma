@@ -6,13 +6,52 @@ $(function() {
 	go_page(1);
 });
 
+
+$(document).ready(function(){
+	$('#roomDeleteSelected').click(function(){
+		var checkbox = [];
+		$('input[name="_selected_"]:checked').each(function(){
+			checkbox.push($(this).val());
+		});
+		
+		var alldata = { "checkbox" : checkbox};
+		
+		if(checkbox.length == 0) {
+			alert("선택 사항이 없습니다.");
+			return;
+		}
+		
+	    $.ajax({
+	        url:"./deleteRooms.ajax",
+	        data : JSON.stringify(checkbox),
+	        contentType: 'application/json; charset=utf-8',
+	        type: "DELETE",
+	        dataType: "json",
+			error: function(xhr, status, msg) {
+				console.log('상태값 : ' + status + ', Http에러메시지 : ' + msg);
+			},
+			success: function(xhr) {
+				if(xhr.result == true)	alert('회원이 삭제되었습니다.');
+				else alert("해당 회원이 없습니다.");
+				
+				var p = $('input[name="page"]:hidden').val();
+				go_page(p);
+			}	   
+	    
+	    });
+	    
+	});
+});
+
+
+
 //페이징 처리
 function go_page(p) {
 	
 	$('input[name="page"]:hidden').val(p);
-	
+	//var lodgmentNo = $('input[name="lodgmentNo"]:hidden').val();
     $.ajax({
-        url: 'rooms/' +lodgmentNo,
+        url: './room.ajax',
         data :$('#roomPagingForm').serialize(),
         type: "GET",
         dataType: "json",
@@ -95,6 +134,7 @@ $('body').off().on('click', '#btnDelete', function() {
 				console.log('상태값 : ' + status + ', Http에러메시지 : ' + msg);
 			},
 			success: function(xhr) {
+				//var p = $('input[name="page"]:hidden').val(p);
 				console.log(xhr.result);
 				alert(roomNo + ' 객실이 삭제되었습니다.');
 				go_page(p);
