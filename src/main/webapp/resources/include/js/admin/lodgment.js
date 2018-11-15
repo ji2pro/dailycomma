@@ -4,23 +4,34 @@
 
 $(function() {
 	go_page(1);
+	
+	$("input[type=checkbox]").prop("checked",false);
 });
 
 $(document).ready(function(){
 	
 	$('#lodgmentDeleteSelected').click(function(){
-		console.log("============click")
+
 		var checkbox = [];
 		$('input[name="_selected_"]:checked').each(function(){
 			checkbox.push($(this).val());
 		});
 		
-		var alldata = { "checkbox" : checkbox};
-		
 		if(checkbox.length == 0) {
 			alert("선택 사항이 없습니다.");
 			return;
 		}
+		
+		if (confirm(checkbox.length +"건을 삭제하시겠습니까??") == false){
+			return;
+		}
+		
+
+		
+
+		
+		var alldata = { "checkbox" : checkbox};
+
 		
 	    $.ajax({
 	        url:"./deleteLodgments.ajax",
@@ -32,8 +43,8 @@ $(document).ready(function(){
 				console.log('상태값 : ' + status + ', Http에러메시지 : ' + msg);
 			},
 			success: function(xhr) {
-				if(xhr.result == true)	alert('회원이 삭제되었습니다.');
-				else alert("해당 회원이 없습니다.");
+				if(xhr.result == true)	alert(checkbox.length+ '건이 삭제되었습니다.');
+				else alert("해당 건수가 없습니다.");
 				
 				var p = $('input[name="page"]:hidden').val();
 				go_page(p);

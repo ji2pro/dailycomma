@@ -25,8 +25,8 @@ $(document).ready(function() {
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
             name : '주문명:결제테스트',
-            amount : 32323223,
-            buyer_email : 'dfgkjhfdk@naver.com',
+            amount : 100,
+            buyer_email  : 'dfgkjhfdk@naver.com',
             buyer_name : '개부자다',
             buyer_tel :  1513515321231,
             buyer_addr : '실리콘벨리'

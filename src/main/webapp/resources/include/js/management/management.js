@@ -26,7 +26,6 @@ $(document).ready(function(){
     
  });    
 
-    
 
 /*function callbackDelete(datas){
 	
