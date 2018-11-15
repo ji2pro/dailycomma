@@ -2,6 +2,7 @@ package com.yedam.dailycomma.room;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +48,12 @@ public class RoomController {
                              HttpSession session) {
         
     	dto = (LodgmentSearchDTO)session.getAttribute("search");
+    	
+    	if(dto == null || dto.getCheckin() == null || dto.getCheckin().equals("")) {
+    		dto = new LodgmentSearchDTO();
+    		dto.setCheckin("2018-12-20");
+    		dto.setCheckout("2018-12-21");    		
+    	}
     	dto.setLodgmentNo(lodgmentNo);
 
         /*전체 이미지를 가져온다.*/

@@ -8,7 +8,7 @@ console.log(countryList)
 $(function(){
 	for(i in countryList){ 
 		if(!isNull(countryList[i])){
-			$(".reta tr:last").after("<tr><td>"+countryList[i].roomNo+"</td><td>"+countryList[i].company+"</td><td>"+countryList[i].roomName+"</td><td>"+countryList[i].roomPrice+"</td></tr>"); //rete class의 tr 마지막 부분에 해당 요소를 추가.
+			$(".reta tr:last").after("<tr><td>"+countryList[i].roomNo+"</td><td>"+countryList[i].company+"</td><td>"+countryList[i].roomName+"</td><td>"+countryList[i].roomPrice+"</td></tr>")
 		}	
 	}
 });

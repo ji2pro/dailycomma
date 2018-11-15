@@ -13,6 +13,7 @@
 <form name="roomPagingForm" id="roomPagingForm">
 	<input type="hidden" name="page" value="1">
 	<input type="hidden" name="sort" value="room_no">
+	<input type="hidden" name="lodgmentNo" value="${list[0].lodgmentNo}">
 </form>
 <!-- 숙소 관리 경로 표시 -->
 <div class="row">
@@ -70,7 +71,7 @@
 </div>
 <div class="row">
 	<div class="col-md-12 d-flex flex-row justify-content-end mb-4">
-		<button id="btnDeleteSelected" class="btn btn-outline-danger">선택 삭제</button>
+		<button id="roomDeleteSelected" class="btn btn-outline-danger">선택 삭제</button>
 	</div>
 </div>
 <div id="roomPaging">

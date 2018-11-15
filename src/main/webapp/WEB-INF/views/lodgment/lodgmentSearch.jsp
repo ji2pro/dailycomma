@@ -6,9 +6,6 @@
 <!-- Custom Stylesheets -->
 <link rel="stylesheet" href="./resources/include/css/jquery-ui.theme.css" />
 <link rel="stylesheet" href="./resources/include/css/lodgmentSearch.css" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-<!-- 별모양 링크 -->
-
 <!-- 캘린더 -->
 <%-- <script src="<c:url value="/resources/include/js/lodgment/calendar.js"/>"></script>
 <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>

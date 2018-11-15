@@ -70,6 +70,9 @@ section {margin-top: 50px;}
 .search-panel .option-btn:focus .fa-chevron-down {
 	color: #d338ff;
 }
+.search-panel .option-btn .option-btn-focused {
+	color: #d338ff;
+}
 .search-panel .option-item.item-option-calendar .option-btn {
 	padding: 0;
 }
