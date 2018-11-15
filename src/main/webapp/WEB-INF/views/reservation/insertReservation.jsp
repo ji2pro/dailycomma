@@ -26,7 +26,7 @@
 
 <div class="container">
 	<div class="row">
-		<div role="main" class="col-md-9 mr-auto">
+		<div role="main" class="col-md-9 mr-auto" style="min-height:700px; ">
 			<div class="row pt-5 pb-3">
 				<div class="col-md-5">
 					<img class="img-fluid d-block"
@@ -101,7 +101,7 @@
 			</div>
 
 		</div>
-		<nav class="col-md-3 d-none d-md-block bg-light sidebar">
+		<nav class="col-md-3 d-none d-md-block bg-light sidebar" style="height:500px;">
 			<div class="sidebar-sticky">
 				<div class="sidebar-top">
 					<div class="info-box">
