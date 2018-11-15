@@ -1,8 +1,11 @@
 package com.yedam.dailycomma.myPage;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import java.io.File;
 import java.io.IOException;
 
+import javax.security.auth.login.LoginContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,12 +55,14 @@ public class MyPageController {
 	public String updateMember(Model model, MemberDTO dto, HttpSession session) throws IOException{
 		dto.setMemberEmail(((MemberDTO)(session.getAttribute("login"))).getMemberEmail());
 		MultipartFile uploadFile = dto.getUploadFile();
-		String filename = "";
+		String filename = uploadFile.getOriginalFilename();
+		String folder = session.getServletContext().getRealPath("/images/myPage");
 		
 		if(!uploadFile.isEmpty() && uploadFile.getSize() > 0 ) {
-			filename = uploadFile.getOriginalFilename();
 			try {
-				uploadFile.transferTo(new File("D:\\JSP\\dailycomma\\src\\main\\webapp\\resources\\images\\myPage", filename));
+				/*uploadFile.transferTo(new File ("D:\\JSP\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\dailycomma\\resources\\images\\myPage",filename));*/
+				/*uploadFile.transferTo(new File ("D:/JSP/dailycomma/src/main/webapp/resources/images/myPage",filename));*/
+				uploadFile.transferTo(new File (folder,filename));
 			} catch (IllegalStateException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -65,6 +70,7 @@ public class MyPageController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			dto.setUploadFileName(filename);
 			dto.setMemberImg(filename);
 		} 
 		memberService.updateMember(dto);

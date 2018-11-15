@@ -2,6 +2,7 @@ package com.yedam.dailycomma.member;
 
 import org.springframework.web.multipart.MultipartFile;
 
+
 public class MemberDTO {
 	private String memberNo;		//회원 번호
 	private String memberEmail;		//회원 이메일
@@ -13,9 +14,14 @@ public class MemberDTO {
 	private String memberPoint;		//회원 포인트
 	private String signupDate;		//회원가입 날짜
 	private MultipartFile uploadFile;
+	private String uploadFileName;
 	
-	
-	
+	public String getUploadFileName() {
+		return uploadFileName;
+	}
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
+	}
 	public MultipartFile getUploadFile() {
 		return uploadFile;
 	}
