@@ -14,12 +14,90 @@ public class CastDTO {
     private String likeyn;
     private String totalLike;
 
+    /*덧글*/
+    private String commentContent;
+    private String commentDate;
+    private String cmemberNick;
+
+    /*페이징*/
+    private int start;
+    private int end;
+    private String rnum;
+    private int totalCount;
+    private int totalPage;
+
+    public int getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
+    }
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+    }
+
+    public String getRnum() {
+        return rnum;
+    }
+
+    public void setRnum(String rnum) {
+        this.rnum = rnum;
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+
+    public void setEnd(int end) {
+        this.end = end;
+    }
+
+    public String getCommentContent() {
+        return commentContent;
+    }
+
+    public void setCommentContent(String commentContent) {
+        this.commentContent = commentContent;
+    }
+
+    public String getCommentDate() {
+        return commentDate;
+    }
+
+    public void setCommentDate(String commentDate) {
+        this.commentDate = commentDate;
+    }
+
+    public String getCmemberNick() {
+        return cmemberNick;
+    }
+
+    public void setCmemberNick(String cmemberNick) {
+        this.cmemberNick = cmemberNick;
+    }
+
     public String getTotalLike() {
         return totalLike;
     }
+
     public void setTotalLike(String totalLike) {
         this.totalLike = totalLike;
     }
+
     public String getTourId() {
         return tourId;
     }
@@ -113,6 +191,10 @@ public class CastDTO {
                 ", tourLocation='" + tourLocation + '\'' +
                 ", tourState='" + tourState + '\'' +
                 ", likeyn='" + likeyn + '\'' +
+                ", totalLike='" + totalLike + '\'' +
+                ", commentContent='" + commentContent + '\'' +
+                ", commentDate='" + commentDate + '\'' +
+                ", cmemberNick='" + cmemberNick + '\'' +
                 '}';
     }
 }

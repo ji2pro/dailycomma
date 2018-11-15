@@ -97,31 +97,22 @@
                     </div>
                 </div>
             </div>
-            <%--후기 리스트--%>
+
             <br>
-            <div class="con_detail bord_b">
-                <div class="inner_bg">
-                    <div class="con_post bord_b">
-                        <div class="count">
-                        <span class="day" id="jsonRegisterdDate">2018-09-27 18:15:24 작성자</span>
-                            <div class="content_post">
-                                <span>내용 :sdaasdasdas</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="inner_bg">
-                    <div class="con_post bord_b">
-                        <div class="count">
-                            <span class="day" id="jsonRegisterdDate">2018-09-27 18:15:24 작성자</span>
-                            <div class="content_post">
-                                <span>내용 :sdaasdasdas</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <%--후기 리스트--%>
+            <div class="con_detail bord_b addPostList">
+
             </div>
             <%--후기 등록--%>
+            <div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link paging" href="#">Previous</a></li>
+
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 </div>
