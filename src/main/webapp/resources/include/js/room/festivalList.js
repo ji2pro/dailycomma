@@ -79,10 +79,15 @@ function detailFestival(contentid) {
                 "<div class='carousel-inner'>";*/
                 "<div id='carouselExampleControls' class='carousel slide' data-ride='carousel'>" +
                 "<div class='carousel-inner'>";
- 
+                
+                
             $.each(datas.items3.items.item, function (idx, datas) {
+            	var active = "";
+            	if (idx == 0 ){
+            		active = "active";
+            	}
                 detailFestival +=
-                    "<div class='carousel-item active'>" +
+                    "<div class='carousel-item "+active+"'>" +
                     "<img class='d-block img-fluid w-100' src='" + datas.originimgurl + "'/>" +
                     "</div>";
             })
@@ -91,34 +96,12 @@ function detailFestival(contentid) {
                 "</div>" +
                 "<a class='carousel-control-prev' href='#carouselExampleControls' role='button' data-slide='prev'>" +
                 "<span class='carousel-control-prev-icon' aria-hidden='true'></span></a><span class='sr-only'>이전</span>" +
-                "<a class='carousel-control-next' href='##carouselExampleControls' role='button' data-slide='next'>" +
-                "<span class='carousel-control-next-icon' aria-hidden='true'></span><span class='sr-only'>다음</span> </a>" +
+                '<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">'+
+                '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                '<span class="sr-only">다음</span>'+
+                '</a>' +
                 "</div>" +
-                /*
-                "<div id='carouselExampleControls' class='carousel slide' data-ride='carousel'>" +
-                "<div class='carousel-inner'>"
-                  <div class="carousel-item active">
-                    <img class="d-block w-100" src="..." alt="첫번째 슬라이드">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="..." alt="두번째 슬라이드">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="..." alt="세번째 슬라이드">
-                  </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">이전</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">다음</span>
-                </a>
-              </div>*/
-                
-                
-                
+
                 
                 "</div>" + 
                 <!-- right-content -->

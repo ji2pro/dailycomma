@@ -31,7 +31,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col md-3">
+		<div class="col md-3" style="min-height: 700px; margin-top: 5%;">
 			<div class="dropdown ml-2" style="display: inline-block;">
 				<button type="button" class="btn btn-defalute btn-lg dropdown-toggle"
 					id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
