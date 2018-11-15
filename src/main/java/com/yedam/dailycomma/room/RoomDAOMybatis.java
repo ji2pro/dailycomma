@@ -57,6 +57,10 @@ public class RoomDAOMybatis {
     public int getCnt(RoomSearchDTO roomSearchDTO) {
     	return mybatis.selectOne("room.getCnt", roomSearchDTO);
     }
+    
+    public int getTotal(String lodgmentNo) {
+    	return mybatis.selectOne("room.getTotal", lodgmentNo);
+    }
     //삭제
   	public int deleteRoom(RoomDTO dto) {
   		return mybatis.delete("room.deleteRoom", dto);

@@ -5,7 +5,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-
 <html>
 <head>
 <meta charset="UTF-8">
@@ -217,12 +216,25 @@ function checkException(x){
 
 </head>
 <body>
+
 <div class="container">
+
+<div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   사장님통계관리
+  </button> 
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="<c:url value="/managementList.do"/>">예약자 리스트</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="<c:url value="/stats.do"/>">통계관리</a>
+  </div>
+</div>
+
 <!-- 이달 객실별 예약 건수 및 판매금액 -->
-<div align="center"><h1>이달 객실별 예약 건수 및 판매금액</h1></div>
-<table id="statsRoomSell" style="font-size: 15px;" class="table table-striped table-bordered table-hover tableAlign" >
+<div align="center" class="titleInterval"><h1>이달 객실별 예약 건수 및 판매금액</h1></div>
+<table id="statsRoomSell" class="table table-striped table-bordered table-hover tableAlign tableFontSize" >
 	<thead>
-		<tr style="background:#ffaabb; text-align:center;">
+		<tr style="background:#ffaabb;">
 			<th>객실명</th>
 			<th>예약수</th>
 			<th>판매금액</th>
@@ -242,10 +254,10 @@ function checkException(x){
 
 
 <!-- 이달 총 예약건수 및 판매금액 -->
-<div align="center"><h1>이달 총 예약건수 및 판매금액</h1></div>
-<table id="statsTotalSell" class="table table-striped table-bordered table-hover tableAlign">
+<div align="center" class="titleInterval"><h1>이달 총 예약건수 및 판매금액</h1></div>
+<table id="statsTotalSell" class="table table-striped table-bordered table-hover tableAlign tableFontSize">
 	<thead>
-			<tr>
+			<tr style="background:#ffaabb;">
 				<th>총 예약건수</th>
 				<th>총 판매금액</th>
 			</tr>
@@ -270,32 +282,33 @@ function checkException(x){
 
 <!-- chart_div 차트 부분 -->
 
-<div class="row">
-	<div class="dropdown">
-		  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		    ${sysYear}
-		  </button>
-		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> </div>
-	</div>
+		<div class="row chartButtonInterval">
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button"
+					id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">${sysYear}</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				</div>
+			</div>
+			&nbsp;
+			<button type="button" class="btn btn-secondary" id="btn-div">검색</button>
+		</div>
 
-	<button type="button" class="btn btn-secondary" id="btn-div">검색</button>
-</div>
+		<div id="chart_div"></div>
 
-<div id="chart_div"></div>
+		<div class="row chartButtonInterval">
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button"
+					id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">${sysYear}</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				</div>
 
-<div class="row">
-	<div class="dropdown">
-	  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	   ${sysYear}
-	  </button>
-	  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> </div>
-	  
-	  <button type="button" class="btn btn-secondary" id="btn-reserve">검색</button>
-	</div>
-</div>
+				<button type="button" class="btn btn-secondary" id="btn-reserve">검색</button>
+			</div>
+		</div>
 
-
-<div id="chart_reserve"></div>
+		<div id="chart_reserve"></div>
 </div>
 </body>
 </html>

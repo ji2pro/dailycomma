@@ -97,24 +97,25 @@
                 <div>연락처 : ${getDetailRooms[0].hostPhone}</div>
                 <div>구분 : ${getDetailRooms[0].lodgmentType}</div>
             </div>
-            <div class="detail-info__score"><span class="score-rap"><i
+            <br> 
+            <!-- <div class="detail-info__score"><span class="score-rap"><i
                     class="icon-staylist icon-staylist-score score10"></i><i
                     class="icon-staylist icon-staylist-score score10"></i><i
                     class="icon-staylist icon-staylist-score score10"></i><i
                     class="icon-staylist icon-staylist-score score10"></i><i
-                    class="icon-staylist icon-staylist-score score05"></i></span><em><!-- react-text: 1983 -->후기
-                <!-- /react-text --><!-- react-text: 1984 -->3147<!-- /react-text --><!-- react-text: 1985 -->개
-                <!-- /react-text --></em></div>
-            <div class="detail-info__tag tag-rap"><!-- react-text: 1987 --> <!-- /react-text --><i
+                    class="icon-staylist icon-staylist-score score05"></i></span><em>react-text: 1983후기
+                /react-text --><!-- react-text: 19843147/react-text --><!-- react-text: 1985개
+                /react-text</em></div> 
+            <!-- <div class="detail-info__tag tag-rap">react-text: 1987 /react-text<i
                     class="tag-primary">쿠폰혜택</i><i class="tag-primary">TOP100</i><i class="tag-primary">MY ROOM</i><i
                     class="tag-primary">좋은숙박연구소</i><i class="tag-primary">현장적립</i><i class="tag-primary">최저가보상</i>
-                <!-- react-text: 1988 --> <!-- /react-text --></div>
+                react-text: 1988 /react-text</div>
             <ul class="detail-info__tip">
-                <li><!-- react-text: 2145 -->미리예약시 <!-- /react-text --><!-- react-text: 2146 -->2%<!-- /react-text -->
-                    <!-- react-text: 2147 --> 적립<!-- /react-text --></li>
-            </ul>
+                <li>react-text: 2145미리예약시 /react-text --><!-- react-text: 21462%/react-text
+                    react-text: 2147 적립/react-text</li>
+            </ul> -->
         </div>
-        <div class="detail-theme"><h4 class="sc-out">편의시설 및 테마</h4>
+        <!-- <div class="detail-theme"><h4 class="sc-out">편의시설 및 테마</h4>
             <div class="detail-theme__inner">
                 <ul class="theme-list">
                     <li class="theme-item"><img
@@ -143,7 +144,7 @@
                             alt="객실금연"><span>객실금연</span></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <div class="place-badge">
             <div class="coupon-rap">
                 <button type="button" class="btn-bestpick"><i class="icon-badge-bestpick"></i></button>
@@ -171,7 +172,7 @@
 
                     <div class="tab-pane fade active show" id="tabone" role="tabpanel">
                         <c:forEach var="list" items="${getDetailRooms}">
-                            <div class="row py-4 border-bottom border-secondary">
+                            <div class="row py-4 border-bottom border-secondary" style="height: 450px; ">
                                 <div class="col">
                                     <div class="place-room__title" data-reactid="182"><em
                                             data-reactid="183">${list.roomName}</em></div>
@@ -179,7 +180,7 @@
                                     <div class="place-room__tip" data-reactid="184"><span
                                             data-reactid="185">객실 정보 : ${list.roomInfo}</span></div>
                                         <%-- <div class="roomtip">객실 정보 : ${list.roomInfo}</div>--%>
-                                    <div class="place-room__tip" data-reactid="184"><span data-reactid="185">기준2명 (최대인원${list.roomQuantity}명</span></div>
+                                    <div class="place-room__tip" data-reactid="184"><span data-reactid="185">기준2명 (최대인원${list.roomQuantity}명)</span></div>
                                     <%--<div class="roomtip">기준2명 (최대인원${list.roomQuantity}명)</div>--%>
                                     <div class="py-3"><span class="room-label f-right">숙박${list.roomPrice}원</span></div>
                                     
@@ -212,11 +213,11 @@
                                             </c:forTokens>
                                         </div>
                                         <a class="carousel-control-prev" href="#carousel" role="button"
-                                           data-slide="prev">
+                                           data-slide="prev" style="height:400px;">
                                             <span class="carousel-control-prev-icon"></span>
                                             <span class="sr-only">Previous</span> </a>
                                         <a class="carousel-control-next" href="#carousel" role="button"
-                                           data-slide="next" style=""> <span
+                                           data-slide="next" style="height:400px;"> <span
                                                 class="carousel-control-next-icon"></span> <span
                                                 class="sr-only">Next</span> </a>
                                     </div>

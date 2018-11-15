@@ -6,9 +6,6 @@
 <!-- Custom Stylesheets -->
 <link rel="stylesheet" href="./resources/include/css/jquery-ui.theme.css" />
 <link rel="stylesheet" href="./resources/include/css/lodgmentSearch.css" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-<!-- 별모양 링크 -->
-
 <!-- 캘린더 -->
 <%-- <script src="<c:url value="/resources/include/js/lodgment/calendar.js"/>"></script>
 <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -34,7 +31,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col md-3">
+		<div class="col md-3" style="min-height: 700px; margin-top: 5%;">
 			<div class="dropdown ml-2" style="display: inline-block;">
 				<button type="button" class="btn btn-defalute btn-lg dropdown-toggle"
 					id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">

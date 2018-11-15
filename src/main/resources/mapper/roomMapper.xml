@@ -126,6 +126,12 @@
 		</where>
 	</select>
 	
+	<select id="getTotal" resultType="int" parameterType="string">
+		SELECT COUNT(*)
+		FROM ROOM
+		WHERE LODGMENT_NO = #{value} AND LODGMENT_NO IS NOT NULL
+	</select>
+	
 	<!-- 삭제 -->
 	<delete id="deleteRoom" parameterType="detailRoom">
 		DELETE FROM ROOM WHERE ROOM_NO = #{roomNo}

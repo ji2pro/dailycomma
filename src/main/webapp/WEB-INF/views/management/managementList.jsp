@@ -13,9 +13,7 @@
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <link href="./resources/include/css/management.css" rel="stylesheet" type="text/css"> 
 <script src="<%=request.getContextPath()%>/resources/include/js/management/management.js"></script>
-<%-- <link href="<%=request.getContextPath()%>/resources/include/css/admin.css" rel="stylesheet" type="text/css" /> --%>
 
-  	 
 
 <title>예약관리 managementList.do</title>
 
@@ -28,6 +26,21 @@
 	<br>
 
 <form action="<c:url value="/deleteReserve.do"/>">
+
+
+<div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   사장님통계관리
+  </button> 
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="<c:url value="/managementList.do"/>">예약자 리스트</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="<c:url value="/stats.do"/>">통계관리</a>
+  </div>
+</div>
+
+
+
 <p align="right">
 	<button id="btnDelete" type="button" class="btn btn-primary">예약취소</button>
 </p>
@@ -38,7 +51,6 @@
 			<th>선택</th>
 			<th>이름</th>
 			<th>이메일</th>
-			<th>연락처</th>
 			<th>예약상태</th>
 			<th>예약날짜</th>
 			<th>예약인원</th>
@@ -47,7 +59,7 @@
 			<th>체크인</th>
 			<th>체크아웃</th>
 			<th>일수</th>
-			<th>상태변경일</th>
+
 		</tr>
 	</thead>
 
@@ -59,27 +71,28 @@
 					<td><input type="checkbox" name="reserveNo" value="${member.reserveNo}"></td>
 					<td>${member.memberName}</td>
 					<td>${member.memberEmail}</td>
-					<td>(연락처)</td>
 					<td>${member.reserveState}</td>
 					<td>${member.reserveDate}</td>
 					<td>${member.reservePeople}</td>
-					<td>${member.roomName}</td>
+					<td>${member.roomName}</td> 
 					<td>${member.reservePrice}</td>
 					<td>${member.checkin}</td>
 					<td>${member.checkout}</td>
-			 		<td>(일수)<%-- ${member.reserveDays} --%></td>  
-					<td>(상태변경일)</td>				
+			 		<td>(일수)<%-- ${member.reserveDays} --%></td>  			
 				</tr>
 			</c:forEach>
 		
 		</tbody>
 	
 </table>
+
 </form>
 
 </div>
 </body>
 </html>
+
+
 
 
 

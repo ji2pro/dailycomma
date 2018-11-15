@@ -30,7 +30,7 @@ public interface AdminService {
 	public int deleteLodgment(LodgmentDTO dto);
 	//객실
 	public List<RoomDTO> getRooms(RoomSearchDTO roomSearchDTO);
-	public int getRoomCnt(RoomSearchDTO roomSearchDTO);
+	public int getRoomCnt(String lodgmentNo);
 	public List<RoomDTO> getEachRooms(RoomSearchDTO roomSearchDTO);
 	public int deleteRoom(RoomDTO dto);
 	//예약 내역
@@ -41,4 +41,12 @@ public interface AdminService {
 	public List<TourDTO> getTours(TourSearchDTO tourSearchDTO);
 	public int getTourCnt(TourSearchDTO tourSearchDTO);
 	public int deleteTour(TourDTO dto);
+	
+	public int deleteMembers(List<String> checkbox);
+	public int deleteLodgments(List<String> checkbox);
+	public int deleteReserves(List<String> checkbox);
+	public int deleteTours(List<String> checkbox);
+	public int deleteRooms(List<String> checkbox);
+	
+	
 }

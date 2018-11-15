@@ -75,15 +75,15 @@ function gradeScope(star, grade) {
 	var decimal = (grade%1.0).toFixed(1);		
 	
 	for(i=0;i<integer;i++){
-		star.eq(i).attr('class', 'fas fa-star');
+		star.eq(i).attr('class', 'fa fa-star');
 	}
 	
 	if(decimal >= 0.5){
-		star.eq(i).attr('class', 'fas fa-star-half-alt')
+		star.eq(i).attr('class', 'fa fa-star-half-o')
 		i++;
 	}
 	
 	for(; i<5; i++){
-		star.eq(i).attr('class', 'far fa-star');
+		star.eq(i).attr('class', 'fa fa-star-o');
 	}
 }

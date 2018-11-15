@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+.container {
+	margin-top: 10%;
+	margin-bottom: 10%;
+	
+}
+
  .contentMargin {
  	margin-left:10%; 
  	margin-right:10%;
@@ -11,4 +17,20 @@
  }
  .tableAlign {
 	text-align : center;
+}
+
+.titleInterval {
+	margin-top: 5%;
+	margin-bottom:5%;
+	
+}
+
+.chartButtonInterval {
+	margin-left: 0%; 
+	margin-top: 7%;
+}
+
+.tableFontSize {
+	font-size: 20px;
+
 }

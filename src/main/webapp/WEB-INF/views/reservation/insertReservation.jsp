@@ -8,7 +8,9 @@
 <script src="<%=request.getContextPath()%>/resources/include/js/reservation/Payment.js" type="text/javascript"></script>
 
 <script>
-	countryList = sessionStorage.getItem("myPageCountryList");
+	var countryList = sessionStorage.getItem("myPageCountryList");
+	var rono = '${reserveInfo.roomNo}';
+	
 	if (countryList == null) {
 		countryList = [];
 	} else {
@@ -17,16 +19,27 @@
 	if (countryList.length >= 5) {
 		countryList.pop();
 	}
+	// 중복 처리 확인.
+	var flag = false; 	//초기화  
 	
-	countryList.unshift({  roomNo : '${reserveInfo.roomNo}', company : '${reserveInfo.company}', roomName : '${reserveInfo.roomName}', roomPrice : '${reserveInfo.roomPrice * search.differ }' });
-	sessionStorage.setItem("myPageCountryList", JSON.stringify(countryList));
+	for(i in countryList)	 //for문 작성
+	  { 
+		if(countryList[i].roomNo == rono ) // 스토리지 안에 들어있는 값과 countryList(들어있는 값)  들어올려는값 rono(들어올려는 값)이  중복일 경우 아무런 동작이 실행 되지 않고
+		flag =true
+	  }
+	if(flag == false ){ // 중복이 되지 않을 경우 새값을 countryList에 json형태로 삽입한다.
+		countryList.unshift({  roomNo : '${reserveInfo.roomNo}', company : '${reserveInfo.company}', roomName : '${reserveInfo.roomName}', roomPrice : '${reserveInfo.roomPrice * search.differ }' });
+	} else {
+		countryList[0] = countryList[i]
+	}
+	sessionStorage.setItem("myPageCountryList", JSON.stringify(countryList)); // 새값이 들어있는 countryList에 있는 값들을 sessionStorage에 저장 한다.
 	console.log(countryList);
 </script>
 
 
 <div class="container">
 	<div class="row">
-		<div role="main" class="col-md-9 mr-auto">
+		<div role="main" class="col-md-9 mr-auto" style="min-height:700px; ">
 			<div class="row pt-5 pb-3">
 				<div class="col-md-5">
 					<img class="img-fluid d-block"
@@ -101,7 +114,7 @@
 			</div>
 
 		</div>
-		<nav class="col-md-3 d-none d-md-block bg-light sidebar">
+		<nav class="col-md-3 d-none d-md-block bg-light sidebar" style="height:500px;">
 			<div class="sidebar-sticky">
 				<div class="sidebar-top">
 					<div class="info-box">

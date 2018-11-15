@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<link rel="stylesheet" href="./resources/include/css/jquery-ui.theme.css" />
 <script src="<c:url value="/resources/include/js/home/home.js"/>"></script>
 
 <section class="search-area">
@@ -27,7 +28,7 @@
 							<div class="popover-content popover-search-option animate-bounce-down" data-popover-content="true">
 								<div class="layer-search-option layer-radio-list">
 									<div class="radio-list">
-										<div class="inp-radio inp-radio-active">
+										<div class="inp-radio">
 											<input type="radio" title="모텔" name="lodgType" value="A1" id="A1">
 											<label for="A1"><a>모텔</a></label>
 										</div>
@@ -88,7 +89,6 @@
 									</div>
 								</div>
 							</div>
-							
 						</div>
 						<i class="left-item-bar"></i> <i class="right-item-bar"></i>
 					</div>
@@ -107,13 +107,13 @@
 											<div class="dateRangePickerMain">
 												<div class="dateRangePickerInput">
 													<div class="dateInput">
-														<input type="text" class="dateInput-input" id="startDate" name="startDate" value="2018-11-14" placeholder="YYYY-MM-DD" autocomplete="off">
-														<div class="dateInput-text">2018-11-14</div>
+														<input type="text" class="dateInput-input" id="startDate" name="checkin" autocomplete="off">
+														<div class="dateInput-text" id="startDateText">체크인 날짜</div>
 													</div>
 													
 													<div class="dateInput">
-														<input type="text" class="dateInput-input" id="endDate" name="endDate" value="2018-11-24" placeholder="YYYY-MM-DD" autocomplete="off">
-														<div class="dateInput-text">2018-11-24</div>
+														<input type="text" class="dateInput-input" id="endDate" name="checkout" autocomplete="off">
+														<div class="dateInput-text" id="endDateText">체크아웃 날짜</div>
 													</div>
 												</div>
 											</div>
@@ -123,40 +123,6 @@
 								</div>
 							</div>
 							
-							<div class="popover-content popover-search-option animate-bounce-down" data-popover-content="true">
-								<div class="layer-search-option layer-area-list">
-									<div class="area-list">
-									
-										<div class="col">
-											<div class="input-group date" id="datetimepicker7"
-												data-target-input="nearest">
-												<input type="text" name="checkin" id="datepicker" autocomplete="off">
-												<div class="input-group-append" data-target="#datetimepicker7"
-													data-toggle="datetimepicker">
-													<div class="input-group-text">
-														<i class="fa fa-calendar"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-				
-										<div class="col">
-											<div class="input-group date" id="datetimepicker8"
-												data-target-input="nearest">
-												<input type="text" name="checkout" id="datepicker2" autocomplete="off">
-												<div class="input-group-append" data-target="#datetimepicker8"
-													data-toggle="datetimepicker">
-													<div class="input-group-text">
-														<i class="fa fa-calendar"></i>
-													</div>
-												</div>
-											</div>
-										</div>
-										
-									</div>
-								</div>
-							</div>
-
 							<input type="hidden" name="lodgmentType"> 
 							<input type="hidden" name="location">
 						</div>

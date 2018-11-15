@@ -5,6 +5,8 @@
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 <script src="<%=request.getContextPath()%>/resources/include/js/admin/member.js"></script>
 
+
+
 <form name="memberPagingForm" id="memberPagingForm">
 	<input type="hidden" name="page" value="1">
 	<input type="hidden" name="sort" value="member_no">
@@ -63,7 +65,7 @@
 </div>
 <div class="row">
 	<div class="col-md-12 d-flex flex-row justify-content-end mb-4">
-		<button id="btnDeleteSelected" class="btn btn-outline-danger">선택 삭제</button>
+		<button id="memberDeleteSelected" class="btn btn-outline-danger">선택 삭제</button>
 	</div>
 </div>
 <div id="memberPaging">

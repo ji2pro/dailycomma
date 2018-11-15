@@ -1,0 +1,20 @@
+.card {
+	color: black;
+}
+.card:hover {
+	color: #d338ff;
+	background-color: #F5F5F5;
+}
+.card-title {
+	margin: 0;
+	padding: 30px 0;
+}
+.form-signup{
+	width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+.pw-check{
+	margin-left : 90px;
+}

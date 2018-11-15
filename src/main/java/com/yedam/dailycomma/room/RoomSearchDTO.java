@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import com.yedam.dailycomma.member.MemberDTO;
 
-public class RoomSearchDTO extends MemberDTO {
+public class RoomSearchDTO extends RoomDTO {
 	//검색 조건
 	private String searchCondition;
 	private String searchKeyword;
@@ -12,8 +12,6 @@ public class RoomSearchDTO extends MemberDTO {
 	private Integer start;
 	private Integer end;
 	//숙소별 객실 조회
-	private String lodgmentNo;
-	private String company;
 	//foreach
 	private String[] ids;
 	//정렬 기준
@@ -43,18 +41,7 @@ public class RoomSearchDTO extends MemberDTO {
 	public void setEnd(Integer end) {
 		this.end = end;
 	}
-	public String getLodgmentNo() {
-		return lodgmentNo;
-	}
-	public void setLodgmentNo(String lodgmentNo) {
-		this.lodgmentNo = lodgmentNo;
-	}
-	public String getCompany() {
-		return company;
-	}
-	public void setCompany(String company) {
-		this.company = company;
-	}
+
 	public String[] getIds() {
 		return ids;
 	}
@@ -67,10 +54,5 @@ public class RoomSearchDTO extends MemberDTO {
 	public void setSort(String sort) {
 		this.sort = sort;
 	}
-	@Override
-	public String toString() {
-		return "RoomSearchDTO [searchCondition=" + searchCondition + ", searchKeyword=" + searchKeyword + ", start="
-				+ start + ", end=" + end + ", lodgmentNo=" + lodgmentNo + ", company=" + company + ", ids="
-				+ Arrays.toString(ids) + ", sort=" + sort + "]";
-	}
+
 }
