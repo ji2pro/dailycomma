@@ -5,10 +5,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">	
 <link href="https://fonts.googleapis.com/css?family=Gaegu|Rancho" rel="stylesheet">
-<link href="<c:url value="/resources/include/css/user.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/include/css/user/user.css"/>" rel="stylesheet">
 <script src="<c:url value="/resources/include/js/user/user.js"/>"></script>
 
-<div class="container">
+<div class="container py-5">
 	<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 		<h1 class="display-5">로그인</h1>
 		<p class="lead">

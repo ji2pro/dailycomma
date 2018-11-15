@@ -9,3 +9,12 @@
 	margin: 0;
 	padding: 30px 0;
 }
+.form-signup{
+	width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+.pw-check{
+	margin-left : 90px;
+}
