@@ -25,6 +25,15 @@ public class CastDTO {
     private String rnum;
     private int totalCount;
     private int totalPage;
+    private int page;   /*현재 페이지*/
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
 
     public int getTotalPage() {
         return totalPage;

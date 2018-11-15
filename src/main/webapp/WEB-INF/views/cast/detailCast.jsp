@@ -103,13 +103,18 @@
             <div class="con_detail bord_b addPostList">
 
             </div>
+            <br>
             <%--후기 등록--%>
-            <div>
+            <div style="display: table; margin-left: auto; margin-right: auto;">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
-                        <li class="page-item"><a class="page-link paging" href="#">Previous</a></li>
-
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        <li class="page-item paging">
+                            <a class="page-link " onclick="postContent()">Previous</a>
+                        </li>
+                        <%--태그 버튼 들어옴--%>
+                        <li class="page-item">
+                            <a class="page-link" onclick="postContent()">Next</a>
+                        </li>
                     </ul>
                 </nav>
             </div>

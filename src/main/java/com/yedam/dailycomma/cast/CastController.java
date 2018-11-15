@@ -79,8 +79,8 @@ public class CastController {
 
         int query_start = (page - 1) * countPage + 1;
         int query_end = page * countPage;
-        System.out.println(query_start + " " + query_end);
 
+        castDTO.setPage(page);
         castDTO.setStart(query_start);
         castDTO.setEnd(query_end);
 

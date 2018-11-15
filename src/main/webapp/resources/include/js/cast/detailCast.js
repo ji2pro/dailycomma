@@ -38,11 +38,15 @@ $(document).on('click', '.likey', function () {
 
 /*캐스트 상세 덧글 처리*/
 function detailCastPostList(data){
-
     var html = "";
+
+    console.log(data);
+
+    $('.postContents').remove();
+
     $.each(data,function(idx,item) {
         html +=
-        "<div class='con_post bord_b'>"+
+        "<div class='con_post bord_b postContents'>"+
             "<div class='count'>"+
                 "<span class='day'>"+item.commentDate+" "+item.cmemberNick+"</span>"+
             "<div class='content_post'>"+
@@ -53,22 +57,26 @@ function detailCastPostList(data){
     })
     $('.addPostList').append(html);
 }
-
+/*캐스트 상세 페이지 버튼*/
 function detailCastPostPage(data){
     console.log(data);
     console.log(data.totalPage);
-    var html ="";
-/*    $.each(data,function(idx,item) {
-    html +='<li class="page-item"><a class="page-link" href="#">"+item.+"</a></li>';
-    }*/
+
+    var idx = data.totalPage;
+    var html = "";
+
+    for(var i = 1 ;i <= idx ; i++){
+        html += '<li class="page-item"><a class="page-link" onclick="postContent('+ i +')">'+ i +'</a></li>';
+    }
+    $('.paging').after(html);
+
+
 }
-
-/*페이지가 로드되면 ajax 호출*/
-$(function () {
+/*덧글 리스트 호출*/
+function postContent(paging){
     var tourId = $('.likey').attr('id');
-    var paging = 2;
+    console.log(tourId);
 
-    /*덧글 내용*/
     $.ajax({
         url: path + "detailCastPostList/" + tourId + "/" + paging,
         dataType: "json",
@@ -77,8 +85,10 @@ $(function () {
         },
         success:detailCastPostList
     })
+}
 
-    /*덧글 페이지 버튼*/
+/*덧글 페이지 버튼*/
+function postButton(){
     $.ajax({
         url: path + "detailCastPostPage",
         dataType: "json",
@@ -87,4 +97,10 @@ $(function () {
         },
         success:detailCastPostPage
     })
+}
+/*페이지가 로드되면 ajax 호출*/
+$(function () {
+    var paging = 1;
+    postContent(paging);
+    postButton();
 })
