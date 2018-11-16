@@ -9,12 +9,33 @@
 	margin: 0;
 	padding: 30px 0;
 }
-.form-signup{
+.form-signin {
 	width: 100%;
-    max-width: 330px;
+    max-width: 400px;
     padding: 15px;
     margin: auto;
 }
+.form-signin .form-control {
+	position: relative;
+	padding: 10px;
+	box-sizing: border-box;
+	height: auto;
+	font-size: 18px;
+}
+.form-signin input[type="text"],
+.form-signin input[type="email"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+	margin-bottom: 14px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+.form-signin .btn-block+.btn-block {
+	margin-top: 0;
+} 
 .pw-check{
 	margin-left : 90px;
 }

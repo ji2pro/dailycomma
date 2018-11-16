@@ -125,7 +125,7 @@
 	</delete>
 	
 	<select id="getLocation" resultType="string" parameterType="reservation">
-		SELECT LOCATION FROM RESERVATION
+		SELECT LOCATION FROM LODGMENT
 		WHERE LODGMENT_NO = #{lodgmentNo}		
 	</select>
 	

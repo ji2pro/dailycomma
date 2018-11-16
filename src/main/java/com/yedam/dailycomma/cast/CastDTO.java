@@ -27,6 +27,9 @@ public class CastDTO {
     private int totalPage;
     private int page;   /*현재 페이지*/
 
+
+
+
     public int getPage() {
         return page;
     }
