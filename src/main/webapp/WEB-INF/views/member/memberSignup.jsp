@@ -10,30 +10,32 @@
 			데일리 콤마에 가입하셔서 편리한 숙박을 경험하세요!
 		</p>
 	</div>
-
-	<div class="row">
-		<div class="col">
-			<form action="insertMember.do">
+	
+	<form class="form-signup" action="insertMember.do">
+		<div class="row">
+			<div class="col">
 				<div class="form-group row">
-					<label for="memberEmail" class="col-md-2 col-form-label">이메일</label>
-					<div class="col-md-10">
+					<label for="memberEmail" class="col-md-3 col-form-label">이메일</label>
+					<div class="col-md-9 mb-2">
 						<input type="email" class="form-control" name="memberEmail" id="memberEmail" placeholder="이메일을 입력하세요." value="${lodgment.hostEmail}" required>
 						<div class="invalid-feedback">이메일은 필수 입력 사항입니다.</div>
 					</div>
 				</div>
 				
+				<hr class="mb-4">
+				
 				<div class="form-group row">
-					<label for="memberPw" class="col-md-2 col-form-label">비밀번호</label>
-					<div class="col-md-10">
-						<input type="text" class="form-control" name="memberPw" id="memberPw" placeholder="비밀번호">
+					<label for="memberPw" class="col-md-3 col-form-label">비밀번호</label>
+					<div class="col-md-9">
+						<input type="text" class="form-control" name="memberPw" id="memberPw" placeholder="비밀번호를 입력하세요.">
 						<div class="invalid-feedback">비밀번호는 필수 입력 사항입니다.</div>
 					</div>
 				</div>
 				
 				<div class="form-group row">
-					<label for="pwcheck" class="col-md-2 col-form-label">비밀번호 확인</label>
-					<div class="col-md-10 mb-2">
-						<input type="password" class="form-control" id="pwcheck" placeholder="비밀번호 확인">
+					<label for="pwcheck" class="col-md-3 col-form-label">비밀번호 확인</label>
+					<div class="col-md-9 mb-2">
+						<input type="password" class="form-control" id="pwcheck" placeholder="비밀번호를 한 번 더 입력하세요.">
 						<div class="invalid-feedback">비밀번호 확인은 필수 입력 사항입니다.</div>
 					</div>
 				</div>
@@ -41,15 +43,15 @@
 				<hr class="mb-4">
 								
 				<div class="form-group row">
-					<label for="memberName" class="col-md-2 col-form-label">이름</label>
-					<div class="col-md-10">
+					<label for="memberName" class="col-md-3 col-form-label">이름</label>
+					<div class="col-md-9">
 						<input type="text" class="form-control" name="memberName" id="memberName" placeholder="회원님의 이름을 입력하세요.">
 					</div>
 				</div>
 				
 				<div class="form-group row">
-					<label for="memberNick" class="col-md-2 col-form-label">닉네임</label>
-					<div class="col-md-10">
+					<label for="memberNick" class="col-md-3 col-form-label">닉네임</label>
+					<div class="col-md-9 mb-2">
 						<input type="text" class="form-control" name="memberNick" id="memberNick" placeholder="회원님의 별명을 입력하세요.">
 					</div>
 				</div>
@@ -64,7 +66,7 @@
 						<button class="btn btn-outline-danger btn-lg btn-block" type="submit">취소하기</button>
 					</div>
 				</div>
-			</form>
+			</div>
 		</div>
-	</div>
+	</form>
 </div>
