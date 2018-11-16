@@ -31,8 +31,7 @@
         </p>
         <ul class="lst-type-card  active">
         </ul>
-
-
+<%--
         <!-- paging -->
         <div class="paging-lst"><a href="#" onclick="return false;" class="icon prev"><i class="ion-chevron-left"></i><i
                 class="ion-chevron-left"></i><span class="hd-element">처음 페이지</span></a><a href="#"
@@ -46,12 +45,12 @@
                 class="ion-chevron-right"></i><i class="ion-chevron-right"></i><span
                 class="hd-element">마지막 페이지</span></a>
         </div>
-        <!-- //paging -->
+        <!-- //paging -->--%>
     </div>
-</div>
+</div><%--
 <div class="sub-detail-contents" id="sub-container">
     <div class="sub-detail-inner">
     </div>
-</div>
+</div>--%>
 </body>
 </html>

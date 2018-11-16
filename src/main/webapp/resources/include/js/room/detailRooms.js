@@ -54,27 +54,27 @@ function PostListResult(data) {
 
 /*후기 등록 처리*/
 function insertPostFormSubmit(){
-    var params = $("#insertPostForm").serialize();
-    var lodgmentNo = $(".review-post__insert-btn").attr('id');
-    console.log(lodgmentNo);
-    console.log(params);
-   
-    $.ajax({/*후기 등록 먼저 작업*/
+        var params = $("#insertPostForm").serialize();
+        var lodgmentNo = $(".review-post__insert-btn").attr('id');
+        console.log(lodgmentNo);
+        console.log(params);
+
+        $.ajax({/*후기 등록 먼저 작업*/
             url:path+"/postscript",
             data: params,
             method : "post",
             error:function(data,status,msg){
-            alert("상태값 :" + status + " Http에러메시지 :"+msg);
-        },
-        success:function(){
-            $.ajax({/*후기 리스트 가져오기*/
-                url:"/postscript/"+lodgmentNo,
-                error:function(data,status,msg){
-                    alert("상태값 :" + status + " Http에러메시지 :"+msg);
-                },
-                success:PostListResult
-            })
-        }
+                alert("상태값 :" + status + " Http에러메시지 :"+msg);
+            },
+            success:function(){
+                $.ajax({/*후기 리스트 가져오기*/
+                    url:path+"/postscript/"+lodgmentNo,
+                    error:function(data,status,msg){
+                        alert("상태값 :" + status + " Http에러메시지 :"+msg);
+                    },
+                    success:PostListResult
+                })
+            }
     })
 }
 
@@ -83,7 +83,6 @@ function reserve_click(room_no){
 	console.log(url);
 	location.href = url;
 }
-
 
 $(function() {
 
@@ -104,20 +103,6 @@ $(function() {
         var par = $(this).parent().children("i").index(this)+1;
         console.log("par = " + par);
         $('#grade').val(par);
-
-   /*     if(starSpan == "to"){
-            $("#total").val(par);
-            textInput(par,starSpan);
-        }else if(starSpan == "t"){
-            $("#tasty").val(par);
-            textInput(par,starSpan);
-        }else if(starSpan == "p"){
-            $("#price").val(par);
-            textInput(par,starSpan);
-        }else{
-            $("#service").val(par);
-            textInput(par,starSpan);
-        }*/
     });
 
     /*후기 목록*/
@@ -127,11 +112,6 @@ $(function() {
 
         $.ajax({
             url: path+"/postscript/"+lodgmentNo,
-/*            success :
-                function(result) {
-                    console.log(result);
-                    $(".review-list").html(result).show();
-                }*/
             error:function(data,status,msg){
                 alert("상태값 :" + status + " Http에러메시지 :"+msg);
             },
@@ -212,7 +192,6 @@ $(function() {
         console.log("test");
         $("#postResult").hide();
         $(".review-list").show();
-    });   
-   
+    });
 });
 

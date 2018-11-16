@@ -167,7 +167,6 @@ function insertComment(comment) {
             postContent(1);
             postButton();
             document.getElementById("insertTextarea").value='';
-
         }
     })
 }
