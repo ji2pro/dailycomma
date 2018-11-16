@@ -131,10 +131,13 @@ section {margin-top: 50px;}
 	white-space: nowrap;
     overflow: hidden;
 }
+.dateRangePickerInput .dateInput:active {
+	transform: translateY(1px);
+    opacity: 0.8;
+}
 .dateRangePickerInput .dateInput .dateInput-text-focused {
 	color: #d338ff;
 }
-
 .search-paragraph span {font-weight: 700;}
 .search-paragraph {
     padding-top: 90px;

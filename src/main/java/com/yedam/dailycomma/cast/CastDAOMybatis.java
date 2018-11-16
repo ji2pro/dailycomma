@@ -28,4 +28,6 @@ public class CastDAOMybatis {
 
     public CastDTO detailCastPostPage(){return mybatis.selectOne("detailCast.detailCastPostPage");}
 
+    public void detailCastPostInput(CastDTO dto){mybatis.insert("detailCast.detailCastPostInput",dto);}
+
 }

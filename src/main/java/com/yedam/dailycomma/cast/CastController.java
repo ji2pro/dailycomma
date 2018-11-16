@@ -5,9 +5,7 @@ import com.yedam.dailycomma.member.MemberDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -101,8 +99,24 @@ public class CastController {
         if (castDTO.getTotalCount() % countList > 0) { /*22 % 5 > 0*/
             castDTO.setTotalPage(castDTO.getTotalPage()+1);   /*페이지 자투리 처리*/
         }
-        System.out.println("-------------------"+castDTO.getTotalPage()+"-------------------");
 
         return castDTO;
+    }
+
+    /*덧글 등록*/
+    @RequestMapping(value = "/detailCastPostInput/{tourId}",method = RequestMethod.POST)
+    @ResponseBody
+    public void detailCastPostInput(@PathVariable String tourId,
+                                   HttpSession session,
+                                   Model model,
+                                   @RequestParam(value = "comment", required = false) String comment){
+
+        CastDTO castDTO = new CastDTO();
+        //memberDTO.getMemberNo();
+        castDTO.setMemberNo("MEM1");
+        castDTO.setTourId(tourId);
+        castDTO.setCommentContent(comment);
+
+        castService.detailCastPostInput(castDTO);
     }
 }

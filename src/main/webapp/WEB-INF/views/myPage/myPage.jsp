@@ -18,6 +18,8 @@
 
 <body>
 <%-- <img src="resources/images/cast/${login.memberImg}" class="rounded-circle img-fluid"> --%>
+
+
 	<!--개인정보 수정  / 비밀번호, 한줄소개 -->
 	<div class="py-5">
 		<div class="container">
@@ -29,7 +31,7 @@
 								<i class="fas fa-user fa-8x"></i>
 							</c:when>
 							<c:otherwise>
-							<img src="<c:url value='/resources/images/myPage/${login.memberImg}'/>" class="img-fluid">
+							<img src="<c:url value='/resources/images/myPage/${login.memberImg}'/>" class="avatar img-thumbnail img-fluid" alt="avatar">
        						
         				 </c:otherwise>
 						</c:choose>
@@ -43,12 +45,10 @@
 								value="${login.memberNick}"
 								style="border:none" class="ml-3 my-3"></li>
 							<li>현재 비밀번호 : <button type="button" class="btn btn-danger" data-toggle="modal"data-target="#exampleModal">변경</button>
-							<li>비밀번호 변경 :<input type="password" name="memberPw"  class="unRead ml-3 my-3" readonly="readonly" ></li>
-							<li>비밀번호 변경 확인:<input type="password" name="pwcheck"  class="unRead ml-3 my-3" readonly="readonly" ></li>
-							<li>한줄소개 :<input type="text" size="40" name="memberIntro"
-								placeholder="자신을 소개하세요" value="${login.memberIntro}"
-								style="border:none" class="ml-3 my-3"></li>
-							<li>프로필 사진 : <input type="file" name="uploadFile" class="ml-3 my-3"></li>
+							<li>비밀번호 변경 :<input type="password" name="memberPw"  class="unRead ml-3 my-3" readonly="readonly" style="background-color: #e2e2e2;"></li>
+							<li>비밀번호 변경 확인:<input type="password" name="pwcheck"  class="unRead ml-3 my-3" readonly="readonly" style="background-color: #e2e2e2;"></li>
+							<li>한줄소개 :<input type="text" size="40" name="memberIntro" placeholder="자신을 소개하세요" value="${login.memberIntro}" style="border:none" class="ml-3 my-3"></li>
+							<li>프로필 사진 : <input type="file" name="uploadFile" class="file-upload ml-3 my-3"></li>
 						</ul>
 						<button class="btn btn-primary btn-lg mt-3 ml-3" type="submit" id="up" >정보수정</button>
 					</div>
@@ -117,7 +117,8 @@
 	 $(function(){								//비밀번호 readonly 제거 하는 스크립트
 		 $("#pwbtn").on("click",function(){
 			if($("#pw").val()=='${sessionScope.login.memberPw}'){ //input의 값과 세션안에 있는 DB의 비밀번호 값을 비교함.
-			 $(".unRead").removeAttr("readonly");
+			 $(".unRead").removeAttr("readonly");		//readonly 옵션을 제거
+			 $(".unRead").removeAttr("style");			//style도 제거
 			 alert('비밀번호 변경의 잠금이 풀렸습니다.')
 			  $('#exampleModal').modal('hide')
 			}
@@ -165,6 +166,33 @@
 			$('#myPageTabs li:first-child a').tab('show');
 		});
 	</script>
+	
+	<!-- 업로드한 프로필 사진을 정보수정 하기전에 미리 보여주게 함-->
+	<script>
+	$(document).ready(function() {
+
+    
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.avatar').attr('src', e.target.result);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+
+    $(".file-upload").on('change', function(){
+        readURL(this);
+    });
+    
+   
+});
+	 </script>
+	
 </body>
 
 </html>

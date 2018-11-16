@@ -55,28 +55,6 @@ function detailFestival(contentid) {
                 "<p style='margin: 0px; line-height: 1.8;'>&nbsp;</p>" +
                 "<p style='margin: 0px; line-height: 1.8;'>" + datas.items2.items.item[0].infotext + "<span></span></p>" +
                 "</div>" +
-                <!-- sub-detail-slide -->
-                /*            "<div class='sub-detail-slide-wrap'>"+
-                            "<p class='sub-detail-slide-btn prev'><a href='#'><span></span></a></p>"+
-                            "<div class='bx-wrapper' style='max-width: 100%;'><div class='bx-viewport' aria-live='polite' style='width: 100%; overflow: hidden; position: relative; height: 481px;'>" +
-                            "<div class='sub-detail-slide bxslider' style='width: 1215%; position: relative; transition-duration: 0s; transform: translate3d(-1005px, 0px, 0px);'>" +
-                            "<div class='item bx-clone' style='float: left; list-style: none; position: relative; width: 1005px;' aria-hidden='true'>"+
-                             /!*for each로 가자*!/
-                             "<img src='"+datas.item3.items.item[0].originimgurl+"' alt=''>"+
-                             "</div>"+
-                             "<div class='item' style='float: left; list-style: none; position: relative; width: 1005px;' aria-hidden='false">"+"
-                            "<img src='"+datas.item3.items.item[1].originimgurl+"' alt=''>"+
-                            "</div>"+
-                            <div class="item bx-clone" style="float: left; list-style: none; position: relative; width: 1005px;" aria-hidden="true">
-                                <img src="/comm/getImage?srvcId=MEDIA&amp;parentSn=351&amp;fileTy=MEDIA&amp;fileNo=1&amp;thumbTy=L" alt="DDP LED 장미정원">
-                                </div></div></div><div class="bx-controls bx-has-pager"><div class="bx-pager bx-default-pager"><div class="bx-pager-item">
-                            <a href="" data-slide-index="0" class="bx-pager-link active">1</a></div></div></div></div>
-                            <p class="sub-detail-slide-btn next"><a href="#"><span></span></a></p>
-                            </div><!--// sub-detail-slide -->
-                            </div><!--// left-content -->*/
-
-                /*"<div class='carousel slide' data-ride='carousel' id='carousel2'>" +
-                "<div class='carousel-inner'>";*/
                 "<div id='carouselExampleControls' class='carousel slide' data-ride='carousel'>" +
                 "<div class='carousel-inner'>";
                 
@@ -131,13 +109,11 @@ function detailFestival(contentid) {
             $('.sub-detail-inner').append(detailFestival);
         }
     });
-
 }
 
 $(function () {
 
     //날짜와 코드를 입력 받아와서 url에 추가 해야한다.
-
     $.ajax({
         url: "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?serviceKey=dRWo2wKq2B%2FKrt7Y7XfVsQkh5Kd5K%2BblTUQR2rCFXPVLNO5ThHE%2BTgha3kfg4eAJP76aeHgLQqQOaSsj%2BC%2BKeg%3D%3D&numOfRows=10&pageSize=10&pageNo=1&startPage=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&listYN=Y&areaCode=1&eventStartDate=20181111&_type=json",
         dataType: 'json',

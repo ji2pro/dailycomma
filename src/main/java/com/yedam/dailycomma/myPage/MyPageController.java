@@ -18,7 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.yedam.dailycomma.member.MemberDTO;
 import com.yedam.dailycomma.member.MemberService;
 
-/*@SessionAttributes("member")*/
 @Controller
 public class MyPageController {
 	
@@ -78,7 +77,6 @@ public class MyPageController {
 		memberService.updateMember(dto);
 		MemberDTO memberDTO = memberService.getMember(dto);	//새로 업데이트한 값을 memberDTO에 적용
 		session.setAttribute("login", memberDTO);	//세션에 새로 업데이트한 값을 memberDTO를 이용해 넣음.
-		//model.addAttribute("member", memberService.updateMember(dto));
 		return "redirect:/myPage.do";
 	}
 }
