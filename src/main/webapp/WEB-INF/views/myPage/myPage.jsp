@@ -18,6 +18,8 @@
 
 <body>
 <%-- <img src="resources/images/cast/${login.memberImg}" class="rounded-circle img-fluid"> --%>
+
+
 	<!--개인정보 수정  / 비밀번호, 한줄소개 -->
 	<div class="py-5">
 		<div class="container">
@@ -115,8 +117,8 @@
 	 $(function(){								//비밀번호 readonly 제거 하는 스크립트
 		 $("#pwbtn").on("click",function(){
 			if($("#pw").val()=='${sessionScope.login.memberPw}'){ //input의 값과 세션안에 있는 DB의 비밀번호 값을 비교함.
-			 $(".unRead").removeAttr("readonly");
-			 $(".unRead").removeAttr("style");
+			 $(".unRead").removeAttr("readonly");		//readonly 옵션을 제거
+			 $(".unRead").removeAttr("style");			//style도 제거
 			 alert('비밀번호 변경의 잠금이 풀렸습니다.')
 			  $('#exampleModal').modal('hide')
 			}
@@ -165,6 +167,7 @@
 		});
 	</script>
 	
+	<!-- 업로드한 프로필 사진을 정보수정 하기전에 미리 보여주게 함-->
 	<script>
 	$(document).ready(function() {
 

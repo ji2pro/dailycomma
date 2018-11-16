@@ -21,21 +21,13 @@
 		countryList.pop();
 	}
 	// 중복 처리 확인.
-	var flag = false; 	//초기화  
-	
 	for(i in countryList)	 //for문 작성
 	  { 
 		if(countryList[i].roomNo == rono ) // 스토리지 안에 들어있는 값과 countryList(들어있는 값)  들어올려는값 rono(들어올려는 값)이  중복일 경우 아무런 동작이 실행 되지 않고
-		flag =true
-		
+		countryList.splice(i,1); //해당 들어오는 i에 해당하는 배열을 삭제함.
 	  }
-	if(flag == false ){ // 중복이 되지 않을 경우 새값을 countryList에 json형태로 삽입한다.
-		countryList.unshift({  roomNo : '${reserveInfo.roomNo}', company : '${reserveInfo.company}', roomName : '${reserveInfo.roomName}', roomPrice : '${reserveInfo.roomPrice * search.differ }' });
-	} else { //중복일 경우
-		countryList.splice(i) //배열안에 있는 해당 인덱스를 삭제후 
-		countryList.unshift({  roomNo : '${reserveInfo.roomNo}', company : '${reserveInfo.company}', roomName : '${reserveInfo.roomName}', roomPrice : '${reserveInfo.roomPrice * search.differ }' });
-								//다시 countryList에 삽입
-	}
+	
+	countryList.unshift({  roomNo : '${reserveInfo.roomNo}', company : '${reserveInfo.company}', roomName : '${reserveInfo.roomName}', roomPrice : '${reserveInfo.roomPrice * search.differ }' });
 	sessionStorage.setItem("myPageCountryList", JSON.stringify(countryList)); // 새값이 들어있는 countryList에 있는 값들을 sessionStorage에 저장 한다.
 	console.log(countryList);
 </script>
