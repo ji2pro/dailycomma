@@ -161,7 +161,7 @@
 							</span>
 						</div>
 					</div>
-					<form action=<c:url value="/insertReservation"/>>
+					<form id="payment"  action=<c:url value="/insertReservation.do"/>>
 						<input type="hidden" name="lodgmentNo" value="${reserveInfo.lodgmentNo}">
 						<input type="hidden" name="memberNo" value="${login.memberNo}">
 						<input type="hidden" name="roomNo" value="${reserveInfo.roomNo}">
