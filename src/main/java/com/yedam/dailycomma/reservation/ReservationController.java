@@ -27,11 +27,13 @@ public class ReservationController {
 	}
 
 	//등록 처리
-	@RequestMapping("/insertReservation")
+	@RequestMapping("/insertReservation.do")
 	public String insertReservation(Model model, ReservationDTO dto) {
 		reservationService.insertReservation(dto);
 //		model.addAttribute("reservation", reservationService.insertReservation(dto));
-		return "home/home";
+		String location = reservationService.getLocation(dto);
+		model.addAttribute("location",location);		
+		return "reservation/afterPayment";
 	}
 	
 	@RequestMapping("/insertReservationForm.do")

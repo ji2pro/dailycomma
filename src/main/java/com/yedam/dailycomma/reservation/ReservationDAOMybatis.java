@@ -46,4 +46,8 @@ public class ReservationDAOMybatis {
   	public Map<String,Object> getReserveInfo(String roomNo) {
   		return mybatis.selectOne("reservation.getReserveInfo", roomNo);
   	}
+  	
+  	public String getLocation(ReservationDTO dto) {
+  		return mybatis.selectOne("reservation.getLocation", dto);
+  	}
 }

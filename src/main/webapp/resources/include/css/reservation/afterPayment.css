@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.lineset{
+	margin-top: 40px;
+	border-top-width: 5px; 
+	border-top-style: solid;
+	border-top-color: rgb(229, 229, 229);
+}
+
+.card-lineset{
+	margin-top: 50px;	
+}
+
+.btn-lineset{
+	margin-top: 100px;
+}

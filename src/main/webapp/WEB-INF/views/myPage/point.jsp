@@ -28,7 +28,7 @@ font-size: xx-large;
 			<c:forEach items="${point}" var="po">
 				<tr>
 					<td>체크아웃</td>
-					<td>${po.reservePoints}</td>
+					<td>+${po.reservePoints} Point</td>
 					<td>${po.checkOut}</td>
 				</tr>
 			</c:forEach>
