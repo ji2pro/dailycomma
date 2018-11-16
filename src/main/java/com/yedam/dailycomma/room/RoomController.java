@@ -61,7 +61,10 @@ public class RoomController {
         List<RoomDTO> list = roomService.getAllimage(dto);
         for(RoomDTO r : list)
         {
-            str.append(r.getRoomImg());
+        	if(r.getRoomImg() == null) {
+        		r.setRoomImg("imageReady.jpg");
+        	}
+        	str.append(r.getRoomImg());
         }
         /*숙박 업체에 대한 전체 객실 리스트*/
         model.addAttribute("getDetailRooms", roomService.getDetailRooms(dto));

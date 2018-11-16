@@ -20,4 +20,9 @@ public class MyPageServiceImpl implements MyPageService{
 	public List<MyPageDTO> getCountries(MyPageDTO dto){
 		return dao.getCountries(dto);
 	}
+	@Override
+	public List<MyPageDTO> cancelReserve(String reserveNo) {
+		// TODO Auto-generated method stub
+		return dao.cancelReserve(reserveNo);
+	}
 }

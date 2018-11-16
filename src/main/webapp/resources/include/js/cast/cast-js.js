@@ -87,7 +87,6 @@ $(function(){
     	 
     	 console.log("documentHeight:" + documentHeight + " | scrollTop:" +
                   scrollTop + " | windowHeight: " + windowHeight );
-    
                           fetchList();
          }
      })

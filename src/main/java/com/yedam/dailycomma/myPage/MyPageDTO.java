@@ -14,7 +14,15 @@ public class MyPageDTO {
 	private String memberPoint;
 	private String roomPrice;
 	private String memberEmail;
+	private String reserveState;
 	
+		
+	public String getReserveState() {
+		return reserveState;
+	}
+	public void setReserveState(String reserveState) {
+		this.reserveState = reserveState;
+	}
 	public String getMemberPoint() {
 		return memberPoint;
 	}

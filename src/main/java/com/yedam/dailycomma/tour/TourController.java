@@ -24,9 +24,10 @@ public class TourController {
 	@ResponseBody
 	public List<TourDTO> getTours(TourDTO dto) {
 		//TourSearchDTO dto = new TourSearchDTO();
-		System.out.println("==============="+dto.getPageUnit());
 		return tourService.getTours(dto);		
 	}
+	
+	
 	
 	@RequestMapping("/castListForm.do")
 	public String castListForm() {	
@@ -59,5 +60,6 @@ public class TourController {
 		tourService.insertTour(dto);
 		return "redirect:/registerCastForm.do";
 	}
+	
 	
 }

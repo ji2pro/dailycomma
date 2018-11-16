@@ -8,7 +8,8 @@
 	<div>
 		<div class="container">
 			<div class="py-5 text-center">
-				<h1>결제가 완료 되었습니다.</h1>
+				<h1>결제가 완료 되었습니다.</h1><br>
+				<h3>해당지역의 행사 및 관광지 정보를 보고 가세요!</h3>
 			</div>
 		</div>		
 		<div class="lineset container">
@@ -28,7 +29,7 @@
       					<div class="card-body">
         					<h3 class="card-title">관광지</h3>
        	 					<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        					<a href="#" class="btn btn-primary">관광지 보러가기</a>
+        					<a href="location.href="" " class="btn btn-primary">관광지 보러가기</a>
       					</div>
     				</div>
   				</div>

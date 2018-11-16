@@ -16,7 +16,8 @@
 		<result property="memberPoint" column="MEMBER_POINT" />
 		<result property="roomPrice" column="ROOM_PRICE" />
 		<result property="memberEmail" column="MEMBER_EMAIL"/>
-	</resultMap>
+		<result property="reserveState" column="RESERVE_STATE"/>
+	</resultMap>	
 
 	
 	<!-- 예약내역 -->
@@ -25,7 +26,7 @@
 		SELECT
 		R.RESERVE_NO, R.RESERVE_DATE, L.COMPANY, M.ROOM_NAME,
 		EXTRACT( DAY FROM R.CHECKOUT-R.CHECKIN)
-		AS CHECKDATE, R.RESERVE_PRICE
+		AS CHECKDATE, R.RESERVE_PRICE, R.RESERVE_STATE
 		FROM RESERVATION R
 		JOIN LODGMENT L
 		ON
@@ -36,10 +37,20 @@
 		JOIN MEMBER F
 		ON
 		F.MEMBER_NO = R.MEMBER_NO
-		WHERE F.MEMBER_EMAIL =
-		#{memberEmail}
+		WHERE F.MEMBER_EMAIL = #{memberEmail}
+		ORDER BY R.RESERVE_DATE DESC
 	</select>
 	<!-- 포인트 -->
+	
+	<!-- 예약취소 -->
+	<update id="cancelReserve" statementType="CALLABLE" parameterType="HashMap">
+		call RESERVATION_CANCEL_PROC
+		(
+			#{reserveNo, mode=IN},
+			#{result, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet,
+			  resultMap = myPageResult }
+		)
+	</update>
 	
 	<select id="getPoints" resultMap="myPageResult"
 		parameterType="myPage">

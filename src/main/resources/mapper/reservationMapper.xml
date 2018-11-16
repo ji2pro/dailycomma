@@ -5,24 +5,11 @@
 	<!-- 단건 조회 -->
 	
 	<!-- 예약 등록(예약하기) -->
-	<insert id="insertReservation" parameterType="reservation">
-		INSERT INTO RESERVATION (
-			RESERVE_NO
-			, RESERVE_DATE
-			, RESERVE_PRICE
-			, RESERVE_PEOPLE
-			, CHECKIN
-			, CHECKOUT
-			, LODGMENT_NO
-			, ROOM_NO
-			, MEMBER_NO
-			, RESERVE_POINTS
-			, DEDUCTION_POINT
-		)
-		VALUES (
-			TO_CHAR(RESV_SEQ.NEXTVAL)
-			, SYSDATE
-			, #{reservePrice}
+	<insert id="insertReservation" statementType="CALLABLE" parameterType="reservation">
+
+		call RESERVATION_PROC 
+		(
+			#{reservePrice}
 			, #{reservePeople}
 			, #{checkin}
 			, #{checkout}
@@ -128,5 +115,6 @@
 		SELECT LOCATION FROM LODGMENT
 		WHERE LODGMENT_NO = #{lodgmentNo}		
 	</select>
+
 	
 </mapper> 

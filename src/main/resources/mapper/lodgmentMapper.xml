@@ -115,4 +115,6 @@
 		DELETE FROM LODGMENT WHERE LODGMENT_NO = #{lodgmentNo}
 	</delete>
 	
+	
+	
 </mapper> 

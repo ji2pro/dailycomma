@@ -4,6 +4,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.security.auth.login.LoginContext;
 import javax.servlet.http.HttpSession;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.yedam.dailycomma.member.MemberDTO;
@@ -44,12 +46,19 @@ public class MyPageController {
 		return "noTiles/myPage/reserve";
 	}
 	
+	@RequestMapping("/cancelReserve.ajax")
+	@ResponseBody
+	public List<MyPageDTO> cancelReserve(String reserveNo){
+		return myPageService.cancelReserve(reserveNo);
+	}
+	
 	@RequestMapping("/country.do") //해당 member에 대한 country조회
 	public String getCountrys(Model model, MyPageDTO dto, HttpSession session) {
 		dto.setMemberEmail(((MemberDTO)(session.getAttribute("login"))).getMemberEmail());
 		model.addAttribute("country", myPageService.getCountries(dto));
 		return "noTiles/myPage/country";
 	}
+	
 	@RequestMapping(value = "updateMember.do", method = RequestMethod.POST)
 	public String updateMember(Model model, MemberDTO dto, HttpSession session) throws IOException{
 		dto.setMemberEmail(((MemberDTO)(session.getAttribute("login"))).getMemberEmail());

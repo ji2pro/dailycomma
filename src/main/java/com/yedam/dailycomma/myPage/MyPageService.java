@@ -11,4 +11,5 @@ public interface MyPageService {
 	
 	public List<MyPageDTO> getCountries(MyPageDTO dto);
 	
+	public List<MyPageDTO> cancelReserve(String reserveNo);
 }

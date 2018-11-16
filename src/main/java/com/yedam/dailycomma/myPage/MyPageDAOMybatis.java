@@ -1,5 +1,6 @@
 package com.yedam.dailycomma.myPage;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -22,5 +23,11 @@ public class MyPageDAOMybatis {
 	public List<MyPageDTO> getCountries(MyPageDTO dto){
 		return mybatis.selectList("myPage.getCountries",dto);
 	}
-
+	
+	public List<MyPageDTO> cancelReserve(String reserveNo){
+		HashMap<String,Object> map = new HashMap<String,Object>();
+		map.put("reserveNo", reserveNo);
+		mybatis.update("myPage.cancelReserve", map);
+		return (List<MyPageDTO>) map.get("result");
+	}
 }

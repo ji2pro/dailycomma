@@ -40,11 +40,31 @@ public class ReservationDAOClient {
 		}
 	}
 	
-	@Test
+	@Ignore @Test
 	public void locationTest() {
 		ReservationDTO dto = new ReservationDTO();
 		dto.setLodgmentNo("LOD1");
 		String location = dao.getLocation(dto);
 		System.out.println(location);
+	}
+	
+	@Ignore @Test
+	public void testInsertReservation() {
+		ReservationDTO dto = new ReservationDTO();
+		dto.setReservePrice("100000");
+		dto.setReservePeople("3");
+		dto.setCheckin("2018-08-01");
+		dto.setCheckout("2018-12-30");
+		dto.setLodgmentNo("LOD1");
+		dto.setRoomNo("RO1");
+		dto.setMemberNo("MEM2");
+		dto.setReservePoints("100");
+		dto.setDeductionPoint("3000");
+		dao.insertReservation(dto);
+	}
+	
+	@Test
+	public void testCancelReserve() {
+		
 	}
 }

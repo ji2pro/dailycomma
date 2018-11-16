@@ -25,7 +25,7 @@ public class FestivalController {
 
     @RequestMapping(value="/detailAPI/{contentId}")
     @ResponseBody
-    public Map restAPI(@PathVariable String contentId){
+    public Map<String,Object> restAPI(@PathVariable String contentId){
 
         URI uri1 = URI.create("http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro?" +
                 "serviceKey=dRWo2wKq2B%2FKrt7Y7XfVsQkh5Kd5K%2BblTUQR2rCFXPVLNO5ThHE%2BTgha3kfg4eAJP76aeHgLQqQOaSsj%2BC%2BKeg%3D%3D" +
@@ -39,15 +39,15 @@ public class FestivalController {
                 "serviceKey=dRWo2wKq2B%2FKrt7Y7XfVsQkh5Kd5K%2BblTUQR2rCFXPVLNO5ThHE%2BTgha3kfg4eAJP76aeHgLQqQOaSsj%2BC%2BKeg%3D%3D" +
                 "&numOfRows=10&pageSize=10&pageNo=1&startPage=1&MobileOS=ETC&MobileApp=AppTest&contentId="+contentId+"&imageYN=Y&sublmageYN=Y&_type=json");
 
-        Map list = new HashMap();
+        Map<String,Object> list = new HashMap<String,Object>();
         RestTemplate rest = new RestTemplate();
-        Map restApi1 = rest.getForObject(uri1, Map.class);
-        Map restApi2 = rest.getForObject(uri2, Map.class);
-        Map restApi3 = rest.getForObject(uri3, Map.class);
+        Map<URI,Object> restApi1 = rest.getForObject(uri1, Map.class);
+        Map<URI,Object> restApi2 = rest.getForObject(uri2, Map.class);
+        Map<URI,Object> restApi3 = rest.getForObject(uri3, Map.class);
 
-        Map body1 = (Map)(((Map)(restApi1.get("response"))).get("body"));
-        Map body2 = (Map)(((Map)(restApi2.get("response"))).get("body"));
-        Map body3 = (Map)(((Map)(restApi3.get("response"))).get("body"));
+        Map<URI,Object> body1 = (Map<URI,Object>)(((Map<URI,Object>)(restApi1.get("response"))).get("body"));
+        Map<URI,Object> body2 = (Map<URI,Object>)(((Map<URI,Object>)(restApi2.get("response"))).get("body"));
+        Map<URI,Object> body3 = (Map<URI,Object>)(((Map<URI,Object>)(restApi3.get("response"))).get("body"));
 
         /*Map items = (Map)(body.get("items"));
         Map item = (Map)(items.get("item"));
