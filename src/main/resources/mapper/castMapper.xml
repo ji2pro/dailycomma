@@ -36,6 +36,11 @@
     <select id="detailCastPostPage" resultType="cast">
         select count(*) total_count from COMMENTS
     </select>
+
+    <insert id="detailCastPostInput" parameterType="cast">
+        insert into COMMENTS values
+            (COMMENT_SEQ.nextval, 'MEM1', #{tourId}, #{commentContent}, sysdate)
+    </insert>
 </mapper>
 
 <!--

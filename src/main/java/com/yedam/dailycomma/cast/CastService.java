@@ -9,4 +9,5 @@ public interface CastService {
     public void detailCastDelete(CastDTO dto);
     public List<CastDTO> detailCastPostList(CastDTO dto);
     public CastDTO detailCastPostPage();
+    public void detailCastPostInput(CastDTO dto);
 }

@@ -104,20 +104,39 @@
 
             </div>
             <br>
-            <%--후기 등록--%>
+
             <div style="display: table; margin-left: auto; margin-right: auto;">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
                         <li class="page-item paging">
-                            <a class="page-link " onclick="postContent()">Previous</a>
+                            <a class="page-link " onclick="postContent(Previous())">Previous</a>
                         </li>
+
                         <%--태그 버튼 들어옴--%>
+
                         <li class="page-item">
-                            <a class="page-link" onclick="postContent()">Next</a>
+                            <a class="page-link" onclick="postContent(Next())">Next</a>
                         </li>
                     </ul>
                 </nav>
             </div>
+
+            <div class="inputButton">
+                <button class="insertComment">
+                    <a>댓글 작성하기</a>
+                </button>
+            </div>
+
+            <div>
+                <textarea id="insertTextarea" name="inquiryContent" cols="70" rows="5" class="inp_txt2" style="width:337px; height:126px;"></textarea>
+            </div>
+
+            <div class="commentSubmit">
+                <button class="commentSubmitButton">
+                    <a>등록</a>
+                </button>
+            </div>
+
         </div>
     </div>
 </div>
