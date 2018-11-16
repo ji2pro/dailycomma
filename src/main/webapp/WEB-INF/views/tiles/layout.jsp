@@ -78,11 +78,46 @@
 		<tiles:insertAttribute name="content" />
 	</div>
 	
-	<footer class="footer">
-		FOOTER<br>
-		  <br>
-		  ${serverTime} <br>
-		  <h2 id="clock"></h2> <!-- 현재시간 clock.js 파일 -->
+	<!-- footer 영역 -->
+	<footer class="blue-purple-gredient">
+		 <div >
+                <!-- <div class="box"> -->
+                    <!-- INFO -->
+                    <div style="text-align:center; color:#ffffff; min-height:250px; margin-bottom:-20px;" >
+                        <!-- <div class="site-info"> -->
+                        	<br>
+                            <h5>Contact Info</h5>  
+                            <p>Yedam Vocational Training Institute
+                            </p>
+
+                            <!-- BOX -->
+                            	<a href="tel:+911234567890" style="margin-left: 25px; margin-right: 50px;"> 
+                                <!-- ICON -->
+                                <h5><i class="fa fa-phone"></i> Call us </h5>
+                                <!-- PARAGRAPH -->
+                                <p>053-421-2460</p>
+                           		 </a>
+
+                            <!-- BOX -->
+                            <a href="mailto:ask@yedam.ac" style="margin-left: 40px; margin-right: 30px;" class="site-box-row last"> 
+                                <!-- ICON -->
+                                <h5><i class="fa fa-envelope"></i> Email us</h5>
+                                <!-- Mail -->
+                                <p>ask@yedam.ac</p> 
+                            </a>
+
+                            <!-- BOX -->
+                            <a style="margin-left: 30px; margin-right: 10px;" class="site-box-row" target="_blank" href="http://maps.google.com/?q=Location,대구광역시 중구 상서동 22-2" >
+                                <!-- ICON -->
+                                <h5><i class="fa fa-map-marker"></i> Location</h5>
+                                <!-- ADDRESS -->
+                                <p>대구 중구 상서동 22-2</p> 
+                            </a> 
+                            
+                     	 <h2 id="clock"></h2> <!-- 현재시간 clock.js 파일 -->
+                	</div>
+            </div>
+		  
 <%-- 			<tiles:insertAttribute name="footer" /> --%>
 	</footer>
 </body>
