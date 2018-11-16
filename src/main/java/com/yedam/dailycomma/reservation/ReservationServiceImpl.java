@@ -50,4 +50,10 @@ public class ReservationServiceImpl implements ReservationService {
 		return dao.getReserveInfo(roomNo);
 	}
 
+	@Override
+	public String getLocation(ReservationDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.getLocation(dto);
+	}
+
 }

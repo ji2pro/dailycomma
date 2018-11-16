@@ -25,11 +25,6 @@ $(document).ready(function(){
 		if (confirm(checkbox.length +"건을 삭제하시겠습니까??") == false){
 			return;
 		}
-		
-
-		
-
-		
 		var alldata = { "checkbox" : checkbox};
 
 		

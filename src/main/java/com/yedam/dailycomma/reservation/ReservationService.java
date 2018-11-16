@@ -20,4 +20,6 @@ public interface ReservationService {
 	public int getCnt(ReservationSearchDTO searchDto);
 	
 	public Map<String,Object> getReserveInfo(String roomNo);
+	
+	public String getLocation(ReservationDTO dto);
 }

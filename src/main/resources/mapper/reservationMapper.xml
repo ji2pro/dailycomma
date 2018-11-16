@@ -124,4 +124,9 @@
 		DELETE FROM RESERVATION WHERE RESERVE_NO = #{reserveNo}
 	</delete>
 	
+	<select id="getLocation" resultType="string" parameterType="reservation">
+		SELECT LOCATION FROM RESERVATION
+		WHERE LODGMENT_NO = #{lodgmentNo}		
+	</select>
+	
 </mapper> 
