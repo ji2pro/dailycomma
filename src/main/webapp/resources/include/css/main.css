@@ -6,14 +6,7 @@ section {margin-top: 50px;}
 	margin-top: 0;
     height: 500px;
     width: 100%;
-    /* background: #e2a4ff; */
-    /* background-image: url("https://media.giphy.com/media/l1J9M7qq3YVzWFdzq/giphy.gif"); */
-    /*  background-image: url("https://i.gifer.com/CRT.gif");  */
-    /*  background-image: url("https://i.gifer.com/EHs5.gif");  */
-   /*   background-image: url("https://i.imgur.com/0uQsQ06.gif");  */
-     background-image: url("../../images/home/sunrise-1014712_1920.jpg"); 
-    
-  
+	background-image: url("../../images/home/sunrise-1014712_1920.jpg"); 
     z-index: 1;
     position: relative;
     background-position: 50%;

@@ -28,11 +28,10 @@
 <%--     <link href="<%=request.getContextPath()%>/resources/include/css/admin.css" rel="stylesheet" type="text/css" /> --%>
 	<!-- 현재 시간 자바스크립트 파일 -->
     <script src="<c:url value="/resources/include/js/clock.js"/>"></script>
-    <!-- Masonry(그리드 레이아웃 라이브러리) --> 
+    <!-- Masonry(그리드 레이아웃 라이브러리) -->
 	<script src="<c:url value="/webjars/masonry/4.2.0/masonry.pkgd.min.js"/>"></script>
 	
 	<!-- 달력 cdn -->
-<!-- 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 	<script src="<c:url value="/webjars/jquery-ui/1.12.1/jquery-ui.min.js"/>"></script>
 	<link rel="stylesheet" href="<c:url value="/webjars/jquery-ui/1.12.1/jquery-ui.min.css"/>">
 	
@@ -44,11 +43,11 @@
 	<%-- 			<tiles:insertAttribute name="header" /> --%>
 	<nav class="navbar fixed-top navbar-expand-lg navbar-light">
 	    <a class="navbar-brand" href="<c:url value="/"/>">Daily Comma</a>
-	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="#navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="navbar-toggler-icon"></span>
 	    </button>
 	
-	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <div class="collapse navbar-collapse" id="navbarCollapse">
 	        <!-- <ul class="navbar-nav mr-auto">
 	            <li class="nav-item"><a class="nav-link" href="#">내 주변</a></li>
 	            <li class="nav-item"><a class="nav-link" href="#">숙소 검색</a></li>
@@ -59,7 +58,7 @@
             	<c:if test="${sessionScope.login eq null }">
             		<li class="nav-item"><a class="nav-link" href="<c:url value="/signupChoice.do"/>">회원 가입</a></li>
             	</c:if>
-            	<c:if test="${sessionScope.login ne null  }">	
+            	<c:if test="${sessionScope.login ne null }">	
             		<li class="nav-item"><a class="nav-link" href="<c:url value="/myPage.do"/>">마이페이지</a></li>
             	</c:if>
             
@@ -79,46 +78,38 @@
 	</div>
 	
 	<!-- footer 영역 -->
-	<footer class="blue-purple-gredient">
-		 <div >
-                <!-- <div class="box"> -->
-                    <!-- INFO -->
-                    <div style="text-align:center; color:#ffffff; min-height:250px; margin-bottom:-20px;" >
-                        <!-- <div class="site-info"> -->
-                        	<br>
-                            <h5>Contact Info</h5>  
-                            <p>Yedam Vocational Training Institute
-                            </p>
-
-                            <!-- BOX -->
-                            	<a href="tel:+911234567890" style="margin-left: 25px; margin-right: 50px;"> 
-                                <!-- ICON -->
-                                <h5><i class="fa fa-phone"></i> Call us </h5>
-                                <!-- PARAGRAPH -->
-                                <p>053-421-2460</p>
-                           		 </a>
-
-                            <!-- BOX -->
-                            <a href="mailto:ask@yedam.ac" style="margin-left: 40px; margin-right: 30px;" class="site-box-row last"> 
-                                <!-- ICON -->
-                                <h5><i class="fa fa-envelope"></i> Email us</h5>
-                                <!-- Mail -->
-                                <p>ask@yedam.ac</p> 
-                            </a>
-
-                            <!-- BOX -->
-                            <a style="margin-left: 30px; margin-right: 10px;" class="site-box-row" target="_blank" href="http://maps.google.com/?q=Location,대구광역시 중구 상서동 22-2" >
-                                <!-- ICON -->
-                                <h5><i class="fa fa-map-marker"></i> Location</h5>
-                                <!-- ADDRESS -->
-                                <p>대구 중구 상서동 22-2</p> 
-                            </a> 
-                            
-                     	 <h2 id="clock"></h2> <!-- 현재시간 clock.js 파일 -->
-                	</div>
-            </div>
-		  
-<%-- 			<tiles:insertAttribute name="footer" /> --%>
+	<footer class="footer blue-purple-gradient">
+		<!-- INFO -->
+			<!-- <div class="site-info"> -->
+			<h5>Contact Info</h5>  
+			<p>Yedam Vocational Training Institute</p>
+			
+			<!-- BOX -->
+			<a href="tel:+911234567890" style="margin-left: 25px; margin-right: 50px;"> 
+				<!-- ICON -->
+				<h5><i class="fa fa-phone"></i> Call us </h5>
+				<!-- PARAGRAPH -->
+				<p>053-421-2460</p>
+			</a>
+			
+			<!-- BOX -->
+			<a href="mailto:ask@yedam.ac" style="margin-left: 40px; margin-right: 30px;" class="site-box-row last"> 
+				<!-- ICON -->
+				<h5><i class="fa fa-envelope"></i> Email us</h5>
+				<!-- Mail -->
+				<p>ask@yedam.ac</p> 
+			</a>
+			
+			<!-- BOX -->
+			<a style="margin-left: 30px; margin-right: 10px;" class="site-box-row" target="_blank" href="http://maps.google.com/?q=Location,대구광역시 중구 상서동 22-2" >
+				<!-- ICON -->
+				<h5><i class="fa fa-map-marker"></i> Location</h5>
+				<!-- ADDRESS -->
+				<p>대구 중구 상서동 22-2</p> 
+			</a> 
+			                       
+			<h2 id="clock"></h2> <!-- 현재시간 clock.js 파일 -->
 	</footer>
+	<%-- 			<tiles:insertAttribute name="footer" /> --%>
 </body>
 </html>
