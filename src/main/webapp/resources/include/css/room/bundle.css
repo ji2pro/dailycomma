@@ -493,9 +493,8 @@ dl, ul, ol, menu, li {
     margin: 0;
     padding: 0;
 }
-a {
+#roomListContainer a {
     color: #666666;
-    text-decoration: none;
     cursor: pointer;
 }
 .pc-wrapper .column1, .pc-wrapper .column2 {

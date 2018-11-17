@@ -11,10 +11,10 @@
                     <c:forEach  var="i" begin="1" end="5" step="1">
                         <c:choose>
                             <c:when test="${getDetailPost.grade >= i}">
-                                <i class='fas fa-star starColor' style="color:#ffeb00"></i>
+                                <i class='fa fa-star starColor' style="color:#ffeb00"></i>
                             </c:when>
                             <c:otherwise>
-                                <i class='far fa-star starColor' style="color:#ffeb00"></i>
+                                <i class='fa fa-star-o starColor' style="color:#ffeb00"></i>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
