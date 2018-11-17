@@ -48,4 +48,12 @@ public class HostDAO {
 		System.out.println("host mybatis 삭제========");
 		return mybatis.delete("host.deleteHost", dto);
 	}
+	
+	public int approveHost(HostSearchDTO dto) {
+		return mybatis.update("host.approveHost", dto);
+	}
+	
+	public int unapproveHost(HostSearchDTO dto) {
+		return mybatis.update("host.unapproveHost", dto);
+	}
 }

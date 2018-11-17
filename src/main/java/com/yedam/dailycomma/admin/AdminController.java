@@ -418,4 +418,30 @@ public class AdminController {
 		map.put("result", Boolean.TRUE);
 		return map;
 	}
+	
+	//점주승인
+	@RequestMapping(value="/approveHost.ajax", method=RequestMethod.GET)
+	@ResponseBody
+	public HashMap<String,Object> approveHost(HostSearchDTO dto){
+		HashMap<String,Object> map =new HashMap<String,Object>();
+		int check = adminService.approveHost(dto);
+		if(check > 0)
+			map.put("result", Boolean.TRUE);
+		else
+			map.put("result",Boolean.FALSE);
+		return map;
+	}
+	
+	//점주비승인
+	@RequestMapping(value="/unapproveHost.ajax")
+	@ResponseBody
+	public HashMap<String,Object> unapproveHost(HostSearchDTO dto){
+		HashMap<String,Object> map =new HashMap<String,Object>();
+		int check = adminService.unapproveHost(dto);
+		if(check > 0)
+			map.put("result", Boolean.TRUE);
+		else
+			map.put("result",Boolean.FALSE);
+		return map;
+	}	
 }

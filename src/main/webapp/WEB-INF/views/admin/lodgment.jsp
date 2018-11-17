@@ -27,7 +27,7 @@
 					<th scope="col">숙소 옵션</th>
 					<th scope="col">업주 이름</th>
 					<th scope="col">지역</th>
-					<th scope="col">관리</th>
+					<!-- <th scope="col">관리</th> -->
 				</tr>
 			</thead>
 			<tbody id="lodgmentTbody">
@@ -47,12 +47,12 @@
 					<td>${lodgment.lodgmentInfo}</td>
 					<td>${lodgment.hostName}</td>
 					<td>${lodgment.location}</td>
-					<td>
+<!-- 					<td>
 						<div class="btn-group">
 							<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>
 							<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>
 						</div>
-					</td>
+					</td> -->
 				</tr>
 				</c:forEach>
 			</tbody>

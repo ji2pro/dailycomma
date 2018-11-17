@@ -1,6 +1,7 @@
 package com.yedam.dailycomma.host;
 
 public class HostDTO {
+	private String lodgmentNo;
 	private String hostId;			//숙박업주 아이디
 	private String hostEmail;		//숙박업주 이메일
 	private String hostPw;			//숙박업주 비밀번호
@@ -10,7 +11,22 @@ public class HostDTO {
 	private String businessNo;		//사업자 번호
 	private String location;
 	private String signupDate;
+	private String lodgmentState;	//예약상태
 	
+	
+	
+	public String getLodgmentNo() {
+		return lodgmentNo;
+	}
+	public void setLodgmentNo(String lodgmentNo) {
+		this.lodgmentNo = lodgmentNo;
+	}
+	public String getLodgmentState() {
+		return lodgmentState;
+	}
+	public void setLodgmentState(String lodgmentState) {
+		this.lodgmentState = lodgmentState;
+	}
 	public String getLocation() {
 		return location;
 	}

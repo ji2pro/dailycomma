@@ -48,5 +48,8 @@ public interface AdminService {
 	public int deleteTours(List<String> checkbox);
 	public int deleteRooms(List<String> checkbox);
 	
+	//점주 승인 및 미승인
+	public int approveHost(HostSearchDTO dto);
+	public int unapproveHost(HostSearchDTO dto); 
 	
 }

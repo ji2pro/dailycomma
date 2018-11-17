@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
-<script src="<%=request.getContextPath()%>/resources/include/js/admin/host.js"></script>
+<script src="<%=request.getContextPath()%>/resources/include/js/admin/host.js?99"></script>
 
 <form name="hostPagingForm" id="hostPagingForm">
 	<input type="hidden" name="page" value="1">
@@ -46,15 +46,36 @@
 					<td>${host.hostPhone}</td>
 					<td>${host.businessNo}</td>
 					<td>
-						<fmt:parseDate value="${host.signupDate}" var="signupDate_D" pattern="yyyy-MM-dd HH:mm:ss"/>
-						<fmt:formatDate value="${signupDate_D}" var="signupDate_FD" pattern="yyyy.MM.dd"/>
-						${signupDate_FD}
+						${host.signupDate}
 					</td>
-					<td>(승인)</td>
+					
+					<td>
+						<c:if test="${host.lodgmentState == 'B1'}">
+							승인
+						</c:if>
+						<c:if test="${host.lodgmentState == 'B2'}">	
+							미승인
+						</c:if>
+						<c:if test="${host.lodgmentState == 'B3'}">
+							대기
+						</c:if>				
+					</td>
 					<td>
 						<div class="btn-group">
-							<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>
-							<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>
+							<c:if test="${host.lodgmentState == 'B1'}">
+								<button id="hostbtnDelete" class="btn btn-outline-danger btn-sm"
+								onclick="checkHost('unapprove','${host.lodgmentNo}')">승인취소</button>
+							</c:if>
+							<c:if test="${host.lodgmentState == 'B2'}">	
+								<button id="hostbtnEdit" class="btn btn-outline-success btn-sm" 
+								onclick="checkHost('approve','${host.lodgmentNo}')">승인</button>
+							</c:if>
+							<c:if test="${host.lodgmentState == 'B3'}">
+								<button id="hostbtnEdit" class="btn btn-outline-success btn-sm"
+								onclick="checkHost('approve','${host.lodgmentNo}')">승인</button>
+								<button id="hostbtnDelete" class="btn btn-outline-danger btn-sm"
+								onclick="checkHost('unapprove','${host.lodgmentNo}')">거부</button>
+							</c:if>							
 						</div>
 					</td>
 				</tr>

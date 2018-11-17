@@ -1,6 +1,6 @@
 package com.yedam.dailycomma.host;
 
-public class HostSearchDTO {
+public class HostSearchDTO extends HostDTO{
 	
 	private String searchCondition;	
 	private String searchKeyword;

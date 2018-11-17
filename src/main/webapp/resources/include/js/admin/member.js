@@ -3,8 +3,7 @@
  */
 
 $(function() {
-	go_page(1);
-	
+
 	$("input[type=checkbox]").prop("checked",false);
 });
 

@@ -12,20 +12,22 @@
 			   ,HOST_NAME
 			   ,ADDRESS
 			   ,BUSINESS_NO
-			   ,SIGNUP_DATE
+			   ,TO_CHAR(SIGNUP_DATE, 'YYYY-MM-DD') AS SIGNUP_DATE
+			   ,LODGMENT_STATE
+			   ,LODGMENT_NO
 			FROM LODGMENT
 		<where>
-			<if test="ids != null">
-				HOST_ID IN
-				<foreach collection="ids" open="(" close=")" separator="," item="item">
-					#{item}
-				</foreach>
-			</if>
+			<if test="lodgmentState != null and lodgmentState != ''">
+				LODGMENT_STATE = #{lodgmentState}
+			</if>  
 			<if test="searchCondition == 'hostId'">
 				AND HOST_ID LIKE '%' || #{searchKeyword} || '%'
 			</if>
 			<if test="searchCondition == 'company'">
 				AND COMPANY LIKE '%' || #{searchKeyword} || '%'		
+			</if>
+			<if test="searchCondition == 'businessNo'">
+				AND BUSINESS_NO LIKE '%' || #{searchKeyword} || '%'
 			</if>
 		</where>
 		ORDER BY
@@ -96,6 +98,18 @@
 	      AND l.LOCATION = #{location}
 	      AND l.LODGMENT_TYPE = #{lodgmentType}
 	</select>
+	
+	<update id="approveHost" parameterType="hostSearch">
+		UPDATE LODGMENT
+		SET LODGMENT_STATE = 'B1'			
+		WHERE LODGMENT_NO = #{lodgmentNo}
+	</update>
+	
+	<update id="unapproveHost" parameterType="hostSearch">
+		UPDATE LODGMENT
+		SET LODGMENT_STATE = 'B2'			
+		WHERE LODGMENT_NO = #{lodgmentNo}
+	</update>	 
 	
 	<!-- 수정 미완성-->
 <!-- 	<update id="updateHost" parameterType="host">

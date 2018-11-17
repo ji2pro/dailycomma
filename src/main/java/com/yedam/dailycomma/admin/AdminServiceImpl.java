@@ -130,4 +130,14 @@ public class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 		return adminDAO.deleteRooms(checkbox);
 	}
+	@Override
+	public int approveHost(HostSearchDTO dto) {
+		// TODO Auto-generated method stub
+		return hostDAO.approveHost(dto);
+	}
+	@Override
+	public int unapproveHost(HostSearchDTO dto) {
+		// TODO Auto-generated method stub
+		return hostDAO.unapproveHost(dto);
+	}
 }
