@@ -8,6 +8,7 @@
 <form name="hostPagingForm" id="hostPagingForm">
 	<input type="hidden" name="page" value="1">
 	<input type="hidden" name="sort" value="host_id">
+	<input type="hidden" name="lodgmentState" value="">
 </form>
 <!-- 업주 관리 -->
 <div class="row">

@@ -32,6 +32,19 @@ function checkHost(state,lodgmentNo){
    });
 }
 
+function searchHost(state){
+	if(state == 'B1')
+		$('#dropdownMenuButton').text('승인');
+	else if(state == 'B2')
+		$('#dropdownMenuButton').text('미승인');
+	else
+		$('#dropdownMenuButton').text('대기');
+	
+	$("input[name='lodgmentState']:hidden").val(state);
+	go_page(1);
+	
+}
+
 //페이징 처리
 function go_page(p) {
 /*	console.log("p====="+p);
