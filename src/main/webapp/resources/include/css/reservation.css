@@ -36,7 +36,6 @@
 	padding: 20px;
 	color: white;
 }
-
 .dateRangePicker-top {
 	font-size: 18px;
 } 
@@ -72,7 +71,8 @@
 }
 .total-payment span:first-child {font-size: 18px;}
 .total-payment span:last-child {font-size: 28px;}
-em {font-size: 18px;}
+.place-room__title em {font-size: 36px; font-weight: 200;}
+.badge-rap em {font-size: 16px; font-weight: 200;}
 span.mr-auto, em.mr-auto {text-align: left;}
 span.ml-auto, em.ml-auto {text-align: right;}
 .btn-payment {

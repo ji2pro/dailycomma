@@ -1,4 +1,4 @@
-<%@page import="javax.naming.Context" %>
+<%@ page import="javax.naming.Context" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -43,17 +43,6 @@
             font-size: 14px;
             margin-top: 10px;
         }
-
-        .f-right {
-            float: right;
-        }
-
-        .room-label {
-            font-size: 20px;
-            font-weight: 900;
-            margin-top: 10px;
-        }
-
     </style>
 </head>
 
@@ -163,31 +152,33 @@
                     <a class="nav-link active show" href="" data-toggle="tab" data-target="#tabone">객실</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link postScript" data-toggle="tab" data-target="#tabtwo"
-                       id="${getDetailRooms[0].lodgmentNo}">후기</a>
+                    <a href="" class="nav-link postScript" data-toggle="tab" data-target="#tabtwo" id="${getDetailRooms[0].lodgmentNo}">후기</a>
                 </li>
             </ul>
             <div class="tab-content mt-2">
-
                 <div class="tab-pane fade active show" id="tabone" role="tabpanel">
                     <c:forEach var="list" items="${getDetailRooms}">
                         <div class="row py-4 border-bottom border-secondary" style="height: 450px; ">
                             <div class="col">
-                                <div class="place-room__title" data-reactid="182"><em
-                                        data-reactid="183">${list.roomName}</em></div>
+                                <div class="place-room__title">
+                                    <em>${list.roomName}</em></div>
                                     <%--div class="roomtitle">${list.roomName}</div>--%>
-                                <div class="place-room__tip" data-reactid="184"><span
-                                        data-reactid="185">객실 정보 : ${list.roomInfo}</span></div>
+                                <div class="place-room__tip">
+                                    <span>객실 정보 : ${list.roomInfo}</span></div>
                                     <%-- <div class="roomtip">객실 정보 : ${list.roomInfo}</div>--%>
-                                <div class="place-room__tip" data-reactid="184"><span data-reactid="185">기준2명 (최대인원${list.roomQuantity}명)</span></div>
+                                <div class="place-room__tip">
+                                    <span>기준 2명 (최대 인원${list.roomQuantity}명)</span>
+                                </div>
                                 <%--<div class="roomtip">기준2명 (최대인원${list.roomQuantity}명)</div>--%>
-                                <div class="py-3"><span class="room-label f-right">숙박${list.roomPrice}원</span></div>
+                                <div class="py-2">
+                                    <span class="room-label f-right">숙박 ${list.roomPrice}원</span>
+                                </div>
                                 
                                 <c:if test="${list.enable == '1'}">
-                                	<button class="place-room__reserve-btn btn-reserve_on" onclick="reserve_click('${list.roomNo}')"> 예약하기</button>
+                                	<button class="place-room__reserve-btn btn-reserve_on" onclick="reserve_click('${list.roomNo}')">예약하기</button>
                             	</c:if>
                             	<c:if test="${list.enable == '0'}">
-                            		<button class="place-room__reserve-btn btn-reserve_off"> 예약마감</button>
+                            		<button class="place-room__reserve-btn btn-reserve_off">예약 마감</button>
                             	</c:if>
                             	
                             </div>
@@ -195,32 +186,28 @@
                             <div class="col">
                                 <div class="carousel slide" data-ride="carousel" id="carousel">
                                     <div class="carousel-inner">
-                                        <c:forTokens items="${list.roomImg}" delims="||" var="img"
-                                                     varStatus="status">
+                                        <c:forTokens items="${list.roomImg}" delims="||" var="img" varStatus="status">
                                             <c:if test="${status.first}">
                                                 <div class="carousel-item active">
-                                                    <img class="d-block img-fluid w-100"
-                                                         src="<c:url value='/resources/images/room/${img}'/>"/>
+                                                    <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/room/${img}'/>"/>
                                                 </div>
                                             </c:if>
                                             <c:if test="${!status.first}">
                                                 <div class="carousel-item">
-                                                    <img class="d-block img-fluid w-100"
-                                                         src="<c:url value='/resources/images/room/${img}'/>"/>
+                                                    <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/room/${img}'/>"/>
                                                 </div>
                                             </c:if>
                                         </c:forTokens>
                                     </div>
-                                    <a class="carousel-control-prev" href="#carousel" role="button"
-                                       data-slide="prev" style="height:400px;">
+                                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev" style="height:400px;">
                                         <span class="carousel-control-prev-icon"></span>
-                                        <span class="sr-only">Previous</span> </a>
-                                    <a class="carousel-control-next" href="#carousel" role="button"
-                                       data-slide="next" style="height:400px;"> <span
-                                            class="carousel-control-next-icon"></span> <span
-                                            class="sr-only">Next</span> </a>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next" style="height:400px;">
+                                        <span class="carousel-control-next-icon"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
                                 </div>
-                                    <%--<img class="d-block img-fluid w-100 rounded" src="../../객실이미지1.png">--%>
                             </div>
                         </div>
                     </c:forEach>
@@ -228,11 +215,11 @@
 
                 <!-- 후기 리스트 -->
                 <div class="tab-pane fade" id="tabtwo" role="tabpanel">
-                    <div class="place-room__message"><i class="badge-live">바른후기</i>는 숙소에 직접
-                        방문한 회원만 작성할 수 있습니다.
+                    <div class="place-room__message">
+                        <i class="badge-live">바른 후기</i>는 숙소에 직접 방문한 회원만 작성할 수 있습니다.
                         <%--<c:if test="${memberLogin ne null}">--%>
                            <%-- ${membarLogin.memberNick}--%>
-                            <button type="button" class="review-post__insert-btn" style="float:right" id="${getDetailRooms[0].lodgmentNo}">후기등록</button>
+                            <button type="button" class="review-post__insert-btn" style="float:right" id="${getDetailRooms[0].lodgmentNo}">후기 등록</button>
                         <%--</c:if>--%>
                     </div>
                     <div class="review-box" id="postResult">

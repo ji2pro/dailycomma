@@ -1,5 +1,5 @@
 //예약페이지 
-$(document).ready(function(){
+$(function(){
 	$('#pointBtn').click(function(){
 		var my_point = parseInt($('.my-point').attr("data-sum"));		//보유한 포인트
 		var use_point =  parseInt($('#point').val());		//사용할 포인트

@@ -67,10 +67,10 @@ section {margin-top: 50px;}
     color: #ccc;
 }
 .search-panel .option-btn:focus .fa-chevron-down {
-	color: #d338ff;
+	color: #32BBF1;
 }
 .search-panel .option-btn .option-btn-focused {
-	color: #d338ff;
+	color: #32BBF1;
 }
 .search-panel .option-item.item-option-calendar .option-btn {
 	padding: 0;
@@ -129,7 +129,7 @@ section {margin-top: 50px;}
     opacity: 0.8;
 }
 .dateRangePickerInput .dateInput .dateInput-text-focused {
-	color: #d338ff;
+	color: #32BBF1;
 }
 .search-paragraph span {font-weight: 700;}
 .search-paragraph {
@@ -145,7 +145,7 @@ section {margin-top: 50px;}
 .popover-search-option {
 	box-sizing: border-box;
 	box-shadow: 0 3px 7px rgba(0,0,0,.2);
-	border-top: 1px solid #e2a4ff;
+	border-top: 1px solid #b750ff;
 	background-color: #fff;
 	padding: 20px;
 	margin-top: 2px;
@@ -179,11 +179,11 @@ section {margin-top: 50px;}
 .f-right {float: right;}
 
 .color-gradation {
-	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #ff6f6f), color-stop(100%, #6991ff));
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #32BBF1), color-stop(100%, #A649E9));
     color: white;
 }
 .color-gradation:hover {
-    background: -webkit-gradient(linear,left top,right bottom,color-stop(0,#ff8888),color-stop(100%,#93b0ff));
+    background: -webkit-gradient(linear,left top,right bottom,color-stop(0, #33c9ff),color-stop(100%, #b750ff));
 }
 
 .myposition-cnt {

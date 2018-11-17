@@ -5,37 +5,30 @@
     font-weight: 200;
     letter-spacing: -1px
 }
-
 .detail-info__address {
-    font-size: 14px
+    font-size: 16px
 }
-
 .detail-info__score {
     margin-top: 20px
 }
-
 .detail-info__score .score-rap {
     margin-top: -2px;
     display: inline-block;
     vertical-align: middle
 }
-
 .detail-info__score em {
     font-size: 14px;
     display: inlie-block;
     margin-left: 5px;
     margin-top: 1px
 }
-
 .detail-info__tag {
     margin-top: 15px;
     min-height: 24px
 }
-
 .detail-info__tip {
     margin-top: 15px
 }
-
 .detail-info__tip li {
     font-size: 14px;
     color: #333;
@@ -43,15 +36,16 @@
     margin-top: 5px;
     background: url(https://yaimg.yanolja.com/joy/pw/place/bullet-tip-list.svg) no-repeat 0 0
 }
-
 .detail-info__tip li:first-child {
     margin-top: 0
 }
+
 .mapinfo-content .mapinfo-box .score-rap {
     margin-top: -2px;
     display: inline-block;
     vertical-align: middle
 }
+
 .recommends-list .recommend-item .info-box .score-rap .icon-staylist-score {
     margin-top: -1px
 }
@@ -66,6 +60,7 @@
     color: #aaa;
     margin-left: 10px
 }
+
 .icon-staylist {
     display: inline-block;
     overflow: hidden;
@@ -75,53 +70,45 @@
     vertical-align: middle;
     background: url(https://yaimg.yanolja.com/joy/pw/search/icon-staylist.svg) no-repeat
 }
-
 .icon-staylist-hot {
     width: 34px;
     height: 14px;
     background-position: 0 -17px
 }
-
 .icon-staylist-new {
     width: 36px;
     height: 14px;
     background-position: -34px -17px
 }
-
 .icon-staylist-score {
     width: 16px;
     height: 16px
 }
-
 .icon-staylist-score.score10 {
     background-position: 0 0
 }
-
 .icon-staylist-score.score05 {
     background-position: -18px 0
 }
-
 .icon-staylist-score.score00 {
     background-position: -38px 0
 }
-
 .icon-staylist-distance {
     width: 16px;
     height: 16px;
     background-position: -84px 0
 }
-
 .icon-staylist-goodstay {
     width: 30px;
     height: 30px;
     background-position: 0 -70px
 }
+
 .tag-rap .tag-primary,
 .tag-rap .tag-default {
     margin-right: 5px;
     margin-bottom: 5px;
 }
-
 .tag-primary {
     background-color: #FF2D60;
     color: white;
@@ -129,18 +116,18 @@
     display: inline-block;
     padding: 4px 8px;
 }
+
 .detail-theme {
     margin-top: 40px
 }
-
 .detail-theme__inner {
     position: relative;
     overflow: hidden
 }
-
 .detail-theme .theme-list {
     margin-left: -20px
 }
+
 .sc-out {
     overflow: hidden;
     position: absolute;
@@ -159,11 +146,9 @@
     margin-bottom: 20px;
     text-align: center
 }
-
 .theme-list .theme-item img {
     width: 60px
 }
-
 .theme-list .theme-item span {
     font-size: 13px;
     display: block;
@@ -176,40 +161,39 @@
     clear: both;
     *zoom: 1
 }
+.room-label {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 10px 0 20px;
+}
+
 .place-badge {
     position: absolute;
     top: 0;
     right: 0
 }
-
 .place-badge .share-rap {
     margin-top: 5px;
     text-align: right
 }
-
 .place-badge .share-rap .icon-sharesns {
     margin-left: 10px
 }
-
 .place-badge .coupon-rap {
     margin-top: 70px
 }
-
 .place-badge {
     position: absolute;
     top: 0;
     right: 0
 }
-
 .place-badge .share-rap {
     margin-top: 5px;
     text-align: right
 }
-
 .place-badge .share-rap .icon-sharesns {
     margin-left: 10px
 }
-
 .place-badge .coupon-rap {
     margin-top: 70px
 }
@@ -218,8 +202,18 @@
     height: 40px;
     background-position: -54px -102px
 }
+.place-room__title {
+    font-size: 28px;
+    color: #333;
+}
+i, em, address {
+    font-style: normal;
+}
+.place-room__tip {
+    font-size: 16px;
+    margin-top: 10px;
+}
 .place-room__reserve-btn {
-    /*position: absolute;*/
     bottom: 0;
     left: 0;
     width: 100%;
@@ -227,15 +221,9 @@
     text-align: center;
     color: #fff
 }
-
 .place-room__reserve-btn.btn-reserve_on {
-    --webkit--background: linear-gradient(top, #ff4143, #ff1764);
-    background: linear-gradient(top, #ff4143, #ff1764);
-    background: #ff4143;
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0, #ff4143), color-stop(100%, #ff1764));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0dca9a", endColorstr="#22c4d1", GradientType=0)
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0, #32BBF1), color-stop(100%, #A649E9));
 }
-
 .place-room__message {
     min-height: 22px;
     margin-top: 30px;
@@ -247,7 +235,6 @@
 .badge-live {
     background-color: #18d0c5
 }
-
 .place-review__item.is-thumbnail .review-info {
     padding-left: 240px
 }
@@ -255,7 +242,6 @@
     color: #666;
     background-color: #fafafa
 }
-
 .review-info__title {
     margin-bottom: 20px
 }
@@ -264,14 +250,12 @@
     display: inline-block;
     vertical-align: middle
 }
-
 .review-info__title strong {
     color: #333;
     display: inline-block;
     margin-right: 100px;
     vertical-align: top
 }
-
 .review-info__content {
     font-size: 15px
 }
@@ -280,11 +264,9 @@
     padding: 30px 10px;
     min-height: 140px
 }
-
 .place-review__item.is-thumbnail .review-info {
     padding-left: 240px
 }
-
 .badge-best, .badge-live, .badge-visited {
     color: #fff;
     display: inline-block;
@@ -293,9 +275,8 @@
     margin-right: 5px
 }
 .badge-best {
-    background-color: #ff2d60
+    background-color: #A649E9;
 }
-
 .review-userinfo {
     margin-top: 20px;
     font-size: 13px;
@@ -519,9 +500,6 @@ dl, ul, ol, menu, li {
 }
 
 
-
-
-
 .review-detail__content {
     font-size: 15px;
     margin-top: 35px
@@ -545,17 +523,6 @@ dl, ul, ol, menu, li {
     font-size: 15px;
     background-color: #595f63;
     text-align: center
-}
-.place-room__title {
-    font-size: 28px;
-    color: #333;
-}
-i, em, address {
-    font-style: normal;
-}
-.place-room__tip {
-    font-size: 14px;
-    margin-top: 10px;
 }
 
 /*후기 등록 폼*/

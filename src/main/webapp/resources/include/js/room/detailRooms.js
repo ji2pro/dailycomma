@@ -8,23 +8,22 @@ function PostListResult(data) {
         postList +=
             "<div class=\"postList\">"+
             "<li class=\"place-review__item\"></li>" +
-        "<a role=\"button\" class=\"detail\" id="+item.postscriptNo+">"+
-        "<div class=\"review-info\">"+
-        "<div class=\"review-info__title\">"+
-        "<span class=\"badge-rap\"><i class=\"badge-best\"><em>추천</em></i></span><strong>"+ item.postscriptTitle+"</strong></div>"+
-        "<p class=\"review-info__content\">"+ item.postscriptContent+"</p>" +
-        "<div class=\"review-userinfo\">"+
-        "<span class=\"nicname\">"+item.memberNick+"</span><i class=\"bar\"></i>" +
-        "<span class=\"roomtype\">"+item.roomName+"</span><i class=\"bar\"></i>" +
-        "<span class=\"date\">"+item.postscriptDate+"</span>" +
-        "</div>"+
-        "<div class=\"place-review__score\">"+
-        "<span class=\"score-rap text-warning\">";
+            "<a role=\"button\" class=\"detail\" id="+item.postscriptNo+">"+
+            "<div class=\"review-info\">"+
+            "<div class=\"review-info__title\">"+
+            "<span class=\"badge-rap\"><i class=\"badge-best\"><em>추천</em></i></span><strong>"+ item.postscriptTitle+"</strong></div>"+
+            "<p class=\"review-info__content\">"+ item.postscriptContent+"</p>" +
+            "<div class=\"review-userinfo\">"+
+            "<span class=\"nicname\">"+item.memberNick+"</span><i class=\"bar\"></i>" +
+            "<span class=\"roomtype\">"+item.roomName+"</span><i class=\"bar\"></i>" +
+            "<span class=\"date\">"+item.postscriptDate+"</span>" +
+            "</div>"+
+            "<div class=\"place-review__score\">"+
+            "<span class=\"score-rap text-warning\">";
         for(var i=0 ; i < 5 ; i++){
             if(item.grade > i){
                 postList += "<i class='fa fa-star starColor'></i>";
-            }
-            else{
+            } else {
                 postList += "<i class='fa fa-star-o starColor'></i>";
             }
         }
@@ -60,16 +59,16 @@ function insertPostFormSubmit(){
         console.log(params);
 
         $.ajax({/*후기 등록 먼저 작업*/
-            url:path+"/postscript",
+            url: path+"/postscript",
             data: params,
-            method : "post",
-            error:function(data,status,msg){
+            method: "post",
+            error: function(data,status,msg){
                 alert("상태값 :" + status + " Http에러메시지 :"+msg);
             },
-            success:function(){
+            success: function(){
                 $.ajax({/*후기 리스트 가져오기*/
-                    url:path+"/postscript/"+lodgmentNo,
-                    error:function(data,status,msg){
+                    url: path+"/postscript/"+lodgmentNo,
+                    error: function(data,status,msg){
                         alert("상태값 :" + status + " Http에러메시지 :"+msg);
                     },
                     success:PostListResult
@@ -85,7 +84,6 @@ function reserve_click(room_no){
 }
 
 $(function() {
-
     $(document).on('click', '#insertStar', function() {
         var star = $(this).attr("class");
         console.log(star);
@@ -178,8 +176,8 @@ $(function() {
         console.log($(this).attr('id'));
         var postNo = $(this).attr('id');
         $.ajax({
-            url:path+"/postDetail.do/"+postNo,
-            success :
+            url: path+"/postDetail.do/"+postNo,
+            success:
                 function(result) {
                     $("#postResult").html(result).show();
                     $(".review-list").hide();
