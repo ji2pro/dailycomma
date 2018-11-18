@@ -21,10 +21,10 @@
 		<!-- <input type="text" name="daterange" value="" style="margin-top: .40rem!important;"/>-->
 		<form action="updateSearch.do" class="form-inline">
 			<label class="my-1 mr-2" for="datepicker">체크인</label>
-			<input type="text" name="checkin" id="datepicker" autocomplete="off" class="form-control">
+			<input type="text" name="checkin" id="datepicker" autocomplete="off" class="form-control" value="${search.checkin}">
 
 			<label class="my-1 mr-2" for="datepicker2">체크아웃</label>
-			<input type="text" name="checkout" id="datepicker2" autocomplete="off" class="form-control">
+			<input type="text" name="checkout" id="datepicker2" autocomplete="off" class="form-control" value="${search.checkout}">
 
 			<button type="submit" class="btn btn-primary">검색</button>
 		</form>

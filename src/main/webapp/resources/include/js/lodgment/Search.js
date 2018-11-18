@@ -63,9 +63,10 @@ $(document).ready(function() {
 	 });
      
      //From의 초기값을 오늘 날짜로 설정
-     $('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+
+     $('#datepicker').datepicker('setDate', $('#datepicker').attr('value')); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
      //To의 초기값을 내일로 설정
-     $('#datepicker2').datepicker('setDate', '+1D'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+     $('#datepicker2').datepicker('setDate', $('#datepicker2').attr('value')); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
 });
 
 function gradeCal() {
