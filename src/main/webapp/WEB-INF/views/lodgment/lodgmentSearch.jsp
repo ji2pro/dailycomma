@@ -22,10 +22,8 @@
 		<form action="updateSearch.do" class="form-inline">
 			<label class="my-1 mr-2" for="datepicker">체크인</label>
 			<input type="text" name="checkin" id="datepicker" autocomplete="off" class="form-control" value="${search.checkin}">
-            &nbsp;&nbsp;&nbsp;&nbsp;
             <label class="my-1 mr-2" for="datepicker2">체크아웃</label>
 			<input type="text" name="checkout" id="datepicker2" autocomplete="off" class="form-control" value="${search.checkout}">
-            &nbsp;&nbsp;&nbsp;&nbsp;
 			<button type="submit" class="btn btn-primary">검색</button>
 		</form>
 	</div>
@@ -33,10 +31,9 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col md-3" style="min-height: 700px; margin-top: 5%;">
-			<div class="dropdown ml-2" style="display: inline-block;">
-				<button type="button" class="btn btn-defalute btn-lg dropdown-toggle"
-					id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+		<div class="col mb-3" style="min-height: 700px;">
+			<div class="dropdown" style="display: inline-block;">
+				<button type="button" class="btn btn-default btn-lg dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 					기본순 <span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="lodgType">
@@ -51,21 +48,19 @@
 					</li>
 				</ul>
 			</div>
-			<div class="dropdown ml-2" style="display: inline-block;">
-				<button class="btn btn-defalute btn-lg dropdown-toggle"
-					type="button" id="dropdownMenu2" data-toggle="dropdown"
-					aria-expanded="true">
+			<div class="dropdown" style="display: inline-block;">
+				<button class="btn btn-defalute btn-lg dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
 					가격대 선택 <span class="caret"></span>
 				</button>
-				<ul class="dropdown-menu" role="menu"
-					aria-labelledby="dropdownMenu2" id="loc">
-					<li role="presentation" value="Daegu"><a role="menuitem"
-						tabindex="-1">5만원 이하</a></li>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2" id="loc">
+					<li role="presentation" value="Daegu">
+						<a role="menuitem" tabindex="-1">5만원 이하</a>
+					</li>
 				</ul>
 			</div>
 
 			<c:forEach items="${lod}" var="temp">
-				<div class="card flex-md-row mb-5 shadow-sm h-md-250">
+				<div class="card flex-md-row mb-3 shadow-sm h-md-250">
 					<img class="card-img-left" src="resources/images/lodgment/roomTest.jpg" width="300" height="200" alt="Card image cap">
 					<div class="card-body d-flex flex-column align-items-start">
 						<h3 class="mb-0">

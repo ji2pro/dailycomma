@@ -158,7 +158,7 @@
             <div class="tab-content mt-2">
                 <div class="tab-pane fade active show" id="tabone" role="tabpanel">
                     <c:forEach var="list" items="${getDetailRooms}">
-                        <div class="row py-4 border-bottom border-secondary" style="height: 450px; ">
+                        <div class="row py-4 border-bottom border-secondary" style="height: 400px; ">
                             <div class="col">
                                 <div class="place-room__title">
                                     <em>${list.roomName}</em></div>

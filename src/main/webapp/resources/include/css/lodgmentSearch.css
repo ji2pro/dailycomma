@@ -1,7 +1,29 @@
 ﻿/*리스트 css*/
-.datepicker-container {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: #F2F2F2; position: relative; width: 100%; height: 55px; font-size: 24px; padding: 0;}
-.datepicker-content {padding: 10px 30px 6px;}
-.search-calendar-area .datepicker-days {display: inline-block; margin-left: 20px;}
+.datepicker-container {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-color: #F2F2F2;
+	position: relative;
+	width: 100%;
+	height: 55px;
+	font-size: 24px;
+	padding: 0;
+}
+.datepicker-content {
+	padding: 10px 30px 6px;
+}
+.datepicker-content label {
+	font-size: 18px;
+}
+.datepicker-content .ui-datepicker-trigger+.btn-primary {
+	padding: .3rem .9rem;
+	margin-left: 10px;
+}
+.search-calendar-area .datepicker-days {
+	display: inline-block;
+	margin-left: 20px;
+}
 /* .placelist-content .placelist-area {z-index: 2; position: relative; margin-right: 40%; padding: 108px 30px 20px; background-color: #fff;}
 .popover-container-pc .popover-content.animate-bounce-down {animation-name: fadeIn; animation-iteration-count: 1; animation-duration: .6s; animation-delay: 0s; animation-timing-function: ease; animation-fill-mode: both; -webkit-backface-visibility: hidden; backface-visibility: hidden;}
 .popover-container-pc .popover-content {position: absolute;}
@@ -211,6 +233,14 @@ dl, ul, ol, menu, li {
 }
 
 /*datepicer 버튼 롤오버 시 손가락 모양 표시*/
-.ui-datepicker-trigger{cursor: pointer;}
+.ui-datepicker-trigger{
+	cursor: pointer;
+	border: 1px solid black;
+	background-color: white;
+	font-size: 16px;
+	padding: 5px 10px;
+	margin-left: 6px;
+	margin-right: 14px;
+}
 /*datepicer input 롤오버 시 손가락 모양 표시*/
 .hasDatepicker{cursor: pointer;}
