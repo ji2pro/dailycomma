@@ -22,10 +22,10 @@
 		<form action="updateSearch.do" class="form-inline">
 			<label class="my-1 mr-2" for="datepicker">체크인</label>
 			<input type="text" name="checkin" id="datepicker" autocomplete="off" class="form-control" value="${search.checkin}">
-
-			<label class="my-1 mr-2" for="datepicker2">체크아웃</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <label class="my-1 mr-2" for="datepicker2">체크아웃</label>
 			<input type="text" name="checkout" id="datepicker2" autocomplete="off" class="form-control" value="${search.checkout}">
-
+            &nbsp;&nbsp;&nbsp;&nbsp;
 			<button type="submit" class="btn btn-primary">검색</button>
 		</form>
 	</div>
