@@ -443,5 +443,32 @@ public class AdminController {
 		else
 			map.put("result",Boolean.FALSE);
 		return map;
+	}
+	
+	
+	//캐스트승인
+	@RequestMapping(value="/approveTour.ajax", method=RequestMethod.GET)
+	@ResponseBody
+	public HashMap<String,Object> approveTour(TourSearchDTO dto){
+		HashMap<String,Object> map =new HashMap<String,Object>();
+		int check = adminService.approveTour(dto);
+		if(check > 0)
+			map.put("result", Boolean.TRUE);
+		else
+			map.put("result",Boolean.FALSE);
+		return map;
+	}
+	
+	//캐스트비승인
+	@RequestMapping(value="/unapproveTour.ajax")
+	@ResponseBody
+	public HashMap<String,Object> unapproveTour(TourSearchDTO dto){
+		HashMap<String,Object> map =new HashMap<String,Object>();
+		int check = adminService.unapproveTour(dto);
+		if(check > 0)
+			map.put("result", Boolean.TRUE);
+		else
+			map.put("result",Boolean.FALSE);
+		return map;
 	}	
 }

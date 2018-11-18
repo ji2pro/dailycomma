@@ -13,6 +13,14 @@
 					#{item}
 				</foreach>
 			</if>
+			
+			<if test="searchCondition == 'memberNo'">
+				AND MEMBER_NO LIKE '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="searchCondition == 'memberNick'">
+				AND MEMBER_NICK LIKE '%' || #{searchKeyword} || '%'
+			</if>		
+			 
 			<if test="searchCondition == 'memberEmail'">
 				AND MEMBER_EMAIL LIKE '%' || #{searchKeyword} || '%'
 			</if>

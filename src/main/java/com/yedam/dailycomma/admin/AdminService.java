@@ -52,4 +52,8 @@ public interface AdminService {
 	public int approveHost(HostSearchDTO dto);
 	public int unapproveHost(HostSearchDTO dto); 
 	
+	//투어 승인 및 미승인
+	public int approveTour(TourSearchDTO dto);
+	public int unapproveTour(TourSearchDTO dto); 
+	
 }

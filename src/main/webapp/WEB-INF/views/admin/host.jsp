@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
-<script src="<%=request.getContextPath()%>/resources/include/js/admin/host.js?99"></script>
+<script src="<%=request.getContextPath()%>/resources/include/js/admin/host.js"></script>
 
 <form name="hostPagingForm" id="hostPagingForm">
 	<input type="hidden" name="page" value="1">

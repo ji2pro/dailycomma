@@ -140,4 +140,14 @@ public class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 		return hostDAO.unapproveHost(dto);
 	}
+	@Override
+	public int approveTour(TourSearchDTO dto) {
+		// TODO Auto-generated method stub
+		return tourDAO.approveTour(dto);
+	}
+	@Override
+	public int unapproveTour(TourSearchDTO dto) {
+		// TODO Auto-generated method stub
+		return tourDAO.unapproveTour(dto);
+	}
 }

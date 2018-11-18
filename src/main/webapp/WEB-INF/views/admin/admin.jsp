@@ -45,18 +45,25 @@
 		<div class="col-md-3">
 			<form class="form-inline">
 				<div class="input-group ml-auto">
-					<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="검색">
-					<div class="input-group-append">
-						<button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
-					</div>
 					<div class="dropdown">
 						<button class="btn btn-secondary dropdown-toggle" type="button"
+						id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">검색기준</button>
+						<div class="dropdown-menu"  id="searchdown" aria-labelledby="dropdownMenuButton"></div>
+					</div>					
+					
+					<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="검색">
+					<div class="input-group-append">
+						<button class="btn btn-primary searchBtn" type="button" ><i class="fa fa-search"></i></button>
+					</div>
+					<div class="dropdown" >
+						<button class="btn btn-secondary dropdown-toggle" type="button"
 								id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">검색기준</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<button type='button' class='dropdown-item' onclick="searchHost('B1')">승인</button>
+								aria-expanded="false">정렬기준</button>
+						<div class="dropdown-menu" id="sortdown" aria-labelledby="dropdownMenuButton">
+<!-- 							<button type='button' class='dropdown-item' onclick="searchHost('B1')">승인</button>
 							<button type='button' class='dropdown-item' onclick="searchHost('B2')">미승인</button>
-							<button type='button' class='dropdown-item' onclick="searchHost('B3')">대기</button>
+							<button type='button' class='dropdown-item' onclick="searchHost('B3')">대기</button> -->
 						</div>
 					</div>
 				</div>

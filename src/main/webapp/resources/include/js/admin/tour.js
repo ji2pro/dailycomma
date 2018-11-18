@@ -3,10 +3,61 @@
  */
 
 $(function() {
-	go_page(1);
+	createTourDropdown();
 	$("input[type=checkbox]").prop("checked",false);
 });
 
+function checkTour(state,tourId){
+	var link = "";
+	if(state == 'approve'){
+		if(confirm("승인하시겠습니까?") == false) return;
+		link = "./approveTour.ajax"
+	}else{
+		if(confirm("승인거부하시겠습니까?") == false) return;
+		link = "./unapproveTour.ajax"
+	}	
+	
+	var p =$('input[name="page"]:hidden').val();
+	
+	$.ajax({
+        url: link,
+        data :{tourId : tourId},
+        type: "GET",
+        dataType: "json",
+    	error: function(xhr, status, msg) {
+			console.log('상태값 : ' + status + ', Http에러메시지 : ' + msg);
+		},
+		success: function(xhr) {
+			console.log(xhr.result);
+			alert('완료되었습니다.');
+			
+			go_page(p);
+		}
+   });
+}
+
+
+
+function createTourDropdown(){
+	$('#sortdown').empty();
+	var button = "<button type='button' class='dropdown-item' onclick='searchTour(\"B1\")'>승인</button>"
+				+"<button type='button' class='dropdown-item' onclick='searchTour(\"B2\")'>미승인</button>"
+				+"<button type='button' class='dropdown-item' onclick='searchTour(\"B3\")'>대기</button>";	
+				
+	$('#sortdown').find('.dropdown-menu').append(button);		
+}
+
+function searchTour(state){
+	if(state == 'B1')
+		$('#dropdownMenuButton').text('승인');
+	else if(state == 'B2')
+		$('#dropdownMenuButton').text('미승인');
+	else
+		$('#dropdownMenuButton').text('대기');
+	
+	$("input[name='tourState']:hidden").val(state);
+	go_page(1);
+}
 //체크박스 삭제
 $(document).ready(function(){
 	
@@ -87,15 +138,35 @@ function callbackTour(datas){
 				 '<td>'+data.tourLocation+'</td>'+
 				 '<td>'+data.tourTitle+'</td>'+
 				 '<td>'+data.memberName+'</td>'+
-				 '<td>'+data.tourDate+'</td>'+
-				 '<td>'+data.tourState+'</td>'+
-				 '<td>'+
-				 '<div class="btn-group">'+
-				 '<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>'+
-				 '<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>'+
-				 '</div>'+
-				 '</td>'+
-				 '</tr>');
+				 '<td>'+data.tourDate+'</td>');
+		
+		if(data.tourState == 'B1')
+			html += "<td>승인</td>";
+		else if(data.tourState == 'B2')
+			html += "<td>미승인</td>";
+		else
+			html += "<td>대기</td>";
+		
+		html += '<td>'+
+				'<div class="btn-group">';
+		
+		if(data.tourState == 'B1'){
+			html += '<button id="tourbtnDelete" class="btn btn-outline-danger btn-sm "'
+				 +'onclick="checkTour(\'unapprove\',\''+data.tourId +'\')">승인취소</button>';
+				 	
+		}
+		else if(data.tourState == 'B2'){			
+			html += '<button id="tourbtnEdit" class="btn btn-outline-success btn-sm "'
+				 +'onclick="checkTour(\'approve\',\''+data.tourId +'\')">승인</button>';
+		}
+		else{
+			html += '<button id="tourbtnEdit" class="btn btn-outline-success btn-sm "'
+				 +'onclick="checkTour(\'approve\',\''+data.tourId +'\')">승인</button>'
+				 + '<button id="tourbtnDelete" class="btn btn-outline-danger btn-sm "'
+				 +'onclick="checkTour(\'unapprove\',\''+data.tourId +'\')">거부</button>';
+		}
+		html += '</div>'+'</td>'+'</tr>';
+		
 	});
 	
 	

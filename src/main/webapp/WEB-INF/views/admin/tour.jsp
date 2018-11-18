@@ -8,6 +8,7 @@
 <form name="tourPagingForm" id="tourPagingForm">
 	<input type="hidden" name="page" value="1">
 	<input type="hidden" name="sort" value="tour_id">
+	<input type="hidden" name="tourState" value="">
 </form>
 <!-- 캐스트(관광포스트) 관리 -->
 <div class="row">
@@ -44,11 +45,35 @@
 					<td>${tour.tourTitle}</td>
 					<td>${tour.memberName}</td>
 					<td>${tour.tourDate}</td>
-					<td>${tour.tourState}</td>
+					<td>
+						<c:if test="${tour.tourState == 'B1'}">
+							승인
+						</c:if>
+						<c:if test="${tour.tourState == 'B2'}">	
+							미승인
+						</c:if>
+						<c:if test="${tour.tourState == 'B3'}">
+							대기
+						</c:if>					
+					
+					</td>					
 					<td>
 						<div class="btn-group">
-							<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>
-							<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>
+							<c:if test="${tour.tourState == 'B1'}">
+								<button id="TourbtnDelete" class="btn btn-outline-danger btn-sm"
+								onclick="checkTour('unapprove','${tour.tourId}')">승인취소</button>
+							</c:if>
+							<c:if test="${tour.tourState == 'B2'}">	
+								<button id="TourbtnEdit" class="btn btn-outline-success btn-sm" 
+								onclick="checkTour('approve','${tour.tourId}')">승인</button>
+							</c:if>
+							<c:if test="${tour.tourState == 'B3'}">
+								<button id="TourbtnEdit" class="btn btn-outline-success btn-sm"
+								onclick="checkTour('approve','${tour.tourId}')">승인</button>
+								<button id="TourbtnDelete" class="btn btn-outline-danger btn-sm"
+								onclick="checkTour('unapprove','${tour.tourId}')">거부</button>
+							</c:if>							
+						
 						</div>
 					</td>
 				</tr>

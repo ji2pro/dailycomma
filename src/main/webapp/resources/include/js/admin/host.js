@@ -3,6 +3,10 @@
  */
 
 
+$(function(){
+	createHostDropdown();
+});
+
 function checkHost(state,lodgmentNo){
 	var link = "";
 	if(state == 'approve'){
@@ -31,6 +35,16 @@ function checkHost(state,lodgmentNo){
 		}
    });
 }
+
+function createHostDropdown(){
+	$('#sortdown').empty();
+	var button = "<button type='button' class='dropdown-item' onclick='searchHost(\"B1\")'>승인</button>"
+				+"<button type='button' class='dropdown-item' onclick='searchHost(\"B2\")'>미승인</button>"
+				+"<button type='button' class='dropdown-item' onclick='searchHost(\"B3\")'>대기</button>";	
+				
+	$('#sortdown').find('.dropdown-menu').append(button);			
+}
+
 
 function searchHost(state){
 	if(state == 'B1')
@@ -116,7 +130,7 @@ function callbackHost(datas){
 			html += '<button id="hostbtnEdit" class="btn btn-outline-success btn-sm "'
 				 +'onclick="checkHost(\'approve\',\''+data.lodgmentNo +'\')">승인</button>'
 				 + '<button id="hostbtnDelete" class="btn btn-outline-danger btn-sm "'
-				 +'onclick="checkHost(\'unapprove\',\''+data.lodgmentNo +'\')">승인취소</button>';
+				 +'onclick="checkHost(\'unapprove\',\''+data.lodgmentNo +'\')">거부</button>';
 		}
 		html += '</div>'+'</td>'+'</tr>';
 	});

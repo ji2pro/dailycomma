@@ -28,4 +28,12 @@ public class TourDAO {
 	public int deleteTour(TourDTO dto) {
 		return mybatis.delete("tour.deleteTour", dto);
 	}
+	
+	public int approveTour(TourSearchDTO dto) {
+		return mybatis.update("tour.approveTour", dto);
+	}
+	
+	public int unapproveTour(TourSearchDTO dto) {
+		return mybatis.update("tour.unapproveTour", dto);
+	}
 }

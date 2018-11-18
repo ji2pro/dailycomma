@@ -5,7 +5,39 @@
 $(function() {
 
 	$("input[type=checkbox]").prop("checked",false);
+	createMemberDropdown();
+	
+	$('#memberSearchBtn').click(function(){
+		var txt = $('#inlineFormInputGroup').val();
+		$('input[name="searchKeyword"]:hidden').val(txt);
+		go_page(1);
+	});
 });
+
+
+function createMemberDropdown(){
+	$('#sortdown').empty();
+	var button = "<button type='button' class='dropdown-item' onclick='searchHost(\"B1\")'>승인</button>"
+				+"<button type='button' class='dropdown-item' onclick='searchHost(\"B2\")'>미승인</button>"
+				+"<button type='button' class='dropdown-item' onclick='searchHost(\"B3\")'>대기</button>";	
+				
+	$('#sortdown').append(button);
+	
+	button="";
+	
+	$('#searchdown').empty();
+	button = "<button type='button' class='dropdown-item' onclick='searchMember(\"memberNo\")'>회원번호</button>"
+			+"<button type='button' class='dropdown-item' onclick='searchMember(\"memberName\")'>이름</button>"
+			+"<button type='button' class='dropdown-item' onclick='searchMember(\"memberNick\")'>닉네임</button>"
+			+"<button type='button' class='dropdown-item' onclick='searchMember(\"memberEmail\")'>이메일</button>";
+	$('#searchdown').append(button);
+
+	$('.searchBtn').attr("id","memberSearchBtn");
+}
+
+function searchMember(condition){
+	$('input[name="searchCondition"]:hidden').val(condition);
+}
 
 $(document).ready(function(){
 	
@@ -51,16 +83,17 @@ $(document).ready(function(){
 
 });
 
+
+function createLodgmentDropdown(){
+	$('.dropdown-menu').empty();
+	var btn = "";
+	btn = "<button type='button' class=''";
+	
+}	
+
 //페이징 처리
 function go_page(p) {
-/*	console.log("p====="+p);
-	var param;
-	if(document.memberPagingForm) {
-		document.memberPagingForm.page.value = p;
-		param = $('#memberPagingForm').serialize();
-	} else {
-		param = {page: 1, sort: 'member_no'}
-	}*/
+
 	$('input[name="page"]:hidden').val(p);
 	
     $.ajax({

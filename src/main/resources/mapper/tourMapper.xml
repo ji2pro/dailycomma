@@ -16,17 +16,14 @@
 			   		FROM MEMBER
 			   		WHERE MEMBER.MEMBER_NO = TOUR.MEMBER_NO)
 			   AS memberName
-			   ,TOUR_DATE
+			   ,TO_CHAR(TOUR_DATE,'YYYY-MM-DD') AS TOUR_DATE
 			   ,TOUR_LOCATION
 			   ,TOUR_STATE
 			FROM TOUR
 		 <where>
-		 	<if test="ids != null">
-			   	TOUR_ID IN
-			   	<foreach collection="ids" open="(" close=")" separator="," item="item">
-					#{item}
-				</foreach>
-			</if>
+			<if test="tourState != null and tourState != ''">
+				TOUR_STATE = #{tourState}
+			</if>			
 			<if test="searchCondition == 'tourId'">
 				AND TOUR_ID LIKE '%' || #{searchKeyword} || '%'
 			</if>
@@ -86,6 +83,17 @@
 		DELETE FROM TOUR WHERE TOUR_ID = #{tourId}
 	</delete>
 	
+	<update id="approveTour" parameterType="tourSearch">
+		UPDATE TOUR
+		SET TOUR_STATE = 'B1'			
+		WHERE TOUR_ID = #{tourId}
+	</update>
+	
+	<update id="unapproveTour" parameterType="tourSearch">
+		UPDATE TOUR
+		SET TOUR_STATE = 'B2'			
+		WHERE TOUR_ID = #{tourId}
+	</update>
 	
 	
 </mapper> 
