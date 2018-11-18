@@ -58,7 +58,7 @@ $(document).ready(function() {
          onClose: function( selectedDate ) {
              // 시작일(fromDate) datepicker가 닫힐때
              // 종료일(toDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
-             $("#datepicker").datepicker( "option", "minDate", selectedDate );
+             $("#datepicker").datepicker( "option", "maxDate", selectedDate );
          }
 	 });
      
