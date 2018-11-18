@@ -113,5 +113,4 @@ public class LodgmentController {
 		}        
 		return calDateDays;
 	}
-	
 }

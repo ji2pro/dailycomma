@@ -2,10 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<script src="<c:url value="/resources/include/js/lodgment/Search.js"/>"></script>
+<script src="<c:url value="/resources/include/js/lodgment/Search.js?ver=1"/>"></script>
 <!-- Custom Stylesheets -->
-<link rel="stylesheet" href="./resources/include/css/jquery-ui.theme.css" />
-<link rel="stylesheet" href="./resources/include/css/lodgmentSearch.css" />
+<link rel="stylesheet" href="./resources/include/css/jquery-ui.theme.css?ver=1" />
+<link rel="stylesheet" href="./resources/include/css/lodgmentSearch.css?ver=1" />
 <!-- 캘린더 -->
 <%-- <script src="<c:url value="/resources/include/js/lodgment/calendar.js"/>"></script>
 <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -22,8 +22,10 @@
 		<form action="updateSearch.do" class="form-inline">
 			<label class="my-1 mr-2" for="datepicker">체크인</label>
 			<input type="text" name="checkin" id="datepicker" autocomplete="off" class="form-control">
+
 			<label class="my-1 mr-2" for="datepicker2">체크아웃</label>
 			<input type="text" name="checkout" id="datepicker2" autocomplete="off" class="form-control">
+
 			<button type="submit" class="btn btn-primary">검색</button>
 		</form>
 	</div>

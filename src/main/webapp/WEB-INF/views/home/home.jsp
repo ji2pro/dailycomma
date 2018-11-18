@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet" href="./resources/include/css/jquery-ui.theme.css" />
-<script src="<c:url value="/resources/include/js/home/home.js"/>"></script>
+<link rel="stylesheet" href="./resources/include/css/jquery-ui.theme.css?ver=1" />
+<script src="<c:url value="/resources/include/js/home/home.js?ver=1"/>"></script>
 
 <section class="search-area">
 	<div class="search-panel">

@@ -78,30 +78,45 @@ $(function() {
          	,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip 텍스트
          	,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 부분 텍스트
          	,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 부분 Tooltip 텍스트
-   			,minDate: "-1M" //최소 선택일자(-1D:하루 전, -1M:한달 전, -1Y:일년 전)
-   			,maxDate: "+1M" //최대 선택일자(+1D:하루 후, -1M:한달 후, -1Y:일년 후)
+/*   		,minDate: "-1M" //최소 선택일자(-1D:하루 전, -1M:한달 전, -1Y:일년 전)
+   			,maxDate: "+1M" //최대 선택일자(+1D:하루 후, -1M:한달 후, -1Y:일년 후)*/
 		}
 	);
    	//div에 달력 기능 할당(선택한 날짜를 텍스트로 표시)
    	$("#startDate").datepicker({
-   	 onSelect: function(dateText, inst) {
-			$('#startDateText').html(dateText);
-		}
-    });
+        minDate: 0,
+		onSelect: function(dateText, inst) {
+				$('#startDateText').html(dateText);
+		},
+        onClose: function( selectedDate ) {
+            // 시작일(fromDate) datepicker가 닫힐때
+            // 종료일(toDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
+            $("#endDate").datepicker( "option", "minDate", selectedDate );
+        }
+	});
+
     $("#endDate").datepicker({
-   	 onSelect: function(dateText, inst) {
-			$('#endDateText').html(dateText);
-		}
-    });
+		onSelect: function(dateText, inst) {
+				$('#endDateText').html(dateText);
+		},
+        onClose: function( selectedDate ) {
+            // 종료일(toDate) datepicker가 닫힐때
+            // 시작일(fromDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 종료일로 지정
+            $("#startDate").datepicker( "option", "maxDate", selectedDate );
+        }
+	});
+
     //startDate의 초기값을 오늘 날짜로 설정
     $('#startDate').datepicker('setDate', 'today'); //(-1D:하루 전, -1M:한달 전, -1Y:일년 전), (+1D:하루 후, -1M:한달 후, -1Y:일년 후)
     var startDate = $('#startDate').val();
     $('#startDateText').html(startDate);
+
+
     //endDate의 초기값을 내일로 설정
     $('#endDate').datepicker('setDate', '+1D'); //(-1D:하루 전, -1M:한달 전, -1Y:일년 전), (+1D:하루 후, -1M:한달 후, -1Y:일년 후)
     var endDate = $('#endDate').val();
     $('#endDateText').html(endDate);
-     
+
      
     /*
  	* 드롭다운 감추기
