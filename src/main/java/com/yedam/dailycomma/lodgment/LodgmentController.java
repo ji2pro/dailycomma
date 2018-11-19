@@ -46,7 +46,9 @@ public class LodgmentController {
 								   HttpSession session,
 								   @RequestParam(value="checkBox",defaultValue="empty" ,required=true)String []checkBox ) throws IllegalStateException, IOException {
 		
-		String folder = request.getSession().getServletContext().getRealPath("/upload");
+		String folder = request.getSession().getServletContext().getRealPath("resources/images/lodgment");
+		System.out.println("folder==========================" + folder);
+		
 		MultipartFile uploadFile = dto.getUploadFile();
 		
 		HostDTO hostDTO = (HostDTO) session.getAttribute("login");
