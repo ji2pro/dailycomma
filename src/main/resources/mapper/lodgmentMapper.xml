@@ -94,11 +94,23 @@
 	</select>
 	<update id="setLodgment" parameterType="lodgment">
 		UPDATE LODGMENT
-		SET COMPANY 	 	= #{company},
-			LODGMENT_TYPE 	= #{lodgmentType},
-			LODGMENT_IMG	= #{lodgmentImg},
-			LODGMENT_INFO 	= #{lodgmentInfo}
+		<set> 
+			  <if test="company != null and company != ''">
+			  	COMPANY 	 	= #{company},
+			  </if>
+			  <if test="lodgmentType != null and lodgmentType != ''">
+			 	 LODGMENT_TYPE 	= #{lodgmentType},
+			  </if>
+			  <if test="lodgmentImg != null and lodgmentImg != ''">
+			  	  LODGMENT_IMG	= #{lodgmentImg},
+			  </if>
+			  <if test="lodgmentInfo != null and lodgmentInfo != ''">
+			  		LODGMENT_INFO 	= #{lodgmentInfo}
+			  </if>
+			  
+		</set>
 		WHERE LODGMENT_NO	= #{lodgmentNo}
+	
 	</update>
 	
 	<insert id="insertHashTag" parameterType="hashtag">
