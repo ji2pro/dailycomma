@@ -29,7 +29,7 @@
             <div>${getDetailPost.postscriptContent}</div>
         </div>
         <div class="review-detail__btn-rap">
-            <button type="button" class="review-detail__list-btn" >목록</button>
+            <button type="button" class="btn btn-dark review-detail__list-btn" >목록</button>
         </div>
     </div>
 
