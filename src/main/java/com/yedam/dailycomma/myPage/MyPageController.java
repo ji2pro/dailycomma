@@ -27,7 +27,7 @@ public class MyPageController {
 	@Autowired	MemberService memberService;
 
 	@RequestMapping("/myPage.do")
-	public String myPage(Model model, MemberDTO dto, HttpSession session) { // HttpSession session <-세션에 대한 정보를 다음
+	public String myPage() { // HttpSession session <-세션에 대한 정보를 다음
 		//String email = ((MemberDTO)session.getAttribute("memberLogin")).getMemberEmail();
 		//model.addAttribute("member", memberService.getMember(dto));
 		return "myPage/myPage";
@@ -61,7 +61,7 @@ public class MyPageController {
 	
 	@RequestMapping(value = "updateMember.do", method = RequestMethod.POST)
 	public String updateMember(Model model, MemberDTO dto, HttpSession session) throws IOException{
-		dto.setMemberNo(((MemberDTO)(session.getAttribute("login"))).getMemberNo());
+		dto.setMemberEmail(((MemberDTO)(session.getAttribute("login"))).getMemberEmail());
 		//dto.setMemberEmail(((MemberDTO)(session.getAttribute("login"))).getMemberEmail());
 		MultipartFile uploadFile = dto.getUploadFile();
 		String filename = uploadFile.getOriginalFilename();

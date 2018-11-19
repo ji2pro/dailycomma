@@ -166,7 +166,14 @@
 						<input type="hidden" name="checkout" value="${search.checkout}">
 						<input type="hidden" name="reservePoints" value="${reserveInfo.roomPrice * search.differ * 0.005}">	<!-- 적립포인트 -->
 						<input type="hidden" name="deductionPoint" value="0">	
-						<button type="button" class="btn-payment">결제하기</button>
+						
+						<c:if test="${login eq null }">
+							<button type="button" class="btn-payment" disabled>로그인을 해주세요</button>
+						</c:if>
+						<c:if test="${login ne null }">
+							<button type="button" class="btn-payment">결제하기</button>
+						</c:if>
+						
 					</form>
 				</div>
 			</div>

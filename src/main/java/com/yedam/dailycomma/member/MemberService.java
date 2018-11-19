@@ -10,4 +10,6 @@ public interface MemberService {
 	
 	//로그인 단건 조회
 	public MemberDTO getMember(MemberDTO dto);
+	
+	public MemberDTO updateGetMember(MemberDTO dto);
 }

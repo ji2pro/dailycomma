@@ -21,5 +21,10 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return dao.getMember(dto);
 	}
+	@Override
+	public MemberDTO updateGetMember(MemberDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.updateGetMember(dto);
+	}
 
 }

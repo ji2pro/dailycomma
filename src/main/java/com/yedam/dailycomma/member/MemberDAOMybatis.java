@@ -35,4 +35,7 @@ public class MemberDAOMybatis {
 		return mybatis.selectOne("login.getMember", dto);
 	}
 	
+	public MemberDTO updateGetMember(MemberDTO dto) {
+		return mybatis.selectOne("member.getMember", dto);
+	}
 }
