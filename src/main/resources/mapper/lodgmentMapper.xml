@@ -31,6 +31,9 @@
 				</foreach>
 			</if>
 
+			<if test="location != null and location !=''">
+				AND LOCATION = #{location}
+			</if>
 			<if test="searchCondition == 'lodgmentNo'">
 				AND LODGMENT_NO LIKE '%' || #{searchKeyword} || '%'
 			</if>
@@ -68,6 +71,9 @@
 					#{item}
 				</foreach>
 			</if>
+			<if test="location != null and location !=''">
+				AND LOCATION = #{location}
+			</if>			
 			<if test="searchCondition == 'company'">
 				AND COMPANY LIKE '%' || #{searchKeyword} || '%'
 			</if>

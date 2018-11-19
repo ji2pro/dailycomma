@@ -43,7 +43,7 @@
 							<span class="custom-control-indicator"></span>
 						</label>
 					</td>
-					<td>${tour.tourId}</td>
+					<td><a href="./detailCast/${tour.tourId}" target="_blank">${tour.tourId}</a></td>
 					<td>${tour.tourLocation}</td>
 					<td>${tour.tourTitle}</td>
 					<td>${tour.memberName}</td>
