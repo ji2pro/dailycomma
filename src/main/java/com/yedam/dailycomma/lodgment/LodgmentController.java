@@ -26,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.yedam.dailycomma.host.HostDTO;
+
 @Controller
 @SessionAttributes("search")
 public class LodgmentController {
@@ -38,26 +40,31 @@ public class LodgmentController {
 		return "lodgment/lodgmentSearch";
 	}
 	
-	@RequestMapping(value="/registerLodgment.do", method=RequestMethod.POST)
+	@RequestMapping(value="/registerLodgment.do" , method=RequestMethod.POST)
 	public String registerLodgment(LodgmentDTO dto, 
 								   HttpServletRequest request,
+								   HttpSession session,
 								   @RequestParam(value="checkBox",defaultValue="empty" ,required=true)String []checkBox ) throws IllegalStateException, IOException {
 		
-/*		String folder = request.getSession().getServletContext().getRealPath("/upload");
+		String folder = request.getSession().getServletContext().getRealPath("/upload");
 		MultipartFile uploadFile = dto.getUploadFile();
+		
+		HostDTO hostDTO = (HostDTO) session.getAttribute("login");
+		
+		System.out.println("====================="+hostDTO.getLodgmentNo());
 		String filename = "";
 		if(!uploadFile.isEmpty() && uploadFile.getSize() > 0) {
-			filename = "hehe"+uploadFile.getOriginalFilename();
+			filename = uploadFile.getOriginalFilename();
 			uploadFile.transferTo(new File(folder ,filename));
 			dto.setLodgmentImg(filename);	
-			dto.setLodgmentNo("LOD49");	//임시 월래는 session으로 받아야함
+			dto.setLodgmentNo(hostDTO.getLodgmentNo());	//임시 월래는 session으로 받아야함
 			lodgmentService.setLodgment(dto);
-		}*/
+		}
 		
 		
 		if(checkBox != null && checkBox.length > 0 && !checkBox[0].equals("empty")) {
 			HashtagDTO hashDTO = new HashtagDTO(); 
-			hashDTO.setLodgmentNo("LOD50");
+			hashDTO.setLodgmentNo(hostDTO.getLodgmentNo());
 			for(String hash : checkBox) {
 				hashDTO.setHashtagContent(hash);
 				lodgmentService.insertHashTag(hashDTO);

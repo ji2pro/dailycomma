@@ -9,7 +9,8 @@
 
 <form name="memberPagingForm" id="memberPagingForm">
 	<input type="hidden" name="page" value="1">
-	<input type="hidden" name="sort" value="member_no">
+	<input type="hidden" name="sort" value="">
+	<input type="hidden" name="memberWithdraw">
 	<input type="hidden" name="searchCondition" value="">
 	<input type="hidden" name="searchKeyword" value="">
 </form>

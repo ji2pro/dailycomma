@@ -17,9 +17,8 @@ $(function() {
 
 function createMemberDropdown(){
 	$('#sortdown').empty();
-	var button = "<button type='button' class='dropdown-item' onclick='searchHost(\"B1\")'>승인</button>"
-				+"<button type='button' class='dropdown-item' onclick='searchHost(\"B2\")'>미승인</button>"
-				+"<button type='button' class='dropdown-item' onclick='searchHost(\"B3\")'>대기</button>";	
+	var button = "<button type='button' class='dropdown-item' onclick='sortMember(\"F1\")'>일반회원</button>"
+				+"<button type='button' class='dropdown-item' onclick='sortMember(\"F2\")'>탈퇴회원</button>";
 				
 	$('#sortdown').append(button);
 	
@@ -35,6 +34,8 @@ function createMemberDropdown(){
 	$('.searchBtn').attr("id","memberSearchBtn");
 }
 
+
+
 function searchMember(condition){
 	$('input[name="searchCondition"]:hidden').val(condition);
 
@@ -46,6 +47,15 @@ function searchMember(condition){
 		$('.searchStandard').text('닉네임');
 	else
 		$('.searchStandard').text('이메일');
+}
+
+function sortMember(state){
+	if(state == 'F1')
+		$('.sortStandard').text('일반회원');
+	else
+		$('.sortStandard').text('탈퇴회원');
+	$("input[name='memberWithdraw']:hidden").val(state);
+	go_page(1);
 }
 
 function checkWithdraw(state, memberNo){
@@ -180,9 +190,9 @@ function callbackMember(datas){
 		html += '<td>'+
 		 		'<div class="btn-group">';
 		if(data.memberWithdraw == 'F1'){
-			html += "<button class='btn btn-outline-danger btn-sm' onclick='checkWithdraw(\"F2\",\"data.memberNo\")'>회원정지</button>"
+			html += "<button class='btn btn-outline-danger btn-sm' onclick='checkWithdraw(\"F2\",\""+data.memberNo+"\")'>회원정지</button>"
 		}else{
-			html += "<button class='btn btn-outline-success btn-sm' onclick='checkWithdraw(\"F1\",\"data.memberNo\")' >회원복구</button>";
+			html += "<button class='btn btn-outline-success btn-sm' onclick='checkWithdraw(\"F1\",\""+data.memberNo+"\")' >회원복구</button>";
 		}
 		
 		html +='</div>'+'</td>'+'</tr>';
