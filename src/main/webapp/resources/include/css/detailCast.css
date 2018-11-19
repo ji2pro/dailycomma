@@ -1,9 +1,4 @@
-@charset "UTF-8";
-
 /*리스트 css*/
-#wrapper {
-	margin-top: 60px;
-}
 
 .datepicker-container {
 	-webkit-box-sizing: border-box;
@@ -61,17 +56,6 @@
 .filter__refresh-btn {
 	font-size: 14px;
 	color: #aaa;
-}
-
-button {
-	outline: none;
-	border: 0 none;
-	background-color: transparent;
-	cursor: pointer;
-}
-
-.f-right {
-	float: right;
 }
 
 .filter-icon__refresh {
@@ -233,7 +217,6 @@ button {
 	padding: 60px;
 	background: #fff;
 }
-
 
 .con_detail .detail_user {
 	position: relative;
@@ -808,17 +791,18 @@ dl, ul, ol, menu, li {
 	outline: none;
 }
 
-.insertComment {
-    float: left;
-    padding: 0 15px;
-    height: 34px;
-    line-height: 34px;
-    margin-right: 6px;
-    background-color: #585252;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: #fff;
-    vertical-align: top;
+.insertComment:focus {
+    outline: none;
+    box-shadow: none;
 }
+.insertComment:active {
+    outline: none;
+    box-shadow: none;
+}
+/* .btn-outline-dark.focus, .btn-outline-dark:focus {
+	outline: none;
+	box-shadow: none;
+} */
 
 .inputButton {
     position: relative; /*overflow:hidden;*/
@@ -828,15 +812,7 @@ dl, ul, ol, menu, li {
 }
 
 .commentSubmitButton {
-    float: left;
-    padding: 0 15px;
-    height: 34px;
-    line-height: 34px;
-    margin-right: 6px;
-    background-color: #585252;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: #fff;
-    vertical-align: top;
+    font-size: 20px;
 }
 
 .commentSubmit {
@@ -852,13 +828,17 @@ dl, ul, ol, menu, li {
     background-color: #585252;
     border-color: #585252;
 }
-
-.inputTextarea {
-    position: relative; /*overflow:hidden;*/
+.insertTextDiv {
+	width: 896px;
+	margin: 0 auto;
+}
+#insertTextarea {
+    position: relative;
     width: 896px;
     margin: 0 auto;
-    text-align: center;
+    resize: none;
 }
+
 .tb_list3 td .inp_txt2 {
     display: block;
     overflow: auto;

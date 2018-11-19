@@ -4,28 +4,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-
 <meta charset="utf-8"/>
 <title>캐스트 상세페이지</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Bootstrap 4.1.3 -->
-<%--<link rel="stylesheet" type="text/css" href="bootstrap-4.1.3/css/bootstrap.min.css"/>
-<script src="bootstrap-4.1.3/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-
-<!-- Custom Stylesheets -->
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>--%>
 <link href="<%=request.getContextPath()%>/resources/include/css/detailCast.css" rel="stylesheet" type="text/css">
 <script src="<%=request.getContextPath()%>/resources/include/js/cast/detailCast.js"></script>
 <script>
     var path = "<c:url value='/'/>"
 </script>
 <body>
-<div class="container-fluid" id="wrapper">
-
+<div class="container-fluid">
     <div id="topContent" class="contents">
         <!--S: .con_inner -->
         <div class="con_inner">
@@ -122,17 +110,16 @@
             </div>
             <c:if test="${memberLogin ne null}">
                 <div class="inputButton">
-                    <button class="insertComment">
+<!--                     <button class="insertComment"> -->
+					<button class="btn btn-outline-dark insertComment">
                         <a>댓글 작성하기</a>
                     </button>
                 </div>
-
-                <div>
-                    <textarea id="insertTextarea" name="inquiryContent" cols="70" rows="5" class="inp_txt2" style="width:337px; height:126px;"></textarea>
-                </div>
-
+				<div class="insertTextDiv mt-2">
+					<textarea id="insertTextarea" name="inquiryContent" rows="4" class="inp_txt2"></textarea>
+				</div>
                 <div class="commentSubmit">
-                    <button class="commentSubmitButton">
+                    <button class="btn btn-block btn-primary commentSubmitButton">
                         <a>등록</a>
                     </button>
                 </div>
