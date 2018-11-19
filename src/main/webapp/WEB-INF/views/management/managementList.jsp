@@ -48,7 +48,7 @@
 					<th>예약가격</th>
 					<th>체크인</th>
 					<th>체크아웃</th>
-					<th>일수</th>
+					
 				</tr>
 			</thead>
 		
@@ -65,7 +65,7 @@
 					<td><fmt:formatNumber value="${member.reservePrice}" pattern="#,###" />원</td>
 					<td>${member.checkin}</td>
 					<td>${member.checkout}</td>
-			 		<td>(일수)<%-- ${member.reserveDays} --%></td>  			
+			 					
 				</tr>
 				</c:forEach>
 			</tbody>
