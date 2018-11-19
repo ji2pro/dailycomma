@@ -790,7 +790,6 @@ dl, ul, ol, menu, li {
 	list-style: none;
 	outline: none;
 }
-
 .insertComment:focus {
     outline: none;
     box-shadow: none;
@@ -799,10 +798,6 @@ dl, ul, ol, menu, li {
     outline: none;
     box-shadow: none;
 }
-/* .btn-outline-dark.focus, .btn-outline-dark:focus {
-	outline: none;
-	box-shadow: none;
-} */
 
 .inputButton {
     position: relative; /*overflow:hidden;*/

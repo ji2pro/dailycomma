@@ -541,13 +541,8 @@ dl, ul, ol, menu, li {
 }
 
 .review-detail__list-btn {
-    min-width: 86px;
-    height: 36px;
-    padding: 10px 0;
-    color: #fff;
-    font-size: 15px;
-    background-color: #595f63;
-    text-align: center
+    font-size: 18px;
+    width: 80px; 
 }
 
 /*후기 등록 폼*/
