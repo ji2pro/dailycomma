@@ -6,14 +6,14 @@
  
  	<select id="selectReservation" resultType="Management" parameterType="string">
              
-        select *, <!-- reservation.reserve_state, member.member_name, member.member_email -->
-		case re.reserve_state when 'D1' then '확인' else '미확인' end RESERVE_STATE 
+        select member_name, member_email, reserve_date, reserve_people, room_name, reserve_price, checkin, checkout,
+		case re.reserve_state when 'D1' then '확인' else '미확인' end RESERVE_STATE
 		from reservation re, member m, room r, lodgment lo
-		where re.member_no = m.member_no
+		where re.member_no = m.member_no 
 		and r.lodgment_no = re.lodgment_no
 		and lo.lodgment_no = r.lodgment_no
 		and re.room_no = r.room_no
-		and lo.lodgment_no = #{value}<!-- #{lodgmentNo}  지금은 값을 직접 LOD1로 지정해뒀으나 나중에 숙박업체 번호 lodgmentNo 변수로 받아와야됨-->
+		and lo.lodgment_no = #{value}
 		order by re.reserve_date desc
 		
     </select>
