@@ -28,7 +28,7 @@ $(function() {
 	 * 숙소 목록에서 객실 목록으로 이동하기
 	 */
 	$('body').on('click', '#selectedTr', function(e) {
-		e.preventDefault()
+		e.preventDefault();
 		
 		var loadurl = $(this).attr('href');
 	    var target = $(this).attr('data-target');

@@ -100,6 +100,7 @@ em {font-style: normal;}
 }
 .footer a:hover, a:active, a:focus { 
     color: #32BBF1; /* #a549e9; */
+    text-decoration: none;
 }
 .site-quick-support {
     padding-bottom: 0;
