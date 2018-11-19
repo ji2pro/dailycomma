@@ -80,8 +80,15 @@
 							${search.checkin}
 							${search.checkout}
 						</p>
+					<c:if test="${temp.hashTag ne null }">	
+						<c:forEach items="${temp.hashTag}" var="hash">
+							<a href="<c:url value="/hashTagSearch/${hash.hashtagContent}"/>">${hash.hashtagContent}</a>
+						</c:forEach>
+					</c:if>	
 
 					</div>
+						
+
 				</div>
 			</c:forEach>
 		</div>

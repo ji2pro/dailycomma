@@ -15,4 +15,6 @@ public interface LodgmentService {
 	
 	//해시태그 
 	public int insertHashTag(HashtagDTO dto);
+	
+	public List<HashtagDTO> getHashTags(LodgmentDTO dto);
 }

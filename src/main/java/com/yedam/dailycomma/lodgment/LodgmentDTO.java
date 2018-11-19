@@ -4,6 +4,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.yedam.dailycomma.reservation.ReservationDTO;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -22,9 +24,20 @@ public class LodgmentDTO {
 	private String roomCnt;			//객실 수
     private String memberNo;
     private String lodgmentTypeName;
+    private List<HashtagDTO> hashTag;
 	private MultipartFile uploadFile;
 
-    public String getLodgmentTypeName() {
+	
+	
+    public List<HashtagDTO> getHashTag() {
+		return hashTag;
+	}
+
+	public void setHashTag(List<HashtagDTO> hashTag) {
+		this.hashTag = hashTag;
+	}
+
+	public String getLodgmentTypeName() {
         return lodgmentTypeName;
     }
 

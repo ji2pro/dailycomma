@@ -40,4 +40,8 @@ public class LodgmentDAO {
 	public int deleteLodgment(LodgmentDTO dto) {
 		return mybatis.delete("lodgment.deleteLodgment", dto);
 	}
+	
+	public List<HashtagDTO> getHashTags(LodgmentDTO dto){
+		return mybatis.selectList("lodgment.getHashTags", dto);
+	}
 }

@@ -23,4 +23,9 @@ public class LodgmentServiceImpl implements LodgmentService {
 	public int insertHashTag(HashtagDTO dto) {
 		return dao.insertHashTag(dto);
 	}
+	@Override
+	public List<HashtagDTO> getHashTags(LodgmentDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.getHashTags(dto);
+	}
 }

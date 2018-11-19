@@ -62,13 +62,13 @@ function createReserveDropdown(){
 	$('.searchStandard').text("검색기준");
 	$('.sortStandard').text("정렬기준");
 	$('#sortdown').empty();
-	var button = "<button type='button' class='dropdown-item' onclick='sortHost(\"B1\")'>승인</button>"
+/*	var button = "<button type='button' class='dropdown-item' onclick='sortHost(\"B1\")'>승인</button>"
 				+"<button type='button' class='dropdown-item' onclick='sortHost(\"B2\")'>미승인</button>"
 				+"<button type='button' class='dropdown-item' onclick='sortHost(\"B3\")'>대기</button>";	
 				
-	$('#sortdown').append(button);
+	$('#sortdown').append(button);*/
 	
-	button="";
+	var button="";
 	
 	$('#searchdown').empty();
 	button = "<button type='button' class='dropdown-item' onclick='searchReserve(\"reserveNo\")'>예약번호</button>"
@@ -81,7 +81,15 @@ function createReserveDropdown(){
 
 function searchReserve(condition){
 	$('input[name="searchCondition"]:hidden').val(condition);
+	
+	if(condition == 'reserveNo')
+		$('.searchStandard').text('예약번호');
+	else if(condition == 'memberName')
+		$('.searchStandard').text('이름');
+	else
+		$('.searchStandard').text('이메일');
 }
+
 
 
 //페이징 처리

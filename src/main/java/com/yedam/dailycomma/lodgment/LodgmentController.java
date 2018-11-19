@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -20,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -87,7 +89,18 @@ public class LodgmentController {
 		System.out.println("checkIn =========== : " + dto.getCheckin() + " checkOut ============ : " + dto.getCheckout());		
 		dto.setDiffer(differenceDate(dto.getCheckin(), dto.getCheckout()));
 		model.addAttribute("search", dto);			//session 저장
-		model.addAttribute("lod",lodgmentService.getMainSearch(dto));
+		
+		List<LodgmentDTO> list = lodgmentService.getMainSearch(dto);
+		
+		
+		for(int i=0; i<list.size(); i++) {
+			list.get(i).setHashTag(lodgmentService.getHashTags(list.get(i)));
+		}
+		/*for(LodgmentDTO lod : list) {
+			 lodgmentService.getHashTags(lod);
+		}*/
+		
+		model.addAttribute("lod",list);
 		return "lodgment/lodgmentSearch";		
 	}
 	
@@ -95,7 +108,33 @@ public class LodgmentController {
 	public String updateSearch(@ModelAttribute("search") LodgmentSearchDTO dto,
 							   Model model) {
 		dto.setDiffer(differenceDate(dto.getCheckin(), dto.getCheckout()));
-		model.addAttribute("lod",lodgmentService.getMainSearch(dto));
+		
+		List<LodgmentDTO> list = lodgmentService.getMainSearch(dto);
+		
+		for(int i=0; i<list.size(); i++) {
+			list.get(i).setHashTag(lodgmentService.getHashTags(list.get(i)));
+		}
+		
+		model.addAttribute("lod",list);
+		
+		return "lodgment/lodgmentSearch";
+	}
+	
+	@RequestMapping("/hashTagSearch/{searchKeyword}")
+	public String hashTagSearch(@ModelAttribute("search") LodgmentSearchDTO dto,
+								@PathVariable String searchKeyword,
+								Model model) {
+		
+		System.out.println("searchKeyword=========" + searchKeyword);
+		dto.setSearchKeyword(transferHashTag(searchKeyword));
+		
+		List<LodgmentDTO> list = lodgmentService.getMainSearch(dto);
+		
+		for(int i=0; i<list.size(); i++) {
+			list.get(i).setHashTag(lodgmentService.getHashTags(list.get(i)));
+		}
+		
+		model.addAttribute("lod",list);
 		return "lodgment/lodgmentSearch";
 	}
 	
@@ -120,5 +159,26 @@ public class LodgmentController {
 			e.printStackTrace();
 		}        
 		return calDateDays;
+	}
+	
+	private String transferHashTag(String hash) {
+		if(hash.equals("주차가능")) return "E1";
+		else if(hash.equals("파티룸")) return "E2";
+		else if(hash.equals("24시간데스크")) return "E3";
+		else if(hash.equals("객실내PC")) return "E4";
+		else if(hash.equals("객실금연")) return "E5";
+		else if(hash.equals("비즈니스")) return "E6";
+		else if(hash.equals("글램핑")) return "E7";
+		else if(hash.equals("VOD")) return "E8";
+		else if(hash.equals("와이파이")) return "E9";
+		else if(hash.equals("식사가능")) return "E10";
+		else if(hash.equals("레스토랑")) return "E11";
+		else if(hash.equals("바베큐")) return "E12";
+		else if(hash.equals("매점/편의점")) return "E13";
+		else if(hash.equals("수영장")) return "E14";
+		else if(hash.equals("주방")) return "E15";
+		else if(hash.equals("카페")) return "E16";
+				
+		return "E17";
 	}
 }

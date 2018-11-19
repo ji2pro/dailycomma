@@ -68,7 +68,7 @@ function searchHost(condition){
 	$('input[name="searchCondition"]:hidden').val(condition);
 
 	if(condition == 'hostName')
-		$('.searchStandard').text('회원번호');
+		$('.searchStandard').text('점주명');
 	else if(condition == 'company')
 		$('.searchStandard').text('업체명');
 	else

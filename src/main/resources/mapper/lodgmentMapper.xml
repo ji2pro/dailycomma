@@ -83,7 +83,7 @@
 		</where>
 	</select>
 
-	<select id="getMainSearch" parameterType="lodgmentSearch" resultType="lodgmentSearch">
+	<select id="getMainSearch" parameterType="lodgmentSearch" resultType="lodgment">
 		  SELECT l.LODGMENT_IMG ,l.LODGMENT_NO,l.COMPANY, g.AVG_GRADE, g.people_cnt
 	      FROM LODGMENT l  LEFT OUTER JOIN (SELECT ROUND(AVG(GRADE),1) AS AVG_GRADE ,COUNT(*) AS people_cnt, LODGMENT_NO
 	                                        FROM POSTSCRIPT
@@ -97,12 +97,18 @@
 	      	<if test="lodgmentType != null and lodgmentType != '' ">	
 	      		AND l.LODGMENT_TYPE = #{lodgmentType}
 	      	</if>
+	      	
+	      	<if test="searchKeyword != null and searchKeyword !=''">
+	      		AND l.LODGMENT_NO IN (SELECT LODGMENT_NO FROM HASHTAG
+	      							  WHERE HASHTAG_CONTENT = #{searchKeyword})
+	      	</if>
 			
 			 <if test="sort != null and sort != '' ">		
 	      		ORDER BY #{sort} DESC
 	      	</if>		      	
 	      </where>
 	</select>
+	
 	<update id="setLodgment" parameterType="lodgment">
 		UPDATE LODGMENT
 		<set> 
@@ -128,6 +134,33 @@
 		INSERT INTO HASHTAG(HASHTAG_NO, HASHTAG_CONTENT, LODGMENT_NO)
 		VALUES(TO_CHAR(HASHTAG_SEQ.nextval), #{hashtagContent}, #{lodgmentNo})
 	</insert>
+	
+	<select id="getHashTags" resultType="hashtag">
+		SELECT 
+        case HASHTAG_CONTENT when 'E1' then '주차가능'
+                          	 when 'E2' then '파티룸'
+                          	 when 'E3' then '24시간데스크'
+                          	 when 'E4' then '객실내PC'
+                          	 when 'E5' then '객실금연'
+                          	 when 'E6' then '비즈니스'
+                          	 when 'E7' then '글램핑'
+                          	 when 'E8' then 'VOD'
+                          	 when 'E9' then '와이파이'
+                          	 when 'E10' then '식사가능'
+                          	 when 'E11' then '레스토랑'
+                          	 when 'E12'then  '바베큐'
+                          	 when 'E13' then '매점/편의점'
+                          	 when 'E14' then '수영장'
+                          	 when 'E15' then '주방'
+                          	 when 'E16' then '카페'
+                          	 when 'E17' then '투어'
+                          END AS HASHTAG_CONTENT,
+		LODGMENT_NO,
+		HASHTAG_NO	                          
+
+		FROM HASHTAG
+		WHERE LODGMENT_NO = #{lodgmentNo}
+	</select>
 
 	<!-- 수정 미완성-->
 <!-- 	
