@@ -45,7 +45,7 @@
 				#{sort}
 			</when>
 			<otherwise>
-				TOUR_ID
+				TOUR_DATE DESC
 			</otherwise>
 		</choose>
 	) U ) A WHERE RN BETWEEN #{start} and #{end}
@@ -62,7 +62,10 @@
 					#{item}
 				</foreach>
 			</if>
-
+			
+			<if test="tourState != null and tourState != ''">
+				TOUR_STATE = #{tourState}
+			</if>	
 			<if test="searchCondition == 'memberName'">
 				AND #{searchKeyword} IN (SELECT MEMBER_NAME
 			   							 FROM MEMBER

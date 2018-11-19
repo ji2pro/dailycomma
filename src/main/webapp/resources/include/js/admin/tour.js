@@ -44,6 +44,8 @@ function checkTour(state,tourId){
 
 
 function createTourDropdown(){
+	$('.searchStandard').text("검색기준");
+	$('.sortStandard').text("정렬기준");
 	$('#sortdown').empty();
 	var button = "<button type='button' class='dropdown-item' onclick='sortTour(\"B1\")'>승인</button>"
 				+"<button type='button' class='dropdown-item' onclick='sortTour(\"B2\")'>미승인</button>"
@@ -160,7 +162,7 @@ function callbackTour(datas){
 				 '<span class="custom-control-indicator"></span>'+
 				 '</label>'+
 				 '</td>'+
-				 '<td>'+data.tourId+'</td>'+
+				 "<td> <a href='"+path+"detailCast/"+data.tourId+"' target='_blank'>"+data.tourId+"</a></td>"+
 				 '<td>'+data.tourLocation+'</td>'+
 				 '<td>'+data.tourTitle+'</td>'+
 				 '<td>'+data.memberName+'</td>'+

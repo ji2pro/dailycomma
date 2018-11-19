@@ -57,15 +57,19 @@ $(document).ready(function(){
 });
 
 function createLodgmentDropdown(){
+	$('.searchStandard').text("검색기준");
+	$('.sortStandard').text("정렬기준");
 	$('#sortdown').empty();
-	var button = "<button type='button' class='dropdown-item' onclick='sortHost(\"B1\")'>승인</button>"
-				+"<button type='button' class='dropdown-item' onclick='sortHost(\"B2\")'>미승인</button>"
-				+"<button type='button' class='dropdown-item' onclick='sortHost(\"B3\")'>대기</button>";	
-				
+	var button = "<button type='button' class='dropdown-item' onclick='sortLodgment(\"C1\")'>서울</button>"
+		+"<button type='button' class='dropdown-item' onclick='sortLodgment(\"C2\")'>부산</button>"
+		+"<button type='button' class='dropdown-item' onclick='sortLodgment(\"C3\")'>광주</button>"
+		+"<button type='button' class='dropdown-item' onclick='sortLodgment(\"C4\")'>대구</button>"
+		+"<button type='button' class='dropdown-item' onclick='sortLodgment(\"C5\")'>제주도</button>";
+			
+		
 	$('#sortdown').append(button);
 	
-	button="";
-	
+	button = ""
 	$('#searchdown').empty();
 	button = "<button type='button' class='dropdown-item' onclick='searchLodgment(\"lodgmentNo\")'>업체번호</button>"
 			+"<button type='button' class='dropdown-item' onclick='searchLodgment(\"company\")'>업체이름</button>";
@@ -81,6 +85,22 @@ function searchLodgment(condition){
 		$('.searchStandard').text('업체번호');
 	else
 		$('.searchStandard').text('업체이름');
+}
+
+function sortLodgment(state){
+	$('input[name="location"]:hidden').val(state);
+	if(state == 'C1')
+		$('.sortStandard').text('서울');
+	else if(state == 'C2')
+		$('.sortStandard').text('부산');
+	else if(state == 'C3')
+		$('.sortStandard').text('광주');
+	else if(state == 'C4')
+		$('.sortStandard').text('대구');
+	else
+		$('.sortStandard').text('제주도');
+	
+	go_page(1);
 }
 
 
@@ -122,15 +142,27 @@ function callbackLodgment(datas){
 				 '<td>'+data.lodgmentType+'</td>'+
 				 '<td>'+data.roomCnt+'</td>'+
 				 '<td>'+data.lodgmentInfo+'</td>'+
-				 '<td>'+data.hostName+'</td>'+
-				 '<td>'+data.location+'</td>'+
-				 '<td>'+
+				 '<td>'+data.hostName+'</td>');
+		
+		if(data.location == 'C1')
+			html += "<td>서울</td>";
+		else if(data.location == 'C2')
+			html += "<td>부산</td>";
+		else if(data.location == 'C3')
+			html += "<td>광주</td>";
+		else if(data.location == 'C4')
+			html += "<td>대구</td>";
+		else
+			html += "<td>제주도</td>";
+		
+		html += "</tr>";
+		/*html +=  '<td>'+
 				 '<div class="btn-group">'+
 				 '<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>'+
 				 '<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>'+
 				 '</div>'+
 				 '</td>'+
-				 '</tr>');
+				 '</tr>';*/
 	});
 	
 	

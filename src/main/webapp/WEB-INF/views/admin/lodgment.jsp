@@ -6,10 +6,12 @@
 
 <form name="lodgmentPagingForm" id="lodgmentPagingForm">
 	<input type="hidden" name="page" value="1">
-	<input type="hidden" name="sort" value="lodgment_no">
+	<input type="hidden" name="sort" value="">
 
+	<input type="hidden" name="location">
 	<input type="hidden" name="searchCondition" value="">
 	<input type="hidden" name="searchKeyword" value="">
+	
 </form>
 <!-- 업체(숙소) 관리 -->
 <div class="row">
@@ -49,7 +51,24 @@
 					<td>${lodgment.roomCnt}</td>
 					<td>${lodgment.lodgmentInfo}</td>
 					<td>${lodgment.hostName}</td>
-					<td>${lodgment.location}</td>
+					
+					<td>
+						<c:if test="${lodgment.location eq 'C1'}">
+							서울
+						</c:if>
+						<c:if test="${lodgment.location eq 'C2'} ">
+							부산
+						</c:if>
+						<c:if test="${lodgment.location eq 'C3'} ">
+							광주
+						</c:if>
+						<c:if test="${lodgment.location eq 'C4'} ">
+							대구
+						</c:if>
+						<c:if test="${lodgment.location eq 'C5'} ">
+							제주도
+						</c:if>																								
+					</td>
 <!-- 					<td>
 						<div class="btn-group">
 							<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>
