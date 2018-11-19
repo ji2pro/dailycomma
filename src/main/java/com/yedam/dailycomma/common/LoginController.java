@@ -80,6 +80,6 @@ public class LoginController {
 	@RequestMapping("/memberLogout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "home/home";
+		return "redirect:/";
 	}
 }

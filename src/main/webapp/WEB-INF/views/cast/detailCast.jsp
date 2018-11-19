@@ -108,7 +108,7 @@
                     </ul>
                 </nav>
             </div>
-            <c:if test="${memberLogin ne null}">
+            <c:if test="${login ne null}">
                 <div class="inputButton">
 <!--                     <button class="insertComment"> -->
 					<button class="btn btn-outline-dark insertComment">

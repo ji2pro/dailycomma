@@ -25,7 +25,6 @@ public class CastController {
         castDTO.setMemberNo(memberDTO.getMemberNo());
         castDTO.setTourId(tourId);
 
-        model.addAttribute("memberLogin",memberDTO);
         model.addAttribute("getDetailCast", castService.getDetailCast(castDTO));
 
         return "cast/detailCast";
