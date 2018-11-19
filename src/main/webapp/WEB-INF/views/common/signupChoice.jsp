@@ -8,7 +8,7 @@
 <link href="<c:url value="/resources/include/css/user/user.css"/>" rel="stylesheet">
 <script src="<c:url value="/resources/include/js/user/user.js"/>"></script>
 
-<div class="container py-5 mb-5">
+<div class="container py-5 mb-5" style="min-height: 600px;">
 	<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 		<h1 class="display-5">회원 가입</h1>
 		<p class="lead">

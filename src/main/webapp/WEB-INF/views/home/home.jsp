@@ -75,8 +75,8 @@
 											<label for="C2"><a>부산</a></label>
 										</div>
 										<div class="area-radio">
-											<input type="radio" title="강릉" name="loc" value="C3" id="C3">
-											<label for="C3"><a>강릉</a></label>
+											<input type="radio" title="광주" name="loc" value="C3" id="C3">
+											<label for="C3"><a>광주</a></label>
 										</div>
 										<div class="area-radio">
 											<input type="radio" title="대구" name="loc" value="C4" id="C4">

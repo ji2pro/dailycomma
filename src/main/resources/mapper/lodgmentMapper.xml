@@ -12,7 +12,12 @@
 	<select id="getLodgments" resultType="lodgment" parameterType="lodgmentSearch">
 	SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
 		SELECT LODGMENT_NO, COMPANY, ADDRESS,
-			   LOCATION, LODGMENT_TYPE, LODGMENT_INFO, HOST_NAME,
+			   LOCATION, LODGMENT_TYPE, LODGMENT_INFO, HOST_NAME, LODGMENT_IMG,
+                case LODGMENT_TYPE when 'A1' then '모텔'
+                                    when 'A2' then '호텔'
+                                    when 'A3' then '펜션'
+                                    when 'A4' then '게스트하우스'
+                                    end LODGMENT_TYPE_NAME,
 			   (SELECT COUNT(*)
 				FROM ROOM
 				WHERE ROOM.LODGMENT_NO = LODGMENT.LODGMENT_NO)
@@ -73,7 +78,7 @@
 	</select>
 
 	<select id="getMainSearch" parameterType="lodgmentSearch" resultType="lodgmentSearch">
-		  SELECT l.LODGMENT_NO,l.COMPANY, g.AVG_GRADE, g.people_cnt
+		  SELECT l.LODGMENT_IMG ,l.LODGMENT_NO,l.COMPANY, g.AVG_GRADE, g.people_cnt
 	      FROM LODGMENT l  LEFT OUTER JOIN (SELECT ROUND(AVG(GRADE),1) AS AVG_GRADE ,COUNT(*) AS people_cnt, LODGMENT_NO
 	                                        FROM POSTSCRIPT
 	                                        GROUP BY LODGMENT_NO) g

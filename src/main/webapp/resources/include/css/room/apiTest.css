@@ -23,7 +23,7 @@ a {
 }
 
 .wrapper:after, .wrapper header:after, .wrapper header .header-inner:after, .wrapper header .header-inner nav > ul:after,
-.wrapper footer:after, .visual-element .right-element:after {
+.wrapper footer1:after, .visual-element .right-element:after {
     content: '';
     display: block;
     clear: both;
@@ -395,12 +395,12 @@ a {
     background-size: 24px 24px
 }
 
-.wrapper footer {
+.wrapper footer1 {
     position: relative;
     background-color: #212121
 }
 
-.wrapper footer .footer-inner {
+.wrapper footer1 .footer1-inner {
     padding: 0px 40px;
     margin: 0 auto;
     width: 100%;
@@ -408,46 +408,46 @@ a {
     box-sizing: border-box;
 }
 
-.wrapper footer .footer-inner .footer-menu {
+.wrapper footer1 .footer1-inner .footer1-menu {
     overflow: hidden;
     padding: 40px 0px;
     border-bottom: 1px solid #383838;
 }
 
-.wrapper footer .footer-inner .footer-menu > li {
+.wrapper footer1 .footer1-inner .footer1-menu > li {
     float: left;
     width: 25%;
 }
 
-.wrapper footer .footer-inner .footer-menu > li > a {
+.wrapper footer1 .footer1-inner .footer1-menu > li > a {
     display: block;
     font-size: 18px;
     color: #fff;
 }
 
-.wrapper footer .footer-inner .footer-menu > li > ul {
+.wrapper footer1 .footer1-inner .footer1-menu > li > ul {
     margin-top: 8px;
 }
 
-.wrapper footer .footer-inner .footer-menu > li > ul > li {
+.wrapper footer1 .footer1-inner .footer1-menu > li > ul > li {
     float: none;
     width: 100%;
     margin: 3px 0px 4px 0px;
 }
 
-.wrapper footer .footer-inner .footer-menu > li > ul > li > a {
+.wrapper footer1 .footer1-inner .footer1-menu > li > ul > li > a {
     padding: 2px 0px 1px 0px;
     font-size: 14px;
     color: #bfbfbf;
     font-weight: 300
 }
 
-.wrapper footer .footer-inner .footer-other {
+.wrapper footer1 .footer1-inner .footer1-other {
     overflow: hidden;
     padding: 40px 0px 30px 0px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element {
+.wrapper footer1 .footer1-inner .footer1-other .other-element {
     position: relative;
     float: left;
     width: 250px;
@@ -455,22 +455,22 @@ a {
     margin-right: 40px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element:last-child {
+.wrapper footer1 .footer1-inner .footer1-other .other-element:last-child {
     margin-right: 0px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .other-title {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .other-title {
     font-size: 16px;
     color: #bfbfbf;
     padding-bottom: 20px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .other-lank {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .other-lank {
     position: relative;
     overflow: hidden;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .other-lank a {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .other-lank a {
     position: relative;
     display: inline-block;
     font-size: 16px;
@@ -479,7 +479,7 @@ a {
     text-decoration: none
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .other-lank a span {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .other-lank a span {
     width: 17px;
     height: 14px;
     position: absolute;
@@ -491,7 +491,7 @@ a {
     background-repeat: no-repeat;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .copyright-text {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .copyright-text {
     margin-top: 15px;
     font-size: 13px;
     color: #9b9b9b;
@@ -499,7 +499,7 @@ a {
     line-height: 20px
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .terms-menu {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .terms-menu {
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -508,21 +508,21 @@ a {
     height: 30px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .terms-menu li {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .terms-menu li {
     position: relative;
     float: left;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .terms-menu li:first-child {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .terms-menu li:first-child {
     margin-right: 10px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .terms-menu li:last-child {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .terms-menu li:last-child {
     margin-right: 0px;
     margin-left: 10px
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .terms-menu li:after {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .terms-menu li:after {
     content: '';
     display: block;
     width: 1px;
@@ -534,33 +534,33 @@ a {
     z-index: 1;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .terms-menu li:last-child:after {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .terms-menu li:last-child:after {
     display: none;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .terms-menu li a {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .terms-menu li a {
     display: block;
     font-size: 13px;
     color: #9b9b9b;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .other-infor {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .other-infor {
     overflow: hidden;
     margin-top: 15px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .other-infor li {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .other-infor li {
     position: relative;
     font-size: 13px;
     color: #9b9b9b;
     padding: 0px 0px 10px 20px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .other-infor li:last-child {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .other-infor li:last-child {
     padding: 0px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .other-infor li span {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .other-infor li span {
     display: inline-block;
     vertical-align: middle;
     width: 14px;
@@ -572,12 +572,12 @@ a {
     background-repeat: no-repeat;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .other-infor li span.time {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .other-infor li span.time {
     background-image: url(../../images/2018/ico-time.png);
     background-size: 14px 14px
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .other-infor li span.email {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .other-infor li span.email {
     width: 14px;
     height: 10px;
     margin-top: 3px;
@@ -585,33 +585,33 @@ a {
     background-size: 14px 10px
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .other-infor li span.tel {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .other-infor li span.tel {
     background-image: url(../../images/2018/ico-phone.png);
     background-size: 14px 14px
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .other-1330 {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .other-1330 {
     padding-bottom: 27px;
     border-bottom: 1px solid #383838;
     margin: 10px 0px 20px 0px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .other-btn {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .other-btn {
     margin-top: 0px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .other-btn a {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .other-btn a {
     display: block;
     padding-bottom: 5px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .footer-sns {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .footer1-sns {
     overflow: hidden;
     text-align: right;
     padding: 10px 15px 5px 0px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .footer-sns a {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .footer1-sns a {
     display: inline-block;
     margin-left: 15px;
     width: 15px;
@@ -620,7 +620,7 @@ a {
     color: #fefefe;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .footer-sns a span.ion-social-instart {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .footer1-sns a span.ion-social-instart {
     display: inline-block;
     width: 16px;
     height: 16px;
@@ -630,7 +630,7 @@ a {
     background-size: 16px 16px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .footer-sns a span.ion-social-wei {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .footer1-sns a span.ion-social-wei {
     display: inline-block;
     width: 20px;
     height: 16px;
@@ -640,7 +640,7 @@ a {
     background-size: 20px 16px;
 }
 
-.wrapper footer .footer-inner .footer-other .other-element .footer-sns a span.ion-social-yk {
+.wrapper footer1 .footer1-inner .footer1-other .other-element .footer1-sns a span.ion-social-yk {
     display: inline-block;
     width: 16px;
     height: 16px;
@@ -650,7 +650,7 @@ a {
     background-size: 16px 16px;
 }
 
-.wrapper footer .copyright {
+.wrapper footer1 .copyright {
     padding: 15px 20px;
     text-align: center;
     background-color: #000;
@@ -1043,31 +1043,31 @@ a {
         font-style: italic;
     }
 
-    .wrapper footer .footer-inner .footer-other .other-element .footer-sns {
+    .wrapper footer1 .footer1-inner .footer1-other .other-element .footer1-sns {
         display: none;
     }
 
-    .wrapper footer .footer-inner .footer-other .other-element .terms-menu {
+    .wrapper footer1 .footer1-inner .footer1-other .other-element .terms-menu {
         position: relative;
     }
 }
 
 @media all and (max-width: 1024px) {
-    .wrapper footer .footer-inner .footer-other .other-element.e3, .wrapper footer .footer-inner .footer-other .other-element.e4 {
+    .wrapper footer1 .footer1-inner .footer1-other .other-element.e3, .wrapper footer1 .footer1-inner .footer1-other .other-element.e4 {
         margin-top: 30px;
     }
 
-    .wrapper footer .footer-inner .footer-other .other-element .other-1330 {
+    .wrapper footer1 .footer1-inner .footer1-other .other-element .other-1330 {
         padding-bottom: 15px;
     }
 }
 
 @media all and (max-width: 650px) {
-    .wrapper footer .footer-inner .footer-menu {
+    .wrapper footer1 .footer1-inner .footer1-menu {
         display: none;
     }
 
-    .wrapper footer .footer-inner .footer-other .other-element {
+    .wrapper footer1 .footer1-inner .footer1-other .other-element {
         width: 50%;
         padding-right: 20px;
         margin-right: 0px;
@@ -1075,26 +1075,26 @@ a {
         min-height: 150px;
     }
 
-    .wrapper footer .footer-inner .footer-other {
+    .wrapper footer1 .footer1-inner .footer1-other {
         margin-right: -20px;
     }
 
-    .wrapper footer .footer-inner .footer-other {
+    .wrapper footer1 .footer1-inner .footer1-other {
         padding: 40px 0px 20px 0px;
     }
 }
 
 @media all and (max-width: 500px) {
-    .wrapper footer .footer-inner .footer-other .other-element {
+    .wrapper footer1 .footer1-inner .footer1-other .other-element {
         width: 100%;
         padding-right: 0px;
     }
 
-    .wrapper footer .footer-inner .footer-other {
+    .wrapper footer1 .footer1-inner .footer1-other {
         margin-right: 0px;
     }
 
-    .wrapper footer .footer-inner .footer-other .other-element .footer-sns {
+    .wrapper footer1 .footer1-inner .footer1-other .other-element .footer1-sns {
         text-align: left;
     }
 
@@ -3456,7 +3456,7 @@ a {
         padding-left: 0px;
     }
 
-    .wrapper footer .footer-inner {
+    .wrapper footer1 .footer1-inner {
         padding: 0px 20px;
     }
 
@@ -3467,7 +3467,7 @@ a {
 
 @import url('http://fonts.googleapis.com/css?family=Noto+Sans:400,700');
 
-article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, main {
+article, aside, canvas, details, figcaption, figure, footer1, header, hgroup, menu, nav, section, summary, main {
     display: block;
     margin: 0;
     padding: 0;

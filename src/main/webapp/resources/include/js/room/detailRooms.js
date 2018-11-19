@@ -78,7 +78,7 @@ function insertPostFormSubmit(){
 }
 
 function reserve_click(room_no){
-	var url = path + "reserveRoom/"+room_no
+	var url = path + "reserveRoom/"+room_no;
 	console.log(url);
 	location.href = url;
 }
