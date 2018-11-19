@@ -17,10 +17,10 @@ function checkHost(state,lodgmentNo){
 	var link = "";
 	if(state == 'approve'){
 		if(confirm("승인하시겠습니까?") == false) return;
-		link = "./approveHost.ajax"
+		link = path+"approveHost.ajax"
 	}else{
 		if(confirm("승인거부하시겠습니까?") == false) return;
-		link = "./unapproveHost.ajax"
+		link = path+"unapproveHost.ajax"
 	}	
 	
 	var p =$('input[name="page"]:hidden').val();
@@ -99,7 +99,7 @@ function go_page(p) {
 	}*/
 	$('input[name="page"]:hidden').val(p);
     $.ajax({
-        url:"./host.ajax",
+        url:path+"host.ajax",
         data :$('#hostPagingForm').serialize(),
         type: "GET",
         dataType: "json",
@@ -199,7 +199,7 @@ $('body').off().on('click', '#btnDelete', function() {
 	
 	if(confirmHost) {
 		$.ajax({
-			url: 'host/' + hostId,
+			url: path+'host/' + hostId,
 			type: 'DELETE',
 			contentType: 'application/json; charset=utf-8',
 			dataType: 'json',

@@ -17,10 +17,10 @@ function checkTour(state,tourId){
 	var link = "";
 	if(state == 'approve'){
 		if(confirm("승인하시겠습니까?") == false) return;
-		link = "./approveTour.ajax"
+		link = path+"approveTour.ajax"
 	}else{
 		if(confirm("승인거부하시겠습니까?") == false) return;
-		link = "./unapproveTour.ajax"
+		link = path+"unapproveTour.ajax"
 	}	
 	
 	var p =$('input[name="page"]:hidden').val();
@@ -105,7 +105,7 @@ $(document).ready(function(){
 		}
 		
 	    $.ajax({
-	        url:"./deleteTours.ajax",
+	        url:path+"deleteTours.ajax",
 	        data : JSON.stringify(checkbox),
 	        contentType: 'application/json; charset=utf-8',
 	        type: "DELETE",
@@ -133,7 +133,7 @@ function go_page(p) {
 	$('input[name="page"]:hidden').val(p);	
 	
     $.ajax({
-        url:"./tour.ajax",
+        url:path+"tour.ajax",
         data :$('#tourPagingForm').serialize(),
         type: "GET",
         dataType: "json",
@@ -229,7 +229,7 @@ $('body').off().on('click', '#btnDelete', function() {
 	var p = $('input[name="page"]:hidden').val();
 	if(confirmTour) {
 		$.ajax({
-			url: 'tour/' + tourId,
+			url: path+'tour/' + tourId,
 			type: 'DELETE',
 			contentType: 'application/json; charset=utf-8',
 			dataType: 'json',

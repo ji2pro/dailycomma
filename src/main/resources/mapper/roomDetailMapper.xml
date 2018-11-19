@@ -21,7 +21,6 @@
 	<select id="getDetailRooms" resultType="detailRoom" parameterType="lodgmentSearch">
         SELECT R.ROOM_NO, R.ROOM_PRICE, R.ROOM_CAPA, R.ROOM_INFO, R.ROOM_IMG, R.ROOM_NAME, R.ROOM_QUANTITY, L.LODGMENT_NO, L.COMPANY, L.ADDRESS, L.HOST_PHONE, L.LODGMENT_TYPE
 			   ,check_reserve_func(#{checkin}, #{checkout}, R.ROOM_NO) AS enable
-		
 		FROM LODGMENT L join ROOM R
             ON (L.LODGMENT_NO = R.LODGMENT_NO)
         WHERE R.LODGMENT_NO = #{lodgmentNo}
