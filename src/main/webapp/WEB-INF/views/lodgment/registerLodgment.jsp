@@ -7,7 +7,7 @@
 
 <div class="container py-5" id="registerLodgmentWrapper">
 	<div class="text-center mb-5">
-		<h1 class="display-5">숙박 업체 등록</h1>
+		<h1 class="display-5">숙소 등록</h1>
 	</div>
 	
 	<form action="registerLodgment.do" method="post" enctype="multipart/form-data" class="row">
