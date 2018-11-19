@@ -42,6 +42,10 @@ em {font-style: normal;}
   height: 44px;
   line-height: 44px;
 }
+.navUser {
+	color: black!important;
+	margin-right: 15px;
+}
 .footer {
 	min-width: 1200px;
 	width: 100%;
@@ -53,6 +57,31 @@ em {font-style: normal;}
 }
 #clock {
 	margin-bottom: 0;
+}
+.quicklink-area {
+	margin-bottom: 50px;
+}
+.quicklink-list .quicklink-item {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    margin: 0 15px;
+    cursor: pointer;
+}
+.quicklink-list .quicklink-item .fa-icon {
+	display: block;
+	overflow: hidden;
+	font-size: 90px;
+	line-height: 90px;
+}
+.quicklink-list .quicklink-item .fa-icon:hover {
+	color: #A649E9;
+}
+.quicklink-list .quicklink-item span {
+	color: #333;
+	display: block;
+	font-weight: 500;
 }
 
 @-webkit-keyframes fadeIn { 
