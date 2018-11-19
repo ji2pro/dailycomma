@@ -57,31 +57,31 @@ function detailFestival(contentid) {
                 "</div>" +
                 "<div id='carouselExampleControls' class='carousel slide' data-ride='carousel'>" +
                 "<div class='carousel-inner'>";
-                
-                
+
+
             $.each(datas.items3.items.item, function (idx, datas) {
-            	var active = "";
-            	if (idx == 0 ){
-            		active = "active";
-            	}
+                var active = "";
+                if (idx == 0) {
+                    active = "active";
+                }
                 detailFestival +=
-                    "<div class='carousel-item "+active+"'>" +
+                    "<div class='carousel-item " + active + "'>" +
                     "<img class='d-block img-fluid w-100' src='" + datas.originimgurl + "'/>" +
                     "</div>";
             })
-            
+
             detailFestival +=
                 "</div>" +
                 "<a class='carousel-control-prev' href='#carouselExampleControls' role='button' data-slide='prev'>" +
                 "<span class='carousel-control-prev-icon' aria-hidden='true'></span></a><span class='sr-only'>이전</span>" +
-                '<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">'+
-                '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
-                '<span class="sr-only">다음</span>'+
+                '<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">' +
+                '<span class="carousel-control-next-icon" aria-hidden="true"></span>' +
+                '<span class="sr-only">다음</span>' +
                 '</a>' +
                 "</div>" +
 
-                
-                "</div>" + 
+
+                "</div>" +
                 <!-- right-content -->
                 "<aside class='right-content'>" +
                 "<div class='aside' style='width: auto; top: auto; height: auto; bottom: auto;'>" + <!-- scroll fixed 추가 -->
@@ -112,13 +112,57 @@ function detailFestival(contentid) {
 }
 
 $(function () {
-
     //날짜와 코드를 입력 받아와서 url에 추가 해야한다.
+
+});
+
+function api(location) {
+
+    var w = window.open("about:blank","_blank");
+
+    var areaCode = 0;
+    console.log(location);
+    if (location == 'C1') {
+        areaCode = 1;
+    }if(location == 'C2'){
+        areaCode = 6;
+    }if(location == 'C3'){
+        areaCode = 5;
+    }if(location == 'C4'){
+        areaCode = 4;
+    }if(location == 'C5'){
+        areaCode = 39;
+    }
+    console.log(areaCode);
+
     $.ajax({
-        url: "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?serviceKey=dRWo2wKq2B%2FKrt7Y7XfVsQkh5Kd5K%2BblTUQR2rCFXPVLNO5ThHE%2BTgha3kfg4eAJP76aeHgLQqQOaSsj%2BC%2BKeg%3D%3D&numOfRows=10&pageSize=10&pageNo=1&startPage=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&listYN=Y&areaCode=1&eventStartDate=20181111&_type=json",
+        url: "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?serviceKey=dRWo2wKq2B%2FKrt7Y7XfVsQkh5Kd5K%2BblTUQR2rCFXPVLNO5ThHE%2BTgha3kfg4eAJP76aeHgLQqQOaSsj%2BC%2BKeg%3D%3D&numOfRows=10&pageSize=10&pageNo=1&startPage=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&listYN=Y&areaCode="+areaCode+"&eventStartDate=20181111&_type=json",
         dataType: 'json',
         success: function (datas) {
+            console.log(areaCode);
             festival(datas);
+           /*window.open('http://localhost/dailycomma/festivalList.do');*/
+            w.location.href = "http://localhost/dailycomma/festivalList.do";
         }
     });
-})
+
+/*
+    var w = window.open("about:blank","_blank");
+// ajax process
+    $.ajax({
+        url:"url주소",
+        method:"POST",
+        data:formData,
+        dataType:"html",
+        success: eventSuccess,
+        error: function(xhr, status, error) {alert(error);}
+    });
+*/
+
+/*    function eventSuccess()
+    {
+        console.log("aaaaaaaaaaaaaaa");
+        //여기서 팝업된 창의 주소를 변경하자.
+        w.location.href = "http://localhost/dailycomma/festivalList.do";
+    }*/
+}

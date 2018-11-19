@@ -23,6 +23,7 @@ public class RoomDTO {
 	private String roomQuantity;	//객실수
 	private String roomState;		//객실승인
 	private String enable;
+	private String location;
 	private MultipartFile[] uploadFile; //다중 파일시 배열로
 	
 	
@@ -31,6 +32,13 @@ public class RoomDTO {
     private String hostPhone;
     private String lodgmentType;
 
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
 
 	public String getEnable() {
 		return enable;
@@ -38,10 +46,9 @@ public class RoomDTO {
 	public void setEnable(String enable) {
 		this.enable = enable;
 	}
-	    public String getCompany() {
+	public String getCompany() {
         return company;
     }
-
     public void setCompany(String company) {
         this.company = company;
     }

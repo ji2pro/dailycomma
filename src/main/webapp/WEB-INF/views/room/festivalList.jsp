@@ -10,7 +10,7 @@
     <script>
         var path = "<c:url value='/'/>"
     </script>
-    <script src="<c:url value="/resources/include/js/room/festivalList.js?ver=1" />"></script>
+    <script src="<c:url value="/resources/include/js/room/festivalList.js" />"></script>
 </head>
 <body>
 <div class="sub-container" id="sub-container-type1">
@@ -20,6 +20,7 @@
             <span class="active">축제&amp;행사</span>
         </p>
         <ul class="lst-type-card active">
+
         </ul>
 <%--
         <!-- paging -->
