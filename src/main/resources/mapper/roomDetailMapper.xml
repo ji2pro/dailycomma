@@ -92,7 +92,7 @@
         , #{lodgmentNo}
         , #{postscriptTitle}
         , #{roomNo}
-        , 'MEM1'
+        , #{memberNo}
         , #{grade}
         )
     </insert>

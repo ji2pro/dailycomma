@@ -20,9 +20,18 @@ public class LodgmentDTO {
 	private String avgGrade;		//평균평점
 	private String peopleCnt;		//평가인원수
 	private String roomCnt;			//객실 수
+    private String memberNo;
 	private MultipartFile uploadFile;
 
-	public String getLodgmentNo() {
+    public String getMemberNo() {
+        return memberNo;
+    }
+
+    public void setMemberNo(String memberNo) {
+        this.memberNo = memberNo;
+    }
+
+    public String getLodgmentNo() {
 		return lodgmentNo;
 	}
 	public void setLodgmentNo(String lodgmentNo) {

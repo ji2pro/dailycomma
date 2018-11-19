@@ -30,13 +30,15 @@ public class LoginController {
 	public String memberLogin(@ModelAttribute("member") MemberDTO dto,
 							HttpSession session,
 							@CookieValue(value="url",required=false)String url) {
+
 		MemberDTO memberDTO = memberService.getMember(dto);
+
 		if(memberDTO == null || !memberDTO.getMemberPw().equals(dto.getMemberPw())) {
 			return "redirect:/memberLoginForm.do";
 		} else {
 			session.setAttribute("login", memberDTO);
 			session.setAttribute("type", "member");
-			
+            System.out.println("-----------------------"+url+"-----------------------");
 			return "redirect:/"+url;
 		}
 	}

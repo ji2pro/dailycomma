@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 import com.yedam.dailycomma.lodgment.LodgmentDTO;
 import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
 
+import com.yedam.dailycomma.member.MemberDTO;
+import com.yedam.dailycomma.member.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,7 +48,7 @@ public class RoomController {
     						 @PathVariable String lodgmentNo,	
                              @ModelAttribute("search") LodgmentSearchDTO dto,
                              HttpSession session) {
-        
+
     	dto = (LodgmentSearchDTO)session.getAttribute("search");
     	
     	if(dto == null || dto.getCheckin() == null || dto.getCheckin().equals("")) {
@@ -66,6 +68,7 @@ public class RoomController {
         	}
         	str.append(r.getRoomImg());
         }
+
         /*숙박 업체에 대한 전체 객실 리스트*/
         model.addAttribute("getDetailRooms", roomService.getDetailRooms(dto));
         /*전체 이미지*/

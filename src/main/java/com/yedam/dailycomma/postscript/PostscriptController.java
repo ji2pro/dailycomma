@@ -1,6 +1,7 @@
 package com.yedam.dailycomma.postscript;
 
 import com.yedam.dailycomma.lodgment.LodgmentDTO;
+import com.yedam.dailycomma.member.MemberDTO;
 import com.yedam.dailycomma.room.RoomDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
@@ -53,13 +55,20 @@ public class PostscriptController {
         /*숙박 업체에 대한 전체 후기 리스트*/
         /*model.addAttribute("getPostscriptList", postscriptService.getPostscriptList(dto));*/
         /*return "noTiles/room/postList";*/
+
+
         return postscriptService.getPostscriptList(dto);
     }
 
     /*숙박 업체 후기 등록*/
     @RequestMapping(value = "/postscript", method = RequestMethod.POST)
-    public int insertPostscript(PostscriptDTO dto) {
+    public int insertPostscript(PostscriptDTO dto,HttpSession session) {
         System.out.println("--------------------------"+dto.getRoomNo());
+
+
+        MemberDTO memberDTO = (MemberDTO)session.getAttribute("login");
+
+        dto.setMemberNo(memberDTO.getMemberNo());
 
         return postscriptService.insertPostscript(dto);
     }

@@ -19,7 +19,7 @@
     <script>
         var path = "<c:url value='/'/>"
     </script>
-    <script src="<%=request.getContextPath()%>/resources/include/js/room/festivalList.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/include/js/room/festivalList.js?ver=1"></script>
 </head>
 <body>
 <div class="sub-container" id="sub-container-type1">
@@ -47,10 +47,10 @@
         </div>
         <!-- //paging -->--%>
     </div>
-</div><%--
+</div>
 <div class="sub-detail-contents" id="sub-container">
     <div class="sub-detail-inner">
     </div>
-</div>--%>
+</div>
 </body>
 </html>
