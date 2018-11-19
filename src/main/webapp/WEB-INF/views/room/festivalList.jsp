@@ -5,21 +5,12 @@
 <html>
 <head>
     <title>apiTest.jsp</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-          type="text/css">
-    <link rel="stylesheet" type="text/css"
-          href="<%=request.getContextPath()%>/resources/include/css/room/apiTest.css">
-    <link rel="stylesheet" type="text/css"
-          href="<%=request.getContextPath()%>/resources/include/css/room/bundle.css">
-    <link rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-          crossorigin="anonymous">
+    <link href="<c:url value="/resources/include/css/room/apiTest.css" />" rel="stylesheet" type="text/css">
+    <link href="<c:url value="/resources/include/css/room/bundle.css" />" rel="stylesheet" type="text/css">
     <script>
         var path = "<c:url value='/'/>"
     </script>
-    <script src="<%=request.getContextPath()%>/resources/include/js/room/festivalList.js?ver=1"></script>
+    <script src="<c:url value="/resources/include/js/room/festivalList.js?ver=1" />"></script>
 </head>
 <body>
 <div class="sub-container" id="sub-container-type1">
@@ -27,9 +18,8 @@
         <p class="location-lst">
             <span>하이라이트</span>
             <span class="active">축제&amp;행사</span>
-
         </p>
-        <ul class="lst-type-card  active">
+        <ul class="lst-type-card active">
         </ul>
 <%--
         <!-- paging -->

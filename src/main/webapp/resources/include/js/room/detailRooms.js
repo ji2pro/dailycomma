@@ -148,10 +148,10 @@ $(function() {
         });
         insertPost +=
             "</select>" +
-            "<input type=\"text\" name=\"postscriptTitle\" id=\"postscriptTitle\" value=\"\" placeholder=\"제목을 입력 해주세요\">" +
+            "<input type=\"text\" name=\"postscriptTitle\" id=\"postscriptTitle\" value=\"\" placeholder=\"제목을 입력해 주세요.\">" +
             "</div>" +
             "<div class=\"inp-txt-member\">" +
-            "<textarea rows=\"4\" name=\"postscriptContent\" id=\"postscriptContent\" cols=\"100\" placeholder=\"내용을 입력 해주세요.\"style=\"resize: none;\"/>" +
+            "<textarea rows=\"4\" name=\"postscriptContent\" id=\"postscriptContent\" cols=\"100\" placeholder=\"내용을 입력해 주세요.\"style=\"resize: none;\"/>" +
             "<div style=\"width: 130px; height: 30px; display: inline-block; float:left\" id=\"to\">"+
             "<i class=\"fa fa-star-o\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
             "<i class=\"fa fa-star-o\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
@@ -160,7 +160,7 @@ $(function() {
             "<i class=\"fa fa-star-o\" id=\"insertStar\" style=\"color:#FFD300\"></i>"+
             "</div>"+
             "</div>" +
-            "<button type=\"button\" onclick=\"insertPostFormSubmit()\" name=\"button\" class=\"btn-gradation\" id=\"btnToJoinEnd\">등록" +
+            "<button type=\"button\" onclick=\"insertPostFormSubmit()\" name=\"button\" class=\"btn btn-block btn-lg btn-primary\" id=\"btnToJoinEnd\">등록" +
             "</button>" +
             "</div>" +
             "<input type=\"hidden\" name=\"lodgmentNo\" value=\""+lodgmentNo+"\">"+
