@@ -26,7 +26,7 @@ public class CastDAOMybatis {
 
     public List<CastDTO> detailCastPostList (CastDTO dto){return mybatis.selectList("detailCast.detailCastPostList",dto);}
 
-    public CastDTO detailCastPostPage(){return mybatis.selectOne("detailCast.detailCastPostPage");}
+    public CastDTO detailCastPostPage(CastDTO dto){return mybatis.selectOne("detailCast.detailCastPostPage",dto);}
 
     public void detailCastPostInput(CastDTO dto){mybatis.insert("detailCast.detailCastPostInput",dto);}
 

@@ -63,7 +63,6 @@ public class LodgmentController {
 				lodgmentService.insertHashTag(hashDTO);
 			}				
 		}
-		
 		return "redirect:/registerLodgmentForm.do";
 	}
 	

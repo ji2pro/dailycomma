@@ -24,7 +24,7 @@ public class CastServiceImpl implements CastService {
     public List<CastDTO> detailCastPostList(CastDTO dto) {return dao.detailCastPostList(dto);}
 
     @Override
-    public CastDTO detailCastPostPage() {return dao.detailCastPostPage();}
+    public CastDTO detailCastPostPage(CastDTO dto) {return dao.detailCastPostPage(dto);}
 
     @Override
     public void detailCastPostInput(CastDTO dto) {
