@@ -2,8 +2,6 @@
 * {font-family: 'Noto Sans KR', sans-serif;}
 body {
 	word-break: break-all; font-size: 16px; line-height: 1.5;
-	position: relative;
-	padding-bottom: 250px; /* footer height */
 }
 div {margin: 0; padding: 0;}
 a, a:hover {text-decoration: none;}
@@ -45,8 +43,6 @@ em {font-style: normal;}
   line-height: 44px;
 }
 .footer {
-	position: absolute;
-	bottom: 0;
 	min-width: 1200px;
 	width: 100%;
 	height: 250px; 
