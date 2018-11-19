@@ -4,11 +4,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     <div class="review-detail">
-        <div class="review-detail__title"><span class="badge-rap">${getDetailPost.postscriptTitle}</span><em></em></div>
+        <div class="review-detail__title">
+        	<span class="badge-rap">${getDetailPost.postscriptTitle}</span>
+        	<em></em>
+        </div>
         <div class="review-userinfo">
             <div class="place-review__score">
                 <span class="score-rap">
-                    <c:forEach  var="i" begin="1" end="5" step="1">
+                    <c:forEach var="i" begin="1" end="5" step="1">
                         <c:choose>
                             <c:when test="${getDetailPost.grade >= i}">
                                 <i class='fa fa-star starColor' style="color:#ffeb00"></i>

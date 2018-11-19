@@ -118,7 +118,7 @@
 <!--객실정보 리스트-->
 <div class="container py-1" id="roomListContainer">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 mb-5">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link active show" href="" data-toggle="tab" data-target="#tabone">객실</a>
