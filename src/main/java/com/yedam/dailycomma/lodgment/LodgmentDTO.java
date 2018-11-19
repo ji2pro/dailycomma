@@ -21,7 +21,16 @@ public class LodgmentDTO {
 	private String peopleCnt;		//평가인원수
 	private String roomCnt;			//객실 수
     private String memberNo;
+    private String lodgmentTypeName;
 	private MultipartFile uploadFile;
+
+    public String getLodgmentTypeName() {
+        return lodgmentTypeName;
+    }
+
+    public void setLodgmentTypeName(String lodgmentTypeName) {
+        this.lodgmentTypeName = lodgmentTypeName;
+    }
 
     public String getMemberNo() {
         return memberNo;

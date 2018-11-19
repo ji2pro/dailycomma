@@ -71,7 +71,7 @@
 					</td>
 					<td>${reservation.reservePeople}</td>
 					<td>${reservation.reservePrice}원</td>
-					<td>${reservation.reserveState}</td>
+					<td>${reservation.reserveStateName}</td>
 					<td>${checkin_FD}</td>
 					<td>${checkout_FD}</td>
 					<td>${totalDate}박 ${totalDate + 1}일</td>

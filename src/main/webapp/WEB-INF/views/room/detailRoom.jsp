@@ -7,10 +7,11 @@
 <html>
 <head>
     <link href="<c:url value="/resources/include/css/room/bundle.css" />" rel="stylesheet" type="text/css">
-    <script src="<c:url value="/resources/include/js/room/detailRooms.js" />"></script>
-	<script>
-    	var path = "<c:url value='/'/>"
+    <script>
+        var path = "<c:url value='/'/>";
     </script>
+    <script src="<c:url value="/resources/include/js/room/detailRooms.js" />"></script>
+
     <%--<script> $(document).ready(funcion(){
         $('#carousel').carousel,'cycle');
     });
@@ -23,7 +24,7 @@
 	<div class="col-md-12">
 		<div class="carousel slide" data-ride="carousel" id="carousel-all">
 			<div class="carousel-inner">
-				<c:forTokens items="${getAllImg}" delims="||" var="img" varStatus="status">
+				<c:forTokens items="${getAllImg}" delims="," var="img" varStatus="status">
 				<c:if test="${status.first}">
 					<div class="carousel-item active">
 <%--                                 <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/room/${img}'/>"/> --%>
@@ -157,7 +158,7 @@
                             <div class="col">
                                 <div id="carousel-${each.count}" class="carousel slide carousel-each" data-ride="carousel">
                                     <div class="carousel-inner">
-                                        <c:forTokens items="${list.roomImg}" delims="||" var="img" varStatus="status">
+                                        <c:forTokens items="${list.roomImg}" delims="," var="img" varStatus="status">
                                             <c:if test="${status.first}">
                                                 <div class="carousel-item active">
                                                     <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/room/${img}'/>"/>

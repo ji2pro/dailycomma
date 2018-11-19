@@ -34,6 +34,7 @@ public class LoginController {
 		MemberDTO memberDTO = memberService.getMember(dto);
 
 		if(memberDTO == null || !memberDTO.getMemberPw().equals(dto.getMemberPw())) {
+			System.out.println("login==============================");
 			return "redirect:/memberLoginForm.do";
 		} else {
 			session.setAttribute("login", memberDTO);
@@ -52,12 +53,13 @@ public class LoginController {
 							HttpSession session,
 							@CookieValue(value="url",required=false)String url) {
 		HostDTO hostDTO = hostService.getHost(dto);
+		
 		if(hostDTO == null || !hostDTO.getHostPw().equals(dto.getHostPw())) {
+			System.out.println("login==============================");
 			return "redirect:/hostLoginForm.do";
 		} else {
 			session.setAttribute("login", hostDTO);
 			session.setAttribute("type", "host");
-
 			
 			return "redirect:/"+url;
 		}
