@@ -25,7 +25,6 @@
     <link href="<c:url value="/resources/include/css/common.css"/>" rel="stylesheet" type="text/css" /> 
     <link href="<c:url value="/resources/include/css/main.css"/>" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/resources/include/css/reservation.css"/>" rel="stylesheet" type="text/css" />
-<%--     <link href="<%=request.getContextPath()%>/resources/include/css/admin.css" rel="stylesheet" type="text/css" /> --%>
 	<!-- 현재 시간 자바스크립트 파일 -->
     <script src="<c:url value="/resources/include/js/clock.js"/>"></script>
     <!-- Masonry(그리드 레이아웃 라이브러리) -->
@@ -56,38 +55,38 @@
 	        <ul class="navbar-nav ml-auto">
 	            <!-- <li class="nav-item"><a class="nav-link" href="#">예약 내역</a></li> -->
                 <c:if test="${sessionScope.type == 'member' }">
-                    ${sessionScope.login.memberNick}님
+                    <li class="nav-item nav-link navUser">${sessionScope.login.memberNick}님</li>
                 </c:if>
 
                 <c:if test="${sessionScope.type == 'host' }">
-                    ${sessionScope.login.hostName}사장님
+                    <li class="nav-item nav-link navUser">${sessionScope.login.hostName} 사장님</li>
                 </c:if>
 
                 <c:if test="${sessionScope.type == 'admin' }">
-                    관리자님
+					<li class="nav-item nav-link navUser">관리자님</li>
                 </c:if>
 
             	<c:if test="${sessionScope.login eq null }">
-            		<li class="nav-item"><a class="nav-link" href="<c:url value="/signupChoice.do"/>">회원 가입</a></li>
+					<li class="nav-item"><a class="nav-link" href="<c:url value="/signupChoice.do"/>">회원 가입</a></li>
             	</c:if>
 
                 <c:if test="${sessionScope.admin ne null }">
-                    <li class="nav-item"><a class="nav-link" href="<c:url value="/admin"/>">관리자페이지</a></li>
+					<li class="nav-item"><a class="nav-link" href="<c:url value="/admin"/>">관리자 페이지</a></li>
                 </c:if>
 
                 <c:if test="${sessionScope.login ne null }">
-                    <li class="nav-item"><a class="nav-link" href="<c:url value="/castListForm.do"/>">캐스트</a></li>
+					<li class="nav-item"><a class="nav-link" href="<c:url value="/castListForm.do"/>">캐스트</a></li>
                 </c:if>
 
             	<c:if test="${sessionScope.login ne null and sessionScope.type == 'member' and empty sessionScope.admin}">
-                    <li class="nav-item"><a class="nav-link" href="<c:url value="/registerCastForm.do"/>">캐스트등록</a></li>
-            		<li class="nav-item"><a class="nav-link" href="<c:url value="/myPage.do"/>">마이페이지</a></li>
+					<li class="nav-item"><a class="nav-link" href="<c:url value="/registerCastForm.do"/>">캐스트 등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="<c:url value="/myPage.do"/>">마이페이지</a></li>
             	</c:if>
 
-            	 <c:if test="${sessionScope.login ne null and sessionScope.type == 'host'}">
-                     <li class="nav-item"><a class="nav-link" href="<c:url value="/registerLodgmentForm.do"/>">숙소등록</a></li>
-                     <li class="nav-item"><a class="nav-link" href="<c:url value="/insertRoomForm.do"/>">객실등록</a></li>
-            		<li class="nav-item"><a class="nav-link" href="<c:url value="/managementList.do"/>">점주페이지</a></li>
+				<c:if test="${sessionScope.login ne null and sessionScope.type == 'host'}">
+					<li class="nav-item"><a class="nav-link" href="<c:url value="/registerLodgmentForm.do"/>">숙소 등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="<c:url value="/insertRoomForm.do"/>">객실 등록</a></li>
+            		<li class="nav-item"><a class="nav-link" href="<c:url value="/managementList.do"/>">업주 페이지</a></li>
             	</c:if>
        			<c:if test="${sessionScope.login eq null }">
 	            	<!-- <li class="nav-item"><a class="nav-link" href="<c:url value="/loginChoice.do"/>">로그인</a></li>-->

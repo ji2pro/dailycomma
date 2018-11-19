@@ -142,7 +142,21 @@
 
 <section class="quicklink-area">
 	<div class="quicklink-list">
-		<a class="quicklink-item"> 모텔 </a> <a class="quicklink-item"> 호텔 </a>
-		<a class="quicklink-item"> 펜션 </a> <a class="quicklink-item"> 게스트하우스 </a>
+		<a class="quicklink-item">
+			<span class="fa-icon"><i class="fa fa-moon-o" aria-hidden="true"></i></span>
+			<span>모텔</span>
+		</a>
+		<a class="quicklink-item">
+			<span class="fa-icon"><i class="fa fa-h-square" aria-hidden="true"></i></span>
+			<span>호텔</span>
+		</a>
+		<a class="quicklink-item">
+			<span class="fa-icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+			<span>펜션</span>
+		</a>
+		<a class="quicklink-item">
+			<span class="fa-icon"><i class="fa fa-briefcase" aria-hidden="true"></i></span>
+			<span>게스트 하우스</span>
+		</a>
 	</div>
 </section>
