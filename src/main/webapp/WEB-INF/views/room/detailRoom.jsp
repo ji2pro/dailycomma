@@ -1,6 +1,6 @@
-<%@ page import="javax.naming.Context" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@ page import="javax.naming.Context" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -68,10 +68,12 @@
 						</c:if>
                 	</c:forTokens>
                 </div>
-                <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span></a>
-                <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next" style="">
-                    <span class="carousel-control-next-icon"></span> </a>
+				<a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon"></span>
+				</a>
+				<a class="carousel-control-next" href="#carousel2" role="button" data-slide="next" style="">
+					<span class="carousel-control-next-icon"></span>
+				</a>
             </div>
         </div>
     </div>
@@ -161,10 +163,12 @@
                         <div class="row py-4 border-bottom border-secondary" style="height: 400px; ">
                             <div class="col">
                                 <div class="place-room__title">
-                                    <em>${list.roomName}</em></div>
+                                    <em>${list.roomName}</em>
+								</div>
                                     <%--div class="roomtitle">${list.roomName}</div>--%>
                                 <div class="place-room__tip">
-                                    <span>객실 정보 : ${list.roomInfo}</span></div>
+                                    <span>객실 정보 : ${list.roomInfo}</span>
+								</div>
                                     <%-- <div class="roomtip">객실 정보 : ${list.roomInfo}</div>--%>
                                 <div class="place-room__tip">
                                     <span>기준 2명 (최대 인원${list.roomQuantity}명)</span>
