@@ -66,10 +66,10 @@
 					<td>
 						<div class="btn-group">
 							<c:if test="${member.memberWithdraw == 'F1'}">
-								<button id="btnEdit" class="btn  btn-outline-dangerbtn-sm" onclick="checkWithdraw('F2')">회원정지</button>
+								<button class="btn btn-outline-danger btn-sm" onclick="checkWithdraw('F2','${member.memberNo}')">회원정지</button>
 							</c:if>
 							<c:if test="${member.memberWithdraw == 'F2'}">
-								<button id="btnDelete" class="btn btn-outline-success btn-sm" onclick="checkWithdraw('F1')">회원복구</button>
+								<button class="btn btn-outline-success btn-sm" onclick="checkWithdraw('F1','${member.memberNo}')">회원복구</button>
 							</c:if>
 						</div>
 					</td>

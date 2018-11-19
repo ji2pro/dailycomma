@@ -472,9 +472,11 @@ public class AdminController {
 		return map;
 	}
 	
-	@RequestMapping(value="/memberWithdraw.ajax")
+	@RequestMapping(value="/memberWithdraw.ajax", method=RequestMethod.GET)
 	@ResponseBody
 	public HashMap<String,Object> memberWithdraw(MemberDTO dto){
+		
+		System.out.println("========================" +dto.getMemberWithdraw());
 		HashMap<String,Object> map =new HashMap<String,Object>();
 		int check = adminService.memberWithdraw(dto);
 		if(check > 0)

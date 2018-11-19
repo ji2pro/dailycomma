@@ -48,8 +48,9 @@ function searchMember(condition){
 		$('.searchStandard').text('이메일');
 }
 
-function checkWithdraw(state){
+function checkWithdraw(state, memberNo){
 	
+	console.log(state);
     if(state == 'F1'){
     	if(confirm("회원복구를 하시겠습니까?") == false) return;
     }
@@ -61,7 +62,8 @@ function checkWithdraw(state){
 	
 	$.ajax({
         url:"./memberWithdraw.ajax",
-        data :{memberWithdraw : state},
+        data :{"memberWithdraw" : state,
+        		"memberNo" : memberNo},
         type: "GET",
         dataType: "json",
     	error: function(xhr, status, msg) {
@@ -167,15 +169,22 @@ function callbackMember(datas){
 				 '<td>'+data.memberNick+'</td>'+
 				 '<td>'+data.memberEmail+'</td>'+
 				 '<td>'+data.memberPoint+'</td>'+
-				 '<td>'+data.signupDate+
-				 '</td>'+
-				 '<td>'+
-				 '<div class="btn-group">'+
-				 '<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>'+
-				 '<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>'+
-				 '</div>'+
-				 '</td>'+
-				 '</tr>');
+				 '<td>'+data.signupDate+'</td>');
+				 
+		if(data.memberWithdraw == 'F1'){
+			html += "<td>일반회원</td>";
+		}else{
+			html += "<td>탈퇴회원</td>";
+		}
+		html += '<td>'+
+		 		'<div class="btn-group">';
+		if(data.memberWithdraw == 'F1'){
+			html += "<button class='btn btn-outline-danger btn-sm' onclick='checkWithdraw(\"F2\",\"data.memberNo\")'>회원정지</button>"
+		}else{
+			html += "<button class='btn btn-outline-success btn-sm' onclick='checkWithdraw(\"F1\",\"data.memberNo\")' >회원복구</button>";
+		}
+		
+		html +='</div>'+'</td>'+'</tr>';
 	});
 	
 	
