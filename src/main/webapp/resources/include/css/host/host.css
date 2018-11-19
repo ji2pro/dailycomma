@@ -1,0 +1,27 @@
+/*
+* 업주 페이지
+*/
+
+#registerLodgmentWrapper {
+	max-width: 960px;
+}
+.img_wrap {
+	height: 300px;
+    width: 690px;
+    border: 1px solid #eee;
+}
+.img_wrap .img-fluid {
+	height: 300px;
+}
+.imgs_wrap {
+    width: 215px;
+    height: 160px;
+    display: inline;
+}
+.imgs_wrap .img-fluid {
+	margin: 10px 10px 0 0;
+	height: 160px;
+}
+.custom-checkbox {
+	display : inline-block;
+}
