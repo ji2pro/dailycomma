@@ -5,62 +5,50 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<html>
-<head>
-<meta charset="UTF-8">
+<link href="<c:url value="/resources/include/css/management.css" />" rel="stylesheet" type="text/css">
+<!-- DataTables -->
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-<script src="<%=request.getContextPath()%>/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<link href="./resources/include/css/management.css" rel="stylesheet" type="text/css"> 
+
 <script src="//www.google.com/jsapi"></script>
 
 <c:set var="now" value="<%=new java.util.Date()%>" />
 <c:set var="sysYear"><fmt:formatDate value="${now}" pattern="yyyy" /></c:set> 
 
-
 <script>
-/* jQuery 테이블 */
-	$(function(){ //jQuery 데이터 테이블 가져와서 씀.
-		$("#empList").DataTable();
-		//$("#empList").DataTable({ajax:{}}); 아작스 사용시
+$(function() {
+	/* jQuery 테이블 */
+	$("#empList").DataTable();
+	//$("#empList").DataTable({ajax:{}}); 아작스 사용시
 	
-	});
+	/* 이달 객실별 예약 건수 및 판매금액 */
+	$('#statsRoomSell').DataTable({
+        pageLength: 10,
+        bPaginate: true, /* 페이징 처리 할것인가 */
+        bLengthChange: true, /* true 하면 리스트 박스 추가 */
+        lengthMenu : [ [ 5, 10, 30, -1 ], [ 5, 10, 30, "All" ] ],
+        bAutoWidth: true,
+        processing: true, /* 값을 가져올때 로딩 processing ui보여줌 */
+        ordering: true, /* 항목 정렬 사용 */
+        serverSide: false,
+        searching: true  
+    });
 	
-	
-	 /* 이달 객실별 예약 건수 및 판매금액 */
-	 $(document).ready(function(){
-         $('#statsRoomSell').DataTable({
-             pageLength: 10,
-             bPaginate: true, /* 페이징 처리 할것인가 */
-             bLengthChange: true, /* true 하면 리스트 박스 추가 */
-             lengthMenu : [ [ 5, 10, 30, -1 ], [ 5, 10, 30, "All" ] ],
-             bAutoWidth: true,
-             processing: true, /* 값을 가져올때 로딩 processing ui보여줌 */
-             ordering: true, /* 항목 정렬 사용 */
-             serverSide: false,
-             searching: true  
-
-         });
- }); 
-	 
-	 
-	 /* 이달 총 예약건수 및 판매금액 */
-$(document).ready(function(){
-         $('#statsTotalSell').DataTable({
-             pageLength: 10,
-             bPaginate: true, /* 페이징 처리 할것인가 */
-             bLengthChange: true, /* true 하면 리스트 박스 추가 */
-             lengthMenu : [ [ 5, 10, 30, -1 ], [ 5, 10, 30, "All" ] ],
-             bAutoWidth: true,
-             processing: true, /* 값을 가져올때 로딩 processing ui보여줌 */
-             ordering: true, /* 항목 정렬 사용 */
-             serverSide: false,
-             searching: true  
-
-         });
- });
-	 
-$(document).ready(function(){	 
+	/* 이달 총 예약건수 및 판매금액 */
+	$('#statsTotalSell').DataTable({
+        pageLength: 10,
+        bPaginate: true, /* 페이징 처리 할것인가 */
+        bLengthChange: true, /* true 하면 리스트 박스 추가 */
+        lengthMenu : [ [ 5, 10, 30, -1 ], [ 5, 10, 30, "All" ] ],
+        bAutoWidth: true,
+        processing: true, /* 값을 가져올때 로딩 processing ui보여줌 */
+        ordering: true, /* 항목 정렬 사용 */
+        serverSide: false,
+        searching: true  
+    });
+});
+ 
+$(function() {	 
 	createDropDown();
 	
 	$('#btn-div').click(function(){
@@ -69,15 +57,12 @@ $(document).ready(function(){
 		callbackDiv(btn.text());
 	});
 	
-	
 	$('#btn-reserve').click(function(){
 		var btn = $('.dropdown').eq(1).find('.dropdown-toggle');
 		console.log("======btn-reserve=======" + btn.text());
 		callbackReserve(btn.text());
 	});
-	
 });
-	
 	
 
 /* 여기서 부터 구글 차트 자바스크립트 부분 */
@@ -87,44 +72,37 @@ $(document).ready(function(){
 		title : '월별 수익금액', 
 		width : "50%"/* 400 */,
 		height : 500,
-		 colors: ['#88bbee', '#e6693e', '#ec8f6e' ,'#f3b49f', '#f6c7b6'],
-		 fontSize:23,
-		 legend : { position: "right", textStyle: {fontSize: 13}},
-
+		colors: ['#88bbee', '#e6693e', '#ec8f6e' ,'#f3b49f', '#f6c7b6'],
+		fontSize:23,
+		legend : { position: "right", textStyle: {fontSize: 13}},
 		is3D: true
 	};
 	google.load('visualization', '1.0', {
 		'packages' : [ 'corechart' ]
 	});
 	
-	
- 	 /* var colors = ['#e0440e', '#e6693e','#ec8f6e' ,'#f3b49f', '#f6c7b6']  */
-		var options2 = { /* 차트옵션 수정부분 */
-			title : '월별 객실예약건수',
-			width : "50%"/* 400 */,
-			height : 500, 
-			 colors: ['#ff99aa','#e6693e','#ec8f6e' ,'#f3b49f', '#f6c7b6' ],
-			 fontSize:23,
-			 legend : { position: "right", textStyle: {fontSize: 13}},
-		
-			is3D: true
-		};
-		
-	
+	/* var colors = ['#e0440e', '#e6693e','#ec8f6e' ,'#f3b49f', '#f6c7b6']  */
+	var options2 = { /* 차트옵션 수정부분 */
+		title : '월별 객실예약건수',
+		width : "50%"/* 400 */,
+		height : 500, 
+		colors: ['#ff99aa','#e6693e','#ec8f6e' ,'#f3b49f', '#f6c7b6' ],
+		fontSize:23,
+		legend : { position: "right", textStyle: {fontSize: 13}},
+		is3D: true
+	};
 	
 google.setOnLoadCallback(function() {
-//차트에 넣을 data를 ajax 요청해서 가져옴
-callbackDiv();
+	//차트에 넣을 data를 ajax 요청해서 가져옴
+	callbackDiv();
 
-callbackReserve();
-	
+	callbackReserve();
 });
 	//window.onresize 
 
-function callbackDiv(year){
-			
+function callbackDiv(year) {
 	var check = checkException(year);
-	
+
 	if(check == true){
 		var date = new Date();
 		year = date.getFullYear();	
@@ -151,7 +129,6 @@ function callbackDiv(year){
 		}
 	});
 }
-	
 	
 function callbackReserve(year){
 
@@ -182,10 +159,9 @@ function callbackReserve(year){
 			chart.draw(google.visualization.arrayToDataTable(chartData), options2);
 		}
 	});	
-	
 }
 
-function createDropDown(){
+function createDropDown() {
 	var date = new Date();
 	var year = date.getFullYear();	
 	console.log(year);
@@ -212,22 +188,18 @@ function checkException(x){
 }
 </script>
 
-<title>stats.do</title>
-
-</head>
-<body>
 
 <div class="container">
 
 <div class="btn-group">
-  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   사장님통계관리
-  </button> 
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="<c:url value="/managementList.do"/>">예약자 리스트</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="<c:url value="/stats.do"/>">통계관리</a>
-  </div>
+	<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		사장님 통계관리
+	</button> 
+	<div class="dropdown-menu">
+		<a class="dropdown-item" href="<c:url value="/managementList.do"/>">예약자 리스트</a>
+		<div class="dropdown-divider"></div>
+		<a class="dropdown-item" href="<c:url value="/stats.do"/>">통계관리</a>
+	</div>
 </div>
 
 <!-- 이달 객실별 예약 건수 및 판매금액 -->
@@ -279,7 +251,6 @@ function checkException(x){
 <%-- <c:out value="${sysYear}" /> --%>
 
 
-
 <!-- chart_div 차트 부분 -->
 
 		<div class="row chartButtonInterval">
@@ -290,7 +261,6 @@ function checkException(x){
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				</div>
 			</div>
-			&nbsp;
 			<button type="button" class="btn btn-secondary" id="btn-div">검색</button>
 		</div>
 
@@ -310,6 +280,4 @@ function checkException(x){
 
 		<div id="chart_reserve"></div>
 </div>
-</body>
-</html>
  
