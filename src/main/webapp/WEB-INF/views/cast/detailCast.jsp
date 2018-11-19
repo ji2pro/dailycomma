@@ -120,23 +120,23 @@
                     </ul>
                 </nav>
             </div>
+            <c:if test="${memberLogin ne null}">
+                <div class="inputButton">
+                    <button class="insertComment">
+                        <a>댓글 작성하기</a>
+                    </button>
+                </div>
 
-            <div class="inputButton">
-                <button class="insertComment">
-                    <a>댓글 작성하기</a>
-                </button>
-            </div>
+                <div>
+                    <textarea id="insertTextarea" name="inquiryContent" cols="70" rows="5" class="inp_txt2" style="width:337px; height:126px;"></textarea>
+                </div>
 
-            <div>
-                <textarea id="insertTextarea" name="inquiryContent" cols="70" rows="5" class="inp_txt2" style="width:337px; height:126px;"></textarea>
-            </div>
-
-            <div class="commentSubmit">
-                <button class="commentSubmitButton">
-                    <a>등록</a>
-                </button>
-            </div>
-
+                <div class="commentSubmit">
+                    <button class="commentSubmitButton">
+                        <a>등록</a>
+                    </button>
+                </div>
+            </c:if>
         </div>
     </div>
 </div>

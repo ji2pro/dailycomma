@@ -38,7 +38,6 @@ public class LoginController {
 		} else {
 			session.setAttribute("login", memberDTO);
 			session.setAttribute("type", "member");
-            System.out.println("-----------------------"+url+"-----------------------");
 			return "redirect:/"+url;
 		}
 	}

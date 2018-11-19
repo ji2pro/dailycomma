@@ -56,7 +56,6 @@ public class PostscriptController {
         /*model.addAttribute("getPostscriptList", postscriptService.getPostscriptList(dto));*/
         /*return "noTiles/room/postList";*/
 
-
         return postscriptService.getPostscriptList(dto);
     }
 

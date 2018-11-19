@@ -69,6 +69,10 @@ public class RoomController {
         	str.append(r.getRoomImg());
         }
 
+        MemberDTO memberDTO = (MemberDTO)session.getAttribute("login");
+
+        model.addAttribute("memberLogin", memberDTO);
+
         /*숙박 업체에 대한 전체 객실 리스트*/
         model.addAttribute("getDetailRooms", roomService.getDetailRooms(dto));
         /*전체 이미지*/
