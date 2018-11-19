@@ -25,6 +25,11 @@
 					#{item}
 				</foreach>
 			</if>
+
+			<if test="searchCondition == 'lodgmentNo'">
+				AND LODGMENT_NO LIKE '%' || #{searchKeyword} || '%'
+			</if>
+						
 			<if test="searchCondition == 'company'">
 				AND COMPANY LIKE '%' || #{searchKeyword} || '%'
 			</if>

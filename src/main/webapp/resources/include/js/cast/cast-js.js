@@ -106,7 +106,7 @@ let fetchList = function(){
          let tourId = $(".grid-item").last().attr('id') || 0;
          
          $.ajax({
-              url:"getTours.do"  ,
+              url:"getCasts.do"  ,
               data : {'tourId' : tourId,
               		  'pageUnit' : 6},
               type: "GET",

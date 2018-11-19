@@ -54,6 +54,16 @@
 					#{item}
 				</foreach>
 			</if>
+
+			<if test="searchCondition == 'memberName'">
+				AND #{searchKeyword} IN (SELECT MEMBER_NAME
+			   							 FROM MEMBER
+			   							 WHERE MEMBER.MEMBER_NO = TOUR.MEMBER_NO)
+			</if>
+			<if test="searchCondition == 'tourTitle'">
+				AND TOUR_TITLE LIKE '%' || #{searchKeyword} || '%'
+			</if>
+						
 			<if test="searchCondition == 'tourId'">
 				AND TOUR_ID LIKE '%' || #{searchKeyword} || '%'
 			</if>
@@ -95,5 +105,31 @@
 		WHERE TOUR_ID = #{tourId}
 	</update>
 	
-	
+<!-- 전체 조회 -->
+<select id="getCasts" resultType="tour">
+SELECT * FROM ( SELECT T.*, ROWNUM RN FROM (   
+   SELECT * FROM TOUR
+    <where>
+       <if test="tourId != null and tourId != ''">
+        <![CDATA[
+            TOUR_ID > #{tourId}
+        ]]>
+       </if>
+    </where>
+    ORDER BY TOUR_DATE
+) T ) A 
+   <choose>
+      <when test="pageUnit != 0">
+       <![CDATA[   
+         WHERE RN  <= #{pageUnit}
+      ]]>   
+      </when>
+      <otherwise>
+       <![CDATA[   
+         WHERE RN <= 8
+      ]]>   
+      </otherwise>
+   </choose>
+</select>
+
 </mapper> 

@@ -9,7 +9,11 @@
 	<input type="hidden" name="page" value="1">
 	<input type="hidden" name="sort" value="host_id">
 	<input type="hidden" name="lodgmentState" value="">
+	
+	<input type="hidden" name="searchCondition" value="">
+	<input type="hidden" name="searchKeyword" value="">
 </form>
+
 <!-- 업주 관리 -->
 <div class="row">
 	<div class="col-md-12">
@@ -65,17 +69,17 @@
 						<div class="btn-group">
 							<c:if test="${host.lodgmentState == 'B1'}">
 								<button id="hostbtnDelete" class="btn btn-outline-danger btn-sm"
-								onclick="checkHost('unapprove','${host.lodgmentNo}')">승인취소</button>
+								onclick="sortHost('unapprove','${host.lodgmentNo}')">승인취소</button>
 							</c:if>
 							<c:if test="${host.lodgmentState == 'B2'}">	
 								<button id="hostbtnEdit" class="btn btn-outline-success btn-sm" 
-								onclick="checkHost('approve','${host.lodgmentNo}')">승인</button>
+								onclick="sortHost('approve','${host.lodgmentNo}')">승인</button>
 							</c:if>
 							<c:if test="${host.lodgmentState == 'B3'}">
 								<button id="hostbtnEdit" class="btn btn-outline-success btn-sm"
-								onclick="checkHost('approve','${host.lodgmentNo}')">승인</button>
+								onclick="sortHost('approve','${host.lodgmentNo}')">승인</button>
 								<button id="hostbtnDelete" class="btn btn-outline-danger btn-sm"
-								onclick="checkHost('unapprove','${host.lodgmentNo}')">거부</button>
+								onclick="sortHost('unapprove','${host.lodgmentNo}')">거부</button>
 							</c:if>							
 						</div>
 					</td>

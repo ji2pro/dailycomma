@@ -1,92 +1,64 @@
-<%@ page import="javax.naming.Context" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@ page import="javax.naming.Context" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
-
 <head>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/include/css/room/bundle.css">
-    <script src="<%=request.getContextPath()%>/resources/include/js/room/detailRooms.js"></script>
-    <script>
+    <link href="<c:url value="/resources/include/css/room/bundle.css" />" rel="stylesheet" type="text/css">
+    <script src="<c:url value="/resources/include/js/room/detailRooms.js" />"></script>
+	<script>
     	var path = "<c:url value='/'/>"
     </script>
-
     <%--<script> $(document).ready(funcion(){
         $('#carousel').carousel,'cycle');
     });
     </script>--%>
-    <style>
-    	.carousel-item {
-    		height: 520px;
-    	}
-    	.image-wrap {
-    		display: block;
-    		height: 520px;
-    	}
-    	
-        textarea:focus {
-            outline: none;
-        }
-
-        .roomtitle {
-            font-size: 28px;
-            color: #333;
-        }
-
-        .color-gradation {
-            background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #dffff5), color-stop(100%, #dfb8ff));
-            color: rgba(97, 99, 98, 0.61);
-        }
-
-        .roomtip {
-            font-size: 14px;
-            margin-top: 10px;
-        }
-    </style>
 </head>
 
 <body>
 <!-- 전체 이미지 -->
-<div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="carousel slide" data-ride="carousel" id="carousel2">
-				<div class="carousel-inner">
-                    <c:forTokens items="${getAllImg}" delims="||" var="img" varStatus="status">
-                        <c:if test="${status.first}">
-                            <div class="carousel-item active">
+<div class="row">
+	<div class="col-md-12">
+		<div class="carousel slide" data-ride="carousel" id="carousel-all">
+			<div class="carousel-inner">
+				<c:forTokens items="${getAllImg}" delims="||" var="img" varStatus="status">
+				<c:if test="${status.first}">
+					<div class="carousel-item active">
 <%--                                 <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/room/${img}'/>"/> --%>
-								<span class="image-wrap" style="background: url('<c:url value="/resources/images/room/${img}"/>') center center / cover no-repeat"></span>
-                            </div>
-                        </c:if>
-                        <c:if test="${!status.first}">
-                            <div class="carousel-item">
+						<span class="image-wrap" style="background: url('<c:url value="/resources/images/room/${img}"/>') center center / cover no-repeat"></span>
+					</div>
+				</c:if>
+				<c:if test="${!status.first}">
+					<div class="carousel-item">
 <%--                                 <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/room/${img}'/>"/> --%>
-								<span class="image-wrap" style="background: url('<c:url value="/resources/images/room/${img}"/>') center center / cover no-repeat"></span>
-                            </div>
-						</c:if>
-                	</c:forTokens>
-                </div>
-                <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span></a>
-                <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next" style="">
-                    <span class="carousel-control-next-icon"></span> </a>
-            </div>
-        </div>
-    </div>
+						<span class="image-wrap" style="background: url('<c:url value="/resources/images/room/${img}"/>') center center / cover no-repeat"></span>
+					</div>
+				</c:if>
+				</c:forTokens>
+			</div>
+			<a class="carousel-control-prev" href="#carousel-all" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</a>
+			<a class="carousel-control-next" href="#carousel-all" role="button" data-slide="next" style="">
+				<span class="carousel-control-next-icon"></span>
+			</a>
+		</div>
+	</div>
 </div>
 
-<!--호텔정보-->
+<!--호텔 정보-->
 <div class="container">
-    <section>
-        <div class="place-detail"><h2 class="detail-info__title">${getDetailRooms[0].company}</h2>
-            <div class="detail-info__address">
-                <div>상세 주소 : ${getDetailRooms[0].address}</div>
-                <div>연락처 : ${getDetailRooms[0].hostPhone}</div>
-                <div>구분 : ${getDetailRooms[0].lodgmentType}</div>
-            </div>
-            <br> 
+	<section>
+		<div class="place-detail">
+			<h2 class="detail-info__title">${getDetailRooms[0].company}</h2>
+			<div class="detail-info__address">
+				<div>상세 주소 : ${getDetailRooms[0].address}</div>
+				<div>연락처 : ${getDetailRooms[0].hostPhone}</div>
+				<div>구분 : ${getDetailRooms[0].lodgmentType}</div>
+			</div>
+			<br> 
             <!-- <div class="detail-info__score"><span class="score-rap"><i
                     class="icon-staylist icon-staylist-score score10"></i><i
                     class="icon-staylist icon-staylist-score score10"></i><i
@@ -157,21 +129,20 @@
             </ul>
             <div class="tab-content mt-2">
                 <div class="tab-pane fade active show" id="tabone" role="tabpanel">
-                    <c:forEach var="list" items="${getDetailRooms}">
-                        <div class="row py-4 border-bottom border-secondary" style="height: 400px; ">
+                    <c:forEach var="list" items="${getDetailRooms}" varStatus="each">
+                        <div class="row py-4 place-room__row">
                             <div class="col">
                                 <div class="place-room__title">
-                                    <em>${list.roomName}</em></div>
-                                    <%--div class="roomtitle">${list.roomName}</div>--%>
+                                    <em>${list.roomName}</em>
+								</div>
                                 <div class="place-room__tip">
-                                    <span>객실 정보 : ${list.roomInfo}</span></div>
-                                    <%-- <div class="roomtip">객실 정보 : ${list.roomInfo}</div>--%>
+                                    <span>객실 정보 : ${list.roomInfo}</span>
+								</div>
                                 <div class="place-room__tip">
-                                    <span>기준 2명 (최대 인원${list.roomQuantity}명)</span>
+                                    <span>기준 2명 (최대 인원 ${list.roomQuantity}명)</span>
                                 </div>
-                                <%--<div class="roomtip">기준2명 (최대인원${list.roomQuantity}명)</div>--%>
                                 <div class="py-2">
-                                    <span class="room-label f-right">숙박 ${list.roomPrice}원</span>
+                                    <span class="room-label f-right">숙박 <fmt:formatNumber value="${list.roomPrice}" pattern="#,###" />원</span>
                                 </div>
                                 
                                 <c:if test="${list.enable == '1'}">
@@ -184,7 +155,7 @@
                             </div>
 
                             <div class="col">
-                                <div class="carousel slide" data-ride="carousel" id="carousel">
+                                <div id="carousel-${each.count}" class="carousel slide carousel-each" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <c:forTokens items="${list.roomImg}" delims="||" var="img" varStatus="status">
                                             <c:if test="${status.first}">
@@ -199,13 +170,13 @@
                                             </c:if>
                                         </c:forTokens>
                                     </div>
-                                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev" style="height:400px;">
+                                    <a class="carousel-control-prev" href="#carousel-${each.count}" role="button" data-slide="prev">
                                         <span class="carousel-control-prev-icon"></span>
-                                        <span class="sr-only">Previous</span>
+                                        <span class="sr-only">이전</span>
                                     </a>
-                                    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next" style="height:400px;">
+                                    <a class="carousel-control-next" href="#carousel-${each.count}" role="button" data-slide="next">
                                         <span class="carousel-control-next-icon"></span>
-                                        <span class="sr-only">Next</span>
+                                        <span class="sr-only">다음</span>
                                     </a>
                                 </div>
                             </div>
