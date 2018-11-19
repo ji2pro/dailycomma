@@ -5,27 +5,85 @@
 <mapper namespace="management">
  
  	<select id="selectReservation" resultType="Management" parameterType="string">
-             
-        select * <!-- reservation.reserve_state, member.member_name, member.member_email -->
-		from reservation, member, room, lodgment
-		where reservation.member_no = member.member_no
-		and room.lodgment_no = reservation.lodgment_no
-		and lodgment.lodgment_no = room.lodgment_no
-		and reservation.room_no = room.room_no
-		and lodgment.lodgment_no = #{value}<!-- #{lodgmentNo}  지금은 값을 직접 LOD1로 지정해뒀으나 나중에 숙박업체 번호 lodgmentNo 변수로 받아와야됨-->
-		order by reservation.reserve_date desc
-
+        SELECT * <!-- reservation.reserve_state, member.member_name, member.member_email -->
+			FROM RESERVATION, MEMBER, ROOM, LODGMENT
+			WHERE RESERVATION.MEMBER_NO = MEMBER.MEMBER_NO
+			AND ROOM.LODGMENT_NO = RESERVATION.LODGMENT_NO
+			AND LODGMENT.LODGMENT_NO = ROOM.LODGMENT_NO
+			AND RESERVATION.ROOM_NO = ROOM.ROOM_NO
+			AND LODGMENT.LODGMENT_NO = #{value}<!-- #{lodgmentNo}  지금은 값을 직접 LOD1로 지정해뒀으나 나중에 숙박업체 번호 lodgmentNo 변수로 받아와야됨-->
+		ORDER BY RESERVATION.RESERVE_DATE DESC
     </select>
-    
-  
-<delete id="deleteReserve" parameterType="string">
-	DELETE FROM RESERVATION
-	WHERE RESERVE_NO IN 
+
+	<!-- 전체 조회 -->
+	<select id="getLodgments" resultType="lodgment" parameterType="lodgmentSearch">
+	SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
+		SELECT LODGMENT_NO, COMPANY, ADDRESS,
+			   LOCATION, LODGMENT_TYPE, LODGMENT_INFO, HOST_NAME,
+			   (SELECT COUNT(*)
+				FROM ROOM
+				WHERE ROOM.LODGMENT_NO = LODGMENT.LODGMENT_NO)
+				AS roomCnt
+			FROM LODGMENT
+		<where>
+			<if test="ids != null">
+				HOST_ID IN
+				<foreach collection="ids" open="(" close=")" separator="," item="item">
+					#{item}
+				</foreach>
+			</if>
+
+			<if test="searchCondition == 'lodgmentNo'">
+				AND LODGMENT_NO LIKE '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="searchCondition == 'hostId'">
+				AND HOST_ID LIKE '%' || #{searchKeyword} || '%'
+			</if>		
+			<if test="searchCondition == 'company'">
+				AND COMPANY LIKE '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="searchCondition == 'location'">
+				AND LOCATION LIKE '%' || #{searchKeyword} || '%'		
+			</if>
+		</where>
+		ORDER BY
+		<choose>
+			<when test="sort != null and sort != ''">
+				#{sort}
+			</when>
+			<otherwise>
+				LODGMENT_NO
+			</otherwise>
+		</choose>
+	) U ) A WHERE RN BETWEEN #{start} and #{end}
+	</select>
+	
+	<!-- 페이징 처리에 필요. 검색 조건에 대한 Cnt 조회 -->
+	<select id="getLodgmentCnt" resultType="int" parameterType="lodgmentSearch">
+		SELECT COUNT(*)
+			FROM LODGMENT
+		<where>
+			<if test="ids != null">
+				LODGMENT_NO IN
+				<foreach collection="ids" open="(" close=")" separator="," item="item">
+					#{item}
+				</foreach>
+			</if>
+			<if test="searchCondition == 'company'">
+				AND COMPANY LIKE '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="searchCondition == 'location'">
+				AND LOCATION LIKE '%' || #{searchKeyword} || '%'		
+			</if>
+		</where>
+	</select>
+
+	<delete id="deleteReserve" parameterType="string">
+		DELETE FROM RESERVATION
+		WHERE RESERVE_NO IN 
 		<foreach collection="array" item="item" index="index" separator="," open="(" close=")">
 		    '${array[index]}'
 		</foreach>
-</delete>
+	</delete>
 
 </mapper>
-
-
