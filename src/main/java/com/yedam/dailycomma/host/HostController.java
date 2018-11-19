@@ -25,6 +25,6 @@ public class HostController {
 	public String insertHost(Model model, HostDTO dto) {		
 		model.addAttribute("lodgment", hostService.insertHost(dto));
 		//return "redirect:/getUsers.do";
-		return "home/home";
+		return "redirect:/";
 	}
 }

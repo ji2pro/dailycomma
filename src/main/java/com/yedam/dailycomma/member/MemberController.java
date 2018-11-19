@@ -18,6 +18,6 @@ public class MemberController {
 	@RequestMapping("/insertMember.do")
         public String insertMember(Model model, MemberDTO dto) {
             model.addAttribute("member", memberService.insertMember(dto));
-            return "home/home";
+            return "redirect:/";
 	}
 }

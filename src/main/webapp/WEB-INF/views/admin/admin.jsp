@@ -4,6 +4,9 @@
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 <script src="<%=request.getContextPath()%>/resources/include/js/admin/admin.js"></script>
 <link href="<%=request.getContextPath()%>/resources/include/css/admin.css" rel="stylesheet" type="text/css" />
+<script>
+    var path = "<c:url value='/'/>"
+</script>
 
 <div class="container-fluid">
 	<div class="row">
@@ -15,28 +18,28 @@
 		<div class="col-md-9">
 			<ul class="nav nav-tabs mb-3" id="adminTabs" role="tablist">
 				<li class="nav-item">
-					<a class="nav-link" id="memberTab" href="./member"
+					<a class="nav-link" id="memberTab" href="<c:url value='/member'/>"
 					   aria-controls="memberAdmin" aria-selected="true"
 					   data-target="#memberAdmin" data-toggle="tab" role="tab"
 					 >회원 관리</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="hostTab" href="./host"
+					<a class="nav-link" id="hostTab" href="<c:url value='/host'/>"
 					   aria-controls="hostAdmin" aria-selected="false"
 					   data-target="#hostAdmin" data-toggle="tab" role="tab">업주 관리</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="lodgmentTab" href="./lodgment"
+					<a class="nav-link" id="lodgmentTab" href="<c:url value='/lodgment'/>"
 					   aria-controls="lodgmentAdmin" aria-selected="false"
 					   data-target="#lodgmentAdmin" data-toggle="tab" role="tab">숙소 관리</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="reservationTab" href="./reservation"
+					<a class="nav-link" id="reservationTab" href="<c:url value='/reservation'/>"
 					   aria-controls="reservationAdmin" aria-selected="false"
 					   data-target="#reservationAdmin" data-toggle="tab" role="tab">예약 내역</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="tourTab" href="./tour"
+					<a class="nav-link" id="tourTab" href="<c:url value='/tour'/>"
 					   aria-controls="tourAdmin" aria-selected="false"
 					   data-target="#tourAdmin" data-toggle="tab" role="tab">캐스트 관리</a>
 				</li>

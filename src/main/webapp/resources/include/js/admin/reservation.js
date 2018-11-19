@@ -35,7 +35,7 @@ $(document).ready(function(){
 		}
 		
 	    $.ajax({
-	        url:"./deleteReserves.ajax",
+	        url:path+"deleteReserves.ajax",
 	        data : JSON.stringify(checkbox),
 	        contentType: 'application/json; charset=utf-8',
 	        type: "DELETE",
@@ -96,7 +96,7 @@ function go_page(p) {
 	$('input[name="page"]:hidden').val(p);
 	
     $.ajax({
-        url:"./reservation.ajax",
+        url:path+"reservation.ajax",
         data :$('#reservationPagingForm').serialize(),
         type: "GET",
         dataType: "json",
@@ -178,7 +178,7 @@ $('body').off().on('click', '#btnDelete', function() {
 	var p = $('input[name="page"]:hidden').val();
 	if(confirmReservation) {
 		$.ajax({
-			url: 'reservation/' + reserveNo,
+			url: path+'reservation/' + reserveNo,
 			type: 'DELETE',
 			contentType: 'application/json; charset=utf-8',
 			dataType: 'json',

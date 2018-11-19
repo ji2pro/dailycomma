@@ -60,7 +60,7 @@ function checkWithdraw(state){
 	var p =$('input[name="page"]:hidden').val();
 	
 	$.ajax({
-        url:"./memberWithdraw.ajax",
+        url:path+"memberWithdraw.ajax",
         data :{memberWithdraw : state},
         type: "GET",
         dataType: "json",
@@ -99,7 +99,7 @@ $(document).ready(function(){
 		
 		
 	    $.ajax({
-	        url:"./deleteMembers.ajax",
+	        url:path+"deleteMembers.ajax",
 	        data : JSON.stringify(checkbox),
 	        contentType: 'application/json; charset=utf-8',
 	        type: "DELETE",
@@ -135,7 +135,7 @@ function go_page(p) {
 	$('input[name="page"]:hidden').val(p);
 	
     $.ajax({
-        url:"./member.ajax",
+        url:path+"member.ajax",
         data :$('#memberPagingForm').serialize(),
         type: "GET",
         dataType: "json",
@@ -214,7 +214,7 @@ $('body').off().on('click', '#btnDelete', function() {
 	
 	if(confirmMember) {
 		$.ajax({
-			url: 'member/' + memberNo,
+			url: path + 'member/' + memberNo,
 			type: 'DELETE',
 			contentType: 'application/json; charset=utf-8',
 			dataType: 'json',

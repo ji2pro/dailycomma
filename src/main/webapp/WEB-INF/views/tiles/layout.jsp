@@ -55,20 +55,39 @@
 	        </ul> -->
 	        <ul class="navbar-nav ml-auto">
 	            <!-- <li class="nav-item"><a class="nav-link" href="#">예약 내역</a></li> -->
+                <c:if test="${sessionScope.type == 'member' }">
+                    ${sessionScope.login.memberNick}님
+                </c:if>
+
+                <c:if test="${sessionScope.type == 'host' }">
+                    ${sessionScope.login.hostName}사장님
+                </c:if>
+
+                <c:if test="${sessionScope.type == 'admin' }">
+                    관리자님
+                </c:if>
+
             	<c:if test="${sessionScope.login eq null }">
             		<li class="nav-item"><a class="nav-link" href="<c:url value="/signupChoice.do"/>">회원 가입</a></li>
             	</c:if>
+
+                <c:if test="${sessionScope.admin ne null }">
+                    <li class="nav-item"><a class="nav-link" href="<c:url value="/admin"/>">관리자페이지</a></li>
+                </c:if>
+
                 <c:if test="${sessionScope.login ne null }">
                     <li class="nav-item"><a class="nav-link" href="<c:url value="/castListForm.do"/>">캐스트</a></li>
                 </c:if>
-            	<c:if test="${sessionScope.login ne null and sessionScope.type == 'member'}">
+
+            	<c:if test="${sessionScope.login ne null and sessionScope.type == 'member' and empty sessionScope.admin}">
+                    <li class="nav-item"><a class="nav-link" href="<c:url value="/registerCastForm.do"/>">캐스트등록</a></li>
             		<li class="nav-item"><a class="nav-link" href="<c:url value="/myPage.do"/>">마이페이지</a></li>
             	</c:if>
+
             	 <c:if test="${sessionScope.login ne null and sessionScope.type == 'host'}">
+                     <li class="nav-item"><a class="nav-link" href="<c:url value="/insertRoomForm.do"/>">숙소등록</a></li>
             		<li class="nav-item"><a class="nav-link" href="<c:url value="/managementList.do"/>">점주페이지</a></li>
             	</c:if>
-            	
-            	
        			<c:if test="${sessionScope.login eq null }">
 	            	<!-- <li class="nav-item"><a class="nav-link" href="<c:url value="/loginChoice.do"/>">로그인</a></li>-->
 	        		<li class="nav-item"><a class="nav-link" href="#" onclick="setCookie(30)">로그인</a></li>

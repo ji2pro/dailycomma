@@ -38,6 +38,10 @@ public class LoginController {
 		} else {
 			session.setAttribute("login", memberDTO);
 			session.setAttribute("type", "member");
+
+			if(dto.getMemberEmail().equals("admin@admin.com"))
+                session.setAttribute("admin", "admin");
+
 			return "redirect:/"+url;
 		}
 	}
