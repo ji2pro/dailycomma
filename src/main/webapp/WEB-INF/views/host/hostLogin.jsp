@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link href="<c:url value="/resources/include/css/user/user.css"/>" rel="stylesheet">
 
-<div class="container py-5 mb-5">
+<div class="container py-5 mb-5" style="min-height: 600px;">
 	<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 		<h1 class="display-5">업주 로그인</h1>
 	</div>
