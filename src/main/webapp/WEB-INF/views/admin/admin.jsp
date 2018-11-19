@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
-<script src="<%=request.getContextPath()%>/resources/include/js/admin/admin.js"></script>
-<link href="<%=request.getContextPath()%>/resources/include/css/admin.css" rel="stylesheet" type="text/css" />
+<script src="<c:url value="/resources/include/js/admin/admin.js" />"></script>
+<link href="<c:url value="/resources/include/css/admin.css" />" rel="stylesheet" type="text/css" />
 
 <div class="container-fluid">
 	<div class="row">
