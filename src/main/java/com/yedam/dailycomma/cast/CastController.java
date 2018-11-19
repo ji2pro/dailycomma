@@ -19,10 +19,13 @@ public class CastController {
     /*캐스트 상세 페이지 값 가져오기*/
     @RequestMapping(value = "/detailCast/{tourId}")
     public String detailCast(@PathVariable String tourId, HttpSession session, Model model) {
-        MemberDTO memberDTO = (MemberDTO) session.getAttribute("login");
         CastDTO castDTO = new CastDTO();
-        //memberDTO.getMemberNo();
-        castDTO.setMemberNo(memberDTO.getMemberNo());
+
+        if("member".equals((String)(session.getAttribute("type")))) {
+            MemberDTO memberDTO = (MemberDTO) session.getAttribute("login");
+            castDTO.setMemberNo(memberDTO.getMemberNo());
+        }
+
         castDTO.setTourId(tourId);
 
         model.addAttribute("getDetailCast", castService.getDetailCast(castDTO));
@@ -85,10 +88,9 @@ public class CastController {
 
     @RequestMapping(value = "/detailCastPostPage")
     @ResponseBody
-    public CastDTO detailCastPostPage(){
+    public CastDTO detailCastPostPage(CastDTO dto){
 
-        CastDTO castDTO = new CastDTO();
-        castDTO = castService.detailCastPostPage();
+        CastDTO castDTO = castService.detailCastPostPage(dto);
 
         int countList = 5;
 

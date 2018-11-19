@@ -3,8 +3,11 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="detailCast">
     <select id="getDetailCast" resultType="cast" parameterType="cast">
-        select tour.*,(select count(*) from TOUR_LIKE
+        select tour.*,
+        <if test="memberNo != null">
+            (select count(*) from TOUR_LIKE
         where MEMBER_NO = #{memberNo} and  TOUR_ID = #{tourId}) likeYN ,
+        </if>
           (select count(*) from TOUR_LIKE
         where TOUR_ID = #{tourId}) totalLike from TOUR where TOUR_ID = #{tourId}
     </select>
@@ -34,7 +37,7 @@
     </select>
 
     <select id="detailCastPostPage" resultType="cast">
-        select count(*) total_count from COMMENTS
+        select count(*) total_count from COMMENTS where TOUR_ID=#{tourId}
     </select>
 
     <insert id="detailCastPostInput" parameterType="cast">

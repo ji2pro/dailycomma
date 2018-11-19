@@ -11,6 +11,7 @@
 <script src="<%=request.getContextPath()%>/resources/include/js/cast/detailCast.js"></script>
 <script>
     var path = "<c:url value='/'/>"
+    var tourId = "${getDetailCast.tourId}";
 </script>
 <body>
 <div class="container-fluid">
@@ -21,11 +22,13 @@
                 <div id="side_menu" class="side_menu">
                     <%--오른쪽 버튼--%>
                     <ul class="right">
+                        <c:if test="${! empty getDetailCast.likeyn}">
                         <li name="btnLike">
                             <a href="#none" class="likey" id="${getDetailCast.tourId}">
                                 <span class="a${getDetailCast.likeyn}"></span>
                             </a>
                         </li>
+                        </c:if>
                         <li class="mg_top" id="likey"><a href="#"><span class="bl_top"></span></a></li>
                     </ul>
                 </div>
@@ -69,6 +72,7 @@
                             </a>&nbsp;
                         </p>
                         <%--아랫쪽 버튼--%>
+                        <c:if test="${! empty getDetailCast.likeyn }">
                         <div class="bt_rap">
                             <div class="bt_detail">
                                 <ul>
@@ -82,6 +86,7 @@
                                 </ul>
                             </div>
                         </div>
+                        </c:if>
                     </div>
                 </div>
             </div>
