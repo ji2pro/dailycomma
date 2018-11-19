@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500&subset=korean');
 * {font-family: 'Noto Sans KR', sans-serif;}
-body {word-break: break-all; font-size: 16px; line-height: 1.5;}
+body {
+	word-break: break-all; font-size: 16px; line-height: 1.5;
+	position: relative;
+	padding-bottom: 250px; /* footer height */
+}
 div {margin: 0; padding: 0;}
 a, a:hover {text-decoration: none;}
 ::selection {background: #A649E9; color: white;}
-#wrapper {margin-top: 60px; min-width: 1200px;}
+#wrapper {
+	margin-top: 60px; min-width: 1200px;
+}
 .btn {border-radius: 0;}
 .btn-primary {background: #32BBF1; border-color: #32BBF1;}
 .btn-primary:hover {background: #268eb7; border-color: #268eb7;}
@@ -39,13 +45,14 @@ em {font-style: normal;}
   line-height: 44px;
 }
 .footer {
+	position: absolute;
+	bottom: 0;
 	min-width: 1200px;
 	width: 100%;
 	height: 250px; 
 	padding: 2em 0;
 	color: white;
 	text-align: center;
-	vertical-align: middle;
 	box-shadow: 0px -1px 10px 1px rgba(0, 0, 0, 0.2);
 }
 #clock {

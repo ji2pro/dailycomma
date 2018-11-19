@@ -5,7 +5,7 @@
 <script src="http://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false"></script>
 <link href="<c:url value="/resources/include/css/user/user.css"/>" rel="stylesheet">
 
-<div class="container py-5">
+<div class="container py-5 mb-5">
 	<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 		<h1 class="display-5">업주 회원 가입</h1>
 		<p class="lead">

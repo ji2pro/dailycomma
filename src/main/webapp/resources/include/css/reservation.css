@@ -29,7 +29,7 @@
 	color: white;
 }
 .sidebar-bottom {
-	height: 290px;
+	height: 220px;
 	margin-top: 15px;
 }
 .sidebar-bottom .info-box {
@@ -66,20 +66,19 @@
 }
 .total-payment {
 	border-top: 1px solid #fff;
-	color: #42adff;
+	color: #32BBF1;
 	padding-top: 20px;
 }
-.total-payment span:first-child {font-size: 18px;}
+.total-payment span:first-child {font-size: 18px; vertical-align: middle;}
 .total-payment span:last-child {font-size: 28px;}
 .place-room__title em {font-size: 36px; font-weight: 200;}
 .badge-rap em {font-size: 16px; font-weight: 200;}
 span.mr-auto, em.mr-auto {text-align: left;}
 span.ml-auto, em.ml-auto {text-align: right;}
 .btn-payment {
-	background: -webkit-gradient(linear,left top,right bottom,color-stop(0,#42adff),color-stop(100%,#2d50ff));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#42adff",endColorstr="#2d50ff",GradientType=0);
+	background: -webkit-gradient(linear,left top,right bottom,color-stop(0,#32BBF1),color-stop(100%,#A649E9));
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     width: 100%;
     height: 60px;
 }
