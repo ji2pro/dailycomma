@@ -94,13 +94,13 @@
 	<!-- 수정 -->
 	<update id="updateMember" parameterType="member">
 		UPDATE MEMBER <set>
-						  <if test="memberPw!=null and memberPw!=''">MEMBER_PW = #{memberPw},</if>
-						  <if test="memberNick!=null and memberNick!=''">MEMBER_NICK = #{memberNick},</if>
-						  <if test="memberImg!=null and memberImg!=''">MEMBER_IMG = #{memberImg},</if>
-						  <if test="memberIntro!=null and memberIntro!=''">MEMBER_INTRO = #{memberIntro}</if>
+						  <if test="memberPw != null and memberPw !=''">MEMBER_PW = #{memberPw},</if>
+						  <if test="memberNick != null and memberNick !=''">MEMBER_NICK = #{memberNick},</if>
+						  <if test="memberImg != null and memberImg !=''">MEMBER_IMG = #{memberImg},</if>
+						  <if test="memberIntro != null and memberIntro !=''">MEMBER_INTRO = #{memberIntro}</if>
 					 	  <if test="memberWithdraw != null and memberWithdraw != ''">MEMBER_WITHDRAW = #{memberWithdraw}</if> 
 					  </set>		  
-		WHERE MEMBER_NO = #{memberNo}
+		WHERE MEMBER_EMAIL = #{memberEmail}
 	</update>
 	
 	
