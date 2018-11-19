@@ -35,7 +35,7 @@
                         <p id="jsonTitle">인생샷착즙기 반짝뽕쨕 빛축제7${getDetailCast.tourId}//${getDetailCast.likeyn}</p>
                         <div class="count">
                             <span class="day" id="jsonRegisterdDate">2018-09-27 18:15:24</span>
-                            <span style="color:red; margin-left:20px;" class="fas fa-heart"></span><b
+                            <span style="color:red; margin-left:20px;" class="fa fa-heart"></span><b
                                 name="jsonLikeCount">5</b>
                             <span class="ico_read"></span>
                             <span class="fas fa-glasses"></span>
