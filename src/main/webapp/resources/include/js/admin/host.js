@@ -5,6 +5,12 @@
 
 $(function(){
 	createHostDropdown();
+	
+	$('#HostSearchBtn').click(function(){
+		var txt = $('#inlineFormInputGroup').val();
+		$('input[name="searchKeyword"]:hidden').val(txt);
+		go_page(1);
+	});
 });
 
 function checkHost(state,lodgmentNo){
@@ -38,15 +44,30 @@ function checkHost(state,lodgmentNo){
 
 function createHostDropdown(){
 	$('#sortdown').empty();
-	var button = "<button type='button' class='dropdown-item' onclick='searchHost(\"B1\")'>승인</button>"
-				+"<button type='button' class='dropdown-item' onclick='searchHost(\"B2\")'>미승인</button>"
-				+"<button type='button' class='dropdown-item' onclick='searchHost(\"B3\")'>대기</button>";	
+	var button = "<button type='button' class='dropdown-item' onclick='sortHost(\"B1\")'>승인</button>"
+				+"<button type='button' class='dropdown-item' onclick='sortHost(\"B2\")'>미승인</button>"
+				+"<button type='button' class='dropdown-item' onclick='sortHost(\"B3\")'>대기</button>";	
 				
-	$('#sortdown').find('.dropdown-menu').append(button);			
+	$('#sortdown').append(button);
+	
+	button="";
+	
+	$('#searchdown').empty();
+	button = "<button type='button' class='dropdown-item' onclick='searchHost(\"hostName\")'>회원번호</button>"
+			+"<button type='button' class='dropdown-item' onclick='searchHost(\"company\")'>이름</button>"
+			+"<button type='button' class='dropdown-item' onclick='searchHost(\"businessNo\")'>닉네임</button>";
+	$('#searchdown').append(button);
+
+	$('.searchBtn').attr("id","HostSearchBtn");		
 }
 
 
-function searchHost(state){
+function searchHost(condition){
+	$('input[name="searchCondition"]:hidden').val(condition);
+}
+
+
+function sortHost(state){
 	if(state == 'B1')
 		$('#dropdownMenuButton').text('승인');
 	else if(state == 'B2')

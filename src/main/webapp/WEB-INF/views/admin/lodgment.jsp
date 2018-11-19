@@ -7,6 +7,9 @@
 <form name="lodgmentPagingForm" id="lodgmentPagingForm">
 	<input type="hidden" name="page" value="1">
 	<input type="hidden" name="sort" value="lodgment_no">
+
+	<input type="hidden" name="searchCondition" value="">
+	<input type="hidden" name="searchKeyword" value="">
 </form>
 <!-- 업체(숙소) 관리 -->
 <div class="row">

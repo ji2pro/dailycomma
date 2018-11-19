@@ -8,6 +8,9 @@
 <form name="reservationPagingForm" id="reservationPagingForm">
 	<input type="hidden" name="page" value="1">
 	<input type="hidden" name="sort" value="reserve_no">
+
+	<input type="hidden" name="searchCondition" value="">
+	<input type="hidden" name="searchKeyword" value="">
 </form>
 <!-- 예약 내역 -->
 <div class="row">
@@ -52,6 +55,12 @@
 					<fmt:parseNumber value="${checkoutDate - checkinDate}" var="totalDate" integerOnly="true"/>
 					
 				<tr class="text-center">
+					<td scope="row">
+						<label class="custom-control custom-checkbox">
+							<input type="checkbox" name="_selected_" value="${lodgment.lodgmentNo}" class="custom-control-input">
+							<span class="custom-control-indicator"></span>
+						</label>
+					</td>
 					<td>${reservation.reserveNo}</td>
 					<td>${reservation.memberName}</td>
 					<td>${reservation.memberEmail}</td>

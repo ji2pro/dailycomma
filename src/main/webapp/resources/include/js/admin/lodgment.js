@@ -4,6 +4,13 @@
 
 $(function() {
 	$("input[type=checkbox]").prop("checked",false);
+	
+	createLodgmentDropdown();
+	$('#LodgmentSearchBtn').click(function(){
+		var txt = $('#inlineFormInputGroup').val();
+		$('input[name="searchKeyword"]:hidden').val(txt);
+		go_page(1);
+	});
 });
 
 $(document).ready(function(){
@@ -49,17 +56,32 @@ $(document).ready(function(){
 
 });
 
+function createLodgmentDropdown(){
+	$('#sortdown').empty();
+	var button = "<button type='button' class='dropdown-item' onclick='sortHost(\"B1\")'>승인</button>"
+				+"<button type='button' class='dropdown-item' onclick='sortHost(\"B2\")'>미승인</button>"
+				+"<button type='button' class='dropdown-item' onclick='sortHost(\"B3\")'>대기</button>";	
+				
+	$('#sortdown').append(button);
+	
+	button="";
+	
+	$('#searchdown').empty();
+	button = "<button type='button' class='dropdown-item' onclick='searchLodgment(\"lodgmentNo\")'>업체번호</button>"
+			+"<button type='button' class='dropdown-item' onclick='searchLodgment(\"company\")'>업체이름</button>";
+	$('#searchdown').append(button);
+
+	$('.searchBtn').attr("id","LodgmentSearchBtn");		
+}
+
+function searchLodgment(condition){
+	$('input[name="searchCondition"]:hidden').val(condition);
+}
+
 
 //페이징 처리
 function go_page(p) {
-/*	console.log("p====="+p);
-	var param;
-	if(document.lodgmentPagingForm) {
-		document.lodgmentPagingForm.page.value = p;
-		param = $('#lodgmentPagingForm').serialize();
-	} else {
-		param = {page: 1, sort: 'lodgment_no'}
-	}*/
+
 	$('input[name="page"]:hidden').val(p);
     $.ajax({
         url:"./lodgment.ajax",

@@ -36,4 +36,8 @@ public class TourDAO {
 	public int unapproveTour(TourSearchDTO dto) {
 		return mybatis.update("tour.unapproveTour", dto);
 	}
+	public List<TourDTO> getCasts(TourDTO dto) {
+		return mybatis.selectList("tour.getCasts",dto);
+	}	
+	
 }

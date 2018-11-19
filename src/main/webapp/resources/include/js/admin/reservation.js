@@ -3,8 +3,8 @@
  */
 
 $(function() {
-	go_page(1);
-	
+
+	createReserveDropdown();
 	$("input[type=checkbox]").prop("checked",false);
 });
 
@@ -50,6 +50,31 @@ $(document).ready(function(){
 	});
 
 });
+
+
+function createReserveDropdown(){
+	$('#sortdown').empty();
+	var button = "<button type='button' class='dropdown-item' onclick='sortHost(\"B1\")'>승인</button>"
+				+"<button type='button' class='dropdown-item' onclick='sortHost(\"B2\")'>미승인</button>"
+				+"<button type='button' class='dropdown-item' onclick='sortHost(\"B3\")'>대기</button>";	
+				
+	$('#sortdown').append(button);
+	
+	button="";
+	
+	$('#searchdown').empty();
+	button = "<button type='button' class='dropdown-item' onclick='searchReserve(\"reserveNo\")'>예약번호</button>"
+			+"<button type='button' class='dropdown-item' onclick='searchReserve(\"memberName\")'>이름</button>"
+			+"<button type='button' class='dropdown-item' onclick='searchReserve(\"memberEmail\")'>이메일</button>";
+	$('#searchdown').append(button);
+
+	$('.searchBtn').attr("id","ReserveSearchBtn");		
+}
+
+function searchReserve(condition){
+	$('input[name="searchCondition"]:hidden').val(condition);
+}
+
 
 //페이징 처리
 function go_page(p) {

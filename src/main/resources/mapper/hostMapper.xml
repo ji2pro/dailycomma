@@ -20,8 +20,8 @@
 			<if test="lodgmentState != null and lodgmentState != ''">
 				LODGMENT_STATE = #{lodgmentState}
 			</if>  
-			<if test="searchCondition == 'hostId'">
-				AND HOST_ID LIKE '%' || #{searchKeyword} || '%'
+			<if test="searchCondition == 'hostName'">
+				AND HOST_NAME LIKE '%' || #{searchKeyword} || '%'
 			</if>
 			<if test="searchCondition == 'company'">
 				AND COMPANY LIKE '%' || #{searchKeyword} || '%'		

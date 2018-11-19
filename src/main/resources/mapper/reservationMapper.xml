@@ -43,10 +43,21 @@
 					#{item}
 				</foreach>
 			</if>
-			<if test="searchCondition == 'reserve_no'">
+
+			<if test="searchCondition == 'memberName'">
+				AND #{searchKeyword} IN (SELECT MEMBER_NAME FROM MEMBER 
+                   						 WHERE RESERVATION.MEMBER_NO = MEMBER.MEMBER_NO)
+			</if>
+			
+			<if test="searchCondition == 'memberEmail'">
+				AND #{searchKeyword} IN (SELECT MEMBER_EMAIL FROM MEMBER 
+                   						 WHERE RESERVATION.MEMBER_NO = MEMBER.MEMBER_NO)
+			</if>
+			
+			<if test="searchCondition == 'reserveNo'">
 				AND RESERVE_NO LIKE '%' || #{searchKeyword} || '%'
 			</if>
-			<if test="searchCondition == 'room_no'">
+			<if test="searchCondition == 'roomNo'">
 				AND ROOM_NO LIKE '%' || #{searchKeyword} || '%'		
 			</if>
 <!-- 			<if test="role != null and role != ''">

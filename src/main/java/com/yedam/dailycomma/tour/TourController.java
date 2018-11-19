@@ -20,11 +20,11 @@ public class TourController {
 	@Autowired
 	TourService tourService;
 	
-	@RequestMapping("/getTours.do")
+	@RequestMapping("/getCasts.do")
 	@ResponseBody
 	public List<TourDTO> getTours(TourDTO dto) {
 		//TourSearchDTO dto = new TourSearchDTO();
-		return tourService.getTours(dto);		
+		return tourService.getCasts(dto);		
 	}
 	
 	
