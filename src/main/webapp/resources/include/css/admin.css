@@ -2,13 +2,13 @@
 * 관리자 페이지
 */
 
-a {color: #d728ff;}
-a:hover {color: #9a00b2;}
+a {color: #32BBF1;}
+a:hover {color: #0e94c7;}
 .table {
 	font-size: 0.9rem;
 }
 .table .thead-light th {
-	background-color: #FCEDFF;
+	background-color: #c8f1fd;
 	border-color: #dfd9e0;
 }
 .table th, .table td {
@@ -55,16 +55,26 @@ a:hover {color: #9a00b2;}
 }
 .custom-checkbox .custom-control-input:checked ~
 	.custom-control-indicator {
-	background-color: #c156f5;
+	background-color: #32BBF1;
 	background-image: none;
 	box-shadow: none !important;
 }
 .custom-checkbox .custom-control-input:checked ~
 	.custom-control-indicator:after {
-	background-color: #f4e2fc;
+	background-color: #dbf3fd;
 	left: 15px;
 }
 .custom-checkbox .custom-control-input:focus ~ .custom-control-indicator
 	{
 	box-shadow: none !important;
+}
+.page-link {
+	color: #A649E9;
+}
+.page-link:hover {
+	color: #64139f;
+}
+.page-item.active .page-link {
+	background-color: #A649E9;
+	border-color: #A649E9;
 }
