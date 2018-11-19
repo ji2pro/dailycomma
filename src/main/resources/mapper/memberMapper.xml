@@ -91,9 +91,11 @@
 						  <if test="memberNick!=null and memberNick!=''">MEMBER_NICK = #{memberNick},</if>
 						  <if test="memberImg!=null and memberImg!=''">MEMBER_IMG = #{memberImg},</if>
 						  <if test="memberIntro!=null and memberIntro!=''">MEMBER_INTRO = #{memberIntro}</if>
+					 	  <if test="memberWithdraw != null and memberWithdraw != ''">MEMBER_WITHDRAW = #{memberWithdraw}</if> 
 					  </set>		  
-		WHERE MEMBER_EMAIL = #{memberEmail}
+		WHERE MEMBER_NO = #{memberNo}
 	</update>
+	
 	
 	<!-- 삭제 -->
 	<delete id="deleteMember" parameterType="member">

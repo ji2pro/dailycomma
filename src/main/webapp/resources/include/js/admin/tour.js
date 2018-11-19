@@ -5,6 +5,12 @@
 $(function() {
 	createTourDropdown();
 	$("input[type=checkbox]").prop("checked",false);
+
+	$('#tourSearchBtn').click(function(){
+		var txt = $('#inlineFormInputGroup').val();
+		$('input[name="searchKeyword"]:hidden').val(txt);
+		go_page(1);
+	});
 });
 
 function checkTour(state,tourId){
@@ -37,26 +43,46 @@ function checkTour(state,tourId){
 }
 
 
-
 function createTourDropdown(){
 	$('#sortdown').empty();
-	var button = "<button type='button' class='dropdown-item' onclick='searchTour(\"B1\")'>승인</button>"
-				+"<button type='button' class='dropdown-item' onclick='searchTour(\"B2\")'>미승인</button>"
-				+"<button type='button' class='dropdown-item' onclick='searchTour(\"B3\")'>대기</button>";	
+	var button = "<button type='button' class='dropdown-item' onclick='sortTour(\"B1\")'>승인</button>"
+				+"<button type='button' class='dropdown-item' onclick='sortTour(\"B2\")'>미승인</button>"
+				+"<button type='button' class='dropdown-item' onclick='sortTour(\"B3\")'>대기</button>";	
 				
-	$('#sortdown').find('.dropdown-menu').append(button);		
+	$('#sortdown').append(button);
+	button="";
+	
+	$('#searchdown').empty();
+	button = "<button type='button' class='dropdown-item' onclick='searchTour(\"tourId\")'>캐스트ID</button>"
+			+"<button type='button' class='dropdown-item' onclick='searchTour(\"tourTitle\")'>제목</button>"
+			+"<button type='button' class='dropdown-item' onclick='searchTour(\"memberName\")'>작성자</button>";
+	$('#searchdown').append(button);
+
+	$('.searchBtn').attr("id","tourSearchBtn");	
 }
 
-function searchTour(state){
+function sortTour(state){
 	if(state == 'B1')
-		$('#dropdownMenuButton').text('승인');
+		$('.sortStandard').text('승인');
 	else if(state == 'B2')
-		$('#dropdownMenuButton').text('미승인');
+		$('.sortStandard').text('미승인');
 	else
-		$('#dropdownMenuButton').text('대기');
+		$('.sortStandard').text('대기');
 	
 	$("input[name='tourState']:hidden").val(state);
 	go_page(1);
+}
+
+function searchTour(condition){
+	$('input[name="searchCondition"]:hidden').val(condition);
+	
+	if(condition == 'tourId')
+		$('.searchStandard').text('캐스트ID');
+	else if(condition == 'tourTitle')
+		$('.searchStandard').text('제목');
+	else
+		$('.searchStandard').text('작성자');
+	
 }
 //체크박스 삭제
 $(document).ready(function(){

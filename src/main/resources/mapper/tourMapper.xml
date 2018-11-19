@@ -27,6 +27,14 @@
 			<if test="searchCondition == 'tourId'">
 				AND TOUR_ID LIKE '%' || #{searchKeyword} || '%'
 			</if>
+			<if test="searchCondition == 'tourTitle'">
+				AND TOUR_TITLE LIKE '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="searchCondition == 'memberName'">
+				AND #{searchKeyword} IN (SELECT MEMBER_NAME
+			   							 FROM MEMBER
+			   							 WHERE MEMBER.MEMBER_NO = TOUR.MEMBER_NO)
+			</if>			
 			<if test="searchCondition == 'tourLocation'">
 				AND TOUR_LOCATION LIKE '%' || #{searchKeyword} || '%'		
 			</if>

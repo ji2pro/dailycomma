@@ -76,6 +76,11 @@ function createLodgmentDropdown(){
 
 function searchLodgment(condition){
 	$('input[name="searchCondition"]:hidden').val(condition);
+
+	if(condition == 'lodgmentNo')
+		$('.searchStandard').text('업체번호');
+	else
+		$('.searchStandard').text('업체이름');
 }
 
 

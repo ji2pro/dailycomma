@@ -61,7 +61,8 @@ public class MyPageController {
 	
 	@RequestMapping(value = "updateMember.do", method = RequestMethod.POST)
 	public String updateMember(Model model, MemberDTO dto, HttpSession session) throws IOException{
-		dto.setMemberEmail(((MemberDTO)(session.getAttribute("login"))).getMemberEmail());
+		dto.setMemberNo(((MemberDTO)(session.getAttribute("login"))).getMemberNo());
+		//dto.setMemberEmail(((MemberDTO)(session.getAttribute("login"))).getMemberEmail());
 		MultipartFile uploadFile = dto.getUploadFile();
 		String filename = uploadFile.getOriginalFilename();
 		String folder = session.getServletContext().getRealPath("/resources/images/myPage");

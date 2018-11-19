@@ -37,7 +37,45 @@ function createMemberDropdown(){
 
 function searchMember(condition){
 	$('input[name="searchCondition"]:hidden').val(condition);
+
+	if(condition == 'memberNo')
+		$('.searchStandard').text('회원번호');
+	else if(condition == 'memberName')
+		$('.searchStandard').text('이름');
+	else if(condition == 'memberNick')
+		$('.searchStandard').text('닉네임');
+	else
+		$('.searchStandard').text('이메일');
 }
+
+function checkWithdraw(state){
+	
+    if(state == 'F1'){
+    	if(confirm("회원복구를 하시겠습니까?") == false) return;
+    }
+    else{
+    	if(confirm("회원정지를 시키겠습니까?") == false) return;
+    }
+    
+	var p =$('input[name="page"]:hidden').val();
+	
+	$.ajax({
+        url:"./memberWithdraw.ajax",
+        data :{memberWithdraw : state},
+        type: "GET",
+        dataType: "json",
+    	error: function(xhr, status, msg) {
+			console.log('상태값 : ' + status + ', Http에러메시지 : ' + msg);
+		},
+		success: function(xhr) {
+			console.log(xhr.result);
+			alert('완료되었습니다.');
+			
+			go_page(p);
+		}
+   });
+}
+
 
 $(document).ready(function(){
 	

@@ -34,5 +34,5 @@ public class MemberDAOMybatis {
 	public MemberDTO getMember(MemberDTO dto) {
 		return mybatis.selectOne("login.getMember", dto);
 	}
-
+	
 }

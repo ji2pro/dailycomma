@@ -9,6 +9,9 @@
 	<input type="hidden" name="page" value="1">
 	<input type="hidden" name="sort" value="tour_id">
 	<input type="hidden" name="tourState" value="">
+	
+	<input type="hidden" name="searchCondition" value="">
+	<input type="hidden" name="searchKeyword" value="">
 </form>
 <!-- 캐스트(관광포스트) 관리 -->
 <div class="row">

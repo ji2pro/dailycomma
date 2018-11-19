@@ -54,6 +54,9 @@ public interface AdminService {
 	
 	//투어 승인 및 미승인
 	public int approveTour(TourSearchDTO dto);
-	public int unapproveTour(TourSearchDTO dto); 
+	public int unapproveTour(TourSearchDTO dto);
+	
+	//회원탈퇴 및 복구
+	public int memberWithdraw(MemberDTO dto);
 	
 }

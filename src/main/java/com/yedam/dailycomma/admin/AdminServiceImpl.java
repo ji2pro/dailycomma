@@ -150,4 +150,9 @@ public class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 		return tourDAO.unapproveTour(dto);
 	}
+	@Override
+	public int memberWithdraw(MemberDTO dto) {
+		// TODO Auto-generated method stub
+		return memberDAO.updateMember(dto);
+	}
 }

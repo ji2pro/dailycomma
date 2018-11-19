@@ -6,7 +6,7 @@
 $(function(){
 	createHostDropdown();
 	
-	$('#HostSearchBtn').click(function(){
+	$('#hostSearchBtn').click(function(){
 		var txt = $('#inlineFormInputGroup').val();
 		$('input[name="searchKeyword"]:hidden').val(txt);
 		go_page(1);
@@ -53,27 +53,34 @@ function createHostDropdown(){
 	button="";
 	
 	$('#searchdown').empty();
-	button = "<button type='button' class='dropdown-item' onclick='searchHost(\"hostName\")'>회원번호</button>"
-			+"<button type='button' class='dropdown-item' onclick='searchHost(\"company\")'>이름</button>"
-			+"<button type='button' class='dropdown-item' onclick='searchHost(\"businessNo\")'>닉네임</button>";
+	button = "<button type='button' class='dropdown-item' onclick='searchHost(\"hostName\")'>점주명</button>"
+			+"<button type='button' class='dropdown-item' onclick='searchHost(\"company\")'>업체명</button>"
+			+"<button type='button' class='dropdown-item' onclick='searchHost(\"businessNo\")'>업체번호</button>";
 	$('#searchdown').append(button);
 
-	$('.searchBtn').attr("id","HostSearchBtn");		
+	$('.searchBtn').attr("id","hostSearchBtn");		
 }
 
 
 function searchHost(condition){
 	$('input[name="searchCondition"]:hidden').val(condition);
+
+	if(condition == 'hostName')
+		$('.searchStandard').text('회원번호');
+	else if(condition == 'company')
+		$('.searchStandard').text('업체명');
+	else
+		$('.searchStandard').text('업체번호');
 }
 
 
 function sortHost(state){
 	if(state == 'B1')
-		$('#dropdownMenuButton').text('승인');
+		$('.sortStandard').text('승인');
 	else if(state == 'B2')
-		$('#dropdownMenuButton').text('미승인');
+		$('.sortStandard').text('미승인');
 	else
-		$('#dropdownMenuButton').text('대기');
+		$('.sortStandard').text('대기');
 	
 	$("input[name='lodgmentState']:hidden").val(state);
 	go_page(1);

@@ -32,6 +32,7 @@
 					<th scope="col">보유 포인트</th>
 					<th scope="col">가입일</th>
 					<th scope="col">관리</th>
+					<th scope="col">회원상태</th>
 				</tr>
 			</thead>
 			<tbody id="memberTbody">
@@ -54,9 +55,22 @@
 						${signupDate_FD}
 					</td>
 					<td>
+						<c:if test="${member.memberWithdraw == 'F1'}">
+							일반회원
+						</c:if>
+						<c:if test="${member.memberWithdraw == 'F2'}">
+							탈퇴회원
+						</c:if>
+					</td>
+					
+					<td>
 						<div class="btn-group">
-							<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>
-							<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>
+							<c:if test="${member.memberWithdraw == 'F1'}">
+								<button id="btnEdit" class="btn  btn-outline-dangerbtn-sm" onclick="checkWithdraw('F2')">회원정지</button>
+							</c:if>
+							<c:if test="${member.memberWithdraw == 'F2'}">
+								<button id="btnDelete" class="btn btn-outline-success btn-sm" onclick="checkWithdraw('F1')">회원복구</button>
+							</c:if>
 						</div>
 					</td>
 				</tr>

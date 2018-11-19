@@ -13,9 +13,17 @@ public class MemberDTO {
 	private String memberIntro;		//회원 소개
 	private String memberPoint;		//회원 포인트
 	private String signupDate;		//회원가입 날짜
+	private String memberWithdraw;	//회원상태(일반회원,탈퇴회원)
 	private MultipartFile uploadFile;
 	private String uploadFileName;
 	
+		
+	public String getMemberWithdraw() {
+		return memberWithdraw;
+	}
+	public void setMemberWithdraw(String memberWithdraw) {
+		this.memberWithdraw = memberWithdraw;
+	}
 	public String getUploadFileName() {
 		return uploadFileName;
 	}

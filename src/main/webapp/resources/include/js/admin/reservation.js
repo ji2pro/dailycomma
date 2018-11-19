@@ -6,6 +6,12 @@ $(function() {
 
 	createReserveDropdown();
 	$("input[type=checkbox]").prop("checked",false);
+	$('#reserveSearchBtn').click(function(){
+		var txt = $('#inlineFormInputGroup').val();
+		$('input[name="searchKeyword"]:hidden').val(txt);
+		go_page(1);
+	});
+
 });
 
 //체크박스 삭제
@@ -68,7 +74,7 @@ function createReserveDropdown(){
 			+"<button type='button' class='dropdown-item' onclick='searchReserve(\"memberEmail\")'>이메일</button>";
 	$('#searchdown').append(button);
 
-	$('.searchBtn').attr("id","ReserveSearchBtn");		
+	$('.searchBtn').attr("id","reserveSearchBtn");		
 }
 
 function searchReserve(condition){

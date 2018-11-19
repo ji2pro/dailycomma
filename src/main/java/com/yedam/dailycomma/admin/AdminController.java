@@ -470,5 +470,17 @@ public class AdminController {
 		else
 			map.put("result",Boolean.FALSE);
 		return map;
-	}	
+	}
+	
+	@RequestMapping(value="/memberWithdraw.ajax")
+	@ResponseBody
+	public HashMap<String,Object> memberWithdraw(MemberDTO dto){
+		HashMap<String,Object> map =new HashMap<String,Object>();
+		int check = adminService.memberWithdraw(dto);
+		if(check > 0)
+			map.put("result", Boolean.TRUE);
+		else
+			map.put("result",Boolean.FALSE);
+		return map;
+	}
 }

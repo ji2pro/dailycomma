@@ -46,7 +46,7 @@
 			<form class="form-inline">
 				<div class="input-group ml-auto">
 					<div class="dropdown">
-						<button class="btn btn-secondary dropdown-toggle" type="button"
+						<button class="btn btn-secondary dropdown-toggle searchStandard" type="button"
 						id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">검색기준</button>
 						<div class="dropdown-menu"  id="searchdown" aria-labelledby="dropdownMenuButton"></div>
@@ -57,7 +57,7 @@
 						<button class="btn btn-primary searchBtn" type="button" ><i class="fa fa-search"></i></button>
 					</div>
 					<div class="dropdown" >
-						<button class="btn btn-secondary dropdown-toggle" type="button"
+						<button class="btn btn-secondary dropdown-toggle sortStandard" type="button"
 								id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
 								aria-expanded="false">정렬기준</button>
 						<div class="dropdown-menu" id="sortdown" aria-labelledby="dropdownMenuButton">
