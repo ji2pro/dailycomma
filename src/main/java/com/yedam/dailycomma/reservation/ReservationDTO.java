@@ -18,10 +18,18 @@ public class ReservationDTO {
 	private String deductionPoint;	//차감포인트
 	private String reservePoints;	//예약포인트
 	private String reserveState;	//예약상태
-	
-	
-	
-	public String getDeductionPoint() {
+    private String reserveStateName;
+
+
+    public String getReserveStateName() {
+        return reserveStateName;
+    }
+
+    public void setReserveStateName(String reserveStateName) {
+        this.reserveStateName = reserveStateName;
+    }
+
+    public String getDeductionPoint() {
 		return deductionPoint;
 	}
 	public void setDeductionPoint(String deductionPoint) {

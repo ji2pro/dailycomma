@@ -85,7 +85,7 @@
             	</c:if>
 
             	 <c:if test="${sessionScope.login ne null and sessionScope.type == 'host'}">
-                     <li class="nav-item"><a class="nav-link" href="<c:url value="/registerLodgment.do"/>">숙소등록</a></li>
+                     <li class="nav-item"><a class="nav-link" href="<c:url value="/registerLodgmentForm.do"/>">숙소등록</a></li>
                      <li class="nav-item"><a class="nav-link" href="<c:url value="/insertRoomForm.do"/>">객실등록</a></li>
             		<li class="nav-item"><a class="nav-link" href="<c:url value="/managementList.do"/>">점주페이지</a></li>
             	</c:if>

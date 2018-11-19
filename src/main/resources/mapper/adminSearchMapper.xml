@@ -71,7 +71,8 @@
 		</where>			
 	) U ) A WHERE RN BETWEEN #{start} and #{end}
 	</select> -->
-	
+
+
 	<select id="getAdminLodgment" resultType="host" parameterType="adminSearch">
 		SELECT * FROM ( SELECT U.*, ROWNUM RN FROM (
 			SELECT * FROM LODGMENT

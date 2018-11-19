@@ -8,6 +8,9 @@
 <script src="<%=request.getContextPath()%>/resources/include/js/reservation/Payment.js" type="text/javascript"></script>
 
 <script>
+    if('${empty sessionScope.login}' == 'true'){
+        location.assign('../loginChoice.do');
+    }
 /* '${reserveInfo.roomNo}'; */
 	var countryList = sessionStorage.getItem("myPageCountryList");
 	var rono = '${reserveInfo.roomNo}';
