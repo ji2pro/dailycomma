@@ -11,11 +11,11 @@
 
     <insert id="detailCastInsert" parameterType="cast">
         insert into TOUR_LIKE
-        values (sysdate, 'MEM1',#{tourId}, 1)
+        values (sysdate, #{memberNo},#{tourId}, 1)
     </insert>
 
     <delete id="detailCastDelete" parameterType="cast">
-        delete from TOUR_LIKE where MEMBER_NO='MEM1' and TOUR_ID=#{tourId}
+        delete from TOUR_LIKE where MEMBER_NO=#{memberNo} and TOUR_ID=#{tourId}
     </delete>
 
     <select id="detailCastPostList" resultType="cast" parameterType="cast">
@@ -39,7 +39,7 @@
 
     <insert id="detailCastPostInput" parameterType="cast">
         insert into COMMENTS values
-            (COMMENT_SEQ.nextval, 'MEM1', #{tourId}, #{commentContent}, sysdate)
+            (COMMENT_SEQ.nextval, #{memberNo}, #{tourId}, #{commentContent}, sysdate)
     </insert>
 </mapper>
 

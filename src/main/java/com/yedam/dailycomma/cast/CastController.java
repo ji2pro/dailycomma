@@ -22,7 +22,7 @@ public class CastController {
         MemberDTO memberDTO = (MemberDTO) session.getAttribute("login");
         CastDTO castDTO = new CastDTO();
         //memberDTO.getMemberNo();
-        castDTO.setMemberNo("MEM1");
+        castDTO.setMemberNo(memberDTO.getMemberNo());
         castDTO.setTourId(tourId);
 
         model.addAttribute("memberLogin",memberDTO);
@@ -37,7 +37,7 @@ public class CastController {
         MemberDTO memberDTO = (MemberDTO) session.getAttribute("login");
         CastDTO castDTO = new CastDTO();
         //memberDTO.getMemberNo();
-        castDTO.setMemberNo("MEM1");
+        castDTO.setMemberNo(memberDTO.getMemberNo());
         castDTO.setTourId(tourId);
 
         castService.detailCastInsert(castDTO);
@@ -52,7 +52,7 @@ public class CastController {
 
         CastDTO castDTO = new CastDTO();
         //memberDTO.getMemberNo();
-        castDTO.setMemberNo("MEM1");
+        castDTO.setMemberNo(memberDTO.getMemberNo());
         castDTO.setTourId(tourId);
 
         castService.detailCastDelete(castDTO);
@@ -65,12 +65,10 @@ public class CastController {
     @ResponseBody
     public List<CastDTO> detailCastPostList(@PathVariable String tourId,
                                             @PathVariable String paging,
-                                            HttpSession session,
                                             Model model) {
 
         CastDTO castDTO = new CastDTO();
         //memberDTO.getMemberNo();
-        castDTO.setMemberNo("MEM1");
         castDTO.setTourId(tourId);
 
         int page = Integer.parseInt(paging);
@@ -112,9 +110,11 @@ public class CastController {
                                    Model model,
                                    @RequestParam(value = "comment", required = false) String comment){
 
+        MemberDTO memberDTO = (MemberDTO) session.getAttribute("login");
+
         CastDTO castDTO = new CastDTO();
         //memberDTO.getMemberNo();
-        castDTO.setMemberNo("MEM1");
+        castDTO.setMemberNo(memberDTO.getMemberNo());
         castDTO.setTourId(tourId);
         castDTO.setCommentContent(comment);
 

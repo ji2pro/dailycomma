@@ -27,8 +27,6 @@ public class TourController {
 		return tourService.getCasts(dto);		
 	}
 	
-	
-	
 	@RequestMapping("/castListForm.do")
 	public String castListForm() {	
 		return "cast/castList";

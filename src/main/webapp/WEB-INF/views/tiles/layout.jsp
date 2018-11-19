@@ -58,10 +58,12 @@
             	<c:if test="${sessionScope.login eq null }">
             		<li class="nav-item"><a class="nav-link" href="<c:url value="/signupChoice.do"/>">회원 가입</a></li>
             	</c:if>
-            	<c:if test="${sessionScope.login ne null }">	
+                <c:if test="${sessionScope.login ne null }">
+                    <li class="nav-item"><a class="nav-link" href="<c:url value="/castListForm.do"/>">캐스트</a></li>
+                </c:if>
+            	<c:if test="${sessionScope.login ne null }">
             		<li class="nav-item"><a class="nav-link" href="<c:url value="/myPage.do"/>">마이페이지</a></li>
             	</c:if>
-            
        			<c:if test="${sessionScope.login eq null }">
 	            	<!-- <li class="nav-item"><a class="nav-link" href="<c:url value="/loginChoice.do"/>">로그인</a></li>-->
 	        		<li class="nav-item"><a class="nav-link" href="#" onclick="setCookie(30)">로그인</a></li>

@@ -53,11 +53,7 @@ public class LoginController {
 		} else {
 			session.setAttribute("login", hostDTO);
 			session.setAttribute("type", "host");
-			
-			//int idx = url.lastIndexOf('/');
-			int idx= url.indexOf("/",4);
-			System.out.println(idx);
-			url = url.substring(idx);
+
 			
 			return "redirect:/"+url;
 		}

@@ -9,6 +9,9 @@
 	<link rel="stylesheet" type="text/css" href="./resources/include/css/cast/cast-css.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.js"></script>
 	<script src="./resources/include/js/cast/cast-js.js"></script>
+    <script>
+        var path = "<c:url value='/'/>"
+    </script>
 <style>
 .grid{
 	height : auto;
