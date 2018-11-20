@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CAST 등록</title>
-<link rel="stylesheet" type="text/css" href="./resources/include/css/room/registRoom-css.css">
-<script src="./resources/include/js/room/registRoom-js.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/include/css/room/registRoom-css.css">
+<script src="<%=request.getContextPath()%>/resources/include/js/room/registRoom-js.js"></script>
 </head>
 
 <style>
