@@ -10,18 +10,6 @@
 		<div class="col-md-12 mb-5">
 			<h3 class="text-center py-5">등록한 숙소</h3>
 			<table id="lodgmentList" class="table table-hover table-bordered mb-5">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        사장님 통계관리
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="<c:url value="/managementList.do"/>">예약자 리스트</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<c:url value="/stats.do"/>">통계관리</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<c:url value="/lodgmentList.do"/>">숙소목록</a>
-                    </div>
-                </div>
 				<thead class="thead-light">
 					<tr class="text-center">
 						<!-- <th scope="col">

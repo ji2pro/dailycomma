@@ -27,8 +27,8 @@
 				<a class="dropdown-item" href="<c:url value="/managementList.do"/>">예약자 리스트</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="<c:url value="/stats.do"/>">통계관리</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<c:url value="/lodgmentList.do"/>">숙소목록</a>
+                <%--<div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="<c:url value="/lodgmentList.do"/>">숙소목록</a>--%>
 			</div>
 		</div>
 

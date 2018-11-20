@@ -82,8 +82,8 @@
 					<li class="nav-item"><a class="nav-link" href="<c:url value="/registerCastForm.do"/>">캐스트 등록</a></li>
 					<li class="nav-item"><a class="nav-link" href="<c:url value="/myPage.do"/>">마이페이지</a></li>
             	</c:if>
-
 				<c:if test="${sessionScope.login ne null and sessionScope.type == 'host'}">
+                    <li class="nav-item"><a class="nav-link" href="<c:url value="/lodgmentList.do"/>">숙소 목록</a></li>
 					<li class="nav-item"><a class="nav-link" href="<c:url value="/registerLodgmentForm.do"/>">숙소 등록</a></li>
 					<li class="nav-item"><a class="nav-link" href="<c:url value="/insertRoomForm.do"/>">객실 등록</a></li>
             		<li class="nav-item"><a class="nav-link" href="<c:url value="/managementList.do"/>">업주 페이지</a></li>

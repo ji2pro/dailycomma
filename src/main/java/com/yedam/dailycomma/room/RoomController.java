@@ -101,6 +101,8 @@ public class RoomController {
                              HttpServletRequest request) throws IllegalStateException, IOException {
 
 
+        String folder = session.getServletContext().getRealPath("/resources/images/lodgment");
+
         HostDTO hostDTO = (HostDTO)session.getAttribute("login");
 
 		MultipartFile[] uploadFile = dto.getUploadFile();
@@ -110,11 +112,12 @@ public class RoomController {
 			if(!uploadFile[i].isEmpty() && uploadFile[i].getSize() > 0) {
 				filename = uploadFile[i].getOriginalFilename();
 				//uploadFile[i].transferTo(new File("c:/upload",filename));			
-				uploadFile[i].transferTo(new File("c:/upload" ,filename));
-				if( i == uploadFile.length-1 )
-					temp.append(filename); 
+				uploadFile[i].transferTo(new File(folder ,filename));
+                temp.append(filename + ",");
+/*				if( i == uploadFile.length-1 )
+                    temp.append(filename);
 				else
-					temp.append(filename + ","); 
+					 */
 			}
 		}
 

@@ -27,12 +27,12 @@
 				<c:forTokens items="${getAllImg}" delims="," var="img" varStatus="status">
 				<c:if test="${status.first}">
 					<div class="carousel-item active">
-						<span class="image-wrap" style="background: url('<c:url value="/resources/images/room/${img}"/>') center center / cover no-repeat"></span>
+						<span class="image-wrap" style="background: url('<c:url value="/resources/images/lodgment/${img}"/>') center center / cover no-repeat"></span>
 					</div>
 				</c:if>
 				<c:if test="${!status.first}">
 					<div class="carousel-item">
-						<span class="image-wrap" style="background: url('<c:url value="/resources/images/room/${img}"/>') center center / cover no-repeat"></span>
+						<span class="image-wrap" style="background: url('<c:url value="/resources/images/lodgment/${img}"/>') center center / cover no-repeat"></span>
 					</div>
 				</c:if>
 				</c:forTokens>
@@ -114,12 +114,12 @@
                                         <c:forTokens items="${list.roomImg}" delims="," var="img" varStatus="status">
                                             <c:if test="${status.first}">
                                                 <div class="carousel-item active">
-                                                    <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/room/${img}'/>"/>
+                                                    <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/lodgment/${img}'/>"/>
                                                 </div>
                                             </c:if>
                                             <c:if test="${!status.first}">
                                                 <div class="carousel-item">
-                                                    <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/room/${img}'/>"/>
+                                                    <img class="d-block img-fluid w-100" src="<c:url value='/resources/images/lodgment/${img}'/>"/>
                                                 </div>
                                             </c:if>
                                         </c:forTokens>
