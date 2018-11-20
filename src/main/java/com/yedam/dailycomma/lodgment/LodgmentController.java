@@ -3,6 +3,7 @@ package com.yedam.dailycomma.lodgment;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.text.ParseException;
@@ -16,6 +17,7 @@ import java.util.Map;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,18 +44,42 @@ public class LodgmentController {
 		return "lodgment/lodgmentSearch";
 	}
 	
+	@RequestMapping("/registerLodgmentForm.do")
+	public String registerLodgment() {
+		return "lodgment/registerLodgment";
+	}	
+	
 	@RequestMapping(value="/registerLodgment.do" , method=RequestMethod.POST)
-	public String registerLodgment(LodgmentDTO dto, 
+	public void registerLodgment(LodgmentDTO dto, 
 								   HttpServletRequest request,
+								   HttpServletResponse response,
 								   HttpSession session,
 								   @RequestParam(value="checkBox",defaultValue="empty" ,required=true)String []checkBox ) throws IllegalStateException, IOException {
 		
+		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		HostDTO hostDTO = (HostDTO) session.getAttribute("login");
+		LodgmentDTO lodgmentDTO = new LodgmentDTO();
+		lodgmentDTO.setLodgmentNo(hostDTO.getLodgmentNo());
+		dto = lodgmentService.getLodgment(lodgmentDTO);
+		
+		if(dto.getCompany() != null) {
+			if(!dto.getCompany().equals("")) {
+				String homeurl =  request.getContextPath() + "/";
+				out.print("<script> alert('숙소가 이미 등록되어 있습니다.'); location='"+ homeurl +"';</script>");
+				return;
+			}
+		}
+		
+
 		String folder = request.getSession().getServletContext().getRealPath("resources/images/lodgment");
 		System.out.println("folder==========================" + folder);
 		
 		MultipartFile uploadFile = dto.getUploadFile();
 		
-		HostDTO hostDTO = (HostDTO) session.getAttribute("login");
+		
 		
 		System.out.println("====================="+hostDTO.getLodgmentNo());
 		String filename = "";
@@ -74,13 +100,13 @@ public class LodgmentController {
 				lodgmentService.insertHashTag(hashDTO);
 			}				
 		}
-		return "redirect:/registerLodgmentForm.do";
+		
+		String url = request.getContextPath() + "/registerLodgmentForm.do";
+		
+		out.print("<script> alert('숙소등록이 완료 되었습니다.'); location='"+ url +"';</script>");
 	}
 	
-	@RequestMapping("/registerLodgmentForm.do")
-	public String registerLodgment() {
-		return "lodgment/registerLodgment";
-	}	
+
 	
 	@RequestMapping("/getMainSearch.do")
 	public String getMainSearch(Model model,LodgmentSearchDTO dto,HttpSession session) {

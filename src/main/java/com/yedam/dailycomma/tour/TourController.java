@@ -2,6 +2,7 @@ package com.yedam.dailycomma.tour;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -46,9 +49,11 @@ public class TourController {
 	}
 	
 	@RequestMapping("/insertTour.do")
-	public String insertTour(TourDTO dto,
-                             HttpSession session) throws IllegalStateException, IOException {
-
+	public void insertTour(TourDTO dto,
+				            HttpServletResponse response,
+				            HttpServletRequest request,
+                            HttpSession session) throws IllegalStateException, IOException {
+		response.setContentType("text/html; charset=UTF-8");	
         String folder = session.getServletContext().getRealPath("/resources/images/cast");
 
 		MultipartFile[] uploadFile = dto.getUploadFile();
@@ -72,8 +77,11 @@ public class TourController {
         dto.setMemberNo(memberDTO.getMemberNo());
 		dto.setTourImg(temp.toString());
 		tourService.insertTour(dto);
-		return "redirect:/registerCastForm.do";
+		
+		String url = request.getContextPath() + "/castListForm.do";
+		PrintWriter out = response.getWriter();
+		out.print("<script> alert('캐스트 등록이 완료 되었습니다.'); location='"+ url +"';</script>");
+		//return "redirect:/registerCastForm.do";
 	}
-	
-	
+
 }

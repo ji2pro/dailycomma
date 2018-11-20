@@ -2,11 +2,13 @@ package com.yedam.dailycomma.room;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.yedam.dailycomma.host.HostDTO;
@@ -103,10 +105,11 @@ public class RoomController {
 	}
 	
 	@RequestMapping(value="insertRoom.do", method=RequestMethod.POST)
-	public String insertRoom(RoomDTO dto,
+	public void insertRoom(RoomDTO dto,
                              HttpSession session,
+                             HttpServletResponse response,
                              HttpServletRequest request) throws IllegalStateException, IOException {
-
+		response.setContentType("text/html; charset=UTF-8");
 
         String folder = session.getServletContext().getRealPath("/resources/images/lodgment");
 
@@ -129,10 +132,12 @@ public class RoomController {
 		}
 
 		dto.setRoomImg(temp.toString());
-
 		dto.setLodgmentNo(hostDTO.getLodgmentNo());
 		roomService.insertRoom(dto);
-		return "redirect:insertRoomForm.do";
+		String url = request.getContextPath() + "/insertRoomForm.do";
+		PrintWriter out = response.getWriter();
+		out.print("<script> alert('객실등록이 완료 되었습니다.'); location='"+ url +"';</script>");
+		
+		//return "redirect:insertRoomForm.do";
 	}
-	
 }
