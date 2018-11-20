@@ -90,14 +90,16 @@
 			TOUR_TITLE, 
 			TOUR_IMG,
 			TOUR_DATE,
-            MEMBER_NO
+            MEMBER_NO,
+            TOUR_LOCATION
 		)	
 		VALUES (
 			CONCAT('TO',TO_CHAR(TOUR_SEQ.nextval)), 
 			#{tourTitle},
 			#{tourImg},
 			SYSDATE,
-            #{memberNo}
+            #{memberNo},
+            #{tourLocation}
 		)	
 	</insert>
 	
@@ -129,7 +131,7 @@ SELECT * FROM ( SELECT T.*, ROWNUM RN FROM (
         ]]>
        </if>
     </where>
-    ORDER BY TOUR_DATE
+    ORDER BY TOUR_DATE desc
 ) T ) A 
    <choose>
       <when test="pageUnit != 0">

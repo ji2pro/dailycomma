@@ -137,7 +137,6 @@ let renderList = function(mode, tours){
     		     "<img class='card-img-top' src='"+path+"resources/images/cast/"+tourImg[0]+"' alt='Card image cap'>" +
     		     "<div class='card-body'>"+
     		     "<h5 class='card-title'>"+tours.tourTitle+"</h5>"+
-    		     "<p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>"+
     		     "<a href='"+path+"detailCast/"+tours.tourId+"' class='btn btn-primary'>Go somewhere</a>"+
     		     "</div>"+
     		     "</div>"+
