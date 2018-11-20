@@ -42,7 +42,7 @@
                                 name="jsonLikeCount">5</b>
                             <span class="ico_read"></span>
                             <span class="fas fa-glasses"></span>
-                            <b id="readCount">686</b>
+                            <!-- <b id="readCount">686</b> -->
                         </div>
                         <a href="#none" class="reply" style="display: none;">
                             <span>댓글</span>
