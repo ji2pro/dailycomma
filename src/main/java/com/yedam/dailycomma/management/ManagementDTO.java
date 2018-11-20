@@ -1,8 +1,8 @@
 package com.yedam.dailycomma.management;
 
 public class ManagementDTO {
-	 
-
+	
+	private String hostId;
     private String memberName;		//회원 이름
 	private String memberEmail;		//회원 이메일
 	private String reserveNo;		//예약 번호
@@ -16,10 +16,16 @@ public class ManagementDTO {
 	private String reserveDays;		//예약일수
 	private String totalPrice;		//총판매금액
 	private String reservationNum;	//예약수
- 
-    
 	
-    public String getReserveNo() {
+	public String getHostId() {
+		return hostId;
+	}
+
+	public void setHostId(String hostId) {
+		this.hostId = hostId;
+	}
+
+	public String getReserveNo() {
 		return reserveNo;
 	}
 
@@ -123,14 +129,13 @@ public class ManagementDTO {
 	public void setReserveDays(String reserveDays) {
 		this.reserveDays = reserveDays;
 	}
-
 	@Override
 	public String toString() {
-		return "ManagementDTO [memberName=" + memberName + ", memberEmail=" + memberEmail + ", reserveState="
-				+ reserveState + ", reserveDate=" + reserveDate + ", reservePeople=" + reservePeople + ", roomName="
-				+ roomName + ", reservePrice=" + reservePrice + ", checkin=" + checkin + ", checkout=" + checkout
-				+ ", reserveDays=" + reserveDays + ", totalPrice=" + totalPrice + ", reservationNum=" + reservationNum
-				+ "]";
+		return "ManagementDTO [hostId=" + hostId + ", memberName=" + memberName + ", memberEmail=" + memberEmail
+				+ ", reserveNo=" + reserveNo + ", reserveState=" + reserveState + ", reserveDate=" + reserveDate
+				+ ", reservePeople=" + reservePeople + ", roomName=" + roomName + ", reservePrice=" + reservePrice
+				+ ", checkin=" + checkin + ", checkout=" + checkout + ", reserveDays=" + reserveDays + ", totalPrice="
+				+ totalPrice + ", reservationNum=" + reservationNum + "]";
 	}
 
 	
