@@ -27,7 +27,6 @@
 		<div class="row">
 			<div class="col">
 				<div class="imgs_wrap">
-					<!--<img src="" class="img-fluid" alt="Responsive image"> -->
 				</div>
 			</div>
 		</div>

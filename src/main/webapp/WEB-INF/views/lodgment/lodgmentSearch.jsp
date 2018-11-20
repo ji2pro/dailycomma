@@ -64,7 +64,7 @@
 
 			<c:forEach items="${lod}" var="temp">
 				<div class="card flex-md-row mb-3 shadow-sm h-md-250">
-					<img class="card-img-left" src="resources/images/lodgment/${temp.lodgmentImg}" width="300" height="200" alt="Card image cap">
+					<img class="card-img-left" src="<%=request.getContextPath()%>/resources/images/lodgment/${temp.lodgmentImg}" width="300" height="200" alt="Card image cap">
 					<div class="card-body d-flex flex-column align-items-start">
 						<h3 class="mb-0">
 							<a class="text-dark" href="./detailRooms.do/${temp.lodgmentNo}">${temp.company}</a>
