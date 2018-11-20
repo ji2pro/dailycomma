@@ -43,7 +43,6 @@ public class LoginController {
 	        	||	url.indexOf("signupChoice.do") >= 0) {
 	        	url =request.getContextPath()+ "/";
 	        }
-	        	
 	        
 	        PrintWriter out = response.getWriter();
 
@@ -63,9 +62,13 @@ public class LoginController {
 		} else {
 			session.setAttribute("login", memberDTO);
 			session.setAttribute("type", "member");
+
+            if(dto.getMemberEmail().equals("admin@admin.com"))
+                session.setAttribute("admin","admin");
+
 			out.print("<script> location='"+url+"';</script>");
-		}	
-	
+
+		}
 	}
 	
 	//점주 로그인 처리	

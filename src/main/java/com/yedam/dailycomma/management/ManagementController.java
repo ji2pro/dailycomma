@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import com.yedam.dailycomma.host.HostDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.stereotype.Controller;
@@ -76,9 +77,13 @@ public class ManagementController {
 	
 	//등록한 객실 목록
 	@RequestMapping("/lodgmentList.do")
-	public String getLodgments(Model model, @RequestParam String hostId) {
-		model.addAttribute("lodgmentList", service.getLodgments(hostId));
-		model.addAttribute("roomList", service.getRooms(hostId));
+	public String getLodgments(Model model,HttpSession session) {
+
+        HostDTO dto = (HostDTO)session.getAttribute("login");
+
+		model.addAttribute("lodgmentList", service.getLodgments(dto.getHostId()));
+		model.addAttribute("roomList", service.getRooms(dto.getHostId()));
+
 		return "management/lodgmentList";
 	}
 }

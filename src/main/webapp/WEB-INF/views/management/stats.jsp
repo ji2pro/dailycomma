@@ -191,16 +191,18 @@ function checkException(x){
 
 <div class="container">
 
-<div class="btn-group">
-	<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		사장님 통계관리
-	</button> 
-	<div class="dropdown-menu">
-		<a class="dropdown-item" href="<c:url value="/managementList.do"/>">예약자 리스트</a>
-		<div class="dropdown-divider"></div>
-		<a class="dropdown-item" href="<c:url value="/stats.do"/>">통계관리</a>
-	</div>
-</div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            사장님 통계관리
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="<c:url value="/managementList.do"/>">예약자 리스트</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<c:url value="/stats.do"/>">통계관리</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<c:url value="/lodgmentList.do"/>">숙소목록</a>
+        </div>
+    </div>
 
 <!-- 이달 객실별 예약 건수 및 판매금액 -->
 <div align="center" class="titleInterval"><h1>이달 객실별 예약 건수 및 판매금액</h1></div>
