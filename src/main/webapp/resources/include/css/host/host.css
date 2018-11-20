@@ -16,7 +16,7 @@
 .imgs_wrap {
     width: 215px;
     height: 160px;
-    display: inline-block;
+    display: inline;
 }
 .imgs_wrap .img-fluid {
 	margin: 10px 10px 0 0;
