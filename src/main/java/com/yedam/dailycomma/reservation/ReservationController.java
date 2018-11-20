@@ -41,6 +41,7 @@ public class ReservationController {
 		
 		session.setAttribute("search", searchDTO);
 		
+		model.addAttribute("location", location);
 		return "reservation/afterPayment";
 	}
 	
