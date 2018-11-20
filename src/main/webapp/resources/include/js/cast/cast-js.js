@@ -51,12 +51,12 @@ function handleImgsFileSelect(e) {
 							"<img class='img-fluid'alt='Responsive image' width='200px' src=\"" 
 							+ e.target.result + "\"/>" + "</a>";
 							
-                    $('#input_imgs'+(count)).hide();                       
+                    $('#input_imgs'+(count)).hide();
                     $(".imgs_wrap").append(img_html);
 				    count++;
                 }
 				reader.readAsDataURL(f);
-				$('#add_more').show();
+                $('#add_more').show();
     });
 }
 
@@ -74,26 +74,21 @@ function deleteImageAction(index) {
 
 let isEnd = false;
 
-
-
 $(function(){
-  
-	fetchList();
-	$(window).scroll(function(){
+  $(window).scroll(function(){
 	  let $window = $(this);
 	  let scrollTop = $window.scrollTop();
 	  let windowHeight = $window.height();
       let documentHeight = $(document).height();
    
-    // if( scrollTop + windowHeight + 30 > documentHeight ){
-    	if(scrollTop == documentHeight - windowHeight) {
+     if( scrollTop + windowHeight + 30 > documentHeight ){
+    	 
     	 console.log("documentHeight:" + documentHeight + " | scrollTop:" +
                   scrollTop + " | windowHeight: " + windowHeight );
                           fetchList();
          }
      })
-     
-
+      fetchList();
 })
 
 let fetchList = function(){
@@ -110,7 +105,7 @@ let fetchList = function(){
          $.ajax({
               url:"getCasts.do"  ,
               data : {'tourId' : tourId,
-              		  'pageUnit' : 8},
+              		  'pageUnit' : 6},
               type: "GET",
               dataType: "json",
               success: callbackScroll
@@ -119,11 +114,10 @@ let fetchList = function(){
 }
 
 function callbackScroll(data){
-		
 	
 	let length = data.length;
 
-    if( length < 5 ){
+    if( length < 4 ){
   	  isEnd = true;
     }
     
@@ -135,19 +129,19 @@ function callbackScroll(data){
 
 let renderList = function(mode, tours){
 
-         // 리스트 html을 정의
+    var tourImg = tours.tourImg.split(",");
 
-    let html =   "<div class='grid-item' id='"+tours.tourId+"'>" +    
+    // 리스트 html을 정의
+    let html =   "<div class='grid-item' id='"+tours.tourId+"'>" +
     			 "<div class='card' style='width: 23rem;'>" +
-    		     "<img class='card-img-top' src='resources/images/cast/"+tours.tourImg+"' alt='Card image cap'>" +
+    		     "<img class='card-img-top' src='"+path+"resources/images/cast/"+tourImg[0]+"' alt='Card image cap'>" +
     		     "<div class='card-body'>"+
     		     "<h5 class='card-title'>"+tours.tourTitle+"</h5>"+
     		     "<p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>"+
     		     "<a href='"+path+"detailCast/"+tours.tourId+"' class='btn btn-primary'>Go somewhere</a>"+
     		     "</div>"+
     		     "</div>"+
-    		     "</div>"; 
-  
+    		     "</div>";
     
     if( mode ){
          $(".grid").prepend(html);         
@@ -155,5 +149,4 @@ let renderList = function(mode, tours){
      else{
          $(".grid").append(html);
      }
-
 }

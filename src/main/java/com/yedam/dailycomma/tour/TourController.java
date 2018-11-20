@@ -38,22 +38,30 @@ public class TourController {
 	}
 	
 	@RequestMapping("/insertTour.do")
-	public String insertTour(TourDTO dto) throws IllegalStateException, IOException {
-		
+	public String insertTour(TourDTO dto,
+                             HttpSession session) throws IllegalStateException, IOException {
+
+        String folder = session.getServletContext().getRealPath("/resources/images/cast");
+
 		MultipartFile[] uploadFile = dto.getUploadFile();
 		String filename = "";
 		StringBuffer temp = new StringBuffer();
+
 		for(int i=0; i<uploadFile.length; i++) {
 			if(!uploadFile[i].isEmpty() && uploadFile[i].getSize() > 0) {
 				filename = uploadFile[i].getOriginalFilename();
 				//uploadFile[i].transferTo(new File("c:/upload",filename));			
-				uploadFile[i].transferTo(new File("c:/upload" ,filename));
+				uploadFile[i].transferTo(new File(folder ,filename));
 				if( i == uploadFile.length-1 )
 					temp.append(filename); 
 				else
-					temp.append(filename + ",");				
+					temp.append(filename + ",");
 			}
 		}
+
+        MemberDTO memberDTO = (MemberDTO) session.getAttribute("login");
+
+        dto.setMemberNo(memberDTO.getMemberNo());
 		dto.setTourImg(temp.toString());
 		tourService.insertTour(dto);
 		return "redirect:/registerCastForm.do";
