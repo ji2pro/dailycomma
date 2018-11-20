@@ -89,13 +89,15 @@
 			TOUR_ID, 
 			TOUR_TITLE, 
 			TOUR_IMG,
-			TOUR_DATE
+			TOUR_DATE,
+            MEMBER_NO
 		)	
 		VALUES (
 			CONCAT('TO',TO_CHAR(TOUR_SEQ.nextval)), 
 			#{tourTitle},
 			#{tourImg},
-			SYSDATE
+			SYSDATE,
+            #{memberNo}
 		)	
 	</insert>
 	

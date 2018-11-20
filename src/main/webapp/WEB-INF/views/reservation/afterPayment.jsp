@@ -29,7 +29,7 @@
       					<div class="card-body">
         					<h3 class="card-title">관광지</h3>
        	 					<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        					<a href="location.href="" " class="btn btn-primary">관광지 보러가기</a>
+        					<a href="location.href=" class="btn btn-primary">관광지 보러가기</a>
       					</div>
     				</div>
   				</div>

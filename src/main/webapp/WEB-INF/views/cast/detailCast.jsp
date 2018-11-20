@@ -48,29 +48,25 @@
                             <span>댓글</span>
                             <b name="jsonCommentCount"></b></a>
                     </div>
+                    ${getDetailCast.tourImg}
                     <div class="detail_area">
-                        <p style="text-align: center; width: 100%; margin: 0px; padding: 0px;" align="center">
-                            <img name="target_contents_images"
-                                 src="http://yaimg.yanolja.com/v5/2018/09/27/18/1280/5bac9f7305dc71.19082667.jpg">
-                        </p>
-                        <p style="text-align: center; width: 100%; margin: 0px; padding: 0px;" align="center">
-                            <br>
-                            <img name="target_contents_images"
-                                 src="http://yaimg.yanolja.com/v5/2018/09/27/18/1280/5bac9f73abbd13.09747372.jpg">
-                            <a href="yanoljamotel://Leisure?target=detail&amp;param[idx]=37149" target="_self">
+                        <c:forTokens items="${getDetailCast.tourImg}" delims="," var="img" varStatus="status">
+                            <c:if test="${status.first}">
+                            <p style="text-align: center; width: 100%; margin: 0px; padding: 0px;" align="center">
                                 <img name="target_contents_images"
-                                     src="http://yaimg.yanolja.com/v5/2018/10/08/18/1280/5bbb2294b34564.47882131.jpg">
-                            </a>&nbsp;
-                        </p>
-                        <p style="text-align: center; width: 100%; margin: 0px; padding: 0px;" align="center">
-                            <br>
-                            <img name="target_contents_images"
-                                 src="http://yaimg.yanolja.com/v5/2018/09/27/18/1280/5bac9f7272b250.11914022.jpg">
-                            <a href="yanoljamotel://Leisure?target=detail&amp;param[idx]=37545&#10;" target="_self">
+                                     src="<c:url value='/resources/images/cast/${img}'/>">
+                            </p>
+                            </c:if>
+                            <c:if test="${!status.first}">
+                            <p style="text-align: center; width: 100%; margin: 0px; padding: 0px;" align="center">
+                                <br>
                                 <img name="target_contents_images"
-                                     src="http://yaimg.yanolja.com/v5/2018/10/08/18/1280/5bbb22bea40e34.52950782.jpg">
-                            </a>&nbsp;
-                        </p>
+                                     src="<c:url value='/resources/images/cast/${img}'/>">
+                                &nbsp;
+                            </p>
+                            </c:if>
+                        </c:forTokens>
+
                         <%--아랫쪽 버튼--%>
                         <c:if test="${! empty getDetailCast.likeyn }">
                         <div class="bt_rap">
