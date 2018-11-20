@@ -8,7 +8,8 @@
     <link href="<c:url value="/resources/include/css/room/apiTest.css" />" rel="stylesheet" type="text/css">
     <link href="<c:url value="/resources/include/css/room/bundle.css" />" rel="stylesheet" type="text/css">
     <script>
-        var path = "<c:url value='/'/>"
+        var path = "<c:url value='/'/>";
+        var areaCode = "${param.location}";
     </script>
     <script src="<c:url value="/resources/include/js/room/festivalList.js" />"></script>
 </head>

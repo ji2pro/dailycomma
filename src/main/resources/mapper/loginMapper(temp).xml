@@ -10,6 +10,6 @@
 	
 	<select id="getHost" resultType="host" parameterType="host">
 		SELECT * FROM LODGMENT
-		WHERE HOST_ID = #{hostId} AND LODGMENT_STATE = 'B1'
+		WHERE HOST_ID = #{hostId}
 	</select>	
 </mapper> 

@@ -11,13 +11,18 @@
         var path = "<c:url value='/'/>";
     </script>
     <script src="<c:url value="/resources/include/js/room/detailRooms.js" />"></script>
-    <script src="<c:url value="/resources/include/js/room/festivalList.js" />"></script>
 
 
     <%--<script> $(document).ready(funcion(){
         $('#carousel').carousel,'cycle');
     });
     </script>--%>
+
+    <script>
+        function api(location) {
+            window.open(path+"festivalList.do?location="+location, "fe","width=900,height=900");
+        }
+    </script>
 </head>
 
 <body>

@@ -1,8 +1,10 @@
 package com.yedam.dailycomma.common;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,8 @@ import com.yedam.dailycomma.host.HostDTO;
 import com.yedam.dailycomma.host.HostService;
 import com.yedam.dailycomma.member.MemberDTO;
 import com.yedam.dailycomma.member.MemberService;
+
+import java.io.PrintWriter;
 
 
 @Controller  //빈 등록, 서블릿이 호출하도록 설정
@@ -49,19 +53,29 @@ public class LoginController {
 	
 	//점주 로그인 처리	
 	@RequestMapping(value="/hostLogin.do", method=RequestMethod.POST)
-	public String hostLogin(@ModelAttribute("host") HostDTO dto,
+	public void hostLogin(@ModelAttribute("host") HostDTO dto,
 							HttpSession session,
-							@CookieValue(value="url",required=false)String url) {
+							HttpServletResponse response,
+							HttpServletRequest request,
+							@CookieValue(value="url",required=false)String url)throws Exception {
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
+
 		HostDTO hostDTO = hostService.getHost(dto);
-		
+
+		String loginUrl = request.getContextPath() + "/hostLoginForm.do";
+
+		if(hostDTO != null && hostDTO.getLodgmentState() == null)
+        {
+            out.print("<script> alert('승인대기중입니다.'); location='"+loginUrl+"';</script>");
+        }
+
 		if(hostDTO == null || !hostDTO.getHostPw().equals(dto.getHostPw())) {
-			System.out.println("login==============================");
-			return "redirect:/hostLoginForm.do";
+            out.print("<script> alert('패스워드 오류입니다.'); location='"+loginUrl+"';</script>");
 		} else {
 			session.setAttribute("login", hostDTO);
 			session.setAttribute("type", "host");
-			
-			return "redirect:/"+url;
+            out.print("<script> location='"+url+"';</script>");
 		}
 	}
 	

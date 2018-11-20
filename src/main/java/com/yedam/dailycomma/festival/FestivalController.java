@@ -15,7 +15,7 @@ public class FestivalController {
 
     @RequestMapping("/festivalList.do")
     public String festivalList(){
-        return "room/festivalList";
+        return "noTiles/room/festivalList";
     }
 
     @RequestMapping("/detailFestival.do")
