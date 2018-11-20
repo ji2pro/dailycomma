@@ -5,7 +5,7 @@
 	<!-- 전체 조회 -->
 	<select id="getMember" resultType="member" parameterType="member">
 		SELECT * FROM MEMBER
-		WHERE MEMBER_EMAIL = #{memberEmail} AND MEMBER_WITHDRAW = 'F1'
+		WHERE MEMBER_EMAIL = #{memberEmail}
 	</select>
 	
 	<select id="getHost" resultType="host" parameterType="host">

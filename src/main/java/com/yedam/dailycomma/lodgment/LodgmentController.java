@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
@@ -86,7 +87,28 @@ public class LodgmentController {
 	public String getMainSearch(Model model,LodgmentSearchDTO dto) {
 		//dto.setLodgmentType("A4");*/
 		
-		System.out.println("checkIn =========== : " + dto.getCheckin() + " checkOut ============ : " + dto.getCheckout());		
+		if(dto == null) {
+			dto = new LodgmentSearchDTO();
+		}
+		
+		if(dto.getCheckin() == null || dto.getCheckout() == null) {
+			try {
+				SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+				Date currentTime = new Date();
+				String time = format.format(currentTime);
+				String nexttime;
+				Calendar c = Calendar.getInstance();
+				c.setTime(format.parse(time));
+				c.add(Calendar.DATE, 1);  //하루를 더해준다.
+				nexttime = format.format(c.getTime());  // nexttime는 하루를 더한 날짜
+				dto.setCheckin(time);
+				dto.setCheckout(nexttime);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+			
 		dto.setDiffer(differenceDate(dto.getCheckin(), dto.getCheckout()));
 		model.addAttribute("search", dto);			//session 저장
 		

@@ -19,6 +19,7 @@ import com.yedam.dailycomma.host.HostService;
 import com.yedam.dailycomma.member.MemberDTO;
 import com.yedam.dailycomma.member.MemberService;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 
@@ -30,43 +31,68 @@ public class LoginController {
 	//로그인 폼
 	//회원 로그인 처리
 	@RequestMapping(value="/memberLogin.do", method=RequestMethod.POST)
-	public String memberLogin(@ModelAttribute("member") MemberDTO dto,
+	public void memberLogin(@ModelAttribute("member") MemberDTO dto,
 							HttpSession session,
-							@CookieValue(value="url",required=false)String url) {
+							HttpServletResponse response,
+							HttpServletRequest request,
+							@CookieValue(value="url",required=false)String url) throws IOException {
 
-		MemberDTO memberDTO = memberService.getMember(dto);
+			response.setContentType("text/html; charset=UTF-8");
+	        
+	        if(url == null || url.equals("") || url.indexOf("insertHostForm.do") >= 0 || url.indexOf("insertMemberForm.do") >=0
+	        	||	url.indexOf("signupChoice.do") >= 0) {
+	        	url =request.getContextPath()+ "/";
+	        }
+	        	
+	        
+	        PrintWriter out = response.getWriter();
+
+	        MemberDTO memberDTO = memberService.getMember(dto);
+
+			String loginUrl = request.getContextPath() + "/memberLoginForm.do";
+
+			
+		if(memberDTO != null && memberDTO.getMemberWithdraw().equals("F2"))
+        {
+            out.print("<script> alert('탈퇴한회원입니다.'); location='"+loginUrl+"';</script>");
+            return;
+        }
 
 		if(memberDTO == null || !memberDTO.getMemberPw().equals(dto.getMemberPw())) {
-			System.out.println("login==============================");
-			return "redirect:/memberLoginForm.do";
+            out.print("<script> alert('패스워드 오류입니다.'); location='"+loginUrl+"';</script>");
 		} else {
 			session.setAttribute("login", memberDTO);
 			session.setAttribute("type", "member");
-
-			if(dto.getMemberEmail().equals("admin@admin.com"))
-                session.setAttribute("admin", "admin");
-
-			return "redirect:/"+url;
-		}
+			out.print("<script> location='"+url+"';</script>");
+		}	
+	
 	}
 	
 	//점주 로그인 처리	
-	@RequestMapping(value="/hostLogin.do", method=RequestMethod.POST)
+	@RequestMapping(value="/hostLogin.do")
 	public void hostLogin(@ModelAttribute("host") HostDTO dto,
 							HttpSession session,
 							HttpServletResponse response,
 							HttpServletRequest request,
 							@CookieValue(value="url",required=false)String url)throws Exception {
         response.setContentType("text/html; charset=UTF-8");
+        
+        if(url == null || url.equals("") || url.indexOf("insertHostForm.do") >= 0 || url.indexOf("insertMemberForm.do") >=0
+        	||	url.indexOf("signupChoice.do") >= 0) {
+        	url =request.getContextPath()+ "/";
+        }
+        	
+        
         PrintWriter out = response.getWriter();
 
 		HostDTO hostDTO = hostService.getHost(dto);
 
 		String loginUrl = request.getContextPath() + "/hostLoginForm.do";
 
-		if(hostDTO != null && hostDTO.getLodgmentState() == null)
+		if(hostDTO != null && hostDTO.getLodgmentState().equals("B3"))
         {
             out.print("<script> alert('승인대기중입니다.'); location='"+loginUrl+"';</script>");
+            return;
         }
 
 		if(hostDTO == null || !hostDTO.getHostPw().equals(dto.getHostPw())) {
@@ -74,7 +100,8 @@ public class LoginController {
 		} else {
 			session.setAttribute("login", hostDTO);
 			session.setAttribute("type", "host");
-            out.print("<script> location='"+url+"';</script>");
+            System.out.println("url=======================" + url);
+			out.print("<script> location='"+url+"';</script>");
 		}
 	}
 	
