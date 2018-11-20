@@ -14,6 +14,9 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
  --%>
 
+
+
+
 <div class="datepicker-container">
 	<div class="datepicker-content">
 <!-- 		<i class="icon-staylist icon-calendar-on"></i>  -->
