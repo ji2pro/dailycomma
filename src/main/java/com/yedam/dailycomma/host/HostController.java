@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yedam.dailycomma.host.HostService;
 
@@ -26,5 +27,13 @@ public class HostController {
 		model.addAttribute("lodgment", hostService.insertHost(dto));
 		//return "redirect:/getUsers.do";
 		return "redirect:/";
+	}
+	
+	@RequestMapping("/checkHostId.do")
+	@ResponseBody
+	public boolean checkHostId(HostDTO dto) {
+		HostDTO hostDTO = hostService.getHost(dto);
+		if(hostDTO == null) return true;
+		else return false;
 	}
 }

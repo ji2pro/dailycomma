@@ -3,7 +3,45 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="./resources/include/js/lodgment/Address.js"></script>
 <script src="http://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false"></script>
+<script src="/resources/include/js/host/host.js"></script>
 <link href="<c:url value="/resources/include/css/user/user.css"/>" rel="stylesheet">
+
+
+<script>
+
+var path = "<c:url value='/'/>"
+$(function(){
+	$('.checkId').click(function(){
+		var id = $('input[name="hostId"]:text').val()
+		if(id.length < 4) {
+			alert("아이디는 4글자 이상 입력해주세요");
+			return;
+		}
+		
+		$.ajax({
+	           url: path + "checkHostId.do",
+	           data : {"hostId" : id},
+	           dataType: "json",
+	           error: function (data, status, msg) {
+	               //alert("상태값 :" + status + " Http에러메시지 :"+msg);
+	           },
+	           success: function(data){
+	        	   if(data == true){
+	        		   alert("사용가능한 아이디입니다.");
+	           		   $('#signupBtn').attr('disabled',false);
+	           		  
+	        	   }
+	        	   else alert("중복되는 아이디입니다.");
+	           }
+	    })
+	});
+	
+	$('#hostId').change(function(){
+		 $('#signupBtn').attr('disabled',true);
+	});
+});
+
+</script>
 
 <div class="container py-5 mb-5">
 	<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -13,7 +51,7 @@
 		</p>
 	</div>
 	
-	<form class="form-signup" action="insertHost.do">
+	<form class="form-signup" action="insertHost.do" onsubmit="return checkz()">
 		<div class="row">
 			<div class="col">
 				<div class="form-group row">
@@ -23,7 +61,7 @@
 						<div class="invalid-feedback">아이디는 필수 입력 사항입니다.</div>
 					</div>
 					<div class="col-md-2">
-						<button type="button" class="btn btn-outline-dark">중복 확인</button>					
+						<button type="button" class="btn btn-outline-dark checkId">중복 확인</button>					
 					</div>
 				</div>
 				
@@ -40,7 +78,7 @@
 				<div class="form-group row">
 					<label for="hostPw" class="col-md-3 col-form-label">비밀번호</label>
 					<div class="col-md-9">
-						<input type="text" class="form-control" name="hostPw" id="hostPw" value="${lodgment.hostPw}" placeholder="비밀번호">
+						<input type="password" class="form-control" name="hostPw" id="hostPw" value="${lodgment.hostPw}" placeholder="비밀번호">
 						<div class="invalid-feedback">비밀번호는 필수 입력 사항입니다.</div>
 					</div>
 				</div>
@@ -100,10 +138,10 @@
 				
 				<div class="form-group row">
 					<div class="col-md-6">
-						<button class="btn btn-primary btn-lg btn-block" type="submit">가입 요청하기</button>
+						<button class="btn btn-primary btn-lg btn-block" id="signupBtn" type="submit" disabled="">가입 요청하기</button>
 					</div>
 					<div class="col-md-6">
-						<button class="btn btn-outline-danger btn-lg btn-block" type="submit">취소하기</button>
+						<button class="btn btn-outline-danger btn-lg btn-block" type="button" onclick="location.href=history.back()">취소하기</button>
 					</div>
 				</div>
 			</div>
