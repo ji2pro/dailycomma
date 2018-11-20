@@ -9,6 +9,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.yedam.dailycomma.host.HostDTO;
+import com.yedam.dailycomma.host.HostService;
 import com.yedam.dailycomma.lodgment.LodgmentDTO;
 import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
 
@@ -31,6 +33,7 @@ public class RoomController {
 	@Autowired RoomService roomService;
 	@Autowired LodgmentDTO lodgmentDTO;
     @Autowired RoomPostDTO roomPostDTO;
+    @Autowired HostService hostService;
 
 	/*건수조회 추후 토탈 이미지로 들어갈 예정*/
 	@RequestMapping("detailRoom.do/{roomNo}")
@@ -93,8 +96,13 @@ public class RoomController {
 	}
 	
 	@RequestMapping(value="insertRoom.do", method=RequestMethod.POST)
-	public String insertRoom(RoomDTO dto,HttpServletRequest request) throws IllegalStateException, IOException {
-		
+	public String insertRoom(RoomDTO dto,
+                             HttpSession session,
+                             HttpServletRequest request) throws IllegalStateException, IOException {
+
+
+        HostDTO hostDTO = (HostDTO)session.getAttribute("login");
+
 		MultipartFile[] uploadFile = dto.getUploadFile();
 		String filename = "";
 		StringBuffer temp = new StringBuffer();
@@ -109,7 +117,10 @@ public class RoomController {
 					temp.append(filename + ","); 
 			}
 		}
+
 		dto.setRoomImg(temp.toString());
+
+		dto.setLodgmentNo(hostDTO.getLodgmentNo());
 		roomService.insertRoom(dto);
 		return "redirect:insertRoomForm.do";
 	}
