@@ -72,7 +72,7 @@
 							${search.checkin}
 							${search.checkout}
 						</p>
-						<div class="d-flex flex-row">
+						<div class="d-flex flex-wrap">
 					<c:if test="${temp.hashTag ne null }">	
 						<c:forEach items="${temp.hashTag}" var="hash">
 							<a href="<c:url value="/hashTagSearch/${hash.hashtagContent}"/>" class="mr-3">${hash.hashtagContent}</a>
