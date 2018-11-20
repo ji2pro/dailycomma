@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet" href="./resources/include/css/jquery-ui.theme.css?ver=1" />
-<script src="<c:url value="/resources/include/js/home/home.js?ver=1"/>"></script>
+<link href="<c:url value="/resources/include/css/jquery-ui.theme.css?ver=1" />" rel="stylesheet" />
+<script src="<c:url value="/resources/include/js/home/home.js?ver=1" />"></script>
 
 <section class="search-area">
 	<div class="search-panel">
@@ -156,7 +156,7 @@
 		</a>
 		<a class="quicklink-item">
 			<span class="fa-icon"><i class="fa fa-briefcase" aria-hidden="true"></i></span>
-			<span>게스트 하우스</span>
+			<span>게스트하우스</span>
 		</a>
 	</div>
 </section>

@@ -1,21 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <script src="<c:url value="/resources/include/js/lodgment/Search.js?ver=1"/>"></script>
 <!-- Custom Stylesheets -->
 <link rel="stylesheet" href="./resources/include/css/jquery-ui.theme.css?ver=1" />
 <link rel="stylesheet" href="./resources/include/css/lodgmentSearch.css?ver=1" />
-<!-- 캘린더 -->
-<%-- <script src="<c:url value="/resources/include/js/lodgment/calendar.js"/>"></script>
-<script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
- --%>
-
-
-
 
 <div class="datepicker-container">
 	<div class="datepicker-content">
@@ -63,7 +52,7 @@
 			</div>
 
 			<c:forEach items="${lod}" var="temp">
-				<div class="card flex-md-row mb-3 shadow-sm h-md-250">
+				<div class="card flex-md-row mb-4 shadow-sm h-md-250">
 					<img class="card-img-left" src="<%=request.getContextPath()%>/resources/images/lodgment/${temp.lodgmentImg}" width="300" height="200" alt="Card image cap">
 					<div class="card-body d-flex flex-column align-items-start">
 						<h3 class="mb-0">
@@ -83,12 +72,13 @@
 							${search.checkin}
 							${search.checkout}
 						</p>
+						<div class="d-flex flex-row">
 					<c:if test="${temp.hashTag ne null }">	
 						<c:forEach items="${temp.hashTag}" var="hash">
-							<a href="<c:url value="/hashTagSearch/${hash.hashtagContent}"/>">${hash.hashtagContent}</a>
+							<a href="<c:url value="/hashTagSearch/${hash.hashtagContent}"/>" class="mr-3">${hash.hashtagContent}</a>
 						</c:forEach>
 					</c:if>	
-
+						</div>
 					</div>
 						
 
