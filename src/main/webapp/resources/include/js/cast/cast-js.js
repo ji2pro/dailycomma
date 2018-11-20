@@ -77,20 +77,22 @@ let isEnd = false;
 
 
 $(function(){
-  $(window).scroll(function(){
+  
+	fetchList();
+	$(window).scroll(function(){
 	  let $window = $(this);
 	  let scrollTop = $window.scrollTop();
 	  let windowHeight = $window.height();
       let documentHeight = $(document).height();
    
-     if( scrollTop + windowHeight + 30 > documentHeight ){
-    	 
+    // if( scrollTop + windowHeight + 30 > documentHeight ){
+    	if(scrollTop == documentHeight - windowHeight) {
     	 console.log("documentHeight:" + documentHeight + " | scrollTop:" +
                   scrollTop + " | windowHeight: " + windowHeight );
                           fetchList();
          }
      })
-      fetchList();
+     
 
 })
 
@@ -108,7 +110,7 @@ let fetchList = function(){
          $.ajax({
               url:"getCasts.do"  ,
               data : {'tourId' : tourId,
-              		  'pageUnit' : 6},
+              		  'pageUnit' : 8},
               type: "GET",
               dataType: "json",
               success: callbackScroll
@@ -121,7 +123,7 @@ function callbackScroll(data){
 	
 	let length = data.length;
 
-    if( length < 4 ){
+    if( length < 5 ){
   	  isEnd = true;
     }
     
