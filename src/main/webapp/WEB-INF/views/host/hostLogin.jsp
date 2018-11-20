@@ -8,7 +8,7 @@
 		<h1 class="display-5">업주 로그인</h1>
 	</div>
 
-	<form class="form-signin" action="hostLogin.do" method="POST">
+	<form class="form-signin" action="hostLogin.do">
 		<div class="row">
 			<div class="col-md-12">
 				<input type="text" name="hostId" class="form-control" placeholder="업주님 아이디"/>
