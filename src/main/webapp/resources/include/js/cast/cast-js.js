@@ -75,20 +75,19 @@ function deleteImageAction(index) {
 let isEnd = false;
 
 $(function(){
-  $(window).scroll(function(){
+	fetchList();
+	 
+	$(window).scroll(function(){
 	  let $window = $(this);
 	  let scrollTop = $window.scrollTop();
 	  let windowHeight = $window.height();
       let documentHeight = $(document).height();
    
-     if( scrollTop + windowHeight + 30 > documentHeight ){
-    	 
-    	 console.log("documentHeight:" + documentHeight + " | scrollTop:" +
-                  scrollTop + " | windowHeight: " + windowHeight );
-                          fetchList();
-         }
+  	if(scrollTop == documentHeight - windowHeight) {
+   	                   fetchList();
+        }
      })
-      fetchList();
+     
 })
 
 let fetchList = function(){
@@ -103,21 +102,21 @@ let fetchList = function(){
          let tourId = $(".grid-item").last().attr('id') || 0;
          
          $.ajax({
-              url:"getCasts.do"  ,
-              data : {'tourId' : tourId,
-              		  'pageUnit' : 6},
-              type: "GET",
-              dataType: "json",
-              success: callbackScroll
+             url:"getCasts.do"  ,
+             data : {'tourId' : tourId,
+             		  'pageUnit' : 8},
+             type: "GET",
+             dataType: "json",
+             success: callbackScroll
 	
-         });
+        });
 }
 
 function callbackScroll(data){
 	
 	let length = data.length;
 
-    if( length < 4 ){
+    if( length < 5){
   	  isEnd = true;
     }
     
