@@ -35,11 +35,11 @@
                 <div class="inner_bg">
                     <div class="detail_title">
                         <h3 class="sc_out"></h3>
-                        <p id="jsonTitle">인생샷착즙기 반짝뽕쨕 빛축제7${getDetailCast.tourId}//${getDetailCast.likeyn}</p>
+                        <p id="jsonTitle">${getDetailCast.tourTitle}</p>
                         <div class="count">
-                            <span class="day" id="jsonRegisterdDate">2018-09-27 18:15:24</span>
+                            <span class="day" id="jsonRegisterdDate">${getDetailCast.tourDate}</span>
                             <span style="color:red; margin-left:20px;" class="fa fa-heart"></span><b
-                                name="jsonLikeCount">5</b>
+                                name="jsonLikeCount">${getDetailCast.totalLike}</b>
                             <span class="ico_read"></span>
                             <span class="fas fa-glasses"></span>
                             <!-- <b id="readCount">686</b> -->
@@ -48,7 +48,6 @@
                             <span>댓글</span>
                             <b name="jsonCommentCount"></b></a>
                     </div>
-                    ${getDetailCast.tourImg}
                     <div class="detail_area">
                         <c:forTokens items="${getDetailCast.tourImg}" delims="," var="img" varStatus="status">
                             <c:if test="${status.first}">
