@@ -131,7 +131,7 @@ SELECT * FROM ( SELECT T.*, ROWNUM RN FROM (
         ]]>
        </if>
     </where>
-    ORDER BY TOUR_DATE desc
+    ORDER BY TOUR_ID
 ) T ) A 
    <choose>
       <when test="pageUnit != 0">

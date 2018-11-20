@@ -18,7 +18,7 @@
 			  	<select class="custom-select" id="inputGroupSelect01" name="tourLocation">
 				    <option value="C1" selected>서울</option>
 				    <option value="C2">부산</option>
-				    <option value="C3">강릉</option>
+				    <option value="C3">광주</option>
 				    <option value="C4">대구</option>
 				    <option value="C5">제주도</option>
  				 </select>
