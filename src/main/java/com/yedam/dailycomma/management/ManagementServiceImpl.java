@@ -16,10 +16,13 @@ public class ManagementServiceImpl implements ManagementService {
     public List<ManagementDTO> selectReservation(String lodgmentNo){
         return dao.selectReservation(lodgmentNo);
     }
-    /*public List<LodgmentDTO> getLodgments(LodgmentSearchDTO lodgmentSearchDTO) {
-		return dao.getLodgments(lodgmentSearchDTO);
+    public List<ManagementDTO> getLodgments(String hostId) {
+		return dao.getLodgments(hostId);
 	}
-	public int getLodgmentCnt(LodgmentSearchDTO lodgmentSearchDTO) {
+    public List<ManagementDTO> getRooms(String hostId) {
+    	return dao.getRooms(hostId);
+    }
+	/*public int getLodgmentCnt(LodgmentSearchDTO lodgmentSearchDTO) {
 		return dao.getLodgmentCnt(lodgmentSearchDTO);
 	}*/
     public int deleteReserve(String[] reserveNo) {

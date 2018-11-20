@@ -75,9 +75,10 @@ public class ManagementController {
 	}
 	
 	//등록한 객실 목록
-	/*@RequestMapping("/lodgmentList.do")
-	@ResponseBody
-	public List<LodgmentDTO> getLodgments(Model model, HttpSession session, LodgmentSearchDTO searchDTO) {
-		return service.getLodgments(searchDTO);
-	}*/
+	@RequestMapping("/lodgmentList.do")
+	public String getLodgments(Model model, @RequestParam String hostId) {
+		model.addAttribute("lodgmentList", service.getLodgments(hostId));
+		model.addAttribute("roomList", service.getRooms(hostId));
+		return "management/lodgmentList";
+	}
 }

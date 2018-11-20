@@ -5,7 +5,6 @@
 <mapper namespace="management">
  
  	<select id="selectReservation" resultType="Management" parameterType="string">
-             
         select member_name, member_email, reserve_date, reserve_people, room_name, reserve_price, checkin, checkout,
 		case re.reserve_state when 'D1' then '확인' else '미확인' end RESERVE_STATE
 		from reservation re, member m, room r, lodgment lo
@@ -15,17 +14,49 @@
 		and re.room_no = r.room_no
 		and lo.lodgment_no = #{value}
 		order by re.reserve_date desc
-		
     </select>
     
-  
-<delete id="deleteReserve" parameterType="string">
-	DELETE FROM RESERVATION
-	WHERE RESERVE_NO IN 
-		<foreach collection="array" item="item" index="index" separator="," open="(" close=")">
-		    '${array[index]}'
-		</foreach>
-</delete>
+    <select id="getLodgments" resultType="lodgment" parameterType="string">
+		SELECT L.LODGMENT_NO AS "lodgmentNo"
+			   ,L.COMPANY AS "company"
+			   ,L.LODGMENT_INFO AS "lodgmentInfo"
+			   ,(SELECT COUNT(*) FROM ROOM WHERE ROOM.LODGMENT_NO = L.LODGMENT_NO) AS "roomCnt"
+			   ,CASE L.LODGMENT_TYPE WHEN 'A1' THEN '모텔'
+			   		  			 	WHEN 'A2' THEN '호텔'
+			   						WHEN 'A3' THEN '펜션'
+			   						WHEN 'A4' THEN '게스트 하우스'
+			   						END "lodgmentType"
+			   ,CASE L.LOCATION WHEN 'C1' THEN '서울'
+							    WHEN 'C2' THEN '부산'
+							    WHEN 'C3' THEN '광주'
+							    WHEN 'C4' THEN '대구'
+							    WHEN 'C5' THEN '제주도'
+							    END "location"
+		FROM LODGMENT L
+		WHERE L.HOST_ID = #{hostId}
+    </select>
+    
+    <select id="getRooms" resultType="lodgment" parameterType="string">
+		SELECT R.LODGMENT_NO
+			   ,R.ROOM_NO
+			   ,R.ROOM_NAME
+			   ,R.ROOM_QUANTITY
+			   ,R.ROOM_PRICE
+			   ,R.ROOM_CAPA
+		FROM ROOM R
+			JOIN LODGMENT L
+			ON R.LODGMENT_NO = L.LODGMENT_NO
+		WHERE L.HOST_ID = #{hostId}
+		ORDER BY ROOM_NO
+	</select>
+    
+	<delete id="deleteReserve" parameterType="string">
+		DELETE FROM RESERVATION
+		WHERE RESERVE_NO IN 
+			<foreach collection="array" item="item" index="index" separator="," open="(" close=")">
+			    '${array[index]}'
+			</foreach>
+	</delete>
 
 </mapper>
 

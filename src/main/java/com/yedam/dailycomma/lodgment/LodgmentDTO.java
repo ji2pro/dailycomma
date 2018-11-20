@@ -23,6 +23,12 @@ public class LodgmentDTO {
 	private String peopleCnt;		//평가인원수
 	private String roomCnt;			//객실 수
     private String memberNo;
+    private String roomNo;
+    private String roomName;
+    private String roomQuantity;
+    private String roomPrice;
+    private String roomCapa;
+    
     private String lodgmentTypeName;
     private List<HashtagDTO> hashTag;
 	private MultipartFile uploadFile;
@@ -130,5 +136,45 @@ public class LodgmentDTO {
 	}
 	public void setUploadFile(MultipartFile uploadFile) {
 		this.uploadFile = uploadFile;
+	}
+
+	public String getRoomNo() {
+		return roomNo;
+	}
+
+	public void setRoomNo(String roomNo) {
+		this.roomNo = roomNo;
+	}
+
+	public String getRoomName() {
+		return roomName;
+	}
+
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
+	}
+
+	public String getRoomQuantity() {
+		return roomQuantity;
+	}
+
+	public void setRoomQuantity(String roomQuantity) {
+		this.roomQuantity = roomQuantity;
+	}
+
+	public String getRoomPrice() {
+		return roomPrice;
+	}
+
+	public void setRoomPrice(String roomPrice) {
+		this.roomPrice = roomPrice;
+	}
+
+	public String getRoomCapa() {
+		return roomCapa;
+	}
+
+	public void setRoomCapa(String roomCapa) {
+		this.roomCapa = roomCapa;
 	} 
 }
