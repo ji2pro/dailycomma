@@ -25,12 +25,23 @@ public class RoomDTO {
 	private String enable;
 	private String location;
 	private MultipartFile[] uploadFile; //다중 파일시 배열로
-	
+	private String memberNo;
+
+
 	
     private String company;
     private String address;
     private String hostPhone;
     private String lodgmentType;
+
+
+	public String getMemberNo() {
+		return memberNo;
+	}
+
+	public void setMemberNo(String memberNo) {
+		this.memberNo = memberNo;
+	}
 
 	public String getLocation() {
 		return location;

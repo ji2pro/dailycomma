@@ -24,7 +24,8 @@
                                                                                              when 'A2' then '호텔'
                                                                                              when 'A3' then '펜션'
                                                                                              when 'A4' then '게스트하우스'
-                                                                                             end LODGMENT_TYPE
+                                                                                             end LODGMENT_TYPE,
+                                                                                             (select count(*) from RESERVATION where LODGMENT_NO = #{lodgmentNo} and MEMBER_NO = #{memberNo}) member_no
 		FROM LODGMENT L join ROOM R
             ON (L.LODGMENT_NO = R.LODGMENT_NO)
         WHERE R.LODGMENT_NO = #{lodgmentNo}

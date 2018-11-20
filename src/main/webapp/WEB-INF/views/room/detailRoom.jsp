@@ -51,7 +51,7 @@
 <div class="container">
 	<section>
 		<div class="place-detail">
-			<h2 class="detail-info__title">${getDetailRooms[0].company} <h6><button style="float: right;" onclick="api('${getDetailRooms[0].location}');">축제 정보 보기</button></h6></h2>
+			<h2 class="detail-info__title">${getDetailRooms[0].company} <h1><button style="float: right;" onclick="api('${getDetailRooms[0].location}');">축제 정보 보기</button></h1></h2>
 			<div class="detail-info__address">
 				<div>상세 주소 : ${getDetailRooms[0].address}</div>
 				<div>연락처 : ${getDetailRooms[0].hostPhone}</div>
@@ -142,7 +142,7 @@
                 <div class="tab-pane fade" id="tabtwo" role="tabpanel">
                     <div class="place-room__message">
                         <i class="badge-live">바른 후기</i>는 숙소에 직접 방문한 회원만 작성할 수 있습니다.
-                        <c:if test="${login ne null}">
+                        <c:if test="${getDetailRooms[0].memberNo != '0'}">
                             <button type="button" class="review-post__insert-btn" style="float:right" id="${getDetailRooms[0].lodgmentNo}">후기 등록</button>
                         </c:if>
                     </div>

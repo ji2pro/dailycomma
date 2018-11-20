@@ -18,9 +18,8 @@ public class LodgmentSearchDTO extends LodgmentDTO {
 	private String checkout;
 		
 	private long differ;
-	
-	
-	
+
+
 	public long getDiffer() {
 		return differ;
 	}
