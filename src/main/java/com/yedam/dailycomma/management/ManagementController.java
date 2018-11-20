@@ -27,10 +27,13 @@ public class ManagementController {
 	private String[] reserveNo;
 
 	@RequestMapping("/managementList.do")
-	public String management(Model model) {
+	public String management(Model model,HttpSession session) {
 		//logger.info("home");
-		String lodgmentNo = "LOD1";
-		List<ManagementDTO> memberList = service.selectReservation(lodgmentNo);
+		//String lodgmentNo = "LOD1";
+
+        HostDTO dto = (HostDTO)session.getAttribute("login");
+
+		List<ManagementDTO> memberList = service.selectReservation(dto.getLodgmentNo());
 		model.addAttribute("memberList", memberList);
 		return "management/managementList";
 	}

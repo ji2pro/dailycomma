@@ -21,7 +21,6 @@
 </head>
 
 <body>
-    <h1>Masonry - imagesLoaded progress</h1>
 
 <div class="grid" style="hegiht: auto">
   <div class="grid-sizer"></div>
