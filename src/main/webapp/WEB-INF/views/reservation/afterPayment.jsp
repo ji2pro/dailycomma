@@ -18,8 +18,8 @@
     				<div class="card">
       					<div class="card-body">
         					<h3 class="card-title">축제 일정</h3>
-        					<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        					<a href="#" class="btn btn-primary">축제 일정 보러가기</a>
+        					<p class="card-text"><h3> 지역 축제일정 보기</h3></p>
+        					<a href="<c:url value="/festivalList.do?location=${location}"/>" class="btn btn-primary">축제 일정 보러가기</a>
       					</div>
     				</div>
   				</div>
@@ -27,7 +27,25 @@
     				<div class="card">
       					<div class="card-body">
         					<h3 class="card-title">관광지</h3>
-       	 					<p class="card-text"><h3>대구지역 관광지 보러가기 </h3></p>
+       	 					<p class="card-text">
+       	 					<h3>  
+       	 				<c:if test="${location eq 'C1'}">
+							서울
+						</c:if>
+						<c:if test="${location eq 'C2'} ">
+							
+						</c:if>
+						<c:if test="${location eq 'C3'} ">
+							광주
+						</c:if>
+						<c:if test="${location eq 'C4'} ">
+							대구
+						</c:if>
+						<c:if test="${location eq 'C5'} ">
+							제주도
+						</c:if>		
+       	 					
+       	 					지역 관광지 보러가기 </h3></p>
         					<a href="<c:url value="/castListForm.do"/>" class="btn btn-primary">관광지 보러가기</a>
       					</div>
     				</div>
