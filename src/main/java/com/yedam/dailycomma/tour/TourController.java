@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import com.yedam.dailycomma.lodgment.LodgmentSearchDTO;
 import com.yedam.dailycomma.member.MemberDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,8 +23,15 @@ public class TourController {
 	
 	@RequestMapping("/getCasts.do")
 	@ResponseBody
-	public List<TourDTO> getTours(TourDTO dto) {
+	public List<TourDTO> getTours(TourDTO dto,HttpSession session) {
 		//TourSearchDTO dto = new TourSearchDTO();
+		LodgmentSearchDTO searchDTO = (LodgmentSearchDTO)session.getAttribute("search");
+		if(searchDTO != null)
+		if(searchDTO.getLocation() != null && !searchDTO.equals("")) {
+			System.out.println("location=================="+searchDTO.getLocation());
+			dto.setTourLocation(searchDTO.getLocation());
+		}
+		
 		return tourService.getCasts(dto);		
 	}
 	

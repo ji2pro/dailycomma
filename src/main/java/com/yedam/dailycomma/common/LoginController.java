@@ -65,9 +65,9 @@ public class LoginController {
 
             if(dto.getMemberEmail().equals("admin@admin.com"))
                 session.setAttribute("admin","admin");
-
+            
+            System.out.println("url==================" + url);
 			out.print("<script> location='"+url+"';</script>");
-
 		}
 	}
 	
@@ -103,6 +103,7 @@ public class LoginController {
 		} else {
 			session.setAttribute("login", hostDTO);
 			session.setAttribute("type", "host");
+			if(url.equals("#")) url = request.getContextPath() + "/";
             System.out.println("url=======================" + url);
 			out.print("<script> location='"+url+"';</script>");
 		}

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="./resources/include/js/lodgment/Address.js"></script>
 <script src="http://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false"></script>
-<script src="/resources/include/js/host/host.js"></script>
+<script src="<c:url value="/resources/include/js/host/host.js"/>"></script>
 <link href="<c:url value="/resources/include/css/user/user.css"/>" rel="stylesheet">
 
 

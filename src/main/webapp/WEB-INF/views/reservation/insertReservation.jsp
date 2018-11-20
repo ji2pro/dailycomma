@@ -164,7 +164,8 @@
 						<input type="hidden" name="reservePeople" value="1">
 						<input type="hidden" name="checkin" value="${search.checkin}">
 						<input type="hidden" name="checkout" value="${search.checkout}">
-						<input type="hidden" name="reservePoints" value="${reserveInfo.roomPrice * search.differ * 0.005}">	<!-- 적립포인트 -->
+						<fmt:parseNumber var= "reservePoint" integerOnly= "true" value= "${reserveInfo.roomPrice * search.differ * 0.005}" />
+						<input type="hidden" name="reservePoints" value="${reservePoint }">	<!-- 적립포인트 -->
 						<input type="hidden" name="deductionPoint" value="0">	
 						
 						<c:if test="${login eq null }">

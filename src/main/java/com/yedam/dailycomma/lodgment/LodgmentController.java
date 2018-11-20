@@ -32,7 +32,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.yedam.dailycomma.host.HostDTO;
 
 @Controller
-@SessionAttributes("search")
 public class LodgmentController {
 	
 	@Autowired //DI(Dependency Injection)
@@ -84,7 +83,7 @@ public class LodgmentController {
 	}	
 	
 	@RequestMapping("/getMainSearch.do")
-	public String getMainSearch(Model model,LodgmentSearchDTO dto) {
+	public String getMainSearch(Model model,LodgmentSearchDTO dto,HttpSession session) {
 		//dto.setLodgmentType("A4");*/
 		
 		if(dto == null) {
@@ -110,7 +109,8 @@ public class LodgmentController {
 		}
 			
 		dto.setDiffer(differenceDate(dto.getCheckin(), dto.getCheckout()));
-		model.addAttribute("search", dto);			//session 저장
+		session.setAttribute("search", dto);
+		//model.addAttribute("search", dto);			//session 저장
 		
 		List<LodgmentDTO> list = lodgmentService.getMainSearch(dto);
 		
@@ -128,9 +128,11 @@ public class LodgmentController {
 	
 	@RequestMapping("/updateSearch.do")
 	public String updateSearch(@ModelAttribute("search") LodgmentSearchDTO dto,
-							   Model model) {
+							   Model model,
+							   HttpSession session) {
 		dto.setDiffer(differenceDate(dto.getCheckin(), dto.getCheckout()));
 		
+		session.setAttribute("search", dto);
 		List<LodgmentDTO> list = lodgmentService.getMainSearch(dto);
 		
 		for(int i=0; i<list.size(); i++) {
