@@ -15,8 +15,15 @@ public class MyPageDTO {
 	private String roomPrice;
 	private String memberEmail;
 	private String reserveState;
+	private String deductionPoint;
 	
-		
+	
+	public String getDeductionPoint() {
+		return deductionPoint;
+	}
+	public void setDeductionPoint(String deductionPoint) {
+		this.deductionPoint = deductionPoint;
+	}
 	public String getReserveState() {
 		return reserveState;
 	}

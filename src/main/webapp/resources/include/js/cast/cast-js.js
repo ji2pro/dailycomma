@@ -99,11 +99,11 @@ let fetchList = function(){
          // renderList 함수에서 html 코드를 보면 <li> 태그에 data-no 속성이 있는 것을 알 수 있다.
          // ajax에서는 data- 속성의 값을 가져오기 위해 data() 함수를 제공.
 
-         let tourId = $(".grid-item").last().attr('id') || 0;
-         
+         //let tourId = $(".grid-item").last().attr('id') || 0;
+         let tourDate = $(".grid-item").last().attr('id');
          $.ajax({
              url:"getCasts.do"  ,
-             data : {'tourId' : tourId,
+             data : {'tourDate' : tourDate,
              		  'pageUnit' : 8},
              type: "GET",
              dataType: "json",
@@ -131,7 +131,8 @@ let renderList = function(mode, tours){
     var tourImg = tours.tourImg.split(",");
 
     // 리스트 html을 정의
-    let html =   "<div class='grid-item' id='"+tours.tourId+"'>" +
+    let html =   //"<div class='grid-item' id='"+tours.tourId+"'>" +
+    			 "<div class='grid-item' id='"+tours.tourDate+"'>" +
     			 "<div class='card' style='width: 23rem;'>" +
     		     "<img class='card-img-top' src='"+path+"resources/images/cast/"+tourImg[0]+"' alt='Card image cap'>" +
     		     "<div class='card-body'>"+

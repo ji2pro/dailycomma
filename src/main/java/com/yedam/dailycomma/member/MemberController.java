@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MemberController {
@@ -19,5 +20,13 @@ public class MemberController {
         public String insertMember(Model model, MemberDTO dto) {
             model.addAttribute("member", memberService.insertMember(dto));
             return "redirect:/";
+	}
+	
+	@RequestMapping("/checkMemberEmail.do")
+	@ResponseBody
+	public boolean checkMemberEmail(MemberDTO dto) {
+		MemberDTO memberDTO = memberService.getMember(dto);
+		if(memberDTO == null) return true;
+		return false;
 	}
 }

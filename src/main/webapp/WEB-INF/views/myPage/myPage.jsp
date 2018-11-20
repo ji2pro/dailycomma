@@ -13,17 +13,19 @@
 	src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"
 	integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
 	crossorigin="anonymous"></script>
-</head>
+
+<script>
 
 
-<body>
+</script>
+
 <%-- <img src="resources/images/cast/${login.memberImg}" class="rounded-circle img-fluid"> --%>
 
 
 	<!--개인정보 수정  / 비밀번호, 한줄소개 -->
 	<div class="py-5">
 		<div class="container">
-			<form action="updateMember.do" method="post" enctype="multipart/form-data">
+			<form  onsubmit="return checkz()" action="<c:url value='/updateMember.do'/>" method="post" enctype="multipart/form-data">
 				<div class="row">
 					<div class="col-md-5" id="photo" style="margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto; width:100%;" align="center" >
 							<c:choose>
@@ -45,8 +47,8 @@
 								value="${login.memberNick}"
 								style="border:none" class="ml-3 my-3"></li>
 							<li>현재 비밀번호 : <button type="button" class="btn btn-danger" data-toggle="modal"data-target="#exampleModal">변경</button>
-							<li>비밀번호 변경 :<input type="password" name="memberPw"  class="unRead ml-3 my-3" readonly="readonly" style="background-color: #e2e2e2;"></li>
-							<li>비밀번호 변경 확인:<input type="password" name="pwcheck"  class="unRead ml-3 my-3" readonly="readonly" style="background-color: #e2e2e2;"></li>
+							<li>비밀번호 변경 :<input type="password" name="memberPw" id="memberPw"  class="unRead ml-3 my-3" readonly="readonly" style="background-color: #e2e2e2;"></li>
+							<li>비밀번호 변경 확인:<input type="password" name="pwcheck" id="pwcheck" class="unRead ml-3 my-3" readonly="readonly" style="background-color: #e2e2e2;"></li>
 							<li>한줄소개 :<input type="text" size="40" name="memberIntro" placeholder="자신을 소개하세요" value="${login.memberIntro}" style="border:none" class="ml-3 my-3"></li>
 							<li>프로필 사진 : <input type="file" name="uploadFile" class="file-upload ml-3 my-3"></li>
 						</ul>
@@ -119,9 +121,11 @@
 			if($("#pw").val()=='${sessionScope.login.memberPw}'){ //input의 값과 세션안에 있는 DB의 비밀번호 값을 비교함.
 			 $(".unRead").removeAttr("readonly");		//readonly 옵션을 제거
 			 $(".unRead").removeAttr("style");			//style도 제거
-			 alert('비밀번호 변경의 잠금이 풀렸습니다.')
-			  $('#exampleModal').modal('hide')
-			}
+			 alert('비밀번호 변경의 잠금이 풀렸습니다.');
+			 $('#exampleModal').modal('hide');
+			 $('.modal-backdrop').removeClass('modal-backdrop');
+			 $('#pw').val('');
+		}
 			else
 			 alert('비밀번호가 다릅니다.'); 
 		 })
@@ -131,7 +135,9 @@
 	<script>
 	$(function(){
 		$("#up").on("click",function(){
-		alert('정보가 수정 되었습니다.')	
+			//var bool = checkz();
+			//if(bool == false) alert("비밀번호 좆됨");
+			//alert('정보가 수정 되었습니다.')	
 		})
 	});
 	
@@ -188,11 +194,38 @@
     $(".file-upload").on('change', function(){
         readURL(this);
     });
-    
    
 });
-	 </script>
 	
-</body>
+	function checkz() {
+	    var hobbyCheck = false;
+	    var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+	    var getCheck= RegExp(/^[a-zA-Z0-9]{4,12}$/);
+	    var getBusinessNo = RegExp(/^[0-9]/);
+	    var getName= RegExp(/^[가-힣]+$/);
+	    var fmt = RegExp(/^\d{6}[1234]\d{6}$/); //형식 설정
+	    var buf = new Array(13); //주민등록번호 배열
 
-</html>
+		   //비밀번호
+	    if(!getCheck.test($("#memberPw").val())) {
+		    alert("형식에 맞춰서 PW를 입력해줘용");
+		    $("#hostPw").val("");
+		    $("#hostPw").focus();
+		    return false;
+	    }
+
+
+	    //비밀번호 똑같은지
+	    if($("#memberPw").val() != ($("#pwcheck").val())){ 
+		    alert("비밀번호가 틀렸네용.");
+		    $("#memberPw").val("");
+		    $("#pwcheck").val("");
+		    $("#memberPw").focus();
+		    return false;
+	   } 
+
+	  alert("수정되었습니다");  
+	  return true;
+	}
+	
+</script>

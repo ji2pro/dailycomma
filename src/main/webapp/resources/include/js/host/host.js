@@ -26,7 +26,6 @@ function handleImgFileSelect(e) {
 
 
 function checkz() {
-    var getIntro = $("#intro").val().replace(/\s|/gi,'');
     var hobbyCheck = false;
     var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
     var getCheck= RegExp(/^[a-zA-Z0-9]{4,12}$/);
@@ -38,22 +37,22 @@ function checkz() {
 
     //아이디 공백 확인
     if($('#hostId').val() == ""){
-      alert("아이디 입력바람");
+      alert("아이디를 입력하세요");
       $("#hostId").focus();
       return false;
     }
 
     //이름의 유효성 검사
-    if(!getCheck.test($('#hostName').val())){
+/*    if(!getCheck.test($('#hostName').val())){
       alert("형식에 맞게 입력해주세요");
       $("#hostName").val("");
       $("#hostName").focus();
       return false;
-    }
+    }*/
 
     //비밀번호
     if(!getCheck.test($("#hostPw").val())) {
-    alert("형식에 맞춰서 PW를 입력해줘용");
+    alert("비밀번호 4글자 이상 입력해주세요");
     $("#hostPw").val("");
     $("#hostPw").focus();
     return false;
@@ -61,14 +60,14 @@ function checkz() {
 
     //아이디랑 비밀번호랑 같은지
     if ($("#hostId").val()==($("#hostPw").val())) {
-    alert("비밀번호가 ID와 똑같으면 안!대!");
+    alert("비밀번호가 ID와 똑같습니다.");
     $("#hostPw").val("");
     $("#hostPw").focus();
   }
 
     //비밀번호 똑같은지
     if($("#hostPw").val() != ($("#inputPWcheck").val())){ 
-    alert("비밀번호가 틀렸네용.");
+    alert("비밀번호가 틀렸습니다.");
     $("#hostPw").val("");
     $("#inputPWcheck").val("");
     $("#hostPw").focus();
@@ -91,12 +90,12 @@ function checkz() {
     }
 
     //이름 유효성
-    if (!getName.test($("#hostName").val())) {
-      alert("이름 똑띠 쓰세용");
+/*    if (!getName.test($("#hostName").val())) {
+      alert("이름  쓰세용");
       $("#hostName").val("");
       $("#hostName").focus();
       return false;
-    }
+    }*/
     
     if(!getBusinessNo.test($('#businessNo').val())){
     	alert("숫자만 입력해주세요");

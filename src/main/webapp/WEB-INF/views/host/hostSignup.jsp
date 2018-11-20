@@ -138,7 +138,7 @@ $(function(){
 				
 				<div class="form-group row">
 					<div class="col-md-6">
-						<button class="btn btn-primary btn-lg btn-block" id="signupBtn" type="submit" disabled="">가입 요청하기</button>
+						<button class="btn btn-primary btn-lg btn-block" id="signupBtn" type="submit" disabled>가입 요청하기</button>
 					</div>
 					<div class="col-md-6">
 						<button class="btn btn-outline-danger btn-lg btn-block" type="button" onclick="location.href=history.back()">취소하기</button>

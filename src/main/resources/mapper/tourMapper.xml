@@ -125,17 +125,24 @@
 SELECT * FROM ( SELECT T.*, ROWNUM RN FROM (   
    SELECT * FROM TOUR
     <where>
-       <if test="tourId != null and tourId != ''">
+<!--        <if test="tourId != null and tourId != ''">
 	       <![CDATA[
 	           TOUR_ID > #{tourId}
+	       ]]>
+       </if> -->
+       
+       <if test="tourDate != null and tourDate != ''">
+	       <![CDATA[
+	           TOUR_DATE < #{tourDate}
 	       ]]>
        </if>
        
        <if test="tourLocation != null and tourLocation != ''">
        	   	AND TOUR_LOCATION = #{tourLocation}		
        </if>
+       AND TOUR_STATE = 'B1'
     </where>
-    ORDER BY TOUR_ID
+    ORDER BY TOUR_DATE DESC
 ) T ) A 
    <choose>
       <when test="pageUnit != 0">
