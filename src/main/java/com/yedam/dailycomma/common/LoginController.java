@@ -92,9 +92,9 @@ public class LoginController {
 
 		String loginUrl = request.getContextPath() + "/hostLoginForm.do";
 
-		if(hostDTO != null && hostDTO.getLodgmentState().equals("B3"))
+		if((hostDTO != null) && (hostDTO.getLodgmentState().equals("B3") || hostDTO.getLodgmentState().equals("B2")))
         {
-            out.print("<script> alert('승인대기중입니다.'); location='"+loginUrl+"';</script>");
+            out.print("<script> alert('사용할수없는 아이디입니다. 관리자한테 문의해주세요.'); location='"+loginUrl+"';</script>");
             return;
         }
 
