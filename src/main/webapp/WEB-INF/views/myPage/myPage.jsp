@@ -52,7 +52,7 @@
 							<li>한줄소개 :<input type="text" size="40" name="memberIntro" placeholder="자신을 소개하세요" value="${login.memberIntro}" style="border:none" class="ml-3 my-3"></li>
 							<li>프로필 사진 : <input type="file" name="uploadFile" class="file-upload ml-3 my-3"></li>
 						</ul>
-						<button class="btn btn-primary btn-lg mt-3 ml-3" type="submit" id="up" >정보수정</button>
+						<button class="btn btn-primary btn-lg mt-3 ml-3" type="submit" id="up" disabled>정보수정</button>
 					</div>
 				</div>
 			</form>
@@ -119,16 +119,17 @@
 	 $(function(){								//비밀번호 readonly 제거 하는 스크립트
 		 $("#pwbtn").on("click",function(){
 			if($("#pw").val()=='${sessionScope.login.memberPw}'){ //input의 값과 세션안에 있는 DB의 비밀번호 값을 비교함.
-			 $(".unRead").removeAttr("readonly");		//readonly 옵션을 제거
-			 $(".unRead").removeAttr("style");			//style도 제거
-			 alert('비밀번호 변경의 잠금이 풀렸습니다.');
-			 $('#exampleModal').modal('hide');
-			 $('.modal-backdrop').removeClass('modal-backdrop');
-			 $('#pw').val('');
-		}
-			else
-			 alert('비밀번호가 다릅니다.'); 
-		 })
+				 $(".unRead").removeAttr("readonly");		//readonly 옵션을 제거
+				 $(".unRead").removeAttr("style");			//style도 제거
+				 alert('비밀번호 변경의 잠금이 풀렸습니다.');
+				 $('#exampleModal').modal('hide');
+				 $('.modal-backdrop').removeClass('modal-backdrop');
+				 $('#pw').val('');
+				 $('#signupBtn').attr('disabled',false);
+			}else {
+				alert('비밀번호가 다릅니다.'); 
+			}
+	 	})
 	 });
 	</script>
 	
@@ -209,8 +210,8 @@
 		   //비밀번호
 	    if(!getCheck.test($("#memberPw").val())) {
 		    alert("형식에 맞춰서 PW를 입력해줘용");
-		    $("#hostPw").val("");
-		    $("#hostPw").focus();
+		    $("#memberPw").val("");
+		    $("#memberPw").focus();
 		    return false;
 	    }
 

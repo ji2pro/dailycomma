@@ -16,11 +16,11 @@ font-size: xx-large;
 
 </style>
 <div class="reta">
-	<c:forEach items="${point}" var="po" begin="1" end="1">
+	<%-- <c:forEach items="${point}" var="po" begin="1" end="1"> --%>
 	<a class="poi">사용가능 포인트</a> <a class="ml-4 poi" id="col">
-		<fmt:formatNumber value="${po.memberPoint}" pattern="###,###" />포인트
+		<fmt:formatNumber value="${point[0].memberPoint}" pattern="###,###" />포인트
 	</a>
-	</c:forEach>
+	<%-- </c:forEach> --%>
 	<table class="table mt-3">
 		<tbody class="lineset">
 			<tr>

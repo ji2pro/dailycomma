@@ -102,6 +102,29 @@
 		<!-- <beans:property name="uploadTempDir" value="C:/Temp" /> -->
 	</beans:bean>
 	
+	<!-- 인터셉터 객체 생성 -->
+    <beans:bean id="authenticationInterceptor" class="com.yedam.dailycomma.common.AuthenticationInterceptor">
+    </beans:bean>
+    <!-- Interceptor 설정 -->
+    <interceptors>
+        <interceptor>
+            <mapping path="/myPage.do"/>
+			<mapping path="/castListForm.do"/>
+			<mapping path="/registerCastForm.do"/>
+			<mapping path="/lodgmentList.do"/>
+			<mapping path="/registerLodgmentForm.do"/>
+			<mapping path="/insertRoomForm.do"/>
+			<mapping path="/managementList.do"/>					
+			
+            <beans:ref bean="authenticationInterceptor"/>
+        </interceptor>
+    </interceptors>
+     
+<!--     <context:component-scan base-package="com.yedam.dailycomma.myPage" />
+    <context:component-scan base-package="com.yedam.dailycomma.common" />
+ -->
+
+	
 	<!-- interceptor 설정 -->
 <!--  	<mvc:interceptors> 
 		<mvc:interceptor> 
