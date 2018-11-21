@@ -6,9 +6,17 @@
 <html>
 <head>
     <link href="<c:url value="/resources/include/css/room/bundle.css" />" rel="stylesheet" type="text/css">
+    
+    <c:if test="${sessionScope.member eq null}">
+    	<c:set var="memberNo" value="no"/>
+    </c:if>
+    <c:if test="${sessionScope.member ne null}">
+    	<c:set var="memberNo" value="${sessionScope.login.memberNo}"/>
+    </c:if>
+     
     <script>
         var path = "<c:url value='/'/>";
-        var smemberNo = "${login.memberNo}";
+       	var smemberNo = "${memberNo}";
     </script>
     <script>
         function api(location) {

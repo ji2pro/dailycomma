@@ -40,7 +40,6 @@
 			
 			<thead>
 				<tr style="background : #ffaabb;">
-					<th>선택</th>
 					<th>이름</th>
 					<th>이메일</th>
 					<th>예약상태</th>
@@ -57,7 +56,6 @@
 			<tbody>
 				<c:forEach items="${memberList}" var="member">
 				<tr>
-					<td><input type="checkbox" name="reserveNo" value="${member.reserveNo}"></td>
 					<td>${member.memberName}</td>
 					<td>${member.memberEmail}</td>
 					<td>${member.reserveState}</td>

@@ -220,7 +220,7 @@ function checkException(x){
 			<tr>
 				<td>${roomlist.roomName}</td>    
 				<td>${roomlist.reservationNum}</td>
-				<td>${roomlist.totalPrice}</td>
+				<td><fmt:formatNumber value="${roomlist.totalPrice}" pattern="###,###" /></td> 
 			</tr>
 		</c:forEach>
 	</tbody>
@@ -241,7 +241,8 @@ function checkException(x){
 		<c:forEach items="${totalList}" var="priceTotal">
 			<tr>
 				<td>${priceTotal.reservationNum}</td>
-				<td>${priceTotal.totalPrice}</td> 
+				<td><fmt:formatNumber value="${priceTotal.totalPrice}" pattern="###,###" /></td> 
+				
 			</tr> 
 		</c:forEach>
 	</tbody>
@@ -263,6 +264,7 @@ function checkException(x){
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				</div>
 			</div>
+			&nbsp;
 			<button type="button" class="btn btn-secondary" id="btn-div">검색</button>
 		</div>
 
@@ -275,9 +277,9 @@ function checkException(x){
 					aria-expanded="false">${sysYear}</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				</div>
-
-				<button type="button" class="btn btn-secondary" id="btn-reserve">검색</button>
 			</div>
+			&nbsp;
+				<button type="button" class="btn btn-secondary" id="btn-reserve">검색</button>
 		</div>
 
 		<div id="chart_reserve"></div>

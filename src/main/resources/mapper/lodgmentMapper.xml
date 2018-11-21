@@ -48,15 +48,8 @@
 				AND ROLE = #{role}
 			</if> -->
 		</where>
-		ORDER BY
-		<choose>
-			<when test="sort != null and sort != ''">
-				#{sort}
-			</when>
-			<otherwise>
-				LODGMENT_NO
-			</otherwise>
-		</choose>
+		ORDER BY SIGNUP_DATE DESC
+
 	) U ) A WHERE RN BETWEEN #{start} and #{end}
 	</select>
 	

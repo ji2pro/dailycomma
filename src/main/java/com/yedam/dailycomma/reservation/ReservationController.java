@@ -46,8 +46,15 @@ public class ReservationController {
 	}
 	
 	@RequestMapping("/insertReservationForm.do")
-	public String insertReservation() {		
+	public String insertReservation(HttpSession session, Model model) {		
 //		model.addAttribute("reservation", reservationService.insertReservation(dto));
+		String logincheck = (String)session.getAttribute("type");
+		if(logincheck != null) {
+			if(!logincheck.equals("member"))
+				model.addAttribute("msg","일반 회원만 예약이 가능합니다.");
+				return "common/loginWarning";
+		}
+		
 		return "reservation/insertReservation";
 	}
 	
