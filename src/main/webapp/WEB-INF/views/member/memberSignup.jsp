@@ -31,6 +31,81 @@ var path = "<c:url value='/'/>"
 			 $('#signupBtn').attr('disabled',true);
 		});
 	});
+	
+function checkz() {
+    var hobbyCheck = false;
+    var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+    var getCheck= RegExp(/^[a-zA-Z0-9]{4,12}$/);
+    var getBusinessNo = RegExp(/^[0-9]/);
+    var getName= RegExp(/^[가-힣]+$/);
+    var fmt = RegExp(/^\d{6}[1234]\d{6}$/); //형식 설정
+    var buf = new Array(13); //주민등록번호 배열
+
+
+    //이름의 유효성 검사
+/*    if(!getName.test($('#memberName').val())){
+      alert("형식에 맞게 입력해주세요");
+      $("#memberName").val("");
+      $("#memberName").focus();
+      return false;
+    }*/
+
+    //비밀번호
+    if(!getCheck.test($("#memberPw").val())) {
+    alert("비밀번호 4글자 이상 입력해주세요");
+    $("#memberPw").val("");
+    $("#memberPw").focus();
+    return false;
+    }
+
+    //아이디랑 비밀번호랑 같은지
+    if ($("#memberEmail").val()==($("#memberPw").val())) {
+    alert("비밀번호가 ID와 똑같습니다.");
+    $("#memberPw").val("");
+    $("#memberPw").focus();
+  }
+
+    //비밀번호 똑같은지
+    if($("#memberPw").val() != ($("#pwcheck").val())){ 
+    alert("비밀번호가 틀렸습니다.");
+    $("#memberPw").val("");
+    $("#pwcheck").val("");
+    $("#memberPw").focus();
+    return false;
+   }
+
+   //이메일 공백 확인
+    if($("#memberEmail").val() == ""){
+      alert("이메일을 입력해주세요");
+      $("#memberEmail").focus();
+      return false;
+    }
+         
+    //이메일 유효성 검사
+    if(!getMail.test($("#memberEmail").val())){
+      alert("이메일형식에 맞게 입력해주세요")
+      $("#memberEmail").val("");
+      $("#memberEmail").focus();
+      return false;
+    }
+
+    //이름 유효성
+/*    if (!getName.test($("#hostName").val())) {
+      alert("이름  쓰세용");
+      $("#hostName").val("");
+      $("#hostName").focus();
+      return false;
+    }*/
+    
+    if(!getBusinessNo.test($('#businessNo').val())){
+    	alert("숫자만 입력해주세요");
+    	$("#businessNo").val();
+    	$("#businessNo").focus();
+    	return false;
+    }
+    
+  return true;
+}	
 </script>
 
 
@@ -43,7 +118,7 @@ var path = "<c:url value='/'/>"
 		</p>
 	</div>
 	
-	<form class="form-signup" action="insertMember.do">
+	<form class="form-signup" action="<c:url value="/insertMember.do"/>" onsubmit="return checkz()">
 		<div class="row">
 			<div class="col">
 				<div class="form-group row">
