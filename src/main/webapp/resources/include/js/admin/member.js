@@ -4,8 +4,9 @@
 
 $(function() {
 
-	$("input[type=checkbox]").prop("checked",false);
 	createMemberDropdown();
+	$("input[type=checkbox]").prop("checked",false);
+	
 	
 	$('#memberSearchBtn').click(function(){
 		var txt = $('#inlineFormInputGroup').val();
@@ -16,12 +17,11 @@ $(function() {
 
 
 function createMemberDropdown(){
-	$('.searchStandard').text("검색기준");
-	$('.sortStandard').text("정렬기준");
+	//$('.searchStandard').text("검색기준");
+	//$('.sortStandard').text("정렬기준");
 	$('#sortdown').empty();
 	var button = "<button type='button' class='dropdown-item' onclick='sortMember(\"F1\")'>일반회원</button>"
 				+"<button type='button' class='dropdown-item' onclick='sortMember(\"F2\")'>탈퇴회원</button>";
-				
 	$('#sortdown').append(button);
 	
 	button="";

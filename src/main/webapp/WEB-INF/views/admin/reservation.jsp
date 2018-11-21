@@ -36,7 +36,7 @@
 					<th scope="col">체크아웃</th>
 					<th scope="col">일수</th>
 					<th scope="col">상태변경일</th>
-					<th scope="col">관리</th>
+<!-- 					<th scope="col">관리</th> -->
 				</tr>
 			</thead>
 			<tbody id="reservationTbody">
@@ -57,7 +57,7 @@
 				<tr class="text-center">
 					<td scope="row">
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" name="_selected_" value="${lodgment.lodgmentNo}" class="custom-control-input">
+							<input type="checkbox" name="_selected_" value="${reservation.reserveNo}" class="custom-control-input">
 							<span class="custom-control-indicator"></span>
 						</label>
 					</td>
@@ -76,12 +76,12 @@
 					<td>${checkout_FD}</td>
 					<td>${totalDate}박 ${totalDate + 1}일</td>
 					<td>(상태변경일)</td>
-					<td>
+<!-- 					<td>
 						<div class="btn-group">
 							<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>
 							<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>
 						</div>
-					</td>
+					</td> -->
 				</tr>
 				</c:forEach>
 			</tbody>

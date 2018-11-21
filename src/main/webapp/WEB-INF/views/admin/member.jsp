@@ -5,8 +5,6 @@
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 <script src="<%=request.getContextPath()%>/resources/include/js/admin/member.js"></script>
 
-
-
 <form name="memberPagingForm" id="memberPagingForm">
 	<input type="hidden" name="page" value="1">
 	<input type="hidden" name="sort" value="">
@@ -88,5 +86,6 @@
 <div id="memberPaging">
 	<my:paging paging="${paging}" jsFunc="go_page"/> 
 </div>
+
 <!-- 페이징 버튼 -->
 <%--  <my:paging paging="${paging}" jsFunc="go_page"/>  --%>

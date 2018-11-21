@@ -36,7 +36,7 @@
 				#{sort}
 			</when>
 			<otherwise>
-				HOST_ID
+				SIGNUP_DATE DESC
 			</otherwise>
 		</choose>
 	) U ) A WHERE RN BETWEEN #{start} and #{end}
