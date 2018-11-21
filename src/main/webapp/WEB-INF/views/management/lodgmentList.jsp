@@ -22,7 +22,7 @@
 						<th scope="col">업체 이름</th>
 						<th scope="col">숙소 종류</th>
 						<th scope="col">총 객실수</th>
-						<th scope="col">숙소 옵션</th>
+						<!-- <th scope="col">숙소 옵션</th> -->
 						<th scope="col">지역</th>
 						<!-- <th scope="col">관리</th> -->
 					</tr>
@@ -40,7 +40,7 @@
 						<td>${lod.company}</td>
 						<td>${lod.lodgmentType}</td>
 						<td>${lod.roomCnt}</td>
-						<td>${lod.lodgmentInfo}</td>
+						<%-- <td>${lod.lodgmentInfo}</td> --%>
 						<td>${lod.location}</td>
 	<!-- 					<td>
 							<div class="btn-group">

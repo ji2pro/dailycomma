@@ -20,9 +20,9 @@
 	<form action="<c:url value="/deleteReserve.do"/>">
 	
 		<div class="btn-group">
-			<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<!-- 			<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				사장님 통계관리
-			</button> 
+			</button>  -->
 			<div class="dropdown-menu">
 				<a class="dropdown-item" href="<c:url value="/managementList.do"/>">예약자 리스트</a>
 				<div class="dropdown-divider"></div>
