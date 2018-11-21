@@ -105,7 +105,7 @@ public class LoginController {
 			session.setAttribute("type", "host");
 			if(url.equals("#")) url = request.getContextPath() + "/";
             System.out.println("url=======================" + url);
-			out.print("<script> location='"+url+"';</script>");
+			out.print("<script> alert('가입이 완료되었습니다.'); location='"+url+"';</script>");
 		}
 	}
 	
