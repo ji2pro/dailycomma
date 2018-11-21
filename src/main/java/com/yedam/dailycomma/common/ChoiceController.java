@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.yedam.dailycomma.member.MemberDTO;
 import com.yedam.dailycomma.member.MemberService;
@@ -29,5 +30,12 @@ public class ChoiceController {
     @RequestMapping("/loginChoice.do")
     public String loginChoice() {          	
     	return "common/loginChoice";
+    }
+    
+    @RequestMapping(value="/needLogin.do")
+    public ModelAndView needLogin() {
+    	ModelAndView model = new ModelAndView("common/loginWarning");
+    	model.addObject("msg","로그인 후 이용해주세요");    	
+    	return model;
     }
 }

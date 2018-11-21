@@ -5,10 +5,6 @@ $(function(){
 		var use_point =  parseInt($('#point').val());		//사용할 포인트
 		var payment_sum = parseInt($('#payment-sum').children("i").attr("data-sum"));	//결제금액
 		
-		console.log("=========== my-point" + my_point);
-		console.log("=========== use-point" + use_point);
-		console.log("=========== payment_sum"  + payment_sum);
-		
 		if(use_point > my_point) {
 			alert("포인트가 부족합니다.");
 			return;
