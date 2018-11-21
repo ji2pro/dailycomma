@@ -8,7 +8,7 @@
     var path = "<c:url value='/'/>"
 </script>
 
-<div class="container-fluid">
+<div class="container-fluid mb-5" style="min-height: 600px;">
 	<div class="row">
 		<h2 class="px-3 py-3">관리자 페이지</h2>
 	</div>

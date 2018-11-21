@@ -51,7 +51,7 @@
 <div class="container">
 	<section>
 		<div class="place-detail">
-			<h2 class="detail-info__title">${getDetailRooms[0].company} <h1><button style="float: right;" onclick="api('${getDetailRooms[0].location}');">축제 정보 보기</button></h1></h2>
+			<h2 class="detail-info__title">${getDetailRooms[0].company} <h1><button class="btn btn-info" style="float: right;" onclick="api('${getDetailRooms[0].location}');">축제 정보 보기</button></h1></h2>
 			<div class="detail-info__address">
 				<div>상세 주소 : ${getDetailRooms[0].address}</div>
 				<div>연락처 : ${getDetailRooms[0].hostPhone}</div>
