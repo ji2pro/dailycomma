@@ -62,7 +62,7 @@ var path = "<c:url value='/'/>"
 				<div class="form-group row">
 					<label for="memberPw" class="col-md-3 col-form-label">비밀번호</label>
 					<div class="col-md-9">
-						<input type="text" class="form-control" name="memberPw" id="memberPw" placeholder="비밀번호를 입력하세요.">
+						<input type="password" class="form-control" name="memberPw" id="memberPw" placeholder="비밀번호를 입력하세요.">
 						<div class="invalid-feedback">비밀번호는 필수 입력 사항입니다.</div>
 					</div>
 				</div>

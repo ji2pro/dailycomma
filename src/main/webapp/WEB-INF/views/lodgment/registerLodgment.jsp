@@ -119,7 +119,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="text-center mt-4">
-						<button type="submit" class="btn btn-primary mr-2">등록 요청</button>
+						<button type="submit" class="btn btn-primary mr-2">등록</button>
 						<button type="button" class="btn btn-danger">취소</button>
 					</div>
 				</div>
