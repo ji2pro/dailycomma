@@ -56,16 +56,16 @@
 						<c:if test="${lodgment.location eq 'C1'}">
 							서울
 						</c:if>
-						<c:if test="${lodgment.location eq 'C2'} ">
+						<c:if test="${lodgment.location eq 'C2'}">
 							부산
 						</c:if>
-						<c:if test="${lodgment.location eq 'C3'} ">
+						<c:if test="${lodgment.location eq 'C3'}">
 							광주
 						</c:if>
-						<c:if test="${lodgment.location eq 'C4'} ">
+						<c:if test="${lodgment.location eq 'C4'}">
 							대구
 						</c:if>
-						<c:if test="${lodgment.location eq 'C5'} ">
+						<c:if test="${lodgment.location eq 'C5'}">
 							제주도
 						</c:if>																								
 					</td>

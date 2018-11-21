@@ -34,7 +34,9 @@
 			   		WHERE MEMBER.MEMBER_NO = RESERVATION.MEMBER_NO)
 			   AS memberEmail,
 			   ROOM_NO, RESERVE_DATE, RESERVE_PRICE, RESERVE_PEOPLE,
-			   CHECKIN, CHECKOUT, RESERVE_STATE,
+			   CHECKIN, 
+			   CHECKOUT, 
+			   RESERVE_STATE,
               case RESERVE_STATE when 'D1' then '확인' else '미확인' end RESERVE_STATE_NAME
 		FROM RESERVATION
 		<where>
@@ -65,15 +67,15 @@
 				AND ROLE = #{role}
 			</if> -->
 		</where>
-		ORDER BY
-		<choose>
+		ORDER BY RESERVE_DATE DESC
+<!-- 		<choose>
 			<when test="sort != null and sort != ''">
 				#{sort}
 			</when>
 			<otherwise>
 				RESERVE_NO
 			</otherwise>
-		</choose>
+		</choose> -->
 	) U ) A WHERE RN BETWEEN #{start} and #{end}
 	</select>
 	

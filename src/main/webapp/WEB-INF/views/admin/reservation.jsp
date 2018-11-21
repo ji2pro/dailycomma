@@ -27,7 +27,6 @@
 					<th scope="col">예약번호</th>
 					<th scope="col">이름</th>
 					<th scope="col">이메일</th>
-					<th scope="col">연락처</th>
 					<th scope="col">예약 날짜</th>
 					<th scope="col">예약 인원</th>
 					<th scope="col">예약 금액</th>
@@ -35,7 +34,6 @@
 					<th scope="col">체크인</th>
 					<th scope="col">체크아웃</th>
 					<th scope="col">일수</th>
-					<th scope="col">상태변경일</th>
 <!-- 					<th scope="col">관리</th> -->
 				</tr>
 			</thead>
@@ -64,7 +62,6 @@
 					<td>${reservation.reserveNo}</td>
 					<td>${reservation.memberName}</td>
 					<td>${reservation.memberEmail}</td>
-					<td>(010-0000-0000)</td>
 					<td>
 						<fmt:parseDate value="${reservation.reserveDate}" var="reserveDate_D" pattern="yyyy-MM-dd HH:mm:ss"/>
 						<fmt:formatDate value="${reserveDate_D}" pattern="yyyy.MM.dd"/>
@@ -75,7 +72,6 @@
 					<td>${checkin_FD}</td>
 					<td>${checkout_FD}</td>
 					<td>${totalDate}박 ${totalDate + 1}일</td>
-					<td>(상태변경일)</td>
 <!-- 					<td>
 						<div class="btn-group">
 							<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>

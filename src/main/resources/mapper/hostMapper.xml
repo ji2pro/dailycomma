@@ -30,15 +30,8 @@
 				AND BUSINESS_NO LIKE '%' || #{searchKeyword} || '%'
 			</if>
 		</where>
-		ORDER BY
-		<choose>
-			<when test="sort != null and sort != ''">
-				#{sort}
-			</when>
-			<otherwise>
-				SIGNUP_DATE DESC
-			</otherwise>
-		</choose>
+		ORDER BY SIGNUP_DATE DESC
+	
 	) U ) A WHERE RN BETWEEN #{start} and #{end}
 	</select>
 	
@@ -53,6 +46,10 @@
 					#{item}
 				</foreach>
 			</if>
+			
+			<if test="lodgmentState != null and lodgmentState != ''">
+				LODGMENT_STATE = #{lodgmentState}
+			</if>  
 			<if test="searchCondition == 'id'">
 				AND HOST_ID LIKE '%' || #{searchKeyword} || '%'
 			</if>

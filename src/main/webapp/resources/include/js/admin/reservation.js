@@ -126,6 +126,7 @@ function callbackReservation(datas){
 	var html="";
 	
 	$.each(list,function(idx,data){
+		var differ = dateDiffer(data.checkin, data.checkout);
 		html += ('<tr class="text-center">'+
 				 '<td scope="row">'+
 				 '<label class="custom-control custom-checkbox">'+
@@ -136,22 +137,18 @@ function callbackReservation(datas){
 				 '<td>'+data.reserveNo+'</td>'+
 				 '<td>'+data.memberName+'</td>'+
 				 '<td>'+data.memberEmail+'</td>'+
-				 '<td>'+''+'</td>'+
-				 '<td>'+data.reserveDate+'</td>'+
+				 
+				 '<td>'+dateFormat(data.reserveDate)+'</td>'+
+				 
 				 '<td>'+data.reservePeople+'</td>'+
 				 '<td>'+data.reservePrice+'원</td>'+
-				 '<td>'+data.reserveState+'</td>'+
-				 '<td>'+data.checkin+'</td>'+
-				 '<td>'+data.checkout+'</td>'+
-				 '<td>'+''+'</td>'+
-				 '<td>'+''+'</td>'+
-				 '<td>'+
-				 '<div class="btn-group">'+
-				 '<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>'+
-				 '<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>'+
-				 '</div>'+
-				 '</td>'+
-				 '</tr>');
+				 '<td>'+data.reserveStateName+'</td>'+
+				 '<td>'+dateFormat(data.checkin)+'</td>'+
+				 '<td>'+dateFormat(data.checkout)+'</td>'+
+				 
+				 '<td>'+differ+'박'+(differ+1) +'일</td>'+
+				 '</tr>'
+				 );
 	});
 	
 	
@@ -179,6 +176,37 @@ function callbackReservation(datas){
 	$('#reservationPaging').append(page);
 }
 
+
+function dateDiffer(checkin, checkout){
+	
+	//var today = new Date();  
+	//var dateString = "2012-04-25";  
+	var idx = checkin.indexOf(' ');
+	checkin = checkin.substring(0,idx);
+	idx = checkout.indexOf(' ');
+	checkout =  checkout.substring(0,idx);
+	
+	var checkindate = checkin.split("-");  
+	var checkoutdate = checkout.split("-");
+	
+	var checkinObj = new Date(checkindate[0], Number(checkindate[1])-1, checkindate[2]); 
+	var checkoutObj = new Date(checkoutdate[0], Number(checkoutdate[1])-1, checkoutdate[2]);  
+	  
+	var betweenDay = (checkoutObj.getTime() - checkinObj.getTime())/1000/60/60/24;  
+	  
+
+	return betweenDay;
+}
+
+function dateFormat(d){
+	var idx = d.indexOf(' ');
+	d = d.substring(0,idx);
+	
+	var darray = d.split("-");
+	
+	//var dObj = new Date(darray[0], Number(darray[1])-1, darray[2]); 
+	return d;
+}
 /*
  * 예약 내역 삭제 이벤트
  */

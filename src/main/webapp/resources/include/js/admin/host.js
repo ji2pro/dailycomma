@@ -43,8 +43,8 @@ function checkHost(state,lodgmentNo){
 }
 
 function createHostDropdown(){
-	//$('.searchStandard').text("검색기준");
-	//$('.sortStandard').text("정렬기준");
+	$('.searchStandard').text("검색기준");
+	$('.sortStandard').text("정렬기준");
 	$('#sortdown').empty();
 	var button = "<button type='button' class='dropdown-item' onclick='sortHost(\"B1\")'>승인</button>"
 				+"<button type='button' class='dropdown-item' onclick='sortHost(\"B2\")'>미승인</button>"
