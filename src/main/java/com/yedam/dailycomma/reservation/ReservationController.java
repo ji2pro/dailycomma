@@ -22,8 +22,17 @@ public class ReservationController {
 	//등록 폼
 	@RequestMapping(value="/reserveRoom/{roomNo}", method=RequestMethod.GET)
 	public String insertReservationForm(Model model,
+										HttpSession session,
 										@PathVariable String roomNo
 										) {
+		
+		String logincheck = (String)session.getAttribute("type");
+		if(logincheck != null) {
+			if(!logincheck.equals("member")) {
+				model.addAttribute("msg","일반 회원만 예약이 가능합니다.");
+				return "common/loginWarning";
+			}
+		}
 		
 		model.addAttribute("reserveInfo", reservationService.getReserveInfo(roomNo));
 		return "reservation/insertReservation";
@@ -50,9 +59,10 @@ public class ReservationController {
 //		model.addAttribute("reservation", reservationService.insertReservation(dto));
 		String logincheck = (String)session.getAttribute("type");
 		if(logincheck != null) {
-			if(!logincheck.equals("member"))
+			if(!logincheck.equals("member")) {
 				model.addAttribute("msg","일반 회원만 예약이 가능합니다.");
 				return "common/loginWarning";
+			}
 		}
 		
 		return "reservation/insertReservation";
