@@ -59,7 +59,7 @@
     
     <!--   숙박 업체에 대한 전체 후기 리스트 분할-->
     <select id="getPostscriptList" resultType="postscript" parameterType="lodgment">
-        SELECT p.POSTSCRIPT_CONTENT, r.ROOM_NAME, l.LODGMENT_NO, m.MEMBER_NICK, p.GRADE, p.POSTSCRIPT_NO, p.POSTSCRIPT_TITLE, p.POSTSCRIPT_DATE
+        SELECT p.POSTSCRIPT_CONTENT, r.ROOM_NAME, l.LODGMENT_NO, m.MEMBER_NICK, p.GRADE, p.POSTSCRIPT_NO, p.POSTSCRIPT_TITLE, p.POSTSCRIPT_DATE,m.MEMBER_NO
         FROM POSTSCRIPT p JOIN ROOM r
                  ON p.ROOM_NO = r.ROOM_NO
                JOIN LODGMENT l
