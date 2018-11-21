@@ -12,4 +12,5 @@ public interface PostscriptService {
     public List<PostscriptDTO> getPostscriptList(LodgmentDTO dto);
     public List<RoomDTO> insertPostscriptForm(LodgmentDTO dtoo);
     public int insertPostscript(PostscriptDTO dto);
+    public void deletePost(String postscriptNo);
 }

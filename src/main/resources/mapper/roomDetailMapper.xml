@@ -100,6 +100,10 @@
         , #{grade}
         )
     </insert>
+
+    <delete id="deletePost" parameterType="String">
+        delete from POSTSCRIPT where POSTSCRIPT_NO = #{postscriptNo}
+    </delete>
 </mapper>
      <!--/*order by 를 사용하기 위해서 문자로 변경*/
         /*to_char(POSTSCRIPT_SEQ.nextval)*/

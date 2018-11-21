@@ -40,6 +40,14 @@ public class PostscriptController {
         return postscriptService.insertPostscriptForm(dto); //단건 조회
     }
 
+    //후기 삭제
+    @RequestMapping(value = "/deletePost/{postscriptNo}")
+    public void deletePost(@PathVariable String postscriptNo){
+        System.out.println("---------------------"+postscriptNo);
+        postscriptService.deletePost(postscriptNo);
+    }
+
+
     //후기 등록 처리
     @RequestMapping("/insertPostscript.do")
     public String insertPostscriptForm(Model model, PostscriptDTO dto) {

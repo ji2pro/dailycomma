@@ -2,9 +2,10 @@
 function PostListResult(data) {
     console.log(data);
     var postList = "";
-
+    console.log(smemberNo);
     $('.postList').remove();
     $.each(data,function(idx,item){	//forEach
+        var b1 = (smemberNo == item.memberNo) ? "<button onclick='deletePost(\""+item.postscriptNo+"\");'>삭제</button>" : "";
         postList +=
             "<div class=\"postList\">"+
             "<li class=\"place-review__item\"></li>" +
@@ -32,6 +33,7 @@ function PostListResult(data) {
             "</div>"+
             "</div>"+
             "</a>"+
+            b1+
             "</div>";
     });
     $('.review-list').append(postList);
@@ -66,13 +68,13 @@ function insertPostFormSubmit(){
                 alert("상태값 :" + status + " Http에러메시지 :"+msg);
             },
             success: function(){
-                $.ajax({/*후기 리스트 가져오기*/
-                    url: path+"/postscript/"+lodgmentNo,
-                    error: function(data,status,msg){
-                        alert("상태값 :" + status + " Http에러메시지 :"+msg);
-                    },
-                    success:PostListResult
-                })
+                    $.ajax({/*후기 리스트 가져오기*/
+                        url: path+"/postscript/"+lodgmentNo,
+                        error: function(data,status,msg){
+                            alert("상태값 :" + status + " Http에러메시지 :"+msg);
+                        },
+                        success:PostListResult
+                    })
             }
     })
 }
@@ -83,7 +85,29 @@ function reserve_click(room_no){
 	location.href = url;
 }
 
+function deletePost(postscriptNo){
+    var lodgmentNo = $('.lodgmentNo').attr('lodgmentNo');
+    console.log(lodgmentNo);
+    console.log(postscriptNo);
+    $.ajax({
+        url: path+"/deletePost/"+postscriptNo,
+        error:function(data,status,msg){
+            alert("상태값 :" + status + " Http에러메시지 :"+msg);
+        },
+        success:function(){
+            $.ajax({/*후기 리스트 가져오기*/
+                url: path+"/postscript/"+lodgmentNo,
+                error: function(data,status,msg){
+                    alert("상태값 :" + status + " Http에러메시지 :"+msg);
+                },
+                success:PostListResult
+            })
+        }
+    })
+}
+
 $(function() {
+
     $(document).on('click', '#insertStar', function() {
         var star = $(this).attr("class");
         console.log(star);
@@ -105,6 +129,7 @@ $(function() {
 
     /*후기 목록*/
     $(".postScript").on('click', function() {
+
         console.log($(this).attr('id'));
         var lodgmentNo = $(this).attr('id');
 

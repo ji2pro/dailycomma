@@ -29,4 +29,8 @@ public class PostscriptDAOMybatis {
         return mybatis.insert("detailRoom.insertPostscript",dto);
     }
 
+    public void deletePost(String postscriptNo){
+        mybatis.delete("detailRoom.deletePost",postscriptNo);
+    }
+
 }

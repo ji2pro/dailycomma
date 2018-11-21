@@ -8,14 +8,17 @@
     <link href="<c:url value="/resources/include/css/room/bundle.css" />" rel="stylesheet" type="text/css">
     <script>
         var path = "<c:url value='/'/>";
+        var smemberNo = "${login.memberNo}";
     </script>
-    <script src="<c:url value="/resources/include/js/room/detailRooms.js" />"></script>
-
     <script>
         function api(location) {
             window.open(path+"festivalList.do?location="+location, "fe","width=1200,height=900");
         }
     </script>
+
+    <script src="<c:url value="/resources/include/js/room/detailRooms.js" />"></script>
+
+
 </head>
 
 <body>
@@ -78,7 +81,7 @@
                     <a class="nav-link active show" href="" data-toggle="tab" data-target="#tabone">객실</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link postScript" data-toggle="tab" data-target="#tabtwo" id="${getDetailRooms[0].lodgmentNo}">후기</a>
+                    <a href="" class="nav-link postScript lodgmentNo" lodgmentNo="${getDetailRooms[0].lodgmentNo}" data-toggle="tab" data-target="#tabtwo" id="${getDetailRooms[0].lodgmentNo}">후기</a>
                 </li>
             </ul>
             <div class="tab-content mt-2">

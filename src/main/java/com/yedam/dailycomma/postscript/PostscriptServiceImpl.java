@@ -28,4 +28,9 @@ public class PostscriptServiceImpl implements PostscriptService {
     public int insertPostscript(PostscriptDTO dto) {
         return dao.insertPostscript(dto);
     }
+
+    @Override
+    public void deletePost(String postscriptNo) {
+        dao.deletePost(postscriptNo);
+    }
 }
