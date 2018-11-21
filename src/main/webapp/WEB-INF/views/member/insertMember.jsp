@@ -9,7 +9,7 @@
 </head>
 <body>
 <h3>일반회원 가입</h3>
-	<form action="insertMember.do">
+	<form action="insertMember.do" method="post">
 		이메일 <input type="text" name="memberEmail" value="${member.memberEmail}"><br>
 		닉네임 <input type="text" name="memberNick" value="${member.memberNick}"><br>
 		이름 <input type="text" name="memberName" value="${member.memberName}"><br>

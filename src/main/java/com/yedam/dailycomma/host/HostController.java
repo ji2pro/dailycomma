@@ -25,8 +25,7 @@ public class HostController {
 	@RequestMapping("/insertHost.do")
 	public String insertHost(Model model, HostDTO dto) {		
 		model.addAttribute("lodgment", hostService.insertHost(dto));
-		//return "redirect:/getUsers.do";
-		return "redirect:/";
+		return "redirect:/loginChoice.do";
 	}
 	
 	@RequestMapping("/checkHostId.do")

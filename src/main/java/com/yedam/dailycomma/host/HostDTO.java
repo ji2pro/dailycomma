@@ -13,14 +13,10 @@ public class HostDTO {
 	private String signupDate;
 	private String lodgmentState;	//예약상태
 	
-	
-	
 	public String getLodgmentNo() {
 		return lodgmentNo;
 	}
-	public void setLodgmentNo(String lodgmentNo) {
-		this.lodgmentNo = lodgmentNo;
-	}
+	public void setLodgmentNo(String lodgmentNo) {this.lodgmentNo = lodgmentNo;}
 	public String getLodgmentState() {
 		return lodgmentState;
 	}

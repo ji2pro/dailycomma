@@ -40,7 +40,7 @@ public class LoginController {
 			response.setContentType("text/html; charset=UTF-8");
 	        
 	        if(url == null || url.equals("") || url.indexOf("insertHostForm.do") >= 0 || url.indexOf("insertMemberForm.do") >=0
-	        	||	url.indexOf("signupChoice.do") >= 0) {
+	        	||	url.indexOf("signupChoice.do") >= 0 || url.indexOf("memberLoginForm.do") >= 0 || url.indexOf("insertHostForm.do") >= 0 || url.indexOf("loginChoice.do") >=0) {
 	        	url =request.getContextPath()+ "/";
 	        }
 	        
