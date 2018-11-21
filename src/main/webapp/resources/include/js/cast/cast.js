@@ -1,5 +1,5 @@
 /**
- * 
+ * cast.js
  */
 
 var sel_files = [];
@@ -7,24 +7,25 @@ var filetag;
 var count = 0;
 
 $(document).ready(function() {
-	
+
 	var $grid = $('.grid').imagesLoaded( function() {
 		 $grid.masonry({
 		     itemSelector: '.grid-item',
 		     percentPosition: true,
-		     columnWidth: '.grid-sizer'
-		  });
-		 $('.grid').css("height","auto");
-	 });	
+		     columnWidth: '.grid-sizer',
+		     horizontalOrder: true
+		});
+		$('.grid').css("height","auto");
+	});	
 	
 	$('#add_more').click(function(){
-        console.log(count);
-        filetag = "<input type='file' name='uploadFile' id='input_imgs"+ count + "'>";
+		console.log(count);
+		filetag = "<input type='file' name='uploadFile' id='input_imgs"+ count + "'>";
 		$('#add_more').hide();
 		$('#filetag').append(filetag);    
-        $('input[type="file"]').on("change", handleImgsFileSelect);
-	
+		$('input[type="file"]').on("change", handleImgsFileSelect);
 	});    
+
 });
     
 function handleImgsFileSelect(e) {
@@ -132,12 +133,13 @@ let renderList = function(mode, tours){
 
     // 리스트 html을 정의
     let html =   //"<div class='grid-item' id='"+tours.tourId+"'>" +
+    			 "<a href='"+path+"detailCast/"+tours.tourId+"'>"+
     			 "<div class='grid-item' id='"+tours.tourDate+"'>" +
-    			 "<div class='card' style='width: 23rem;'>" +
-    		     "<img class='card-img-top' src='"+path+"resources/images/cast/"+tourImg[0]+"' alt='Card image cap'>" +
+    			 "<div class='card'>" +
+    		     "<img class='card-img-top' src='"+path+"resources/images/cast/"+tourImg[0]+"' alt='Card image'>" +
     		     "<div class='card-body'>"+
     		     "<h5 class='card-title'>"+tours.tourTitle+"</h5>"+
-    		     "<a href='"+path+"detailCast/"+tours.tourId+"' class='btn btn-primary'>Go somewhere</a>"+
+    		     "</a>"+
     		     "</div>"+
     		     "</div>"+
     		     "</div>";

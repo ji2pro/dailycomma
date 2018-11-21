@@ -1,0 +1,47 @@
+* {
+	box-sizing: border-box;
+}
+
+ /* force scrollbar */
+html {
+	overflow-y: scroll;
+}
+
+/* ---- grid ---- */
+.grid {
+	background: #ffffff;
+	max-width: 1200px;
+	height: auto;
+}
+
+/* clear fix */
+.grid:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+/* ---- .grid-item ---- */
+.grid-sizer,
+.grid-item {
+/* 	width: 370px; */
+	width: 30%;
+}
+
+.grid-item {
+	float: left;
+}
+
+.grid-item img {
+	display: block;
+	max-width: 100%;
+}
+
+/* Card */
+.card {
+	margin: 7px;
+}
+.card-title {
+	color: black;
+	margin: 0;
+}
