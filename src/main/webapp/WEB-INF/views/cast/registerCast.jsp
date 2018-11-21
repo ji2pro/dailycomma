@@ -4,7 +4,7 @@
 <link href="<c:url value="/resources/include/css/host/host.css" />" rel="stylesheet" type="text/css">
 <script src="<c:url value="/resources/include/js/room/registerRoom.js" />"></script>
 
-<div class="container py-5">
+<div class="container py-5" style="min-height: 600px;">
 	<div class="text-center mb-5">
 		<h1 class="display-5">캐스트 등록</h1>
 	</div>
