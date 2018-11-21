@@ -18,11 +18,16 @@ $(function() {
 
 		$(this).tab('show');
 	});
+	
+	$('#adminTabs li a').last().trigger('click');
+	$('#adminTabs li a').first().trigger('click');
+	
 	//기본 첫 페이지 출력(페이지 들어오면 보이도록.)
-	$.get(path+'member', function(data) {
+/*	$.get(path+'member', function(data) {
 		$('#memberAdmin').html(data);
 	});
-	$('#adminTabs li:first-child a').tab('show');
+	
+	$('#adminTabs li:first-child a').tab('show');*/
 	
 	/*
 	 * 숙소 목록에서 객실 목록으로 이동하기

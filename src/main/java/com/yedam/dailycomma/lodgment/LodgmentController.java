@@ -62,11 +62,14 @@ public class LodgmentController {
 		
 		HostDTO hostDTO = (HostDTO) session.getAttribute("login");
 		LodgmentDTO lodgmentDTO = new LodgmentDTO();
-		lodgmentDTO.setLodgmentNo(hostDTO.getLodgmentNo());
-		dto = lodgmentService.getLodgment(lodgmentDTO);
 		
-		if(dto.getCompany() != null) {
-			if(!dto.getCompany().equals("")) {
+			
+		lodgmentDTO.setLodgmentNo(hostDTO.getLodgmentNo());
+		
+		lodgmentDTO = lodgmentService.getLodgment(lodgmentDTO);
+		
+		if(lodgmentDTO.getCompany() != null) {
+			if(!lodgmentDTO.getCompany().equals("")) {
 				String homeurl =  request.getContextPath() + "/";
 				out.print("<script> alert('숙소가 이미 등록되어 있습니다.'); location='"+ homeurl +"';</script>");
 				return;
@@ -75,13 +78,9 @@ public class LodgmentController {
 		
 
 		String folder = request.getSession().getServletContext().getRealPath("resources/images/lodgment");
-		System.out.println("folder==========================" + folder);
 		
 		MultipartFile uploadFile = dto.getUploadFile();
 		
-		
-		
-		System.out.println("====================="+hostDTO.getLodgmentNo());
 		String filename = "";
 		if(!uploadFile.isEmpty() && uploadFile.getSize() > 0) {
 			filename = uploadFile.getOriginalFilename();
