@@ -42,7 +42,7 @@
 			<div class="row pt-5 pb-3">
 				<div class="col-md-5">
 					<img class="img-fluid d-block"
-						src="${reserveInfo.lodgmentImg}">
+						src="<c:url value='/resources/images/lodgment/${reserveInfo.lodgmentImg}'/>">
 				</div>
 				<div class="col-md-7 pl-3">
 					<h2 class="font-weight-bold">${reserveInfo.roomName}</h2>

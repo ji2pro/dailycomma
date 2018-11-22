@@ -106,7 +106,7 @@
 			   R.ROOM_NO AS "roomNo",
 			   L.COMPANY AS "company",
 			   L.ADDRESS AS "address",
-			   L.LODGMENT_NO AS "lodgmentNo"
+			   L.LODGMENT_NO AS "lodgmentNo",
 			   L.LODGMENT_IMG AS "lodgmentImg"
 			   			   
 		FROM   ROOM R JOIN LODGMENT L
