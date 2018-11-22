@@ -91,7 +91,13 @@
 					<div class="form-group row">
 						<label for="inputReserveName" class="col-2 col-form-label">예약자명</label>
 						<div class="col-10 col-md-4">
+						<c:if test="${login eq null}">
 							<input type="text" class="form-control" id="inputReserveName" placeholder="예약자명을 입력하세요.">
+						</c:if>
+						<c:if test="${login ne null}">
+							<input type="text" class="form-control" id="inputReserveName" value="${login.memberName}">
+						</c:if>
+						
 						</div>
 						<div class="col-md-5">
 							<span>실명을 입력해 주세요.</span>
