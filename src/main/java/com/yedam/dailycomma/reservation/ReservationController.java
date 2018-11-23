@@ -49,6 +49,8 @@ public class ReservationController {
 		searchDTO.setLocation(location);
 		
 		session.setAttribute("search", searchDTO);
+
+		session.removeAttribute("search");
 		
 		model.addAttribute("location", location);
 		return "reservation/afterPayment";

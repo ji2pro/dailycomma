@@ -97,13 +97,13 @@ function checkz() {
       return false;
     }*/
     
-    if(!getBusinessNo.test($('#businessNo').val())){
+/*    if(!getBusinessNo.test($('#businessNo').val())){
     	alert("숫자만 입력해주세요");
     	$("#businessNo").val();
     	$("#businessNo").focus();
     	return false;
     }
-    
+    */
   return true;
 }	
 </script>
