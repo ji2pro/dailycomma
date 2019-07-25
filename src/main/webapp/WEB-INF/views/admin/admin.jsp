@@ -64,10 +64,7 @@
 								id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
 								aria-expanded="false">정렬기준</button>
 						<div class="dropdown-menu" id="sortdown" aria-labelledby="dropdownMenuButton">
-<!-- 							<button type='button' class='dropdown-item' onclick="searchHost('B1')">승인</button>
-							<button type='button' class='dropdown-item' onclick="searchHost('B2')">미승인</button>
-							<button type='button' class='dropdown-item' onclick="searchHost('B3')">대기</button> -->
-						</div>
+					</div>
 					</div>
 				</div>
 			</form>

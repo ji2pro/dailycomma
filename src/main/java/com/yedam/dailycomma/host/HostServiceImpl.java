@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 @Service //빈등록
 public class HostServiceImpl implements HostService {
 	
-	//Log4jAdvice logAdvice = new Log4jAdvice();
-	
 	@Autowired HostDAO dao;
 	
 	public int insertHost(HostDTO dto) {

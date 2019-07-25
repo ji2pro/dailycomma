@@ -28,21 +28,12 @@ public class HostDAO {
 		return mybatis.selectOne("login.getHost", dto);
 	}
 	
-	//단건조회
-	/*public LodgmentDTO getUser(LodgmentDTO dto){
-		System.out.println("host mybatis 단건 조회========");
-		return mybatis.selectOne("host.getHost", dto);
-	}*/
 	//등록
 	public int insertHost(HostDTO dto) {
 		System.out.println("host mybatis 등록========");
 		return mybatis.insert("host.insertHost", dto);
 	}
-	//수정
-	/*public int updateHost(HostDTO dto) {
-		System.out.println("host mybatis 수정========");
-		return mybatis.update("host.updateHost", dto);
-	}*/
+
 	//삭제
 	public int deleteHost(HostDTO dto) {
 		System.out.println("host mybatis 삭제========");

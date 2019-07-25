@@ -142,7 +142,7 @@
                           	 when 'E10' then '식사가능'
                           	 when 'E11' then '레스토랑'
                           	 when 'E12' then '바베큐'
-                          	 when 'E13' then '매점/편의점'
+                          	 <!--  when 'E13' then '매점/편의점'-->
                           	 when 'E14' then '수영장'
                           	 when 'E15' then '주방'
                           	 when 'E16' then '카페'
@@ -154,15 +154,6 @@
 		FROM HASHTAG
 		WHERE LODGMENT_NO = #{lodgmentNo}
 	</select>
-
-	<!-- 수정 미완성-->
-<!-- 	
-	<update id="updateHost" parameterType="host">
-		UPDATE LODGMENT SET PASSWORD = #{password},
-						 NAME = #{name},
-						 ROLE = #{role}
-			WHERE ID = #{id}
-	</update> -->
 	
 	<!-- 삭제 -->
 	<delete id="deleteLodgment" parameterType="lodgment">

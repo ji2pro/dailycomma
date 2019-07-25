@@ -28,8 +28,6 @@ public class MyPageController {
 
 	@RequestMapping("/myPage.do")
 	public String myPage() { // HttpSession session <-세션에 대한 정보를 다음
-		//String email = ((MemberDTO)session.getAttribute("memberLogin")).getMemberEmail();
-		//model.addAttribute("member", memberService.getMember(dto));
 		return "myPage/myPage";
 	}
 	@RequestMapping("/point.do")	//해당 member에 대한 point조회

@@ -125,11 +125,6 @@
 SELECT * FROM ( SELECT T.*, ROWNUM RN FROM (   
    SELECT * FROM TOUR
     <where>
-<!--        <if test="tourId != null and tourId != ''">
-	       <![CDATA[
-	           TOUR_ID > #{tourId}
-	       ]]>
-       </if> -->
        
        <if test="tourDate != null and tourDate != ''">
 	       <![CDATA[

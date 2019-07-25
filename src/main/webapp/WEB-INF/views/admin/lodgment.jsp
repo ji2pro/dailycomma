@@ -69,12 +69,7 @@
 							제주도
 						</c:if>																								
 					</td>
-<!-- 					<td>
-						<div class="btn-group">
-							<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>
-							<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>
-						</div>
-					</td> -->
+
 				</tr>
 				</c:forEach>
 			</tbody>

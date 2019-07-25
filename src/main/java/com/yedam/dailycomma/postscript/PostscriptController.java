@@ -55,14 +55,10 @@ public class PostscriptController {
     }
 
     /*숙박 업체 후기 리스트*/
-    /*@RequestMapping("/postScriptList.do/{lodgmentNo}")*/
     @RequestMapping(value = "/postscript/{lodgmentNo}", method = RequestMethod.GET)
     public List<PostscriptDTO> detailRooms(@PathVariable String lodgmentNo,
                                            LodgmentDTO dto) {
         dto.setLodgmentNo(lodgmentNo);
-        /*숙박 업체에 대한 전체 후기 리스트*/
-        /*model.addAttribute("getPostscriptList", postscriptService.getPostscriptList(dto));*/
-        /*return "noTiles/room/postList";*/
 
         return postscriptService.getPostscriptList(dto);
     }

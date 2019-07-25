@@ -46,10 +46,3 @@
     </insert>
 </mapper>
 
-<!--
-        SELECT 1 rnum, c.COMMENT_CONTENT, c.COMMENT_DATE,
-        (select MEMBER_NICK from MEMBER where c.MEMBER_NO = MEMBER_NO) CMEMBER_NICK
-        FROM COMMENTS c JOIN MEMBER m
-        on c.MEMBER_NO = m.MEMBER_NO
-        where c.TOUR_ID = #{tourId}
-        order by c.COMMENT_NO desc-->

@@ -14,12 +14,6 @@
 	integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
 	crossorigin="anonymous"></script>
 
-<script>
-
-
-</script>
-
-<%-- <img src="resources/images/cast/${login.memberImg}" class="rounded-circle img-fluid"> --%>
 
 
 	<!--개인정보 수정  / 비밀번호, 한줄소개 -->
@@ -46,13 +40,15 @@
 							<li>닉네임 :<input type="text" name="memberNick"
 								value="${login.memberNick}"
 								style="border:none" class="ml-3 my-3"></li>
-							<li>현재 비밀번호 : <button type="button" class="btn btn-danger" data-toggle="modal"data-target="#exampleModal">변경</button>
+							<!-- <li>현재 비밀번호 : <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">변경</button>-->
 							<li>비밀번호 변경 :<input type="password" name="memberPw" id="memberPw"  class="unRead ml-3 my-3" readonly="readonly" style="background-color: #e2e2e2;"></li>
 							<li>비밀번호 변경 확인:<input type="password" name="pwcheck" id="pwcheck" class="unRead ml-3 my-3" readonly="readonly" style="background-color: #e2e2e2;"></li>
 							<li>한줄소개 :<input type="text" size="40" name="memberIntro" placeholder="자신을 소개하세요" value="${login.memberIntro}" style="border:none" class="ml-3 my-3"></li>
 							<li>프로필 사진 : <input type="file" name="uploadFile" class="file-upload ml-3 my-3"></li>
 						</ul>
-						<button class="btn btn-primary btn-lg mt-3 ml-3" type="submit" id="up" disabled>정보수정</button>
+						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" id="info-modi">정보수정</button>
+						<button class="btn btn-primary btn-lg mt-3 ml-3" type="submit" id="modi">수정</button>
+						<button class="btn btn-primary btn-lg mt-3 ml-3" type="button" id="withdraw">회원탈퇴</button>
 					</div>
 				</div>
 			</form>
@@ -116,8 +112,10 @@
 </div>
 	
 	<script>
-	 $(function(){								//비밀번호 readonly 제거 하는 스크립트
-		 $("#pwbtn").on("click",function(){
+	 $(function(){
+		 $('#modi').toggle();
+		 $('#withdraw').toggle();
+		 $("#pwbtn").on("click",function(){		//비밀번호 readonly 제거 하는 스크립트
 			if($("#pw").val()=='${sessionScope.login.memberPw}'){ //input의 값과 세션안에 있는 DB의 비밀번호 값을 비교함.
 				 $(".unRead").removeAttr("readonly");		//readonly 옵션을 제거
 				 $(".unRead").removeAttr("style");			//style도 제거
@@ -126,8 +124,12 @@
 				 $('.modal-backdrop').removeClass('modal-backdrop');
 				 $('#pw').val('');
 				 $('#signupBtn').attr('disabled',false);
+				 $('#modi').toggle();
+				 $('#withdraw').toggle();
+				 $('#info-modi').toggle();
 			}else {
-				alert('비밀번호가 다릅니다.'); 
+				alert('비밀번호가 다릅니다.');
+				$('#pw').text("");
 			}
 	 	})
 	 });
@@ -209,7 +211,7 @@
 
 		   //비밀번호
 	    if(!getCheck.test($("#memberPw").val())) {
-		    alert("형식에 맞춰서 PW를 입력해줘용");
+		    alert("형식에 맞춰서 PW를 입력해주세요");
 		    $("#memberPw").val("");
 		    $("#memberPw").focus();
 		    return false;
@@ -218,13 +220,13 @@
 
 	    //비밀번호 똑같은지
 	    if($("#memberPw").val() != ($("#pwcheck").val())){ 
-		    alert("비밀번호가 틀렸네용.");
+		    alert("비밀번호가 틀렸습니다.");
 		    $("#memberPw").val("");
 		    $("#pwcheck").val("");
 		    $("#memberPw").focus();
 		    return false;
-	   } 
-
+	   }
+	    
 	  alert("수정되었습니다");  
 	  return true;
 	}

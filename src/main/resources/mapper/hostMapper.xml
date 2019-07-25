@@ -108,14 +108,7 @@
 		WHERE LODGMENT_NO = #{lodgmentNo}
 	</update>	 
 	
-	<!-- 수정 미완성-->
-<!-- 	<update id="updateHost" parameterType="host">
-		UPDATE LODGMENT SET PASSWORD = #{password},
-						 NAME = #{name},
-						 ROLE = #{role}
-			WHERE ID = #{id}
-	</update> -->
-	
+
 	<!-- 삭제 -->
 	<delete id="deleteHost" parameterType="host">
 		DELETE FROM LODGMENT WHERE HOST_ID = #{hostId}

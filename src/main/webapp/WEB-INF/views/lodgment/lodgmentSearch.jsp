@@ -8,14 +8,13 @@
 
 <div class="datepicker-container">
 	<div class="datepicker-content">
-<!-- 		<i class="icon-staylist icon-calendar-on"></i>  -->
-		<!-- <input type="text" name="datefilter" value="" style="margin-top: .40rem!important;"/>-->
-		<!-- <input type="text" name="daterange" value="" style="margin-top: .40rem!important;"/>-->
-		<form action="updateSearch.do" class="form-inline">
+		
+		<form action="<c:url value="/updateSearch.do"/>" class="form-inline">
 			<label class="my-1 mr-2" for="datepicker">체크인</label>
 			<input type="text" name="checkin" id="datepicker" autocomplete="off" class="form-control" value="${search.checkin}">
             <label class="my-1 mr-2" for="datepicker2">체크아웃</label>
 			<input type="text" name="checkout" id="datepicker2" autocomplete="off" class="form-control" value="${search.checkout}">
+			
 			<button type="submit" class="btn btn-primary">검색</button>
 		</form>
 	</div>
@@ -75,7 +74,8 @@
 						<div class="d-flex flex-wrap">
 					<c:if test="${temp.hashTag ne null }">	
 						<c:forEach items="${temp.hashTag}" var="hash">
-							<a href="<c:url value="/hashTagSearch/${hash.hashtagContent}"/>" class="mr-3">${hash.hashtagContent}</a>
+							<%-- <a href="<c:url value="/hashTagSearch/${hash.hashtagContent}"/>" class="mr-3">${hash.hashtagContent}</a> --%>
+							<a href="<c:url value="/updateSearch.do?searchKeyword=${hash.hashtagContent}"/>" class="mr-3">${hash.hashtagContent}</a>
 						</c:forEach>
 					</c:if>	
 						</div>
@@ -85,30 +85,5 @@
 				</div>
 			</c:forEach>
 		</div>
-		<!--             <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-               <div class="card-body d-flex flex-column align-items-start">
-                   <strong class="d-inline-block mb-2 text-success">Design</strong>
-                   <h3 class="mb-0">
-                       <a class="text-dark" href="#">Post title</a>
-                   </h3>
-                   <div class="mb-1 text-muted">Nov 11</div>
-
-                   <span class="score-rap"><i class="icon-staylist icon-staylist-score score10"></i><i class="icon-staylist icon-staylist-score score10"></i><i class="icon-staylist icon-staylist-score score10"></i><i class="icon-staylist icon-staylist-score score10"></i><i class="icon-staylist icon-staylist-score score05"></i></span>
-                   <p class="card-text mb-auto">This is a wider card with
-                       supporting text below as a natural lead-in to additional content.</p>
-                   <a href="#">Continue reading</a>
-               </div>
-               <img class="card-img-right flex-auto d-none d-lg-block"
-                    src="//yaimg.yanolja.com/resize/place/v4/2017/08/21/11/640/599a445240a802.32248447.jpg"
-                    width="200" height="200" alt="Card image cap">
-           </div> -->
-		<!--        <span><i class="quadrange maker-motel"></i><em>모텔</em></span><span><i
-                       class="quadrange maker-hotel"></i><em>호텔</em></span><span><i
-                       class="quadrange maker-pension"></i><em>펜션</em></span><span><i
-                       class="quadrange maker-guesthouse"></i><em>게스트하우스</em></span><span><i
-                       class="quadrange maker-nopartner"></i><em>비제휴</em></span>-->
-<!-- 		<div class="col sm-1" align="right"> -->
-<!-- 			<img src="resources/images/cast/googleMapTest.jpg"> -->
-<!-- 		</div> -->
 	</div>
 </div>

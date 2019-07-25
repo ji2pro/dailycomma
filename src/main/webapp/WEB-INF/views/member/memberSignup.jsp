@@ -89,21 +89,6 @@ function checkz() {
       return false;
     }
 
-    //이름 유효성
-/*    if (!getName.test($("#hostName").val())) {
-      alert("이름  쓰세용");
-      $("#hostName").val("");
-      $("#hostName").focus();
-      return false;
-    }*/
-    
-/*    if(!getBusinessNo.test($('#businessNo').val())){
-    	alert("숫자만 입력해주세요");
-    	$("#businessNo").val();
-    	$("#businessNo").focus();
-    	return false;
-    }
-    */
   return true;
 }	
 </script>

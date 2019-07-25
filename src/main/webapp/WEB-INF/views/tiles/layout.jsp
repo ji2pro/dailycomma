@@ -47,13 +47,8 @@
 	    </button>
 	
 	    <div class="collapse navbar-collapse" id="navbarCollapse">
-	        <!-- <ul class="navbar-nav mr-auto">
-	            <li class="nav-item"><a class="nav-link" href="#">내 주변</a></li>
-	            <li class="nav-item"><a class="nav-link" href="#">숙소 검색</a></li>
-	            <li class="nav-item"><a class="nav-link" href="#">캐스트</a></li>
-	        </ul> -->
+
 	        <ul class="navbar-nav ml-auto">
-	            <!-- <li class="nav-item"><a class="nav-link" href="#">예약 내역</a></li> -->
                 <c:if test="${sessionScope.type == 'member' }">
                     <li class="nav-item nav-link navUser">${sessionScope.login.memberNick}님</li>
                 </c:if>

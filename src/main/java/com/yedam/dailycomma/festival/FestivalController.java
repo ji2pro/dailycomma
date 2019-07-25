@@ -49,19 +49,11 @@ public class FestivalController {
         Map<URI,Object> body2 = (Map<URI,Object>)(((Map<URI,Object>)(restApi2.get("response"))).get("body"));
         Map<URI,Object> body3 = (Map<URI,Object>)(((Map<URI,Object>)(restApi3.get("response"))).get("body"));
 
-        /*Map items = (Map)(body.get("items"));
-        Map item = (Map)(items.get("item"));
-        String agelimit = (String)item.get("agelimit");*/
+
 
         list.put("items1",body1);
         list.put("items2",body2);
         list.put("items3",body3);
-
-        System.out.println(list);
-        /*String value = new String(restApi.getBytes(), "ISO8859-1");*/
-
-        /*return list;*/
-        /*return rest.getForObject("", Map.class);*/
 
         return list;
     }

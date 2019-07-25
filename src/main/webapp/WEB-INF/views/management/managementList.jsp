@@ -33,9 +33,6 @@
 		</div>
 
 
-<!-- 		<p align="right">
-			<button id="btnDelete" type="button" class="btn btn-primary">예약취소</button>
-		</p> -->
 		<table id="empList" style="font-size: 15px; "class="table table-striped table-bordered table-hover tableAlign" >
 			
 			<thead>

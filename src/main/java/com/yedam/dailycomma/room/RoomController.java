@@ -56,41 +56,20 @@ public class RoomController {
 
     	dto = (LodgmentSearchDTO)session.getAttribute("search");
 
-        System.out.println("======================"+session.getAttribute("login"));
-
-
-
-/*		if(session.getAttribute("login") instanceof MemberDTO){
-            MemberDTO memberDTO = (MemberDTO)session.getAttribute("login");
-            if(memberDTO == null){
-                dto.setMemberNo("test");
-            }else{
-                dto.setMemberNo(memberDTO.getMemberNo());
-            }
-        }else if(session.getAttribute("login") instanceof HostDTO){
-            dto.setMemberNo("test");
-        }else {
-            dto.setMemberNo("test");
-        }*/
         if(session.getAttribute("login") instanceof MemberDTO){
             MemberDTO memberDTO = (MemberDTO)session.getAttribute("login");
-
-
-
-                dto.setMemberNo(memberDTO.getMemberNo());
+            dto.setMemberNo(memberDTO.getMemberNo());
 
         }else{
             dto.setMemberNo("test");
         }
-
-
-        /*HostDTO hostDTO = (HostDTO)session.getAttribute("login");*/
 
     	if(dto == null || dto.getCheckin() == null || dto.getCheckin().equals("")) {
     		dto = new LodgmentSearchDTO();
     		dto.setCheckin("2018-12-20");
     		dto.setCheckout("2018-12-21");
     	}
+    	
     	dto.setLodgmentNo(lodgmentNo);
 
         /*전체 이미지를 가져온다.*/
@@ -106,6 +85,7 @@ public class RoomController {
 
         /*숙박 업체에 대한 전체 객실 리스트*/
         model.addAttribute("getDetailRooms", roomService.getDetailRooms(dto));
+        
         /*전체 이미지*/
         model.addAttribute("getAllImg" , str.toString());
 
@@ -145,13 +125,9 @@ public class RoomController {
 		for(int i=0; i<uploadFile.length; i++) {
 			if(!uploadFile[i].isEmpty() && uploadFile[i].getSize() > 0) {
 				filename = uploadFile[i].getOriginalFilename();
-				//uploadFile[i].transferTo(new File("c:/upload",filename));			
 				uploadFile[i].transferTo(new File(folder ,filename));
                 temp.append(filename + ",");
-/*				if( i == uploadFile.length-1 )
-                    temp.append(filename);
-				else
-					 */
+
 			}
 		}
 
@@ -162,6 +138,5 @@ public class RoomController {
 		PrintWriter out = response.getWriter();
 		out.print("<script> alert('객실등록이 완료 되었습니다.'); location='"+ url +"';</script>");
 		
-		//return "redirect:insertRoomForm.do";
 	}
 }

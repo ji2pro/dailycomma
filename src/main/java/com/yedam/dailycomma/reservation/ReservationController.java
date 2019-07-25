@@ -42,7 +42,7 @@ public class ReservationController {
 	@RequestMapping("/insertReservation.do")
 	public String insertReservation(Model model, ReservationDTO dto, HttpSession session) {
 		reservationService.insertReservation(dto);
-//		model.addAttribute("reservation", reservationService.insertReservation(dto));
+
 		String location = reservationService.getLocation(dto);
 		
 		LodgmentSearchDTO searchDTO = (LodgmentSearchDTO)session.getAttribute("search");
@@ -58,7 +58,7 @@ public class ReservationController {
 	
 	@RequestMapping("/insertReservationForm.do")
 	public String insertReservation(HttpSession session, Model model) {		
-//		model.addAttribute("reservation", reservationService.insertReservation(dto));
+
 		String logincheck = (String)session.getAttribute("type");
 		if(logincheck != null) {
 			if(!logincheck.equals("member")) {

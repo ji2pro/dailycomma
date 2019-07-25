@@ -34,6 +34,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.yedam.dailycomma.host.HostDTO;
 
 @Controller
+@SessionAttributes("search")
 public class LodgmentController {
 	
 	@Autowired //DI(Dependency Injection)
@@ -134,36 +135,46 @@ public class LodgmentController {
 		}
 			
 		dto.setDiffer(differenceDate(dto.getCheckin(), dto.getCheckout()));
-		session.setAttribute("search", dto);
-		//model.addAttribute("search", dto);			//session 저장
 		
-		List<LodgmentDTO> list = lodgmentService.getMainSearch(dto);
-		
-		
-		for(int i=0; i<list.size(); i++) {
-			list.get(i).setHashTag(lodgmentService.getHashTags(list.get(i)));
+		if(session.getAttribute("search") != null) {
+			session.removeAttribute("search");
 		}
-		/*for(LodgmentDTO lod : list) {
-			 lodgmentService.getHashTags(lod);
-		}*/
+
+		session.setAttribute("search", dto);
+		
+		
+		List<LodgmentDTO> list = lodgmentService.getMainSearch((LodgmentSearchDTO) session.getAttribute("search"));
+
 		
 		model.addAttribute("lod",list);
 		return "lodgment/lodgmentSearch";		
 	}
 	
 	@RequestMapping("/updateSearch.do")
-	public String updateSearch(@ModelAttribute("search") LodgmentSearchDTO dto,
+	public String updateSearch(LodgmentSearchDTO dto,
 							   Model model,
 							   HttpSession session) {
-		dto.setDiffer(differenceDate(dto.getCheckin(), dto.getCheckout()));
 		
-		session.setAttribute("search", dto);
-		List<LodgmentDTO> list = lodgmentService.getMainSearch(dto);
 		
-		for(int i=0; i<list.size(); i++) {
-			list.get(i).setHashTag(lodgmentService.getHashTags(list.get(i)));
+		
+		LodgmentSearchDTO searchDTO = (LodgmentSearchDTO) session.getAttribute("search");
+		session.removeAttribute("search");
+		System.out.println("type============="+ searchDTO.getLodgmentType());
+		if(dto.getCheckin() != null) {
+			searchDTO.setCheckin(dto.getCheckin());
+		}
+		if(dto.getCheckout() != null) {
+			searchDTO.setCheckout(dto.getCheckout());
+		}
+		if(dto.getSearchKeyword() != null) {
+			searchDTO.setSearchKeyword(transferHashTag(dto.getSearchKeyword()));
 		}
 		
+		session.setAttribute("search", searchDTO);
+
+		List<LodgmentDTO> list = lodgmentService.getMainSearch((LodgmentSearchDTO) session.getAttribute("search"));
+		
+
 		model.addAttribute("lod",list);
 		
 		return "lodgment/lodgmentSearch";
@@ -176,15 +187,8 @@ public class LodgmentController {
 		
 		System.out.println("searchKeyword=========" + searchKeyword);
 		dto.setSearchKeyword(transferHashTag(searchKeyword));
-		
-		List<LodgmentDTO> list = lodgmentService.getMainSearch(dto);
-		
-		for(int i=0; i<list.size(); i++) {
-			list.get(i).setHashTag(lodgmentService.getHashTags(list.get(i)));
-		}
-		
-		model.addAttribute("lod",list);
-		return "lodgment/lodgmentSearch";
+
+		return "/updateSearch.do";
 	}
 	
 	private long differenceDate(String checkin, String checkout) {

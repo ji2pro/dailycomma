@@ -27,11 +27,9 @@ public class TourController {
 	@RequestMapping("/getCasts.do")
 	@ResponseBody
 	public List<TourDTO> getTours(TourDTO dto,HttpSession session) {
-		//TourSearchDTO dto = new TourSearchDTO();
 		LodgmentSearchDTO searchDTO = (LodgmentSearchDTO)session.getAttribute("search");
 		if(searchDTO != null)
 		if(searchDTO.getLocation() != null && !searchDTO.equals("")) {
-			System.out.println("location=================="+searchDTO.getLocation());
 			dto.setTourLocation(searchDTO.getLocation());
 		}
 		
@@ -81,7 +79,6 @@ public class TourController {
 		String url = request.getContextPath() + "/castListForm.do";
 		PrintWriter out = response.getWriter();
 		out.print("<script> alert('캐스트 등록이 완료 되었습니다.'); location='"+ url +"';</script>");
-		//return "redirect:/registerCastForm.do";
 	}
 
 }

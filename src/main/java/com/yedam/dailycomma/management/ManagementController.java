@@ -28,8 +28,6 @@ public class ManagementController {
 
 	@RequestMapping("/managementList.do")
 	public String management(Model model,HttpSession session) {
-		//logger.info("home");
-		//String lodgmentNo = "LOD1";
 
         HostDTO dto = (HostDTO)session.getAttribute("login");
 
@@ -38,7 +36,7 @@ public class ManagementController {
 		return "management/managementList";
 	}
 		
-	//체크박스 선택 뒤 취소버튼 예약자 삭제 시험중 
+	//체크박스 선택 뒤 취소버튼 예약자 삭제 
 	@RequestMapping("/deleteReserve.do") 
 	public String deleteReserve(@RequestParam(value="reserveNo", defaultValue="empty") String[] reserveNo, 
 								HttpSession session){

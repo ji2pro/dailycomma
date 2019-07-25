@@ -34,7 +34,7 @@
 					<th scope="col">체크인</th>
 					<th scope="col">체크아웃</th>
 					<th scope="col">일수</th>
-<!-- 					<th scope="col">관리</th> -->
+
 				</tr>
 			</thead>
 			<tbody id="reservationTbody">
@@ -72,12 +72,7 @@
 					<td>${checkin_FD}</td>
 					<td>${checkout_FD}</td>
 					<td>${totalDate}박 ${totalDate + 1}일</td>
-<!-- 					<td>
-						<div class="btn-group">
-							<button id="btnEdit" class="btn btn-outline-success btn-sm">수정</button>
-							<button id="btnDelete" class="btn btn-outline-danger btn-sm">삭제</button>
-						</div>
-					</td> -->
+
 				</tr>
 				</c:forEach>
 			</tbody>

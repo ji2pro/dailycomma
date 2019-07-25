@@ -63,19 +63,10 @@
 			<if test="searchCondition == 'roomNo'">
 				AND ROOM_NO LIKE '%' || #{searchKeyword} || '%'		
 			</if>
-<!-- 			<if test="role != null and role != ''">
-				AND ROLE = #{role}
-			</if> -->
+
 		</where>
 		ORDER BY RESERVE_DATE DESC
-<!-- 		<choose>
-			<when test="sort != null and sort != ''">
-				#{sort}
-			</when>
-			<otherwise>
-				RESERVE_NO
-			</otherwise>
-		</choose> -->
+
 	) U ) A WHERE RN BETWEEN #{start} and #{end}
 	</select>
 	
@@ -113,13 +104,6 @@
 		ON	   R.LODGMENT_NO = L.LODGMENT_NO
 		WHERE  R.ROOM_NO = #{value}			   
 	</select>
-	<!-- 수정 미완성-->
- 	<!--<update id="updateHost" parameterType="host">
-		UPDATE LODGMENT SET PASSWORD = #{password},
-						 NAME = #{name},
-						 ROLE = #{role}
-			WHERE ID = #{id}
-	</update>-->
 	
 	<!-- 삭제 -->
 	<delete id="deleteReservation" parameterType="reservation">

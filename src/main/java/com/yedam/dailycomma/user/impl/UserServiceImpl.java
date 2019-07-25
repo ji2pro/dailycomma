@@ -11,23 +11,20 @@ import com.yedam.dailycomma.user.UserService;
 
 @Service  //빈 등록
 public class UserServiceImpl implements UserService {
-	//Log4jAdvice log4jAdvice = new Log4jAdvice();	
-	//DI
-	//@Autowired UserDAO dao;
-	//@Autowired UserDAOSpring dao;
+
 	@Autowired UserDAOMybatis dao;
 	
 	public int insertUser(UserDTO dto) {
-//		dao.insertUser(dto);
-		return dao.insertUser(dto);  //핵심관심
+
+		return dao.insertUser(dto); 
 	}
 	public UserDTO getUser(UserDTO dto) {
-		return dao.getUser(dto);  //핵심관심
+		return dao.getUser(dto); 
 	}
 	public List<UserDTO> getUsers(UserSearchDTO searchDto) {
-		//int a = 5/0;
+	
 		System.out.println("사용자 목록 조회");
-		return dao.getUsers(searchDto);  //핵심관심
+		return dao.getUsers(searchDto);  
 	}
 	public int updateUser(UserDTO dto) {
 		return dao.updateUser(dto);

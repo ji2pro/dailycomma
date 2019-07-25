@@ -24,7 +24,15 @@ public class RoomServiceImpl implements RoomService {
 	/* 숙박 업체에 대한 전체 객실 리스트*/
 	@Override
 	public List<RoomDTO> getDetailRooms(LodgmentSearchDTO dto) {
-		return dao.getDetailRooms(dto);
+		List<RoomDTO> list = dao.getDetailRooms(dto);
+		System.out.println("======시작함============");
+		for(RoomDTO to : list)
+		{
+			System.out.println("Room_NO :  " + to.getRoomNo());
+		}
+		
+		return list;
+		//return dao.getDetailRooms(dto);
 	}
 
     @Override
